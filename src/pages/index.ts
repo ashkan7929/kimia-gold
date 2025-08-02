@@ -1,10 +1,1 @@
 export { default as Home } from './Home';
-export { default as Portfolio } from './Portfolio';
-export { default as Trading } from './Trading';
-export { default as Market } from './Market';
-export { default as Profile } from './Profile';
-export { default as Login } from './Login';
-export { default as Register } from './Register';
-export { default as Loading } from './Loading';
-export { default as Onboarding1 } from './Onboarding1';
-export { default as Onboarding2 } from './Onboarding2';

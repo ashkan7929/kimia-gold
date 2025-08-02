@@ -8,29 +8,29 @@ import portfolioSlice from './slices/portfolioSlice';
 import uiSlice from './slices/uiSlice';
 
 export const store = configureStore({
-  reducer: {
-    auth: authSlice,
-    portfolio: portfolioSlice,
-    ui: uiSlice,
-    [authApi.reducerPath]: authApi.reducer,
-    [marketApi.reducerPath]: marketApi.reducer,
-    [portfolioApi.reducerPath]: portfolioApi.reducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [
-          'persist/PERSIST',
-          'persist/REHYDRATE',
-          'persist/PAUSE',
-          'persist/PURGE',
-          'persist/REGISTER',
-        ],
-      },
-    })
-      .concat(authApi.middleware)
-      .concat(marketApi.middleware)
-      .concat(portfolioApi.middleware),
+	reducer: {
+		auth: authSlice,
+		portfolio: portfolioSlice,
+		ui: uiSlice,
+		[authApi.reducerPath]: authApi.reducer,
+		[marketApi.reducerPath]: marketApi.reducer,
+		[portfolioApi.reducerPath]: portfolioApi.reducer,
+	},
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [
+					'persist/PERSIST',
+					'persist/REHYDRATE',
+					'persist/PAUSE',
+					'persist/PURGE',
+					'persist/REGISTER',
+				],
+			},
+		})
+			.concat(authApi.middleware)
+			.concat(marketApi.middleware)
+			.concat(portfolioApi.middleware),
 });
 
 setupListeners(store.dispatch);
