@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <title>KIMIA</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" type="image/x-icon" href="./assets/images/logo/favicon.ico">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link rel="stylesheet" href="./assets/lib/Swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/css/bootstrap.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+
+<!-- <body class="d-grid min-vh-100" style="grid-template-rows: auto 1fr auto;"> -->
+
+<body>
+  <div class="main-wrapper">
+    <header class="container">
+      <nav class="navbar">
+        <div class="d-flex gap-1">
+          <div>
+            <button onclick="toggleMenu()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.45833 8.125H4.16667C3.24583 8.125 2.5 7.37917 2.5 6.45833V4.16667C2.5 3.24583 3.24583 2.5 4.16667 2.5H6.45833C7.37917 2.5 8.125 3.24583 8.125 4.16667V6.45833C8.125 7.37917 7.37917 8.125 6.45833 8.125Z"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15.8333 8.125H13.5417C12.6208 8.125 11.875 7.37917 11.875 6.45833V4.16667C11.875 3.24583 12.6208 2.5 13.5417 2.5H15.8333C16.7542 2.5 17.5 3.24583 17.5 4.16667V6.45833C17.5 7.37917 16.7542 8.125 15.8333 8.125Z"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.45833 17.5H4.16667C3.24583 17.5 2.5 16.7542 2.5 15.8333V13.5417C2.5 12.6208 3.24583 11.875 4.16667 11.875H6.45833C7.37917 11.875 8.125 12.6208 8.125 13.5417V15.8333C8.125 16.7542 7.37917 17.5 6.45833 17.5Z"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15.8333 17.5H13.5417C12.6208 17.5 11.875 16.7542 11.875 15.8333V13.5417C11.875 12.6208 12.6208 11.875 13.5417 11.875H15.8333C16.7542 11.875 17.5 12.6208 17.5 13.5417V15.8333C17.5 16.7542 16.7542 17.5 15.8333 17.5Z"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M15.6243 8.09127V7.5041C15.6243 4.28015 13.1062 1.66663 10 1.66663C6.8938 1.66663 4.37573 4.28015 4.37573 7.5041V8.09127C4.37573 8.79592 4.17476 9.48481 3.79817 10.0711L2.8753 11.5079C2.03235 12.8202 2.67587 14.6041 4.14197 15.0191C7.97728 16.1047 12.0227 16.1047 15.858 15.0191C17.3241 14.6041 17.9676 12.8202 17.1247 11.5079L16.2018 10.0711C15.8252 9.48482 15.6243 8.79592 15.6243 8.09127Z"
+                  stroke="#F3F3F3" stroke-width="1.25" />
+                <path opacity="0.5"
+                  d="M6.25 15.8334C6.79586 17.2899 8.26871 18.3334 10 18.3334C11.7313 18.3334 13.2041 17.2899 13.75 15.8334"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="logo">
+            <img src="./assets/images/logo/logo.png" alt="logo" class="">
+          </div>
+        </div>
+        <div>
+
+          <div>
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M17.3271 7.93749C17.9855 8.59585 17.9855 9.66326 17.3271 10.3216C16.6688 10.98 15.6013 10.98 14.943 10.3216C14.2846 9.66326 14.2846 8.59585 14.943 7.93749C15.6013 7.27914 16.6688 7.27914 17.3271 7.93749"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M11.8354 4.92766C12.8492 5.94139 12.8492 7.58498 11.8354 8.59872C10.8217 9.61246 9.17809 9.61246 8.16435 8.59872C7.15062 7.58499 7.15062 5.9414 8.16435 4.92766C9.17809 3.91393 10.8217 3.91393 11.8354 4.92766Z"
+                  stroke="#F3F3F3" stroke-opacity="0.5" stroke-width="1.25" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M5.05709 7.93749C5.71545 8.59585 5.71545 9.66326 5.05709 10.3216C4.39873 10.98 3.33133 10.98 2.67297 10.3216C2.01461 9.66326 2.01461 8.59585 2.67297 7.93749C3.33133 7.27914 4.39874 7.27914 5.05709 7.93749"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M19.1666 15.8343V14.921C19.1666 13.7701 18.2341 12.8376 17.0833 12.8376H16.4158"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M0.833252 15.8343V14.921C0.833252 13.7701 1.76575 12.8376 2.91659 12.8376H3.58409"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M14.449 15.8336V14.4994C14.449 12.8886 13.1431 11.5828 11.5323 11.5828H8.46647C6.85564 11.5828 5.5498 12.8886 5.5498 14.4994V15.8336"
+                  stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </nav>
+    </header>
+    <!-- <main> -->
+    <main class="flex-grow-1">
+      <div class="container d-flex flex-column gap-3 mb-3">
+        <section class="user-profile">
+          <div class="card card-2">
+            <div class="card-body d-flex align-items-center gap-2">
+              <div class="profile-image">
+                <button class="icon btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
+                    <path d="M2.90015 12.802H12.1001" stroke="white" stroke-width="0.985713" stroke-linecap="round" />
+                    <path
+                      d="M8.58577 2.25818L9.01214 1.83182C9.71856 1.1254 10.8639 1.1254 11.5703 1.83182C12.2767 2.53824 12.2767 3.68358 11.5703 4.39L11.144 4.81637M8.58577 2.25818C8.58577 2.25818 8.63907 3.16421 9.4385 3.96364C10.2379 4.76307 11.144 4.81637 11.144 4.81637M8.58577 2.25818L4.666 6.17795C4.40051 6.44344 4.26776 6.57619 4.1536 6.72256C4.01893 6.89522 3.90347 7.08204 3.80926 7.27971C3.7294 7.44728 3.67004 7.62537 3.5513 7.98157L3.04818 9.49095M11.144 4.81637L7.22419 8.73614C6.95869 9.00163 6.82595 9.13438 6.67958 9.24854C6.50692 9.38321 6.3201 9.49867 6.12243 9.59288C5.95486 9.67274 5.77676 9.7321 5.42057 9.85083L3.91119 10.354M3.91119 10.354L3.54223 10.4769C3.36694 10.5354 3.17369 10.4898 3.04304 10.3591C2.91238 10.2285 2.86676 10.0352 2.92519 9.85991L3.04818 9.49095M3.91119 10.354L3.04818 9.49095"
+                      stroke="white" stroke-width="0.985713" />
+                  </svg>
+                </button>
+                <div class="avatar">
+                  <img src="./assets/images/Avatar.jpg" alt="" class="object-fit-cover">
+                </div>
+              </div>
+
+              <div class="d-flex flex-column gap-2">
+                <div class="fullname">
+                  حجت بندانی
+                </div>
+                <div class="phone d-flex align-items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M6.66626 2.66736V3.86736C6.66626 4.08802 6.81559 4.26736 6.99959 4.26736H8.99959C9.18359 4.26736 9.33293 4.08802 9.33293 3.86736V2.66736"
+                      stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.25293 11.6673H8.74626" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M5.99959 2.66736H9.99959C10.7363 2.66736 11.3329 3.26403 11.3329 4.00069V12.0007C11.3329 12.7374 10.7363 13.334 9.99959 13.334H5.99959C5.26293 13.334 4.66626 12.7374 4.66626 12.0007V4.00069C4.66626 3.26403 5.26293 2.66736 5.99959 2.66736Z"
+                      stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span dir="ltr" class="number">
+                    0938774563
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="user-info">
+
+          <div class="accordion " id="accordionInfo">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                      <path
+                        d="M4.25 15.4997C4.25 13.6247 5.75 12.1997 7.55 12.1997H11.375C13.25 12.1997 14.675 13.6997 14.675 15.4997"
+                        stroke="white" stroke-width="1.1118" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M11.7504 4.4C13.0254 5.675 13.0254 7.7 11.7504 8.9C10.4754 10.1 8.45036 10.175 7.25036 8.9C6.05036 7.625 5.97536 5.6 7.25036 4.4C8.52536 3.2 10.4754 3.2 11.7504 4.4"
+                        stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  اطلاعات فردی
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionInfo">
+                <div class="accordion-body">
+                  <div class="form d-flex flex-column gap-3">
+                    <div>
+                      <label class="form-label">کد ملی</label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M15.7702 15.5248H4.68685C3.81206 15.5248 3.10352 14.8163 3.10352 13.9415V6.05489C3.10352 5.1801 3.81206 4.47156 4.68685 4.47156H15.7702C16.645 4.47156 17.3535 5.1801 17.3535 6.05489V13.9423C17.3535 14.8163 16.645 15.5248 15.7702 15.5248V15.5248Z"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.1867 7.6228L10.2284 9.9978L6.27002 7.6228" stroke="white" stroke-width="1.1875"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="کد ملی را وارد نمایید">
+                      </div>
+                    </div>
+
+                    <div>
+                      <label class="form-label">تاریخ تولد</label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M15.7702 15.5248H4.68685C3.81206 15.5248 3.10352 14.8163 3.10352 13.9415V6.05489C3.10352 5.1801 3.81206 4.47156 4.68685 4.47156H15.7702C16.645 4.47156 17.3535 5.1801 17.3535 6.05489V13.9423C17.3535 14.8163 16.645 15.5248 15.7702 15.5248V15.5248Z"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.1867 7.6228L10.2284 9.9978L6.27002 7.6228" stroke="white" stroke-width="1.1875"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="تاریخ تولد را وارد نمایید.">
+                      </div>
+                    </div>
+
+                    <div>
+                      <button class="btn btn-primary w-100">
+                        جستجو و استعلام ثبت احوال
+                      </button>
+                    </div>
+
+                    <div>
+                      <label class="form-label"> نام </label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path
+                              d="M12.4584 4.04647C13.6902 5.27818 13.6902 7.27518 12.4584 8.5069C11.2267 9.73861 9.22972 9.73861 7.998 8.5069C6.76629 7.27518 6.76629 5.27818 7.998 4.04647C9.22972 2.81475 11.2267 2.81475 12.4584 4.04647"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                              d="M10.2283 11.8372C13.8335 11.8372 17.3533 13.3944 17.3533 15.7892V16.5808C17.3533 17.0178 16.9986 17.3725 16.5616 17.3725H3.89494C3.45794 17.3725 3.10327 17.0178 3.10327 16.5808V15.7892C3.10327 13.3936 6.62302 11.8372 10.2283 11.8372"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="نام را وارد نمایید.">
+                      </div>
+                    </div>
+
+                    <div>
+                      <label class="form-label"> نام خانوادگی </label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path
+                              d="M12.4584 4.04647C13.6902 5.27818 13.6902 7.27518 12.4584 8.5069C11.2267 9.73861 9.22972 9.73861 7.998 8.5069C6.76629 7.27518 6.76629 5.27818 7.998 4.04647C9.22972 2.81475 11.2267 2.81475 12.4584 4.04647"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                              d="M10.2283 11.8372C13.8335 11.8372 17.3533 13.3944 17.3533 15.7892V16.5808C17.3533 17.0178 16.9986 17.3725 16.5616 17.3725H3.89494C3.45794 17.3725 3.10327 17.0178 3.10327 16.5808V15.7892C3.10327 13.3936 6.62302 11.8372 10.2283 11.8372"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="نام خانوادگی را وارد نمایید.">
+                      </div>
+                    </div>
+
+                    <div>
+                      <label class="form-label"> شغل </label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M14.188 16.8721H6.26808C4.51845 16.8721 3.1001 15.4538 3.1001 13.7041V7.36817C3.1001 6.49336 3.80928 5.78418 4.68409 5.78418H15.772C16.6469 5.78418 17.356 6.49336 17.356 7.36817V13.7041C17.356 15.4538 15.9377 16.8721 14.188 16.8721Z"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                              d="M7.06006 5.78554V4.20155C7.06006 3.32673 7.76924 2.61755 8.64405 2.61755H11.812C12.6869 2.61755 13.396 3.32673 13.396 4.20155V5.78554"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <rect x="8.64404" y="8.95239" width="3.16799" height="2.37599" rx="0.395833" stroke="white"
+                              stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M11.8123 10.141H14.5842C16.1152 10.141 17.3562 8.89995 17.3562 7.36902V7.36902"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8.64407 10.141H5.87209C4.34116 10.141 3.1001 8.89995 3.1001 7.36902V7.36902"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="شغل را وارد نمایید.">
+                      </div>
+                    </div>
+
+
+                    <div class="d-flex gap-3 align-items-center justify-content-between">
+                      <label class="form-label"> جنسیت </label>
+
+                      <div class="select-gender">
+                        <div class="gender-item">
+                          <input id="gender_man" type="radio" name="gender" checked />
+                          <label for="gender_man">
+                            <span class="icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none">
+                                <path d="M11.6632 11.6503L12.2359 13.9411" stroke="white" stroke-width="1.1875"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M8.33819 11.6503L7.76549 13.9411" stroke="white" stroke-width="1.1875"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M5.79077 13.9752L6.87317 16.2247C6.98489 16.4568 7.20261 16.6201 7.45678 16.6624C7.71095 16.7046 7.96978 16.6205 8.15058 16.4369L9.9999 14.5592L11.8492 16.4369C12.03 16.6205 12.2889 16.7046 12.543 16.6624C12.7972 16.6201 13.0149 16.4568 13.1266 16.2247L14.209 13.9752"
+                                  stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M2.875 16.8714V16.4981C2.875 15.366 3.67409 14.3913 4.78422 14.1692L7.03731 13.7186C7.22353 13.6814 7.41692 13.7196 7.57493 13.825V13.825C9.04345 14.804 10.9566 14.804 12.4251 13.825V13.825C12.5831 13.7196 12.7765 13.6814 12.9627 13.7186L15.2158 14.1692C16.3259 14.3913 17.125 15.366 17.125 16.4981V16.8714"
+                                  stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M13.1666 8.16296V8.95463C13.1666 10.7035 11.7488 12.1213 9.99992 12.1213V12.1213C8.25102 12.1213 6.83325 10.7035 6.83325 8.95463V8.16296"
+                                  stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M11.3401 7.16219V7.16219C11.7383 7.78567 12.427 8.163 13.1667 8.163V8.163C13.604 8.163 13.9584 7.80856 13.9584 7.37134V6.57967C13.9584 4.39354 12.1862 2.62134 10.0001 2.62134V2.62134C7.81395 2.62134 6.04175 4.39354 6.04175 6.57967V7.37134C6.04175 7.80856 6.39619 8.163 6.83341 8.163H7.15641C8.49729 8.16301 9.81108 7.78554 10.9475 7.0738V7.0738C11.0804 6.99051 11.2556 7.02996 11.3401 7.16219V7.16219Z"
+                                  stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </span>
+                            مرد
+                          </label>
+                        </div>
+                        <div class="gender-item">
+                          <input id="gender_woman" type="radio" name="gender" />
+                          <label for="gender_woman">
+                            <span class="icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none">
+                                <path d="M11.6634 11.6497L12.2361 13.9405" stroke="#E2E2E2" stroke-width="1.1875"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M8.33794 11.6497L7.76525 13.9405" stroke="#E2E2E2" stroke-width="1.1875"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                  d="M5.79102 13.9753L6.87341 16.2248C6.98513 16.457 7.20285 16.6203 7.45703 16.6625C7.7112 16.7047 7.97002 16.6206 8.15082 16.437L10.0001 14.5593L11.8495 16.437C12.0303 16.6206 12.2891 16.7047 12.5433 16.6625C12.7974 16.6203 13.0152 16.457 13.1269 16.2248L14.2093 13.9753"
+                                  stroke="#E2E2E2" stroke-width="1.1875" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                                <path d="M10.0002 4.99634C10.0002 6.30801 8.5824 7.37134 6.8335 7.37134"
+                                  stroke="#E2E2E2" stroke-width="1.1875" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                                <path d="M13.1663 7.37142C11.8831 7.34724 10.6589 6.82815 9.74951 5.92261"
+                                  stroke="#E2E2E2" stroke-width="1.1875" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                                <path
+                                  d="M2.875 16.8713V16.498C2.875 15.3659 3.67409 14.3911 4.78422 14.1691L7.03731 13.7185C7.22353 13.6813 7.41692 13.7195 7.57494 13.8249V13.8249C9.04345 14.8039 10.9566 14.8039 12.4251 13.8249V13.8249C12.5831 13.7195 12.7765 13.6813 12.9627 13.7185L15.2158 14.1691C16.3259 14.3911 17.125 15.3659 17.125 16.498V16.8713"
+                                  stroke="#E2E2E2" stroke-width="1.1875" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                                <path
+                                  d="M15.3438 14.1994V7.17334C15.3438 4.22207 12.9513 1.82959 10 1.82959V1.82959C7.04873 1.82959 4.65625 4.22207 4.65625 7.17334V14.1994"
+                                  stroke="#E2E2E2" stroke-width="1.1875" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                                <path
+                                  d="M13.1668 7.37134V8.95467C13.1668 10.7036 11.7491 12.1213 10.0002 12.1213V12.1213C8.25126 12.1213 6.8335 10.7036 6.8335 8.95467V7.37134"
+                                  stroke="#E2E2E2" stroke-width="1.1875" stroke-linecap="round"
+                                  stroke-linejoin="round" />
+                              </svg>
+                            </span>
+                            زن
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item ">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.03518 11.1473C7.15768 10.2698 6.49618 9.28733 6.05668 8.29058C5.96368 8.07983 6.01843 7.83308 6.18118 7.67033L6.79543 7.05608C7.29868 6.55283 7.29868 5.84108 6.85918 5.40158L5.97868 4.52183C5.39293 3.93608 4.44343 3.93608 3.85768 4.52183L3.36868 5.01008C2.81293 5.56583 2.58118 6.36758 2.73118 7.16258C3.10168 9.12233 4.24018 11.2681 6.07693 13.1048C7.91368 14.9416 10.0594 16.0801 12.0192 16.4506C12.8142 16.6006 13.6159 16.3688 14.1717 15.8131L14.6599 15.3248C15.2457 14.7391 15.2457 13.7896 14.6599 13.2038L13.7802 12.3241C13.3407 11.8846 12.6282 11.8846 12.1894 12.3241L11.5122 13.0021C11.3494 13.1648 11.1027 13.2196 10.8919 13.1266C9.89518 12.6863 8.91268 12.0241 8.03518 11.1473Z"
+                        stroke="white" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M10.1895 4.62316V2.86816" stroke="white" stroke-width="1.125" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path d="M13.3169 5.86037L14.5544 4.63037" stroke="white" stroke-width="1.125"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M14.562 8.99561H16.3095" stroke="white" stroke-width="1.125" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  اطلاعات تماس
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionInfo">
+                <div class="accordion-body">
+
+                  <div class="form d-flex flex-column gap-3">
+                    <div>
+                      <label class="form-label"> شماره موبایل </label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path
+                              d="M8.64502 3.41675V4.84175C8.64502 5.10379 8.82235 5.31675 9.04085 5.31675H11.4159C11.6344 5.31675 11.8117 5.10379 11.8117 4.84175V3.41675"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.34131 14.1042H11.1146" stroke="white" stroke-width="1.1875"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M7.85335 3.41675H12.6034C13.4781 3.41675 14.1867 4.12529 14.1867 5.00008V14.5001C14.1867 15.3749 13.4781 16.0834 12.6034 16.0834H7.85335C6.97856 16.0834 6.27002 15.3749 6.27002 14.5001V5.00008C6.27002 4.12529 6.97856 3.41675 7.85335 3.41675Z"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="شماره موبایل را وارد نمایید.">
+                      </div>
+                    </div>
+
+                    <div>
+                      <label class="form-label"> ایمیل </label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M15.7702 15.5248H4.68685C3.81206 15.5248 3.10352 14.8163 3.10352 13.9415V6.05489C3.10352 5.1801 3.81206 4.47156 4.68685 4.47156H15.7702C16.645 4.47156 17.3535 5.1801 17.3535 6.05489V13.9423C17.3535 14.8163 16.645 15.5248 15.7702 15.5248V15.5248Z"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.1867 7.6228L10.2284 9.9978L6.27002 7.6228" stroke="white" stroke-width="1.1875"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="email" class="form-control" placeholder="ایمیل را وارد نمایید.">
+                      </div>
+                    </div>
+
+                    <div>
+                      <label class="form-label"> آدرس </label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <path
+                              d="M9.43685 3.1228H7.06185C4.87572 3.1228 3.10352 4.89501 3.10352 7.08114V13.4145C3.10352 15.6006 4.87572 17.3728 7.06185 17.3728H13.3952C15.5813 17.3728 17.3535 15.6006 17.3535 13.4145V10.2478"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                              d="M14.5836 4.9041C14.6928 4.90454 14.7811 4.99334 14.7808 5.10254C14.7805 5.21174 14.6918 5.30008 14.5826 5.29993C14.4734 5.29979 14.3849 5.21122 14.3849 5.10202C14.3846 5.0493 14.4055 4.99868 14.4429 4.96147C14.4802 4.92427 14.5309 4.90361 14.5836 4.9041"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M17.3537 5.10201V5.10201C17.3537 3.57172 16.1131 2.33118 14.5828 2.33118V2.33118C13.0526 2.33118 11.812 3.57172 11.812 5.10201V5.10201C11.812 6.39916 13.2275 7.78483 14.035 8.47005C14.3539 8.72934 14.811 8.72934 15.1299 8.47005C15.9382 7.78482 17.3537 6.39916 17.3537 5.10201Z"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M3.89502 4.70618L15.77 16.5812" stroke="white" stroke-width="1.1875"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M3.89502 15.7895L9.43669 10.2478" stroke="white" stroke-width="1.1875"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="آدرس را وارد نمایید.">
+                      </div>
+                    </div>
+
+                    <div>
+                      <label class="form-label"> کد پستی </label>
+                      <div class="field-icon-start">
+                        <div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19"
+                            fill="none">
+                            <path d="M7.85335 15.0387V3.1637" stroke="white" stroke-width="1.1875"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12.6034 11.0804V16.54" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                            <path
+                              d="M17.3535 10.2887V14.5099C17.3543 14.8502 17.1368 15.1527 16.814 15.2604C15.787 15.6028 13.5873 16.3361 12.8501 16.582C12.6887 16.6358 12.5142 16.6353 12.353 16.5807L8.10389 15.1642C7.94137 15.11 7.76566 15.11 7.60314 15.1642L4.14555 16.3168C3.90414 16.3973 3.63875 16.3568 3.4323 16.2081C3.22585 16.0593 3.10352 15.8203 3.10352 15.5658V5.23213C3.10352 4.89138 3.32155 4.58886 3.64481 4.4811L7.35276 3.24496C7.67779 3.13661 8.02919 3.13661 8.35422 3.24496L9.43685 3.60586"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                              d="M11.812 5.14294C11.812 6.4401 13.2275 7.82575 14.035 8.51097C14.3539 8.77026 14.811 8.77026 15.1299 8.51097C15.9382 7.82575 17.3537 6.4401 17.3537 5.14294"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                              d="M14.5836 4.94499C14.6928 4.94543 14.7811 5.03423 14.7808 5.14343C14.7805 5.25264 14.6918 5.34097 14.5826 5.34082C14.4734 5.34068 14.3849 5.25211 14.3849 5.14291C14.3846 5.0902 14.4055 5.03957 14.4429 5.00237C14.4802 4.96517 14.5309 4.9445 14.5836 4.94499"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                              d="M11.812 5.1429V5.1429C11.812 3.61261 13.0526 2.37207 14.5828 2.37207V2.37207C16.1131 2.37207 17.3537 3.61261 17.3537 5.1429V5.1429"
+                              stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </div>
+                        <input type="text" class="form-control" placeholder="کد پستی را وارد نمایید.">
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="bottom-nav-container">
+        <nav class="bottom-nav">
+          <button class="item">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M16.3623 7.06404L11.4943 3.27761C10.6157 2.59366 9.3849 2.59366 8.50543 3.27761L3.63751 7.06404C3.04443 7.52487 2.698 8.23396 2.698 8.98525V14.9347C2.698 16.279 3.7876 17.3686 5.13196 17.3686H14.8678C16.2122 17.3686 17.3018 16.279 17.3018 14.9347V8.98525C17.3018 8.23396 16.9553 7.52487 16.3623 7.06404Z"
+                  stroke="white" stroke-width="1.21698" />
+                <path d="M7.56592 14.1232H12.4338" stroke="white" stroke-width="1.21698" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            صفحه اصلی
+          </button>
+          <button class="item prime">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                <path
+                  d="M24.7499 14.4976H20.6715C19.7786 14.4976 19.0554 15.2208 19.0554 16.1136V17.437C19.0554 18.3299 19.7786 19.0531 20.6715 19.0531H24.7499"
+                  stroke="white" stroke-width="1.70833" stroke-linecap="round" stroke-linejoin="round" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M22.4722 24.7479H6.52778C5.26931 24.7479 4.25 23.7286 4.25 22.4701V11.0812C4.25 9.82277 5.26931 8.80347 6.52778 8.80347H22.4722C23.7307 8.80347 24.75 9.82277 24.75 11.0812V22.4701C24.75 23.7286 23.7307 24.7479 22.4722 24.7479Z"
+                  stroke="white" stroke-width="1.70833" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M16.7776 8.80382L13.0273 5.05346C12.5819 4.60816 11.861 4.60816 11.4169 5.05346L7.6665 8.80382"
+                  stroke="white" stroke-width="1.70833" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14.5 6.52604L15.9726 5.05346C16.4179 4.60816 17.1388 4.60816 17.583 5.05346L21.3333 8.80382"
+                  stroke="white" stroke-width="1.70833" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            کیف پول
+          </button>
+          <button class="item">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                <path d="M18.6158 2.76248H2.38403" stroke="white" stroke-width="1.21687" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M10.5 10.8783V6.41455" stroke="white" stroke-width="1.21687" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M7.25369 10.8778V9.39014" stroke="white" stroke-width="1.21687" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M13.7464 10.8784V7.90234" stroke="white" stroke-width="1.21687" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M17.8041 2.76221V12.4055C17.8041 13.3551 16.9869 14.1244 15.9781 14.1244H5.02163C4.01283 14.1244 3.19556 13.3551 3.19556 12.4055V2.76221"
+                  stroke="white" stroke-width="1.21687" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M11.3115 14.1245L12.9347 17.3709" stroke="white" stroke-width="1.21687" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M9.68836 14.1245L8.06519 17.3709" stroke="white" stroke-width="1.21687" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            همه تراکنش ها
+          </button>
+        </nav>
+      </div>
+
+    </footer>
+  </div>
+
+
+  <div class="menu ">
+    <div class="backdrop top-backdrop"></div>
+    <div class="backdrop bottom-backdrop"></div>
+    <div class="menu-backdrop"></div>
+    <nav class="navbar">
+      <div>
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.45833 8.125H4.16667C3.24583 8.125 2.5 7.37917 2.5 6.45833V4.16667C2.5 3.24583 3.24583 2.5 4.16667 2.5H6.45833C7.37917 2.5 8.125 3.24583 8.125 4.16667V6.45833C8.125 7.37917 7.37917 8.125 6.45833 8.125Z"
+              stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M15.8333 8.125H13.5417C12.6208 8.125 11.875 7.37917 11.875 6.45833V4.16667C11.875 3.24583 12.6208 2.5 13.5417 2.5H15.8333C16.7542 2.5 17.5 3.24583 17.5 4.16667V6.45833C17.5 7.37917 16.7542 8.125 15.8333 8.125Z"
+              stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.45833 17.5H4.16667C3.24583 17.5 2.5 16.7542 2.5 15.8333V13.5417C2.5 12.6208 3.24583 11.875 4.16667 11.875H6.45833C7.37917 11.875 8.125 12.6208 8.125 13.5417V15.8333C8.125 16.7542 7.37917 17.5 6.45833 17.5Z"
+              stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd"
+              d="M15.8333 17.5H13.5417C12.6208 17.5 11.875 16.7542 11.875 15.8333V13.5417C11.875 12.6208 12.6208 11.875 13.5417 11.875H15.8333C16.7542 11.875 17.5 12.6208 17.5 13.5417V15.8333C17.5 16.7542 16.7542 17.5 15.8333 17.5Z"
+              stroke="#F3F3F3" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <div class="logo">
+          <img src="./assets/images/logo/logo.png" alt="logo" class="">
+        </div>
+      </div>
+      <div>
+        <button onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M11.3867 6.99992H2.61255M2.61255 6.99992L5.90287 3.70959M2.61255 6.99992L5.90287 10.2902"
+              stroke="white" stroke-width="0.944444" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+    </nav>
+
+    <div class="container d-flex flex-column gap-2 flex-grow-1 overflow-auto">
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <circle cx="9.49992" cy="4.75004" r="3.16667" stroke="white" stroke-width="1.1875" />
+                  <ellipse opacity="0.5" cx="9.49992" cy="13.4583" rx="5.54167" ry="3.16667" stroke="white"
+                    stroke-width="1.1875" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  اطلاعات کاربری
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید اطلاعات کاربری را ویرایش کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.5896 13.4583H4.41038C3.28621 13.4583 2.375 12.5471 2.375 11.423V4.41037C2.375 3.28621 3.28621 2.375 4.41038 2.375H14.5888C15.7138 2.375 16.625 3.28621 16.625 4.41037V11.4222C16.625 12.5471 15.7138 13.4583 14.5896 13.4583Z"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M10.6653 7.42192V6.35475C10.6653 5.68737 10.1238 5.14587 9.45643 5.14587V5.14587C8.78906 5.14587 8.24756 5.68737 8.24756 6.35475V7.42192"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M10.8634 7.42346H8.13688C7.69988 7.42346 7.34521 7.77813 7.34521 8.21513V9.89663C7.34521 10.3336 7.69988 10.6883 8.13688 10.6883H10.8634C11.3004 10.6883 11.655 10.3336 11.655 9.89663V8.21513C11.655 7.77813 11.3012 7.42346 10.8634 7.42346V7.42346Z"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M11.0834 13.4584L11.4792 16.625" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M7.91675 13.4584L7.52091 16.625" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M6.44385 16.625H12.5555" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  قوانین و مقررات
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M3.59488 13.4607C2.83171 12.327 2.37492 10.9701 2.37492 9.5C2.37492 5.56462 5.56454 2.375 9.49992 2.375C13.4353 2.375 16.6249 5.56462 16.6249 9.5C16.6249 13.4354 13.4353 16.625 9.49992 16.625C8.29184 16.625 7.15659 16.3186 6.15909 15.7882C5.0935 16.3566 3.88463 16.6915 2.59342 16.6915C2.24984 16.6915 1.91496 16.6606 1.58325 16.6171C2.51188 15.7724 3.21013 14.6878 3.59488 13.4607Z"
+                    stroke="white" stroke-width="1.25733" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  صندوق پیام ها
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path
+                    d="M16.4601 7.53927C17.0855 8.16471 17.0855 9.17875 16.4601 9.80419C15.8346 10.4296 14.8206 10.4296 14.1952 9.80419C13.5697 9.17875 13.5697 8.16471 14.1952 7.53927C14.8206 6.91383 15.8346 6.91383 16.4601 7.53927"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M11.2432 4.67993C12.2063 5.64297 12.2063 7.20439 11.2432 8.16744C10.2802 9.13049 8.71879 9.13049 7.75573 8.16744C6.79269 7.20439 6.79269 5.64298 7.75573 4.67993C8.71878 3.71688 10.2802 3.71688 11.2432 4.67993"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M4.80407 7.53927C5.42951 8.16471 5.42951 9.17875 4.80407 9.80419C4.17863 10.4296 3.16459 10.4296 2.53915 9.80419C1.91371 9.17875 1.91371 8.16471 2.53915 7.53927C3.16459 6.91383 4.17863 6.91383 4.80407 7.53927"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M18.208 15.0412V14.1735C18.208 13.0802 17.3221 12.1943 16.2289 12.1943H15.5947"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M0.79126 15.0412V14.1735C0.79126 13.0802 1.67713 12.1943 2.77043 12.1943H3.40455"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M13.7264 15.0405V13.773C13.7264 12.2427 12.4859 11.0022 10.9556 11.0022H8.04305C6.51276 11.0022 5.27222 12.2427 5.27222 13.773V15.0405"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  دعوت از دوستان
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path d="M7.79761 11.4799H11.2018" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M6.33301 8.90548H12.6663" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M7.79761 6.33333H11.2018" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M16.6249 8.93872C16.6249 12.5321 13.4202 15.4161 9.49989 15.4161C8.99243 15.4161 8.49843 15.3663 8.02026 15.2744"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M5.22421 14.1123C3.49917 12.9327 2.375 11.0628 2.375 8.93872" stroke="white"
+                    stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M5.22441 14.1132C5.22361 14.7892 5.2252 15.7012 5.2252 16.6584" stroke="white"
+                    stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M2.375 8.93744C2.375 5.34407 5.57967 2.46082 9.5 2.46082C13.4203 2.46082 16.625 5.34486 16.625 8.93823"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8.01895 15.2705L5.22437 16.6559" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  نظرات و پیشنهادات
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
+                  <path d="M4.54175 5.72921H11.6667" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M4.54175 8.49996H5.33341" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M4.54175 11.2708H5.33341" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <circle cx="12.0624" cy="12.0625" r="1.38542" stroke="white" stroke-width="1.1875"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <rect x="7.70825" y="8.5" width="8.70833" height="7.125" rx="1.58333" stroke="white"
+                    stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M5.33334 15.625H2.95834C2.08388 15.625 1.375 14.9161 1.375 14.0417V2.63999C1.37435 2.34886 1.53413 2.08104 1.79063 1.94332C2.1709 1.73923 2.67472 1.46901 2.67472 1.46901C2.90678 1.34455 3.18554 1.34362 3.41842 1.46653L4.74446 2.16636L6.04408 1.46957C6.2768 1.3448 6.55642 1.34427 6.78961 1.46817L8.10417 2.16668L9.41874 1.46821C9.65193 1.3443 9.93155 1.34483 10.1643 1.46961L11.4639 2.16639L12.7899 1.46656C13.0228 1.34365 13.3016 1.34458 13.5336 1.46904C13.5336 1.46904 14.0374 1.73925 14.4177 1.94334C14.6742 2.08105 14.8339 2.34887 14.8333 2.64001L14.8333 5.72918"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  گزارشات ریز تراکنش ها
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path
+                    d="M11.1794 7.82062C12.1069 8.74811 12.1069 10.2519 11.1794 11.1794C10.2519 12.1069 8.74811 12.1069 7.82062 11.1794C6.89313 10.2519 6.89313 8.74811 7.82062 7.82062C8.74811 6.89313 10.2519 6.89313 11.1794 7.82062"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.8092 14.824V14.824C13.2074 15.2222 13.8542 15.2222 14.2524 14.824L14.824 14.2524C15.2222 13.8542 15.2222 13.2074 14.824 12.8092V12.8092C14.5215 12.5068 14.4329 12.0531 14.5991 11.6589C14.6165 11.6169 14.634 11.575 14.6506 11.5322C14.7955 11.1633 15.1549 10.9258 15.5507 10.9258H15.6038C16.1674 10.9258 16.6242 10.469 16.6242 9.90533V9.09704C16.6242 8.53338 16.1674 8.07658 15.6038 8.07658H15.5507C15.1549 8.07658 14.7955 7.83829 14.6506 7.47017C14.634 7.42742 14.6165 7.38546 14.5991 7.3435C14.4329 6.94925 14.5215 6.49563 14.824 6.19321V6.19321C15.2222 5.795 15.2222 5.14821 14.824 4.75L14.2524 4.17842C13.8542 3.78021 13.2074 3.78021 12.8092 4.17842V4.17842C12.5067 4.48083 12.0531 4.5695 11.6589 4.40325C11.6169 4.38583 11.575 4.36842 11.5322 4.35179C11.1633 4.20454 10.925 3.84433 10.925 3.4485V3.39546C10.925 2.83179 10.4682 2.375 9.90454 2.375H9.09625C8.53179 2.375 8.075 2.83179 8.075 3.39546V3.4485C8.075 3.84433 7.83671 4.20375 7.46858 4.34863C7.42583 4.36604 7.38387 4.38267 7.34192 4.40088C6.94767 4.56713 6.49404 4.47846 6.19162 4.17604V4.17604C5.79342 3.77783 5.14662 3.77783 4.74842 4.17604L4.17604 4.74763C3.77783 5.14583 3.77783 5.79263 4.17604 6.19083V6.19083C4.47846 6.49325 4.56712 6.94688 4.40087 7.34113C4.38267 7.38388 4.36604 7.42583 4.34942 7.46858C4.20454 7.83671 3.84433 8.075 3.4485 8.075H3.39546C2.83179 8.075 2.375 8.53179 2.375 9.09546V9.90375C2.375 10.4682 2.83179 10.925 3.39546 10.925H3.4485C3.84433 10.925 4.20375 11.1633 4.34862 11.5314C4.36525 11.5742 4.38267 11.6161 4.40008 11.6581C4.56633 12.0523 4.47767 12.506 4.17525 12.8084V12.8084C3.77704 13.2066 3.77704 13.8534 4.17525 14.2516L4.74683 14.8232C5.14504 15.2214 5.79183 15.2214 6.19004 14.8232V14.8232C6.49246 14.5208 6.94608 14.4321 7.34033 14.5983C7.38229 14.6158 7.42425 14.6332 7.467 14.6498C7.83592 14.7947 8.07342 15.1541 8.07342 15.5499V15.603C8.07342 16.1666 8.53021 16.6234 9.09388 16.6234H9.90217C10.4658 16.6234 10.9226 16.1666 10.9226 15.603V15.5499C10.9226 15.1541 11.1609 14.7947 11.529 14.6498C11.5718 14.6332 11.6137 14.6158 11.6557 14.5983C12.0523 14.4329 12.506 14.5215 12.8092 14.824V14.824Z"
+                    stroke="white" stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  تنظیمات
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <circle cx="9.49992" cy="4.75004" r="3.16667" stroke="white" stroke-width="1.1875" />
+                  <ellipse opacity="0.5" cx="9.49992" cy="13.4583" rx="5.54167" ry="3.16667" stroke="white"
+                    stroke-width="1.1875" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  درباره ثروت کیمیا
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                <circle cx="11.0833" cy="9.49996" r="1.58333" stroke="white" stroke-width="1.1875"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M5.54159 7.125V11.875" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M8.70825 7.125L9.96367 8.38042" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M13.4583 11.8749L12.2029 10.6195" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M8.70825 11.8749L9.96367 10.6195" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M13.4583 7.125L12.2029 8.38042" stroke="white" stroke-width="1.1875" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <rect x="2.375" y="2.375" width="14.25" height="14.25" rx="3.95833" stroke="white" stroke-width="1.1875"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="flex-between">
+            <div class="flex-center gap-3">
+              <div class="icon danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path opacity="0.5"
+                    d="M9.5 15.8335C12.9978 15.8335 15.8333 12.998 15.8333 9.5002C15.8333 6.0024 12.9978 3.16687 9.5 3.16687"
+                    stroke="#FFBEBE" stroke-width="1.1875" stroke-linecap="round" />
+                  <path d="M3.16659 9.5H11.0833M11.0833 9.5L8.70825 7.125M11.0833 9.5L8.70825 11.875" stroke="#FFBEBE"
+                    stroke-width="1.1875" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+
+              <div class="d-flex flex-column gap-1">
+                <div class="title">
+                  خروج از حساب کاربری
+                </div>
+
+                <div class="subtitle">
+                  در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                </div>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                <path d="M12.5 4.66663L7.5 10.5L12.5 16.3333" stroke="#D8D8D8" stroke-width="1.25"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="support">
+      <div class="fixed-support">
+        <button class="btn-support">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M19 17H18C17.448 17 17 16.552 17 16V11C17 10.448 17.448 10 18 10H19C20.105 10 21 10.895 21 12V15C21 16.105 20.105 17 19 17Z"
+              stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6 17H5C3.895 17 3 16.105 3 15V12C3 10.895 3.895 10 5 10H6C6.552 10 7 10.448 7 11V16C7 16.552 6.552 17 6 17Z"
+              stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M18.5 10V9.5C18.5 5.91 15.59 3 12 3V3C8.41 3 5.5 5.91 5.5 9.5V10" stroke="white" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.625 21.25H11.375C10.685 21.25 10.125 20.69 10.125 20V20C10.125 19.31 10.685 18.75 11.375 18.75H12.625C13.315 18.75 13.875 19.31 13.875 20V20C13.875 20.69 13.315 21.25 12.625 21.25Z"
+              stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M13.875 20H16C17.105 20 18 19.105 18 18V17" stroke="white" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="assets/lib/jQuery/jquery.min.js"></script>
+  <script src="assets/lib/Bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/lib/Swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
