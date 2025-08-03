@@ -1,5 +1,5 @@
 const Login = () => {
-    return (
+                        }}>شماره موبایل خود را جهت ورود وارد نمایید</div>
         <div className="w-full max-w-[375px] mx-auto bg-[#010056] min-h-screen flex flex-col">
             {/* <main> */}
             <main className="w-full px-6 py-12 flex-grow flex flex-col" style={{
@@ -9,18 +9,18 @@ const Login = () => {
             }}>
                 <div className="w-[11.77594rem] h-[11.075rem] mx-auto mb-16">
                     <img src="/images/login.svg" alt="" className="w-full h-full object-contain" />
-                </div>
-                <div className="flex flex-col gap-4">
-                    <div className="flex flex-col gap-2">
+                                    <path
+                                        stroke="white"
+                                        strokeWidth="1.1875"
                         <div className="font-alibaba text-[1.1875rem] font-bold leading-normal text-white" style={{
                             textShadow: '0px 0px 64px rgba(245, 245, 245, 0.06)'
                         }}>ورود به اپلیکیشن</div>
                         <div className="text-[#C4C4C4] text-[0.8125rem] font-normal leading-[1.3125rem]" style={{
                             textShadow: '0px 0px 64px rgba(245, 245, 245, 0.06)'
                         }}>شماره موبایل خود را جهت ورود وارد نمایید</div>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <div className="relative">
+                                        clipRule="evenodd"
+                                        stroke="white"
+                                        strokeWidth="1.1875"
                             <i className="absolute h-full right-4 flex items-center justify-center">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -54,23 +54,15 @@ const Login = () => {
                                     />
                                 </svg>
                             </i>
-                            <input
+                                </svg>
                                 type="text"
                                 className="block w-full h-[2.4375rem] pr-[2.6875rem] pl-[0.9545rem] text-[0.6875rem] font-normal leading-6 text-white bg-[#12116B] border border-[#303072] rounded-[0.55494rem] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="شماره موبایل را وارد نمایید"
-                            />
                         </div>
+                        <div>
                         <div>
                             <button className="inline-block w-full py-[0.65rem] px-2 text-[0.6875rem] font-semibold leading-[150%] text-white text-center bg-[#2256FF] border border-[#2256FF] rounded-lg hover:bg-[#1d49d9] hover:border-[#1b45cc] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-150">ورود به حساب</button>
                         </div>
-                    </div>
-                    <div className="mt-4 text-[#C4C4C4] text-center text-[0.8125rem] font-normal leading-[1.3125rem]" style={{
-                        textShadow: '0px 0px 64px rgba(245, 245, 245, 0.06)'
-                    }}>
-                        حساب کاربری ندارید ؟<a href="#" className="text-white font-semibold">ثبت نام</a>
-                    </div>
-                </div>
-            </main>
         </div>
 
     )

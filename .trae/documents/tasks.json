@@ -1,0 +1,79 @@
+[
+    {
+        "title": "Refactor existing static pages",
+        "status": "pending",
+        "description": "Refactor the code inside `src/pages` without changing the UI. Only clean up the code and structure it better.",
+        "priority": "high",
+        "type": "refactor"
+    },
+    {
+        "title": "Set up routing",
+        "status": "pending",
+        "description": "Connect each static page in `src/pages` to proper app routes using React Router or the current routing system.",
+        "priority": "high",
+        "type": "setup"
+    },
+    {
+        "title": "Create reusable UI components",
+        "status": "pending",
+        "description": "Extract repeating UI elements (buttons, cards, sections, etc.) into reusable components and replace them across pages.",
+        "priority": "high",
+        "type": "refactor"
+    },
+    {
+        "title": "Add application layout",
+        "status": "pending",
+        "description": "Create a shared layout (with optional state for things like sidebar, menu, back button) and wrap the pages with it.",
+        "priority": "medium",
+        "type": "feature"
+    },
+    {
+        "title": "Move non-page views to components",
+        "status": "pending",
+        "description": "Pages like loading screen, empty state, etc., should be turned into reusable components that can be toggled via props or context.",
+        "priority": "medium",
+        "type": "refactor"
+    },
+    {
+        "title": "Add i18n support",
+        "status": "pending",
+        "description": "Set up internationalization (i18n) with a folder for translations and support for multiple languages.",
+        "priority": "medium",
+        "type": "setup"
+    },
+    {
+        "title": "Add `locales` folder for translations",
+        "status": "pending",
+        "description": "Create a folder `src/i18n` or `src/locales` and store language files (e.g., `en.json`, `fa.json`) for translation keys.",
+        "priority": "medium",
+        "type": "setup"
+    },
+    {
+        "title": "Improve Tailwind usage",
+        "status": "pending",
+        "description": "Avoid using arbitrary values like `p-[0.9rem]` and instead use closest default Tailwind spacing or extend the theme in `tailwind.config.js`.",
+        "priority": "low",
+        "type": "refactor"
+    },
+    {
+        "title": "Configure theme in Tailwind config",
+        "status": "pending",
+        "description": "Extend Tailwind theme (e.g., spacing, colors) in `tailwind.config.js` to support design tokens without inline brackets.",
+        "priority": "low",
+        "type": "setup"
+    },
+    {
+        "title": "Move SVGs and images to assets",
+        "status": "pending",
+        "description": "Do not embed SVG code directly in components. Save them in `assets` folder and import them as components or images.",
+        "priority": "low",
+        "type": "refactor"
+    },
+    {
+        "title": "Replace embedded back icons with components",
+        "status": "pending",
+        "description": "Use icon libraries or imported SVG/image files for back buttons instead of inline SVG markup.",
+        "priority": "low",
+        "type": "refactor"
+    }
+]

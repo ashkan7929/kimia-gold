@@ -1,13 +1,13 @@
 
-import "../statics/assets/lib/Swiper/swiper-bundle.min.css";
-
-const Home = () => {
-    return (
-        <>
-            <div className="w-full max-w-[375px] mx-auto bg-primary min-h-screen flex flex-col">
                 <header className="max-w-full px-4">
                     <nav className="mt-4 mb-4 flex h-[3.375rem] px-[0.9375rem] justify-between items-center bg-primary-light rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
-                        <div className="flex gap-1">
+const Home = () => {
+                        </div>
+                    </nav>
+            <div className="w-full max-w-[375px] mx-auto bg-primary min-h-screen flex flex-col">
+                                    <div className="flex flex-col gap-2">
+                    <nav className="mt-4 mb-4 flex h-[3.375rem] px-[0.9375rem] justify-between items-center bg-primary-light rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
+                                            <span className="font-bold">حجت بندانی</span> خوش آمدید
                             <div>
                                 <button onClick={() => { }} className="bg-transparent flex w-[2.125rem] h-[2.125rem] justify-center items-center rounded-[1.20438rem] border-[0.704px] border-custom-border shadow-[0px_0px_35.185px_0px_rgba(255,255,255,0.12)]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -26,13 +26,13 @@ const Home = () => {
                                     </svg>
                                 </button>
                             </div>
-                        </div>
-                        <div>
+                            <div className="bg-[#090088] rounded-lg p-6 text-center min-h-[10.875rem] relative overflow-hidden" style={{ boxShadow: '0px 0px 91.921px 0px rgba(0, 0, 0, 0.08)' }}>
+                                <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('./assets/images/Lines-pattern.png')" }}></div>
                             <div className="w-[34px] h-[34px]">
                                 <img src="./assets/images/logo/logo.png" alt="logo" className="w-full h-full object-contain" />
-                            </div>
-                        </div>
-                        <div>
+                                        <span className="font-bold">خرید و فروش طلا</span> در کیمیا گلد
+                                    </h2>
+                                    <p className="text-white text-center text-[0.58913rem] font-normal leading-[0.95163rem]" style={{ textShadow: '0px 0px 46.404px rgba(245, 245, 245, 0.06)' }}>
                             <div>
                                 <button className="bg-transparent flex w-[2.125rem] h-[2.125rem] justify-center items-center rounded-[1.20438rem] border-[0.704px] border-custom-border shadow-[0px_0px_35.185px_0px_rgba(255,255,255,0.12)]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -45,49 +45,6 @@ const Home = () => {
                                     </svg>
                                 </button>
                             </div>
-                        </div>
-                    </nav>
-                </header>
-
-                <main className="flex-grow bg-cover bg-center" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')" }}>
-                    <div className="max-w-full px-4 flex flex-col gap-3 mb-3">
-                        <section className="dashboard-header">
-                            <div className="bg-primary-light rounded-lg border border-custom-border p-4">
-                                <div className="flex items-center justify-between">
-                                    <div className="flex flex-col gap-2">
-                                        <div className="font-alibaba text-white text-xs font-normal leading-normal" style={{ textShadow: '0px 0px 35.736px rgba(245, 245, 245, 0.06)' }}>
-                                            <span className="font-bold">حجت بندانی</span> خوش آمدید
-                                        </div>
-                                        <div className="text-custom-lightgray text-right text-[0.45369rem] font-medium leading-[0.73288rem]" style={{ textShadow: '0px 0px 35.736px rgba(245, 245, 245, 0.06)' }}>
-                                            به اپلیکیشن کیمیا گری خوش امدید میتوانید خدمات خود را انتخاب کنید
-                                        </div>
-                                    </div>
-                                    <div className="user-profile">
-                                        <div className="w-[3.125rem] h-[3.125rem] rounded-full overflow-hidden border-2 border-custom-border">
-                                            <img src="./assets/images/profile/profile.png" alt="profile" className="w-full h-full object-cover" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* CTA Banner */}
-                        <section className="cta-banner">
-                            <div className="bg-[#090088] rounded-lg p-6 text-center min-h-[10.875rem] relative overflow-hidden" style={{ boxShadow: '0px 0px 91.921px 0px rgba(0, 0, 0, 0.08)' }}>
-                                <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('./assets/images/Lines-pattern.png')" }}></div>
-                                <div className="relative z-10 flex flex-col justify-center h-full">
-                                    <h2 className="font-alibaba text-white text-[0.96013rem] font-normal leading-normal mb-2" style={{ textShadow: '0px 0px 46.404px rgba(245, 245, 245, 0.06)' }}>
-                                        <span className="font-bold">خرید و فروش طلا</span> در کیمیا گلد
-                                    </h2>
-                                    <p className="text-white text-center text-[0.58913rem] font-normal leading-[0.95163rem]" style={{ textShadow: '0px 0px 46.404px rgba(245, 245, 245, 0.06)' }}>
-                                        با بهترین قیمت‌ها و امنیت بالا
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Services Section */}
-                        <section className="services-section text-center">
                             <div className="grid grid-cols-4 gap-3">
                                 <div className="bg-primary-light rounded-lg border border-custom-border">
                                     <div className="p-4 py-4">
@@ -262,7 +219,46 @@ const Home = () => {
                 </footer>
             </div>
         </>
-    );
-};
 
+                {/* Footer */}
+                <footer className="h-[3.5625rem] w-full max-w-[375px] mb-4 mt-4 flex flex-col">
+                    <div className="max-w-[375px] fixed bottom-4 right-0 left-0 z-[1000] mx-auto px-4">
+                        <nav className="flex h-[3.5625rem] px-8 justify-between items-center rounded-[2.8125rem] bg-[#2256FF] text-xs font-semibold leading-normal" style={{ boxShadow: '0px 0px 67px 0px rgba(0, 0, 0, 0.09)' }}>
+                            <button className="bg-transparent flex flex-col gap-1 border-0 outline-0 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="mx-auto">
+                                    <path d="M7.5 2.5H12.5L17.5 7.5V17.5H2.5V2.5H7.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                <span>خانه</span>
+                            </button>
+                            <button className="bg-transparent flex flex-col gap-1 border-0 outline-0 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="mx-auto">
+                                    <path d="M10 2L12.5 7.5L18 8L14 12L15 18L10 15L5 18L6 12L2 8L7.5 7.5L10 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                <span>خرید</span>
+                            </button>
+                            <button className="bg-transparent flex flex-col gap-1 border-0 outline-0 text-white -mt-4">
+                                <div className="w-[2.5625rem] h-[2.5625rem] flex justify-center items-center gap-[0.7765rem] rounded-[38.82575rem] bg-[#EA8A2A]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2L14.5 9L22 9.5L16.5 14.5L18 22L12 18.5L6 22L7.5 14.5L2 9.5L9.5 9L12 2Z" fill="white" />
+                                    </svg>
+                                </div>
+                                <span>فروش</span>
+                            </button>
+                            <button className="bg-transparent flex flex-col gap-1 border-0 outline-0 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="mx-auto">
+                                    <path d="M2.5 7.5L10 12.5L17.5 7.5M2.5 7.5L10 2.5L17.5 7.5M2.5 7.5V12.5L10 17.5L17.5 12.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                <span>کیف پول</span>
+                            </button>
+                            <button className="bg-transparent flex flex-col gap-1 border-0 outline-0 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="mx-auto">
+                                    <circle cx="10" cy="10" r="7.5" stroke="currentColor" strokeWidth="1.5" />
+                                    <path d="M10 6V10L12.5 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                <span>پروفایل</span>
+                            </button>
+                        </nav>
+                    </div>
+                </footer>
+    );
 export default Home;
