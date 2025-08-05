@@ -1,19 +1,33 @@
-import React from 'react'
+import React from 'react';
+import type { SubjectSelectProps } from '../../types/input';
 
-const DrodownInput = () => {
+const SubjectSelect: React.FC<SubjectSelectProps> = ({
+  options,
+  selectedValue,
+  onChange,
+}) => {
   return (
-      <div className="mb-3">
-                <label className="font-semibold text-8xl-custom font-peyda text-white"> موضوع</label>
-                <select className="flex items-center text-white rounded-default border-light border px-smal w-full">
-                  <option value="1">
-                    خرید محصولات
-                  </option>
-                  <option value="2">
-                    شکایات 
-                  </option>
-                </select>
-              </div>
-  )
-}
+    <div className="w-full">
+      <label className="text-custom-text-primary text-xl-custom font-bold mb-2 block">
+        موضوع
+      </label>
+      <select
+        value={selectedValue}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full border border-custom-border-light rounded-xsm p-3.5 text-custom-text-primary text-xl-custom font-medium bg-transparent outline-none"
+      >
+        {options.map((opt) => (
+          <option
+            key={opt.value}
+            value={opt.value}
+            className="text-custom-text-primary bg-custom-bg-menu font-peyda "
+          >
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
 
-export default DrodownInput
+export default SubjectSelect;

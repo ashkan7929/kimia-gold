@@ -1,7 +1,19 @@
+import type { TextereaProps } from '../../types/input';
 
- const TextareaInput = () => {
-  return (
-    <div>TextareaInput</div>
-  )
-}
-export default TextareaInput
+const TextareaInput = ({ title, placeholder }: TextereaProps) => {
+    return (
+        <div className="flex  bg-custom-backdrop flex-col gap-2">
+      <label className="text-custom-text-primary text-xl-custom font-bold mb-2 block">
+                {title}
+            </label>
+            <div className="border border-custom-border-light rounded-xl">
+                <textarea
+                    className="w-full placeholder:text-custom-text-gray p-2 border border-custom-border-light text-custom-text-gray text-xl-custom
+                           items-start bg-transparent outline-none  self-stretch"
+                    placeholder={placeholder}
+                />
+            </div>
+        </div>
+    );
+};
+export default TextareaInput;

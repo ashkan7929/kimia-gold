@@ -63,6 +63,8 @@ export default {
                         success: '#14472C',
                         danger: '#993F3F',
                         input: '#12116B',
+                        checkbox: "#0052DC",
+
                     },
                     border: {
                         default: '#213163',
@@ -171,9 +173,13 @@ export default {
             },
             gap: {
                 custom: '0.56125rem',
+                sm: '0.3125rem',
+                
             },
             borderRadius: {
                 xsm: '0.555rem',
+                sm: "#5549375"
+
             },
             lineHeight: {
                 sm: '1.3125rem',

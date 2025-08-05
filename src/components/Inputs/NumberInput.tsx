@@ -1,12 +1,17 @@
-import React from 'react'
+import type { NumberInputProps } from "../../types/input";
 
-const NumberInput = () => {
+const NumberInput = ({ placeholder }: NumberInputProps) => {
   return (
- <div className='flex items-center text-white rounded-default border-light border px-smal w-full'>  
-     <img src="" alt="آیکون   " />
-     <input type="number"  placeholder='لطفا مبلغ خود را به ریال وارد کنید' className='font-medium text-xl-custom w-full bg-transparent outline-none py-2 placeholder-custom-lightGray'/>
+    <div className="flex bg-custom-backdrop flex-col gap-2 px-2 py-3 items-center">
+      <div className="border border-custom-border-light rounded-xl w-full">
+        <input
+          type="number"
+          placeholder={placeholder}
+          className=" placeholder-custom-lightGray p-2 text-custom-text-gray text-xl-custom bg-transparent outline-none"
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default NumberInput
+export default NumberInput;

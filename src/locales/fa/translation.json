@@ -1,5 +1,10 @@
 {
     "rules": "قوانین اپلیکیشن را می‌پذیرم",
     "mobileInput": "شماره موبایل خود را جهت ورود وارد نمایید ",
-    "mobilePlaceholder": "شماره موبایل خود را وارد کنید"
+    "mobilePlaceholder": "شماره موبایل خود را وارد کنید",
+    "nationalPlaceholder": "کد ملی خود را وارد کنید",
+    "titleTexterea": "پیغام و پیشنهادات شما",
+    "textereaPlaceholder": "پیغام خود را وارد کنید",
+    "numberPlaceholder": "لطفا مبلغ خود را به ریال وارد کنید",
+    "datePlaceholder": "تاریخ تولد خود را وارد کنید"
 }

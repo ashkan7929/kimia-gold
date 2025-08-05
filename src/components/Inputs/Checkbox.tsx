@@ -3,20 +3,17 @@ import CheckIcon from '@mui/icons-material/Check';
 
 const CheckBox = ({ label }: { label: string }) => {
     return (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-sm">
             <Checkbox
-                icon={<span className="block w-5 h-5 rounded border border-gray-300" />}
+                icon={<span className="block w-5 h-5 rounded border border-gray-100" />}
                 checkedIcon={
-                    <span className="flex items-center justify-center w-5 h-5 rounded bg-primary-blueCheck">
-                        <CheckIcon sx={{ fontSize: 14, color: 'white' }} />
-                    </span>
+                    <div className="flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox">
+                        <CheckIcon sx={{ fontSize: 14, color: 'white' }} className='"flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox"' />
+                    </div>
                 }
-                sx={{ padding: 0 }}
                 defaultChecked
             />
-            <label className="font-peyda font-medium text-xl-custom text-white">
-                {label}
-            </label>
+            <label className="font-peyda font-medium text-xl-custom text-white">{label}</label>
         </div>
     );
 };

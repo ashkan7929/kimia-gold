@@ -2,7 +2,7 @@
 
 
 const Login = () => {
-                        }}>شماره موبایل خود را جهت ورود وارد نمایید</div>
+                        >شماره موبایل خود را جهت ورود وارد نمایید</div>
         <div className="w-full max-w-[375px] mx-auto bg-[#010056] min-h-screen flex flex-col">
             {/* <main> */}
             <main className="w-full px-6 py-12 flex-grow flex flex-col" style={{
