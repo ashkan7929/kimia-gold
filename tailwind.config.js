@@ -38,6 +38,7 @@ export default {
           purple: '#010056',
           dark: '#090088',
           darker: '#02006C',
+          blueCheck: "#0052DC"
         },
         accent: {
           orange: '#EA8A2A',
@@ -58,6 +59,7 @@ export default {
             light: '#E4E4E4',
             gray: '#B8B8B8',
             subtitle: '#C4C4C4',
+            lightGray: "#A7A7A7"
           },
           bg: {
             card: '#010048',
@@ -72,6 +74,15 @@ export default {
             card: '#31299C',
             dashed: '#303030',
             message: '#2B2A6C',
+          },
+           borderRadius: {
+            default: '0.555rem', 
+          },
+          padding: {
+            sm: "0.954375rem"
+          },
+          gap: {
+            'custom': '0.625rem',
           }
         }
       },
@@ -87,6 +98,7 @@ export default {
         '5xl-custom': '0.9375rem',
         '6xl-custom': '1.0625rem',
         '7xl-custom': '1.1875rem',
+        '8xl-custom' : "0.635625rem",
         'tiny': '0.49138rem',
         'micro': '0.63588rem',
       },

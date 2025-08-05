@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Layout from './components/Layout/Layout';
+// import Layout from './';
 import { useAuth } from './hooks/redux';
 import { Home } from './pages';
 
@@ -49,44 +49,44 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/"
                 element={
-                    <Layout>
+                    // <Layout>
                         <Home />
-                    </Layout>
+                    // </Layout>
                 }
             />
             <Route
                 path="/portfolio"
                 element={
                     <ProtectedRoute>
-                        <Layout>
+                        {/* <Layout> */}
                             <Portfolio />
-                        </Layout>
-                    </ProtectedRoute>
+                        {/* </Layout> */}
+                    // </ProtectedRoute>
                 }
             />
             <Route
                 path="/trading"
                 element={
-                    <Layout>
+                    // <Layout>
                         <Trading />
-                    </Layout>
+                    // </Layout>
                 }
             />
             <Route
                 path="/market"
                 element={
-                    <Layout>
+                    // <Layout>
                         <Market />
-                    </Layout>
+                    // </Layout>
                 }
             />
             <Route
                 path="/profile"
                 element={
                     <ProtectedRoute>
-                        <Layout>
+                        {/* <Layout> */}
                             <Profile />
-                        </Layout>
+                        {/* </Layout> */}
                     </ProtectedRoute>
                 }
             />
