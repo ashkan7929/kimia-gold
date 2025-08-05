@@ -1,3 +1,24 @@
+import CheckBox from '../components/Inputs/Checkbox';
+import { useTranslation } from 'react-i18next';
+import MobileInput from '../components/Inputs/MobileInput';
+import { CiMobile3 } from '../Icons';
+
+const Home = () => {
+    const { t } = useTranslation();
+
+    return (
+        <div className="bg-primary-light">
+            <CheckBox label={t('rules')} />
+            <MobileInput
+                label={t('mobileInput')}
+                placeholder={t('mobilePlaceholder')}
+                mobileIcon={<CiMobile3 />}
+            />
+        </div>
+    );
+};
+
+export default Home;
 
 //                 <header className="max-w-full px-4">
 //                     <nav className="mt-4 mb-4 flex h-[3.375rem] px-[0.9375rem] justify-between items-center bg-primary-light rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
@@ -97,8 +118,6 @@
 //                                 </div>
 //                             </div>
 //                         </section>
-
-import CheckBox from "../components/Inputs/CheckBox"
 
 //                         {/* Prices Table */}
 //                         <section className="prices-table">
@@ -264,16 +283,3 @@ import CheckBox from "../components/Inputs/CheckBox"
 //                 </footer>
 //     );
 // export default Home;
-
-
-
-const Home = () => {
-  return (
-    <div className="bg-[#010057] p-4" dir="rtl">
-        
-        <CheckBox />
-    </div>
-  )
-}
-
-export default Home

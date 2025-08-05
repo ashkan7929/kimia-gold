@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 // import Layout from './';
+// import Layout from './components/Layout/Layout';
 import { useAuth } from './hooks/redux';
 import { Home } from './pages';
 
@@ -50,7 +51,7 @@ const AppRoutes: React.FC = () => {
                 path="/"
                 element={
                     // <Layout>
-                        <Home />
+                    <Home />
                     // </Layout>
                 }
             />
@@ -59,16 +60,16 @@ const AppRoutes: React.FC = () => {
                 element={
                     <ProtectedRoute>
                         {/* <Layout> */}
-                            <Portfolio />
+                        <Portfolio />
                         {/* </Layout> */}
-                    // </ProtectedRoute>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/trading"
                 element={
                     // <Layout>
-                        <Trading />
+                    <Trading />
                     // </Layout>
                 }
             />
@@ -76,7 +77,7 @@ const AppRoutes: React.FC = () => {
                 path="/market"
                 element={
                     // <Layout>
-                        <Market />
+                    <Market />
                     // </Layout>
                 }
             />
@@ -85,7 +86,7 @@ const AppRoutes: React.FC = () => {
                 element={
                     <ProtectedRoute>
                         {/* <Layout> */}
-                            <Profile />
+                        <Profile />
                         {/* </Layout> */}
                     </ProtectedRoute>
                 }
@@ -97,4 +98,4 @@ const AppRoutes: React.FC = () => {
     );
 };
 
-export default AppRoutes
+export default AppRoutes;
