@@ -6,5 +6,11 @@
     "titleTexterea": "پیغام و پیشنهادات شما",
     "textereaPlaceholder": "پیغام خود را وارد کنید",
     "numberPlaceholder": "لطفا مبلغ خود را به ریال وارد کنید",
-    "datePlaceholder": "تاریخ تولد خود را وارد کنید"
+    "datePlaceholder": "تاریخ تولد خود را وارد کنید",
+    "buttons": {
+    "login": "ورود به حساب",
+    "register": "ثبت‌نام",
+    "inquiry": "جستجو و استعلام ثبت احوال"
+  }
+
 }

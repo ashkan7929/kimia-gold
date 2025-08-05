@@ -1,21 +1,15 @@
-
-import { useTranslation } from 'react-i18next';
-
-import TextareaInput from '../components/Inputs/TextareaInput';
-
-
+import MainBtn from '../components/btns/MainBtn'
 
 const Home = () => {
 
-    const { t } = useTranslation();
+// const { t } = useTranslation();
+  return (
+    <div className='bg-primary-light'>
+        {/* <MainBtn  type={t('type')} */}
+        <MainBtn type="login"
+/>
+    </div>
+  )
+}
 
-
-    return (
-        <div className="bg-primary-light ">
- 
-            <TextareaInput  placeholder={t('textereaPlaceholder')} title={t('titleTexterea')}/>
-        </div>
-    );
-};
-
-export default Home;
+export default Home
