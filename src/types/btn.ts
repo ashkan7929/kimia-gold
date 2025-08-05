@@ -7,3 +7,7 @@ export interface CheckboxProps {
 export interface LoginProps {
 	type?: string
 }
+
+export interface GroupBtn {
+	type?: string
+}
