@@ -1,13 +1,13 @@
-
 export interface CheckboxProps {
     label: string;
 }
 
-
 export interface LoginProps {
-	type?: string
+    type?: string;
 }
 
-export interface GroupBtn {
-	type?: string
+// types/btn.ts
+
+export interface GroupBtnPropsoups {
+    type: 'continue' | 'addNewCard' | 'save' | 'delete' | 'back';
 }
