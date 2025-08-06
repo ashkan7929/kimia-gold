@@ -172,7 +172,8 @@ export default {
                 94: '23.5rem',
                 95: '23.75rem',
                 2.2: '0.954375rem',
-                wide: "23.4375rem"
+                wide: "23.4375rem",
+                light: "20.625rem"
             },
             gap: {
                 custom: '0.56125rem',
@@ -181,6 +182,8 @@ export default {
             borderRadius: {
                 xsm: '0.555rem',
                 sm: '#5549375',
+               lg: '0.625rem',
+
             },
             lineHeight: {
                 sm: '1.3125rem',
