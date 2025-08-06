@@ -13,3 +13,16 @@ export interface GroupBtnPropsoups {
     icon?: React.ReactNode;
     onClick?: () => void;
 }
+
+
+
+export interface ServiceBtnPropsoups {
+    text?: string;
+    type?: string;
+}
+
+
+export interface ServiceButtonProps {
+  label: string;
+  icon: string;
+}

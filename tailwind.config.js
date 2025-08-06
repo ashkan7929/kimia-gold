@@ -3,6 +3,9 @@ export default {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
+            backgroundImage: {
+               servicePatern: "url('/images/bgService.png')"
+           },
             colors: {
                 gold: {
                     50: '#fffbeb',
@@ -67,6 +70,7 @@ export default {
                         input: '#12116B',
                         checkbox: '#0052DC',
                         linePatern:  "url('/images/Lines-pattern-starters.png')",
+                      
                     },
                     border: {
                         default: '#213163',
@@ -90,8 +94,12 @@ export default {
                 '6xl-custom': '1.0625rem',
                 '7xl-custom': '1.1875rem',
                 '8xl-custom': '0.635625rem',
+                '9xl-custom': '0.589125rem',
+                '10xl-custom': "0.960125rem",
+                '11xl-custom': "0.4279375rem",
                 tiny: '0.49138rem',
                 micro: '0.63588rem',
+
             },
             spacing: {
                 0.5: '0.125rem',
@@ -178,11 +186,15 @@ export default {
             gap: {
                 custom: '0.56125rem',
                 sm: '0.3125rem',
+                xl: '0.2674375rem',
+                md: '0.86875rem'
+
             },
             borderRadius: {
                 xsm: '0.555rem',
                 sm: '#5549375',
                lg: '0.625rem',
+               md: '0.513625'
 
             },
             lineHeight: {

@@ -6,19 +6,19 @@ import { FaUsers } from 'react-icons/fa';
 const Header = () => {
     return (
         <>
-            <header className="container bg-primary-light rounded-lg mb-3 mx-8 max-w-light">
+            <header className=" bg-primary-light rounded-lg mx-4 px-8 shadow-xl shadow-black/10">
                 <nav
-                    className="flex items-center justify-between mx-4"
+                    className="flex items-center justify-between"
                     style={{
                         boxShadow: '0 0 67px 0 rgba(0, 0, 0, 0.09)',
                     }}
                 >
                     <div className="flex gap-2">
-                        <button className="text-white border-[#213163] border-[0.7px] rounded-[1.204375rem] w-[2.125rem] h-[2.125rem] flex items-center justify-center ">
+                        <button className="text-white border-[#213163] border-[0.7px] rounded-full w-8.5 h-8.5 flex items-center justify-center ">
                             <CiGrid41 className="w-5 h-5" />
                         </button>
 
-                        <button className="text-white border-[#213163] border-[0.7px] rounded-[1.204375rem] w-[2.125rem] h-[2.125rem] flex  items-center justify-center">
+                        <button className="text-white border-[#213163] border-[0.7px] rounded-[1.204375rem] w-8.5 h-8.5 flex  items-center justify-center">
                             <IoNotificationsOutline className="w-5 h-5" />
                         </button>
                     </div>
@@ -28,7 +28,7 @@ const Header = () => {
                     </div>
 
                     <div className="flex justify-end">
-                        <button className="text-white border-[#213163] border-[0.7px] rounded-[1.204375rem] w-[2.125rem] h-[2.125rem] flex items-center justify-center">
+                        <button className="text-white border-[#213163] border-[0.7px] rounded-[1.204375rem] w-8.5 h-8.5 flex items-center justify-center">
                             <FaUsers />
                         </button>
                     </div>
