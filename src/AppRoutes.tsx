@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 // import Layout from './components/Layout/Layout';
 import { useAuth } from './hooks/redux';
 import { Home } from './pages';
+import Loading from './pages/Loading';
 
 // Placeholder components for routes that don't exist yet
 const Login = () => <div className="p-8 text-center">Login Page - Coming Soon</div>;
@@ -29,6 +30,15 @@ const AppRoutes: React.FC = () => {
     return (
         <Routes>
             {/* Public Routes */}
+
+             <Route
+                path="/loading"
+                element={
+                    // <Layout>
+                    <Loading />
+                    // </Layout>
+                }
+            />
             <Route
                 path="/login"
                 element={

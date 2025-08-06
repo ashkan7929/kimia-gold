@@ -1,46 +1,27 @@
 const Loading = () => {
     return (
-        <>
-            <div className="w-full max-w-[375px] mx-auto bg-primary-purple min-h-screen flex flex-col">
-                <main
-                    className="flex-grow flex items-center justify-center"
-                    style={{
-                        backgroundImage: "url('/images/Lines-pattern-starters.png')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                    }}
-                >
-                    <div className="text-center relative">
-                        <div className="w-24 h-24">
-                            <img
-                                src="/images/logo/logo.png"
-                                alt=""
-                                className="w-full h-full object-contain"
-                            />
+          <div className="w-full max-w-wide mx-auto bg-primary-purple min-h-screen flex flex-col">
+                <main className="flex-grow flex flex-col bg-center bg-cover bg-line-patern">
+                    <div className="flex-grow flex items-center justify-center">
+                        <div className="text-center">
+                            <div className="w-24 h-24 mx-auto">
+                                <img
+                                    src="/images/logo/logo.png"
+                                    alt="logo webapp vewClub"
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
                         </div>
-                        <div className="absolute bottom-8 right-0 left-0 flex items-center justify-center">
-                            <div
-                                className="w-[3.375rem] h-[3.375rem] border-[3px] border-white border-b-[#0F3DFB] rounded-full inline-block animate-spin"
-                                style={{
-                                    animation: 'rotation 1s linear infinite'
-                                }}
-                            />
-                        </div>
+                    </div>
+                    <div className="flex justify-center mt-auto mb-8">
+                        <div
+                            className="w-13.5 h-13.5 border-2 border-white border-b-primary-lightBlue rounded-full inline-block"
+                            style={{ animation: 'rotation 1s linear infinite' }}
+                        />
                     </div>
                 </main>
             </div>
-            <style>{`
-        @keyframes rotation {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
-        </>
-    )
-}
+    );
+};
 
-export default Loading
+export default Loading;

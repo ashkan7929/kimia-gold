@@ -35,6 +35,7 @@ export default {
                     purple: '#010056',
                     dark: '#090088',
                     darker: '#02006C',
+                    lightBlue: "#0F3DFB"
                 },
                 accent: {
                     orange: '#EA8A2A',
@@ -57,6 +58,7 @@ export default {
                         gray: '#B8B8B8',
                         subtitle: '#C4C4C4',
                     },
+
                     bg: {
                         card: '#010048',
                         menu: '#1C1A7D',
@@ -64,6 +66,7 @@ export default {
                         danger: '#EA2A2A',
                         input: '#12116B',
                         checkbox: '#0052DC',
+                        linePatern:  "url('/images/Lines-pattern-starters.png')",
                     },
                     border: {
                         default: '#213163',
@@ -169,6 +172,7 @@ export default {
                 94: '23.5rem',
                 95: '23.75rem',
                 2.2: '0.954375rem',
+                wide: "23.4375rem"
             },
             gap: {
                 custom: '0.56125rem',
@@ -192,6 +196,8 @@ export default {
                 'fade-in': 'fadeIn 0.5s ease-in-out',
                 'slide-up': 'slideUp 0.3s ease-out',
                 'pulse-gold': 'pulseGold 2s infinite',
+                "rotation": 'rotation 1s linear infinite',
+
             },
             keyframes: {
                 fadeIn: {
@@ -206,6 +212,10 @@ export default {
                     '0%, 100%': { boxShadow: '0 0 0 0 rgba(245, 158, 11, 0.7)' },
                     '70%': { boxShadow: '0 0 0 10px rgba(245, 158, 11, 0)' },
                 },
+                rotation: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
+                 },
             },
         },
     },
