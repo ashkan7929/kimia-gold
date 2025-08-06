@@ -10,4 +10,6 @@ export interface LoginProps {
 
 export interface GroupBtnPropsoups {
     type: 'continue' | 'addNewCard' | 'save' | 'delete' | 'back';
+    icon?: React.ReactNode;
+    onClick?: () => void;
 }

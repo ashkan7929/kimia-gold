@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next';
 import type { GroupBtnPropsoups } from "../../types/btn";
 
-const GroupBtn = ({ type }: GroupBtnPropsoups) => {
+const GroupBtn = ({ type, icon, onClick }: GroupBtnPropsoups) => {
   const { t } = useTranslation();
 
   const variantStyles: Record<string, string> = {
@@ -18,14 +18,18 @@ const GroupBtn = ({ type }: GroupBtnPropsoups) => {
   return (
     <div className="flex justify-center items-center gap-2.5">
       <button
+	  	onClick={onClick}
         className={`
           rounded-lg text-white font-bold text-right py-3 mx-8 w-3/4
-          flex justify-center items-center gap-2.5 font-peyda text-xl-custom self-stretch
+          flex justify-center flex-row-reverse items-center gap-2.5 font-peyda text-xl-custom self-stretch
           ${selectedClass}
         `}
       >
         {t(`groupBtn.${type}`)}
+		{icon && <span className="mr-2 text-lg">{icon}</span> || ""}
+
       </button>
+
     </div>
   );
 };
