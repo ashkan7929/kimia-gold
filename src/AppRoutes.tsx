@@ -68,6 +68,14 @@ const AppRoutes: React.FC = () => {
                     // </Layout>
                 }
             />
+              <Route
+                path="/profile"
+                element={
+                    // <Layout>
+                    <Profile />
+                    // </Layout>
+                }
+            />
             <Route
                 path="/portfolio"
                 element={
