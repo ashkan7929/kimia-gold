@@ -44,5 +44,26 @@
             "subPrice": "8.082$",
             "profit": "7.81%"
         }
+    },
+
+        "newsList": {
+        "campaign": {
+            "label": "کمپین",
+            "icon": "/images/campaign.svg"
+        },
+        "analyst": {
+            "label": "تحلیل‌گر",
+            "icon": "/images/analyst.svg"
+        },
+        "news": {
+            "label": "اخبار",
+            "icon": "/images/news.svg"
+        }
+      
+    },
+    "footer": {
+        "home": "صفحه اصلی",
+        "wallet": "کیف پول",
+        "transaction": "همه تراکنش‌ها"
     }
 }

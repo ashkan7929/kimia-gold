@@ -26,3 +26,11 @@ export interface ServiceButtonProps {
   label: string;
   icon: string;
 }
+
+
+export interface footerButtonProps {
+  transaction?: string;
+  home?: string;
+  wallet?: string
+
+}

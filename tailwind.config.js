@@ -98,6 +98,10 @@ export default {
                 '10xl-custom': '0.960125rem',
                 '11xl-custom': '0.4279375rem',
                 '12xl-custom': '0.760625rem',
+                '13xl-custom': '0.491375rem',
+                '14xl-custom': '0.495625rem',
+                '15xl-custom': '0.553375rem',
+                '16xl-custom': '0.5070625rem',
                 tiny: '0.49138rem',
                 micro: '0.63588rem',
             },
@@ -184,6 +188,7 @@ export default {
                 2.2: '0.954375rem',
                 wide: '23.4375rem',
                 light: '20.625rem',
+                customSize: "2.5625rem",
             },
             gap: {
                 custom: '0.56125rem',
