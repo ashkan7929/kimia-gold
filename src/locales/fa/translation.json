@@ -19,27 +19,30 @@
     "service": "مشاهده خدمت",
 
     "buttons": {
-  "login": "ورود به حساب",
-  "register": "ثبت‌نام",
-  "inquiry": "جستجو و استعلام ثبت احوال"
-},
+        "login": "ورود به حساب",
+        "register": "ثبت‌نام",
+        "inquiry": "جستجو و استعلام ثبت احوال"
+    },
 
-"services": {
-  "marketInsight": {
-    "label": "دریافت خدمات",
-    "icon": "/images/Market-insight.svg"
-  },
-  "sellGold": {
-    "label": "فروش طلا",
-    "icon": "/images/buyGold.svg"
-
-  },
-  "receiveService": {
-    "label": "بینش بازار",
-    "icon": "/images/buyGold.svg"
-
-  }
-}
-
-
+    "services": {
+        "marketInsight": {
+            "label": "دریافت خدمات",
+            "icon": "/images/Market-insight.svg"
+        },
+        "sellGold": {
+            "label": "فروش طلا",
+            "icon": "/images/buyGold.svg"
+        },
+        "receiveService": {
+            "label": "بینش بازار",
+            "icon": "/images/buyGold.svg"
+        },
+        "listPrice": {
+            "title": "انس طلا",
+            "subtitle": "Anas gold",
+            "price": "ت62,407",
+            "subPrice": "8.082$",
+            "profit": "7.81%"
+        }
+    }
 }

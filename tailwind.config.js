@@ -4,8 +4,8 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-               servicePatern: "url('/images/bgService.png')"
-           },
+                servicePatern: "url('/images/bgService.png')",
+            },
             colors: {
                 gold: {
                     50: '#fffbeb',
@@ -38,7 +38,7 @@ export default {
                     purple: '#010056',
                     dark: '#090088',
                     darker: '#02006C',
-                    lightBlue: "#0F3DFB"
+                    lightBlue: '#0F3DFB',
                 },
                 accent: {
                     orange: '#EA8A2A',
@@ -69,8 +69,8 @@ export default {
                         danger: '#EA2A2A',
                         input: '#12116B',
                         checkbox: '#0052DC',
-                        linePatern:  "url('/images/Lines-pattern-starters.png')",
-                      
+                        linePatern: "url('/images/Lines-pattern-starters.png')",
+                        mainBg: '#0B0E2F',
                     },
                     border: {
                         default: '#213163',
@@ -95,13 +95,15 @@ export default {
                 '7xl-custom': '1.1875rem',
                 '8xl-custom': '0.635625rem',
                 '9xl-custom': '0.589125rem',
-                '10xl-custom': "0.960125rem",
-                '11xl-custom': "0.4279375rem",
+                '10xl-custom': '0.960125rem',
+                '11xl-custom': '0.4279375rem',
+                '12xl-custom': '0.760625rem',
                 tiny: '0.49138rem',
                 micro: '0.63588rem',
-
             },
             spacing: {
+                0.1: '0.8675rem',
+                0.25: '0.929375rem',
                 0.5: '0.125rem',
                 1.5: '0.375rem',
                 2.5: '0.625rem',
@@ -180,22 +182,22 @@ export default {
                 94: '23.5rem',
                 95: '23.75rem',
                 2.2: '0.954375rem',
-                wide: "23.4375rem",
-                light: "20.625rem"
+                wide: '23.4375rem',
+                light: '20.625rem',
             },
             gap: {
                 custom: '0.56125rem',
                 sm: '0.3125rem',
                 xl: '0.2674375rem',
-                md: '0.86875rem'
-
+                md: '0.86875rem',
+                xs: '0.174375rem',
+                xsm: '0.43375rem',
             },
             borderRadius: {
                 xsm: '0.555rem',
                 sm: '#5549375',
-               lg: '0.625rem',
-               md: '0.513625'
-
+                lg: '0.625rem',
+                md: '0.513625',
             },
             lineHeight: {
                 sm: '1.3125rem',
@@ -211,8 +213,7 @@ export default {
                 'fade-in': 'fadeIn 0.5s ease-in-out',
                 'slide-up': 'slideUp 0.3s ease-out',
                 'pulse-gold': 'pulseGold 2s infinite',
-                "rotation": 'rotation 1s linear infinite',
-
+                rotation: 'rotation 1s linear infinite',
             },
             keyframes: {
                 fadeIn: {
@@ -230,7 +231,7 @@ export default {
                 rotation: {
                     '0%': { transform: 'rotate(0deg)' },
                     '100%': { transform: 'rotate(360deg)' },
-                 },
+                },
             },
         },
     },
