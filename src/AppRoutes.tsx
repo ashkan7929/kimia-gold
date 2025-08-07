@@ -65,7 +65,7 @@ const AppRoutes: React.FC = () => {
             />
 
             {/* Protected Routes with Layout */}
-            {/* <Route
+            <Route
                 path="/"
                 element={
                     <Layout>
@@ -73,7 +73,7 @@ const AppRoutes: React.FC = () => {
                     </Layout>
                 }
             />
-            <Route
+            {/* <Route
                 path="/market"
                 element={
                     // <Layout>
@@ -164,7 +164,7 @@ const AppRoutes: React.FC = () => {
                     <Market />
                     // </Layout>
                 }
-            />
+            /> */}
             <Route
                 path="/profile"
                 element={
@@ -174,7 +174,7 @@ const AppRoutes: React.FC = () => {
                     </Layout>
                     // </ProtectedRoute>
                 }
-            /> */}
+            />
 
             {/* Catch all route */}
             <Route path="*" element={<Navigate to="/" replace />} />
