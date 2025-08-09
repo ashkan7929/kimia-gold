@@ -1,45 +1,38 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-// import Layout from './';
-// import Layout from './components/Layout/Layout';
-import { useAuth } from './hooks/redux';
-import { Home } from './pages';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
-import Profile from './pages/Profile/Profile';
+// import { useAuth } from './hooks/redux';
 import Layout from './layouts/Layout/Layout';
-import TransactionDetails from './pages/TransactionDetails/TransactionDetails';
-import PaymentInformation from './pages/PaymentInformation/PaymentInformation';
 import SimpleLayout from './layouts/SimpleLayout/SimpleLayout';
-import SuccessfulTransaction from './pages/SuccessfulTransaction/SuccessfulTransaction';
-import FailedTransaction from './pages/FailedTransaction/FailedTransaction';
 import About from './pages/About/About';
-import Suggestions from './pages/Suggestions/Suggestions';
-import Settings from './pages/Settings/Settings';
+import Buy from './pages/Buy/Buy';
+import FailedTransaction from './pages/FailedTransaction/FailedTransaction';
+import Home from './pages/Home/Home';
 import Invite from './pages/Invite/Invite';
+import Loading from './pages/Loading/Loading';
+import Login from './pages/Login/Login';
+import MessageBox from './pages/MessageBox/MessageBox';
+import MyCards from './pages/MyCards/MyCards';
+import PaymentInformation from './pages/PaymentInformation/PaymentInformation';
+import Profile from './pages/Profile/Profile';
+import Register from './pages/Register/Register';
 import Rules from './pages/Rules/Rules';
-import MyCards from './pages/MyCards';
-
-// Placeholder components for routes that don't exist yet
-// const Login = () => <div className="p-8 text-center">Login Page - Coming Soon</div>;
-// const Register = () => <div className="p-8 text-center">Register Page - Coming Soon</div>;
-const Market = () => <div className="p-8 text-center">Market Page - Coming Soon</div>;
-// const Portfolio = () => <div className="p-8 text-center">Portfolio Page - Coming Soon</div>;
-// const Profile = () => <div className="p-8 text-center">Profile Page - Coming Soon</div>;
-// const Trading = () => <div className="p-8 text-center">Trading Page - Coming Soon</div>;
-// const Layout = ({ children }: any) => <div className="bg-black min-h-screen p-4.5">
-//     {children}
-// </div>;
+import Settings from './pages/Settings/Settings';
+import SuccessfulTransaction from './pages/SuccessfulTransaction/SuccessfulTransaction';
+import Suggestions from './pages/Suggestions/Suggestions';
+import TransactionDetails from './pages/TransactionDetails/TransactionDetails';
+import Transactions from './pages/Transactions/Transactions';
+import Wallet from './pages/Wallet/Wallet';
 
 // Protected Route Component
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { isAuthenticated } = useAuth();
-    return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
-};
+// const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+//     const { isAuthenticated } = useAuth();
+//     return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
+// };
 
 // Public Route Component (redirect to home if authenticated)
 const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { isAuthenticated } = useAuth();
-    return !isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;
+    // const { isAuthenticated } = useAuth();
+    return <>{children}</>
+    // return !isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;
 };
 
 // App Routes Component
@@ -48,7 +41,13 @@ const AppRoutes: React.FC = () => {
         <Routes>
             {/* Public Routes */}
             <Route
-                path="/login"
+                path="/loading"
+                element={
+                    <Loading />
+                }
+            />
+            <Route
+                path="/"
                 element={
                     <PublicRoute>
                         <Login />
@@ -64,36 +63,43 @@ const AppRoutes: React.FC = () => {
                 }
             />
 
-            {/* Protected Routes with Layout */}
             <Route
-                path="/"
+                path="/home"
                 element={
                     <Layout>
                         <Home />
                     </Layout>
                 }
             />
-            {/* <Route
-                path="/market"
+            <Route
+                path="/profile"
                 element={
-                    // <Layout>
-                    <Market />
-                    // </Layout>
+                    <Layout>
+                        <Profile />
+                    </Layout>
                 }
             />
             <Route
-                path="/transaction-details"
+                path="/my-cards"
                 element={
-                    <SimpleLayout title="جزئیات پرداخت">
-                        <TransactionDetails />
+                    <SimpleLayout title="کارت های من">
+                        <MyCards />
                     </SimpleLayout>
                 }
             />
             <Route
-                path="/payment-information"
+                path="/wallet"
                 element={
-                    <SimpleLayout title="اطلاعات پرداخت">
-                        <PaymentInformation />
+                    <SimpleLayout title="کیف پول">
+                        <Wallet />
+                    </SimpleLayout>
+                }
+            />
+            <Route
+                path="/buy"
+                element={
+                    <SimpleLayout title="خرید طلا">
+                        <Buy />
                     </SimpleLayout>
                 }
             />
@@ -110,34 +116,26 @@ const AppRoutes: React.FC = () => {
                 }
             />
             <Route
-                path="/about"
+                path="/payment-information"
                 element={
-                    <SimpleLayout title="درباره ما">
-                        <About />
+                    <SimpleLayout title="اطلاعات پرداخت">
+                        <PaymentInformation />
                     </SimpleLayout>
                 }
             />
             <Route
-                path="/suggestions"
+                path="/transactions"
                 element={
-                    <SimpleLayout title="نظرات و پیشنهادات">
-                        <Suggestions />
+                    <SimpleLayout title="تراکنش ها">
+                        <Transactions />
                     </SimpleLayout>
                 }
             />
             <Route
-                path="/settings"
+                path="/transaction-details"
                 element={
-                    <SimpleLayout title="تنظیمات">
-                        <Settings />
-                    </SimpleLayout>
-                }
-            />
-            <Route
-                path="/invite"
-                element={
-                    <SimpleLayout title="دعوت از دوستان">
-                        <Invite />
+                    <SimpleLayout title="جزئیات پرداخت">
+                        <TransactionDetails />
                     </SimpleLayout>
                 }
             />
@@ -150,29 +148,43 @@ const AppRoutes: React.FC = () => {
                 }
             />
             <Route
-                path="/my-cards"
+                path="/invite"
                 element={
-                    <SimpleLayout title="کارت های من">
-                        <MyCards />
+                    <SimpleLayout title="دعوت از دوستان">
+                        <Invite />
                     </SimpleLayout>
                 }
             />
             <Route
-                path="/market"
+                path="/suggestions"
                 element={
-                    // <Layout>
-                    <Market />
-                    // </Layout>
+                    <SimpleLayout title="نظرات و پیشنهادات">
+                        <Suggestions />
+                    </SimpleLayout>
                 }
-            /> */}
+            />
             <Route
-                path="/profile"
+                path="/about"
                 element={
-                    // <ProtectedRoute>
-                    <Layout>
-                        <Profile />
-                    </Layout>
-                    // </ProtectedRoute>
+                    <SimpleLayout title="درباره ما">
+                        <About />
+                    </SimpleLayout>
+                }
+            />
+            <Route
+                path="/settings"
+                element={
+                    <SimpleLayout title="تنظیمات">
+                        <Settings />
+                    </SimpleLayout>
+                }
+            />
+            <Route
+                path="/message-box"
+                element={
+                    <SimpleLayout title="صندوق پیام ها">
+                        <MessageBox />
+                    </SimpleLayout>
                 }
             />
 

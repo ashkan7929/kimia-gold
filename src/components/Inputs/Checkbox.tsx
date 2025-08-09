@@ -1,17 +1,19 @@
-import Checkbox from '@mui/material/Checkbox';
 import CheckIcon from '@mui/icons-material/Check';
+import Checkbox from '@mui/material/Checkbox';
+import type React from 'react';
 
-const CheckBox = ({ label }: { label: string }) => {
+const CheckBox = ({ label, onChange, defaultChecked }: { label: string, onChange?: (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void, defaultChecked?: boolean }) => {
     return (
         <div className="flex items-center gap-sm">
             <Checkbox
+                onChange={onChange}
                 icon={<span className="block w-5 h-5 rounded border border-gray-100" />}
                 checkedIcon={
                     <div className="flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox">
                         <CheckIcon sx={{ fontSize: 14, color: 'white' }} className='"flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox"' />
                     </div>
                 }
-                defaultChecked
+                defaultChecked={defaultChecked}
             />
             <label className="font-peyda font-medium text-xl-custom text-white">{label}</label>
         </div>

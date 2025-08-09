@@ -1,14 +1,14 @@
-import type { Datepicker } from "../../types/input";
+import type { IDatepicker } from "../../types/input";
 
-const Datepicker = ({ placeholder }: Datepicker) => {
+const Datepicker = ({ placeholder }: IDatepicker) => {
   return (
-    <div className="flex bg-custom-backdrop flex-col gap-2">
+    <div className="flex flex-col gap-2 bg-custom-backdrop">
     
-      <div className="border border-custom-border-light rounded-xl">
+      <div className="rounded-xl border border-custom-border-light">
         <input
           type="text"
           placeholder={placeholder}
-          className="w-full placeholder:text-custom-text-gray p-3 text-custom-text-gray text-xl-custom bg-transparent outline-none"
+          className="p-3 w-full bg-transparent outline-none placeholder:text-custom-text-gray text-custom-text-gray text-xl-custom"
         />
       </div>
     </div>

@@ -46,7 +46,7 @@ const Profile = () => {
                                         <div className={`rounded-md duration-300 ease-in-out transition-background-color `}>
                                             <Disclosure.Button className="flex justify-between items-center p-4 w-full cursor-pointer">
                                                 <div className="flex items-center gap-3">
-                                                    <span className="bg-orange-500 w-6 h-6 flex justify-center items-center rounded-md">
+                                                    <span className="bg-accent-orange w-6 h-6 flex justify-center items-center rounded-md">
                                                         <FaRegUser className='text-white text-xs' />
                                                     </span>
                                                     <span className="text-white font-peyda">اطلاعات فردی</span>
@@ -61,8 +61,8 @@ const Profile = () => {
                                             leave='transition transition-[max-height] duration-500 ease-out'
                                             leaveFrom='transform max-h-screen'
                                             leaveTo='transform max-h-0'>
-                                            <Disclosure.Panel as="div" className="p-4 overflow-hidden">
-                                                <div className="flex flex-col gap-3">
+                                            <Disclosure.Panel as="div" className="overflow-hidden">
+                                                <div className="p-4 flex flex-col gap-3">
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">کد ملی</label>
                                                         <TextField mobileIcon={<MdOutlineBadge />} placeholder={t('enterNationalId')} />
@@ -187,7 +187,7 @@ const Profile = () => {
                                         <div className={`rounded-md duration-300 ease-in-out transition-background-color `}>
                                             <Disclosure.Button className="flex justify-between items-center p-4 w-full cursor-pointer">
                                                 <div className="flex items-center gap-3">
-                                                    <span className="bg-orange-500 w-6 h-6 flex justify-center items-center rounded-md">
+                                                    <span className="bg-accent-orange w-6 h-6 flex justify-center items-center rounded-md">
                                                         <FaPhoneVolume className='text-white text-xs' />
                                                     </span>
                                                     <span className="text-white font-peyda">اطلاعات تماس</span>
@@ -202,8 +202,8 @@ const Profile = () => {
                                             leave='transition transition-[max-height] duration-500 ease-out'
                                             leaveFrom='transform max-h-screen'
                                             leaveTo='transform max-h-0'>
-                                            <Disclosure.Panel as="div" className="p-4 overflow-hidden">
-                                                <div className="flex flex-col gap-3">
+                                            <Disclosure.Panel as="div" className="overflow-hidden">
+                                                <div className="p-4 flex flex-col gap-3">
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">{t('mobile')}</label>
                                                         <TextField mobileIcon={<CiMobile3 />} placeholder={t('enterMobile')} />

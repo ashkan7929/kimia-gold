@@ -6,6 +6,8 @@ export {FaArrowDown} from "react-icons/fa";
 export {FaArrowUp} from "react-icons/fa";
 export { LuMoveRight } from "react-icons/lu";
 export { LuMoveLeft } from "react-icons/lu";
+export { FaArrowLeftLong } from "react-icons/fa6";
+export { FaArrowDownLong } from "react-icons/fa6";
 
 export { PiUsersThreeBold } from "react-icons/pi";
 export { TbLayoutGrid } from "react-icons/tb";
@@ -31,3 +33,8 @@ export { BiSolidMapPin } from "react-icons/bi";
 
 export { MdOutlineCopyAll } from "react-icons/md";
 export { FaMinus } from "react-icons/fa";
+export { GoArrowUpRight } from "react-icons/go";
+export { GoArrowDownLeft } from "react-icons/go";
+export { BiTransferAlt } from "react-icons/bi";
+export { MdAddCard } from "react-icons/md";
+export { IoClose } from "react-icons/io5";
