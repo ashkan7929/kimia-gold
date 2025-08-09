@@ -10,6 +10,7 @@ import OTPInput from "../../components/Inputs/Otp";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AxiosError } from 'axios';
 
 const RegisterType = {
     'None': 0,
