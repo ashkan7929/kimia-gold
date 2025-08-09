@@ -54,7 +54,8 @@ const Home = () => {
                         <img alt='' src='/images/Hand, Arm, Coins.svg' />
                         <Typography className='!font-alibaba text-neutral-300 text-center' fontSize={10}>{'دریافت خدمات'}</Typography>
                     </div>
-                    <div className='bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg'>
+                    
+                    <div className='bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg' onClick={() => navigate('/buy')}>
                         <img alt='' src='/images/moneybag-modern-coins.svg' />
                         <Typography className='!font-alibaba text-neutral-300 text-center' fontSize={10}>{'فروش محصول طلا'}</Typography>
                     </div>
