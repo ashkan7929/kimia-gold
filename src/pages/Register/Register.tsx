@@ -111,7 +111,7 @@ const Register = () => {
                     </form>
 
                     {/* Sign Up Link */}
-                    <div className='flex gap-2'>
+                    <div className='flex gap-2 justify-center items-center'>
                         <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} className='text-neutral-300'>{t('haveAccount')}</Typography>
                         <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} component={Link} href='/login' sx={{ color: "white", textDecoration: 'none' }}>{t('login')}</Typography>
                     </div>

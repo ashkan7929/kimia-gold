@@ -8,6 +8,8 @@ import { CiMobile3 } from '../../Icons';
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import OTPInput from "../../components/Inputs/Otp";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterType = {
     'None': 0,
@@ -49,8 +51,29 @@ const Login = () => {
                 }
             }
         } catch (err) {
-            console.error(err);
+            const error = err as AxiosError<any>;
+
+            if (error.code === "ERR_NETWORK") {
+                toast.error("ارتباط با سرور برقرار نشد. لطفا دوباره تلاش کنید.", {
+                    style: { background: "rgb(34 86 255)", color: "#fff" }
+                });
+                return;
+            }
+
+            const backendData = error.response?.data;
+
+            if (backendData?.code === "USER_NOT_FOUND") {
+                toast.error("برای ورود، ابتدا لازم است ثبت‌نام کنید");
+                navigate("/register");
+            } else if (backendData?.errors?.phone) {
+                toast.error(backendData.errors.phone);
+            } else if (backendData?.message) {
+                toast.error(backendData.message);
+            } else {
+                toast.error("خطای ناشناخته رخ داد.");
+            }
         }
+            
     }
 
     return (
@@ -73,7 +96,7 @@ const Login = () => {
                         <OTPInput onChange={handleOtpCode} length={6} />
                     </>}
                     <Button className="w-full text-white bg-primary-blue hover:bg-blue-600">{t('loginToAccount')}</Button>
-                    <div className='flex gap-2'>
+                    <div className='flex gap-2  justify-center items-center'>
                         <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} className='text-neutral-300'>{t('noAccount')}</Typography>
                         <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} component={Link} href='/register' sx={{ color: "white", textDecoration: 'none' }}>{t('signUp')}</Typography>
                     </div>
