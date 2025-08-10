@@ -10,6 +10,9 @@ import OTPInput from "../../components/Inputs/Otp";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { checkCodeMeli } from './utils/checkCodeMeli';
+
+
 const RegisterType = {
     'None': 0,
     'Verify': 1,
@@ -26,7 +29,6 @@ const Register = () => {
     const [nationalId, setNationalId] = useState<string>()
     const [accept, setAccept] = useState<boolean>(false)
     const [otpCode, setOtpCode] = useState<string>()
-
     // const handleStep = (event: ChangeEvent<HTMLInputElement>) => setStep()
     const handleNationalId = (event: ChangeEvent<HTMLInputElement>) => setNationalId(event.target.value)
     const handlePhoneNumber = (event: ChangeEvent<HTMLInputElement>) => setPhoneNumber(event.target.value)
