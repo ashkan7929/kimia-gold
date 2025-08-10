@@ -86,6 +86,7 @@ const Home = () => {
                         <div className="bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <img alt="" src="/images/moneybag-modern-coins.svg" />
                             <Typography
+                                onClick={() => navigate('/buy')}
                                 className="!font-alibaba text-neutral-300 text-center"
                                 fontSize={10}
                             >
@@ -220,7 +221,9 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="fixed bottom-0 right-0 w-full p-4.5">
+                <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[375px] mx-auto p-4.5">
+ 
+                {/* <div className="fixed bottom-0 right-0 w-full p-4.5"> */}
                     <div className="grid grid-cols-3 bg-primary-blue rounded-3xl">
                         <div className="w-full flex justify-center items-center">
                             <div

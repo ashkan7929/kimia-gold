@@ -9,7 +9,7 @@ import "../../statics/assets/lib/Swiper/swiper-bundle.min.css";
 
 const tabInfo = [
     {
-        title: "خرید"
+        title: "سرمایه‌گذاری در طلا"
     },
     {
         title: "فروش"
@@ -155,7 +155,7 @@ const Buy = () => {
                         <section>
                             <div className="bg-custom-bg-card p-4 rounded-lg flex flex-col gap-2.5">
                                 <Typography className='text-white !font-peyda text-start py-1' fontWeight={600} fontSize={12}>
-                                    لیست درخواستهای خرید و فروش
+                                    لیست درخواست‌های سرمایه‌گذاری طلا
                                 </Typography>
                                 <Disclosure as="div">
                                     {({ open }: { open: boolean }) => (
