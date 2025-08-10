@@ -1132,9 +1132,9 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>درباره ثروت کیمیا</div>
+                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>درباره باشگاه وِم </div>
                                         <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                                    برای کسب اطلاعات بیشتر در مورد باشگاه وِم کلیک کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -1237,7 +1237,7 @@ const MyCards = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>خروج از حساب کاربری</div>
                                         <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                                    برای خروج از حساب کاربری کلیک کنید
                                         </div>
                                     </div>
                                 </div>

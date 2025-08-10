@@ -744,8 +744,8 @@ const MessageBox = () => {
                                             </svg>
                                         </div>
                                         <div className="flex flex-col gap-1">
-                                            <div className="text-white text-xs font-bold" style={{ fontFamily: 'Alibaba' }}>درباره ثروت کیمیا</div>
-                                            <div className="text-gray-300 text-xs" style={{ color: '#CACACA' }}>در این بخش میتوانید قوانین و مقررات را مشاهده کنید.</div>
+                                            <div className="text-white text-xs font-bold" style={{ fontFamily: 'Alibaba' }}>درباره باشگاه وِم </div>
+                                            <div className="text-gray-300 text-xs" style={{ color: '#CACACA' }}>براس کسب اطلاعات بیشتر در مورد باشگاه وِم کلیک کنید</div>
                                         </div>
                                     </div>
                                     <div>
@@ -846,7 +846,7 @@ const MessageBox = () => {
                                         </div>
                                         <div className="flex flex-col gap-1">
                                             <div className="text-white text-xs font-bold" style={{ fontFamily: 'Alibaba' }}>خروج از حساب کاربری</div>
-                                            <div className="text-gray-300 text-xs" style={{ color: '#CACACA' }}>در این بخش میتوانید قوانین و مقررات را مشاهده کنید.</div>
+                                            <div className="text-gray-300 text-xs" style={{ color: '#CACACA' }}>برای خروج از حساب کاربری کلیک کنید</div>
                                         </div>
                                     </div>
                                     <div>

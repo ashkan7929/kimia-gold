@@ -2,16 +2,10 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 const tabInfo = [
     {
-        title: "قوانین مربوط به خرید طلا"
+        title: "قوانین مربوط به سرمایه‌گذاری طلا"
     },
     {
-        title: "قوانین مربوط به فروش طلا"
-    },
-    {
-        title: "قوانین سرمایه گذاری"
-    },
-    {
-        title: "قوانین مربوط به خرید طلا"
+        title: "قوانین مربوط به اپلیکیشن"
     },
 ]
 const Rules = () => {

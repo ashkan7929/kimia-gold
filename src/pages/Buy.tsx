@@ -299,7 +299,7 @@ const Buy = () => {
                                                     aria-expanded="true"
                                                     aria-controls="collapseOne"
                                                 >
-                                                    آیا خرید طلا از کیمیا مطمئن است؟ و چگونگی خرید از این
+                                                    آیا خرید طلا از باشگاه وِم مطمئن است؟ و چگونگی خرید از این
                                                     صرافی
                                                 </button>
                                             </h2>
@@ -310,7 +310,6 @@ const Buy = () => {
                                             >
                                                 <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-kalameh text-sm leading-relaxed">
                                                     محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در ثبت
-                                                    سفارش‌ها. اپلیکیشن ولت‌بانک برای همه
                                                 </div>
                                             </div>
                                         </div>
@@ -324,7 +323,7 @@ const Buy = () => {
                                                     aria-expanded="false"
                                                     aria-controls="collapseTwo"
                                                 >
-                                                    آیا خرید طلا از کیمیا مطمئن است؟ و چگونگی خرید از این
+                                                    آیا خرید طلا از باشگاه وِم مطمئن است؟ و چگونگی خرید از این
                                                     صرافی
                                                 </button>
                                             </h2>
@@ -335,7 +334,7 @@ const Buy = () => {
                                             >
                                                 <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-kalameh text-sm leading-relaxed">
                                                     محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در ثبت
-                                                    سفارش‌ها. اپلیکیشن ولت‌بانک برای همه
+                                                    سفارش‌ها. 
                                                 </div>
                                             </div>
                                         </div>
@@ -478,7 +477,7 @@ const Buy = () => {
                                         />
                                     </svg>
                                 </span>
-                                همه تراکنش ها
+                                همه تراکنش‌ها
                             </button>
                         </nav>
                     </div>
@@ -597,7 +596,7 @@ const Buy = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="font-kalameh text-sm font-medium text-white">اطلاعات کاربری</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید اطلاعات کاربری را ویرایش کنید.
+                                            در این بخش می‌توانید اطلاعات کاربری را ویرایش کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -684,7 +683,7 @@ const Buy = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="font-kalameh text-sm font-medium text-white">قوانین و مقررات</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                            در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -732,9 +731,9 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">صندوق پیام ها</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">صندوق پیام‌ها</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                            در این بخش می‌توانید آخرین پیام‌های خود را مشاهده کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -817,7 +816,7 @@ const Buy = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="font-kalameh text-sm font-medium text-white">دعوت از دوستان</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                            از این بخش می‌توانید دوستان خود را به اپلیکیشن دعوت کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -914,7 +913,7 @@ const Buy = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="font-kalameh text-sm font-medium text-white">نظرات و پیشنهادات</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                            در این بخش می‌توانید نظرات خود را با ما به اشتراک بگذارید.
                                         </div>
                                     </div>
                                 </div>
@@ -1001,9 +1000,9 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">گزارشات ریز تراکنش ها</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">گزارشات ریز تراکنش‌ها</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                            در این بخش می‌توانید تراکنش‌ها را با جزئیات مشاهده کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -1060,7 +1059,7 @@ const Buy = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="font-kalameh text-sm font-medium text-white">تنظیمات</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                            در این بخش می‌توانید تنظیمات را مشاهده کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -1115,9 +1114,9 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">درباره ثروت کیمیا</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">درباره باشگاه وِم</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                            در این بخش می‌توانید ما را بهتر بشناسید.
                                         </div>
                                     </div>
                                 </div>
@@ -1220,7 +1219,7 @@ const Buy = () => {
                                     <div className="flex flex-col gap-1">
                                         <div className="font-kalameh text-sm font-medium text-white">خروج از حساب کاربری</div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
+                                                برای خروج از حساب کاربری کلیک کنید
                                         </div>
                                     </div>
                                 </div>

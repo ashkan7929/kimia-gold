@@ -166,7 +166,7 @@ const Buy = () => {
                                                         <div className="flex items-center justify-between gap-5 w-full">
                                                             <div className="flex items-center gap-2">
                                                                 <Typography className='text-white !font-peyda text-start' fontSize={11}>
-                                                                    آیا خرید طلا از کیمیا مطمعن است؟ و چگونگی خرید از این صرافی
+                                                                    آیا خرید طلا از وِم مطمعن است؟ و چگونگی خرید از این صرافی
                                                                 </Typography>
                                                             </div>
                                                             <div className="flex items-center gap-2">
@@ -202,7 +202,7 @@ const Buy = () => {
                                                         <div className="flex items-center justify-between gap-5 w-full">
                                                             <div className="flex items-center gap-2">
                                                                 <Typography className='text-white !font-peyda text-start' fontSize={11}>
-                                                                    آیا خرید طلا از کیمیا مطمعن است؟ و چگونگی خرید از این صرافی
+                                                                        آیا باشگاه وِم معتبر است؟
                                                                 </Typography>
                                                             </div>
                                                             <div className="flex items-center gap-2">

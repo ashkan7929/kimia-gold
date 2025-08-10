@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { CiMobile3, MdOutlineBadge, FaRegUser, CiCalendarDate } from '../../Icons';
+import { CiMobile3, MdOutlineBadge, FaRegUser } from '../../Icons';
 import TextField from "../../components/Inputs/TextField";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
@@ -50,7 +50,7 @@ const Register = () => {
                     birthDate: birthday.replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))),
                     referralCode: referCode,
                 }
-                console.log(data);
+                // console.log(data);
                 
                 // const res = await axios.post("http://62.3.41.64:5016/api/auth/register", data);
                 // if (res.data) {
@@ -65,7 +65,7 @@ const Register = () => {
                     purpose: RegisterType.Verify,
                 }
                 const res = await axios.post("http://62.3.41.64:5016/api/auth/verify-otp", data);
-
+                 console.log(res)
                 if (res.data) {
                     navigate("/home")
                 }
