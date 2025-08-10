@@ -7,6 +7,7 @@ import Button from '../../components/Button/Button';
 
 const Profile = () => {
     const { t } = useTranslation();
+    const userData = JSON.parse(localStorage.getItem("user-data")||"")
 
     return (
         <>
@@ -29,10 +30,10 @@ const Profile = () => {
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <Typography className='text-white !font-alibaba !font-bold !text-4xl-custom'>حجت بندانی</Typography>
+                                        <Typography className='text-white !font-alibaba !font-bold !text-4xl-custom'>{userData?.firstName + " " + userData?.lastName}</Typography>
                                         <div className="flex items-center gap-1 ">
                                             <CiMobile3 className='text-white' />
-                                            <Typography className='text-white !font-peyda !text-4xl-custom'>0938774563</Typography>
+                                            <Typography className='text-white !font-peyda !text-4xl-custom'>{userData?.username}</Typography>
                                         </div>
                                     </div>
                                 </div>
@@ -65,27 +66,27 @@ const Profile = () => {
                                                 <div className="p-4 flex flex-col gap-3">
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">کد ملی</label>
-                                                        <TextField mobileIcon={<MdOutlineBadge />} placeholder={t('enterNationalId')} />
+                                                        <TextField disabled defaultValue={userData?.username} mobileIcon={<MdOutlineBadge />} placeholder={t('enterNationalId')} />
                                                     </div>
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">تاریخ تولد</label>
                                                         <div className="relative">
-                                                            <TextField mobileIcon={<CiCalendarDate />} placeholder={t('enterBirthday')} />
+                                                            <TextField disabled mobileIcon={<CiCalendarDate />} placeholder={t('enterBirthday')} />
                                                         </div>
                                                     </div>
-                                                    <div>
+                                                    {/* <div>
                                                         <Button className='bg-primary-blue text-white rounded-md hover:bg-blue-600 w-full'>{t('searchRegistryOffice')}</Button>
-                                                    </div>
+                                                    </div> */}
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda"> نام </label>
                                                         <div className="relative">
-                                                            <TextField mobileIcon={<FaRegUser />} placeholder={t('enterName')} />
+                                                            <TextField disabled defaultValue={userData?.firstName} mobileIcon={<FaRegUser />} placeholder={t('enterName')} />
                                                         </div>
                                                     </div>
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda"> نام خانوادگی </label>
                                                         <div className="relative">
-                                                            <TextField mobileIcon={<FaRegUser />} placeholder={t('enterLastName')} />
+                                                            <TextField disabled defaultValue={userData?.lastName} mobileIcon={<FaRegUser />} placeholder={t('enterLastName')} />
                                                         </div>
                                                     </div>
                                                     <div className='flex justify-between items-center gap-6'>
@@ -98,6 +99,7 @@ const Profile = () => {
                                                                     name="gender"
                                                                     defaultChecked={true}
                                                                     className="hidden"
+                                                                    disabled
                                                                 />
                                                                 <label htmlFor="gender_man" className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] bg-primary-blue cursor-pointer">
                                                                     <span className="text-white">
@@ -206,12 +208,12 @@ const Profile = () => {
                                                 <div className="p-4 flex flex-col gap-3">
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">{t('mobile')}</label>
-                                                        <TextField mobileIcon={<CiMobile3 />} placeholder={t('enterMobile')} />
+                                                        <TextField disabled defaultValue={userData?.phoneNumber} mobileIcon={<CiMobile3 />} placeholder={t('enterMobile')} />
                                                     </div>
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">{t('email')}</label>
                                                         <div className="relative">
-                                                            <TextField mobileIcon={<IoMailOutline />} placeholder={t('enterEmail')} />
+                                                            <TextField disabled defaultValue={userData?.email} mobileIcon={<IoMailOutline />} placeholder={t('enterEmail')} />
                                                         </div>
                                                     </div>
                                                     {/* <div>
@@ -220,13 +222,13 @@ const Profile = () => {
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">{t('address')}</label>
                                                         <div className="relative">
-                                                            <TextField mobileIcon={<BiSolidMapPin />} placeholder={t('enterAddress')} />
+                                                            <TextField disabled mobileIcon={<BiSolidMapPin />} placeholder={t('enterAddress')} />
                                                         </div>
                                                     </div>
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">{t('postalCode')}</label>
                                                         <div className="relative">
-                                                            <TextField mobileIcon={<RiRoadMapLine />} placeholder={t('enterPostalCode')} />
+                                                            <TextField disabled mobileIcon={<RiRoadMapLine />} placeholder={t('enterPostalCode')} />
                                                         </div>
                                                     </div>
                                                     {/* <div className='flex justify-between items-center gap-6'>

@@ -11,6 +11,8 @@ export interface TextFieldProps {
     mobileIcon?: React.ReactNode;
     className?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    defaultValue?: string;
+    disabled?: boolean;
 }
 
 export interface CheckboxProps {

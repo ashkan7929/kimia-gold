@@ -1,6 +1,6 @@
 const Starter = () => {
     return (
-        <div className="w-full max-w-[375px] mx-auto bg-primary-purple min-h-screen flex flex-col">
+        <div className="w-full mx-auto bg-primary-purple min-h-screen flex flex-col">
             <main className="px-4 flex-grow flex items-center justify-center" style={{
                 backgroundImage: "url('./assets/images/Lines-pattern-starters.png')",
                 backgroundSize: 'cover',

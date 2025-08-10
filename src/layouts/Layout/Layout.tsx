@@ -56,7 +56,7 @@ const menu = [
         icon: FaRegUser,
         title: 'خروج از حساب کاربری',
         subtitle: 'در این بخش میتوانید قوانین و مقررات را مشاهده کنید.',
-        link: '/login',
+        link: '/',
     },
 ];
 

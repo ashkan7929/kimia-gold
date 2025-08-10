@@ -2,7 +2,7 @@
 const MyCards = () => {
     return (
         <>
-            <div className="w-full max-w-[375px] mx-auto bg-[#040320] min-h-screen flex flex-col" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="w-full mx-auto bg-[#040320] min-h-screen flex flex-col" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <header className="px-4">
                     <nav className="mt-4 mb-4 flex h-[3.375rem] px-[0.9375rem] justify-between items-center bg-[#010048] rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
                         <div className="flex gap-1">

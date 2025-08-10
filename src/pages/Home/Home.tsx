@@ -25,13 +25,14 @@ const rows = [
 const Home = () => {
     // const { t } = useTranslation();
     const navigate = useNavigate()
+    const userData = JSON.parse(localStorage.getItem("user-data")||"")
 
     return (<>
         <div className="">
             <div className='flex flex-col gap-3 items-center pb-25'>
                 <div className='bg-primary-darker flex gap-1 w-full p-3 rounded-lg'>
                     <div className='flex flex-col gap-1'>
-                        <Typography className='!font-alibaba text-white' fontSize={13}><strong>حجت بندانی</strong> خوش امدید</Typography>
+                        <Typography className='!font-alibaba text-white' fontSize={13}><strong>{userData?.firstName + " " + userData?.lastName}</strong> خوش امدید</Typography>
                         <Typography className='!font-alibaba text-neutral-300' fontSize={11}>{'به اپلیکیشن کیمیا گری خوش امدید میتوانید خدمات خود را انتخاب کنید'}</Typography>
                     </div>
                     <div>

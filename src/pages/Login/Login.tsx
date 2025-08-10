@@ -8,6 +8,7 @@ import { CiMobile3 } from '../../Icons';
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import OTPInput from "../../components/Inputs/Otp";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const RegisterType = {
     'None': 0,
@@ -20,19 +21,22 @@ const Login = () => {
     const [step, setStep] = useState<number>(RegisterType.None)
     const [phoneNumber, setPhoneNumber] = useState<string>()
     const [otpCode, setOtpCode] = useState<string>()
+    const [error, setError] = useState<any>()
+    const [loading, setLoading] = useState<boolean>(false)
 
     const handlePhoneNumber = (event: ChangeEvent<HTMLInputElement>) => setPhoneNumber(event.target.value)
     const handleOtpCode = (value: string) => setOtpCode(value)
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setLoading(true)
         try {
             if (step == RegisterType.None) {
                 const data = {
                     mobileNumber: phoneNumber,
                     purpose: RegisterType.Verify,
                 }
-                await axios.post("http://localhost:5016/api/auth/send-otp", data);
+                await axios.post("http://62.3.41.64:5016/api/auth/send-otp", data);
                 setStep(RegisterType.Verify)
             }
             else if (step == RegisterType.Verify) {
@@ -41,16 +45,22 @@ const Login = () => {
                     otpCode: otpCode,
                     purpose: RegisterType.Verify,
                 }
-                const res = await axios.post("http://localhost:5016/api/auth/login-with-otp", data);
+                const res = await axios.post("http://62.3.41.64:5016/api/auth/login-with-otp", data);
 
                 if (res.data) {
-                    localStorage.setItem("user-data", res.data);
+                    localStorage.setItem("user-data", JSON.stringify(res.data));
                     navigate("/home")
                 }
             }
-        } catch (err) {
+        } catch (err: any) {
             console.error(err);
+            setError(err?.response?.data)
         }
+        setLoading(false)
+    }
+
+    if (loading) {
+        return <Loading />
     }
 
     return (
@@ -72,6 +82,10 @@ const Login = () => {
                     {step == RegisterType.Verify && <>
                         <OTPInput onChange={handleOtpCode} length={6} />
                     </>}
+                    {error && <Typography className="text-red-300" fontFamily={'Alibaba, sans-serif'} fontWeight={'bold'} fontSize={11}>
+                        {error?.[0]}
+                    </Typography>}
+
                     <Button className="w-full text-white bg-primary-blue hover:bg-blue-600">{t('loginToAccount')}</Button>
                     <div className='flex gap-2'>
                         <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} className='text-neutral-300'>{t('noAccount')}</Typography>
