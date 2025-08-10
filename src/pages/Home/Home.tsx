@@ -63,6 +63,7 @@ const Home = () => {
                         <img alt='' src='/images/coins-document-chart.svg' />
                         <Typography className='!font-alibaba text-neutral-300 text-center' fontSize={10}>{'بینش بازار'}</Typography>
                     </div>
+                    
                 </div>
                 <div className='bg-primary-darker w-full rounded-lg py-2.5 px-3'>
                     <div className='odd:bg-primary-dark grid grid-cols-9 w-full'>
