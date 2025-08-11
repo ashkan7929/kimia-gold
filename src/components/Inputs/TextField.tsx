@@ -8,6 +8,7 @@ const TextField = ({
     defaultValue,
     disabled,
     inputMode,
+    maxLength,
     variant,
 }: TextFieldProps) => {
     const mode = variant === 'number' ? 'numeric' : inputMode;
@@ -18,22 +19,23 @@ const TextField = ({
                     {mobileIcon}
                 </div>
                 <input
-                    dir='rtl'
+                    dir="rtl"
                     defaultValue={defaultValue}
                     disabled={disabled}
                     type={variant}
+                     maxLength={maxLength}
                     {...(variant === 'number' && {
-    pattern: '[0-9]*',
-    onInput: (e: React.FormEvent<HTMLInputElement>) => {
-      e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
-    }
-  })}
-  {...(variant === 'tel' && {
-    pattern: '[0-9+ ]*',
-    onInput: (e: React.FormEvent<HTMLInputElement>) => {
-      e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+ ]/g, '');
-    }})}
-                   
+                        pattern: '[0-9]*',
+                        onInput: (e: React.FormEvent<HTMLInputElement>) => {
+                            e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                        },
+                    })}
+                    {...(variant === 'tel' && {
+                        pattern: '[0-9+ ]*',
+                        onInput: (e: React.FormEvent<HTMLInputElement>) => {
+                            e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+ ]/g, '');
+                        },
+                    })}
                     onChange={onChange}
                     inputMode={mode}
                     className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input border border-custom-border-light rounded-lg text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"

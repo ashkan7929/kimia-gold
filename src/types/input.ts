@@ -15,6 +15,7 @@ export interface TextFieldProps {
     disabled?: boolean;
     inputMode?: "search" | "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined;
     variant?: 'number' | 'text' | 'tel';
+    maxLength?: number
 }
 
 export interface CheckboxProps {
