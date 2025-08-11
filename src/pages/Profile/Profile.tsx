@@ -71,7 +71,7 @@ const Profile = () => {
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">تاریخ تولد</label>
                                                         <div className="relative">
-                                                            <TextField disabled mobileIcon={<CiCalendarDate />} placeholder={t('enterBirthday')} />
+                                                            <TextField disabled defaultValue={userData?.userdate} mobileIcon={<CiCalendarDate />} placeholder={t('enterBirthday')} />
                                                         </div>
                                                     </div>
                                                     {/* <div>
