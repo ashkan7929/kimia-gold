@@ -48,7 +48,7 @@ const Rules = () => {
                                             <div className="text-white">
                                                 <section className="mb-6">
                                                     <div className="text-neutral-100 text-[10.8px] font-semibold leading-normal mb-3">
-                                                        1. قوانین عمومی تجارت الکترونیک
+                                                            این پلتفرم براساس قوانین دولت جمهوری اسلامی ایران فعالیت می‌کند و به فراخور محصولات مختلف که در حوزه فعالیت آن ارائه می‌گردد. مجوزهای لازم توسط ارائه‌دهندگان محصولات خدمات مختلف:
                                                     </div>
                                                     <p className="text-neutral-200 text-[9px] font-normal leading-[14.4px] mb-2">قانون تجارت الکترونیک (مصوب 1382):</p>
                                                     <ul className="list-disc pr-4 text-neutral-200 text-[9px] font-normal leading-[14.4px] space-y-1">

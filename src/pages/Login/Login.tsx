@@ -26,7 +26,6 @@ const Login = () => {
 
     const handlePhoneNumber = (event: ChangeEvent<HTMLInputElement>) => setPhoneNumber(event.target.value)
     const handleOtpCode = (value: string) => setOtpCode(value)
-
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setLoading(true)
@@ -53,7 +52,7 @@ const Login = () => {
                 }
             }
         } catch (err: any) {
-            console.error(err);
+            // console.error(err);
             setError(err?.response?.data)
         }
         setLoading(false)
@@ -77,7 +76,7 @@ const Login = () => {
                         <Typography className="text-neutral-300" fontFamily={'Peyda, sans-serif'} fontSize={13}>{t('enterMobileForLogin')}</Typography>
                     </div>
                     {step == RegisterType.None && <>
-                        <TextField onChange={handlePhoneNumber} mobileIcon={<CiMobile3 />} placeholder={t('enterMobile')} />
+                        <TextField onChange={handlePhoneNumber} variant="tel" inputMode="numeric" mobileIcon={<CiMobile3 />} placeholder={t('enterMobile')} />
                     </>}
                     {step == RegisterType.Verify && <>
                         <OTPInput onChange={handleOtpCode} length={6} />

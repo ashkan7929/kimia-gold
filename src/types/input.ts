@@ -13,6 +13,8 @@ export interface TextFieldProps {
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     defaultValue?: string;
     disabled?: boolean;
+    inputMode?: "search" | "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined;
+    variant?: 'number' | 'text' | 'tel';
 }
 
 export interface CheckboxProps {
