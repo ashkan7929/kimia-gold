@@ -184,7 +184,7 @@ const Register = () => {
                     </form>
 
                     {/* Sign Up Link */}
-                    <div className="flex gap-2 justify-center items-center">
+                    <div className="flex gap-2 justify-center items-center ">
                         <Typography
                             fontSize={13}
                             fontFamily={'Peyda, sans-serif'}
