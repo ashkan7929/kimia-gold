@@ -131,7 +131,7 @@ const Login = () => {
                     <Button className="w-full text-white bg-primary-blue hover:bg-blue-600">
                         {t('loginToAccount')}
                     </Button>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 justify-center items-center">
                         <Typography
                             fontSize={13}
                             fontFamily={'Peyda, sans-serif'}

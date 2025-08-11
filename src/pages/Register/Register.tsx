@@ -30,7 +30,6 @@ const Register = () => {
     const [otpCode, setOtpCode] = useState<string>();
     const [error, setError] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
-    const [message, setMessage] = useState<string>('');
 
     // const handleStep = (event: ChangeEvent<HTMLInputElement>) => setStep()
     const handleNationalId = (event: ChangeEvent<HTMLInputElement>) =>
@@ -125,11 +124,11 @@ const Register = () => {
                                     mobileIcon={<MdOutlineBadge />}
                                     placeholder={t('enterNationalId')}
                                 />
-                                {message && (
+                                {/* {message && (
                                     <Typography className="text-red-500" fontSize={12}>
                                         {message}
                                     </Typography>
-                                )}
+                                )} */}
 
                                 <TextField
                                     onChange={handlePhoneNumber}
@@ -185,7 +184,7 @@ const Register = () => {
                     </form>
 
                     {/* Sign Up Link */}
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 justify-center items-center">
                         <Typography
                             fontSize={13}
                             fontFamily={'Peyda, sans-serif'}

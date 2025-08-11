@@ -81,7 +81,7 @@ const Layout = ({ children }: { children: any }) => {
 
     return (
         <>
-            <div className="bg-black min-h-screen p-4.5">
+            <div className="bg-black min-h-screen p-4.5 ">
                 <header className="bg-primary-darker grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
                     <div className="flex gap-1">
                         <div

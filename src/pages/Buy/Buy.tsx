@@ -111,7 +111,7 @@ const Buy = () => {
                                             <label className="font-peyda text-xs text-white">مقدار طلا</label>
                                             <div>
                                                 <select className="w-full p-3 bg-transparent border border-custom-border-default rounded-lg font-peyda text-sm focus:outline-none focus:border-primary-blue !text-[10px]">
-                                                    <option value={1}>
+                                                    <option value={1} className="">
                                                         <Typography className='text-white !font-peyda' fontSize={10}>مقدار 1 گرم</Typography>
                                                     </option>
                                                 </select>
