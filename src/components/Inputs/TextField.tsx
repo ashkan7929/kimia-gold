@@ -12,6 +12,7 @@ const TextField = ({
     variant,
 }: TextFieldProps) => {
     const mode = variant === 'number' ? 'numeric' : inputMode;
+
     return (
         <div className={`${className} relative`}>
             <div className="flex items-center text-white rounded-xsm border-custom-border-light border">

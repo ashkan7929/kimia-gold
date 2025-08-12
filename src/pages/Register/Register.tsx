@@ -18,6 +18,7 @@ const RegisterType = {
 };
 
 const Register = () => {
+
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -30,6 +31,8 @@ const Register = () => {
     const [otpCode, setOtpCode] = useState<string>();
     const [error, setError] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
+    const [msg, setMsg] = useState('');
+    const [errorText, setErrorText] = useState<string>('');
 
     // const handleStep = (event: ChangeEvent<HTMLInputElement>) => setStep()
     const handleNationalId = (event: ChangeEvent<HTMLInputElement>) =>
@@ -43,43 +46,80 @@ const Register = () => {
         setAccept(checked);
     const handleOtpCode = (value: string) => setOtpCode(value);
 
+    const toEnDigits = (s = '') => s.replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)));
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        setError('');
+        setMsg('');
+
+        if (step === RegisterType.None) {
+            if (!nationalId || !phoneNumber || !birthday) {
+                setMsg('لطفاً تمام فیلدهای ضروری را پر کنید.');
+                return;
+            }
+        } else if (step === RegisterType.Verify) {
+            if (!otpCode || otpCode.trim().length < 6) {
+                setMsg('کد تأیید را به‌درستی وارد کنید.');
+                return;
+            } else {
+                setMsg('');
+            }
+        }
+
         setLoading(true);
         try {
             if (step == RegisterType.None) {
-                const data = {
-                    nationalCode: nationalId,
-                    mobileNumber: phoneNumber,
-                    birthDate: birthday.replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))),
-                    referralCode: referCode,
+                const data: any = {
+                    nationalCode: toEnDigits(nationalId!),
+                    mobileNumber: toEnDigits(phoneNumber!),
+                    birthDate: toEnDigits(birthday!),
                 };
-                console.log(data);
+                if (referCode) data.referralCode = referCode;
 
-                const res = await axios.post('http://62.3.41.64:5016/api/auth/register', data);
+                const res = await axios.post('http://62.3.41.64:5016/api/auth/register', data, {
+                    headers: { 'Content-Type': 'application/json' },
+                });
 
                 if (res.data) {
                     localStorage.setItem('user-data', JSON.stringify(res.data));
-                    console.log(res.data);
                 }
                 setStep(RegisterType.Verify);
             } else if (step == RegisterType.Verify) {
                 const data = {
-                    mobileNumber: phoneNumber,
-                    otpCode: otpCode,
+                    mobileNumber: toEnDigits(phoneNumber || ''),
+                    otpCode: toEnDigits(otpCode || ''),
                     purpose: RegisterType.Verify,
                 };
-                const res = await axios.post('http://62.3.41.64:5016/api/auth/verify-otp', data);
-                console.log(res.data);
+
+                const res = await axios.post('http://62.3.41.64:5016/api/auth/verify-otp', data, {
+                    headers: { 'Content-Type': 'application/json' },
+                });
+
                 if (res.data) {
                     navigate('/home');
                 }
             }
         } catch (err: any) {
             console.error(err);
-            setError(err?.response?.data);
+            const status = err?.response?.status as number | undefined;
+            const response = err?.response?.data;
+
+            let serverMsg = '';
+            if (typeof response === 'string') serverMsg = response;
+            else if (Array.isArray(response)) serverMsg = String(response[0] ?? '');
+            else if (response?.message) serverMsg = String(response.message);
+            if (
+                status === 400 ||
+                (typeof serverMsg === 'string' && serverMsg.includes('نام کاربری قبلا ثبت شده است'))
+            ) {
+                serverMsg = 'حساب کاربری شما قبلاً ایجاد شده، لطفاً وارد شوید.';
+            }
+            setErrorText(serverMsg || 'اطلاعات به‌درستی وارد نشده، لطفاً دوباره تلاش کنید.');
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
     };
 
     if (loading) {
@@ -116,7 +156,7 @@ const Register = () => {
                     </div>
 
                     {/* Form Fields */}
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                    <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-3">
                         {step == RegisterType.None && (
                             <>
                                 <TextField
@@ -159,7 +199,7 @@ const Register = () => {
                                 <OTPInput onChange={handleOtpCode} length={6} />
                             </>
                         )}
-
+                        {/* 
                         {error && (
                             <Typography
                                 className="text-red-300"
@@ -168,11 +208,35 @@ const Register = () => {
                                 fontSize={11}
                             >
                                 {error?.[0]}
+                            </Typography> */}
+
+                        {Boolean(errorText) && (
+                            <Typography
+                                dir="rtl"
+                                className="text-red-500"
+                                fontFamily="Alibaba, sans-serif"
+                                fontWeight="bold"
+                                marginBottom="1rem"
+                                fontSize={11}
+                            >
+                                {errorText}
                             </Typography>
                         )}
 
                         {/* Submit Button */}
                         <div>
+                            {(msg || error) && (
+                                <Typography
+                                    className="text-red-500"
+                                    fontFamily="Alibaba, sans-serif"
+                                    fontWeight="bold"
+                                    marginBottom="1rem"
+                                    fontSize={11}
+                                >
+                                    {msg || error}
+                                </Typography>
+                            )}
+
                             <Button
                                 disabled={!accept}
                                 type="submit"
