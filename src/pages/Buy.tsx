@@ -11,7 +11,7 @@ const Buy = () => {
 
 const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
   const v = e.currentTarget.value;    
-  setWeight(v === '' ? 0 : Number(v));  
+  setWeight(Number(v));  
 };
 
 // const price = useMemo(() => weight * goldRate, [weight, goldRate]);
@@ -224,18 +224,18 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                                 <div className="flex flex-col gap-2">
                                                     <label className="font-kalameh text-sm text-white">مقدار طلا</label>
                                                     <div>
-                                                        <select id="weight" value={weight || ""} onChange={handleWeight} className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm focus:outline-none focus:border-primary-blue">
+                                                        <select id="weight" value={weight === 0 ? '' : weight} onChange={handleWeight} className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm focus:outline-none focus:border-primary-blue">
                                                             <option value="" disabled>انتخاب کنید</option>
-                                                            <option value="1">مقدار 1 گرم</option>
-                                                            <option value="2">مقدار 2 گرم</option>
-                                                            <option value="3">مقدار 3 گرم</option>
-                                                             <option value="4">مقدار 4 گرم</option>
-                                                             <option value="5">مقدار 5 گرم</option>
-                                                             <option value="6">مقدار 6 گرم</option>
-                                                            <option value="7">مقدار 7 گرم</option>
-                                                            <option value="8">مقدار 8 گرم</option>
-                                                             <option value="9">مقدار 9 گرم</option>
-                                                             <option value="10">مقدار 10 گرم</option>         
+                                                            <option value={1}>مقدار 1 گرم</option>
+                                                            <option value={2}>مقدار 2 گرم</option>
+                                                            <option value={3}>مقدار 3 گرم</option>
+                                                             <option value={4}>مقدار 4 گرم</option>
+                                                             <option value={5}>مقدار 5 گرم</option>
+                                                             <option value={6}>مقدار 6 گرم</option>
+                                                            <option value={7}>مقدار 7 گرم</option>
+                                                            <option value={8}>مقدار 8 گرم</option>
+                                                             <option value={9}>مقدار 9 گرم</option>
+                                                             <option value={10}>مقدار 10 گرم</option>         
                                                         </select>
                                                     </div>
                                                 </div>
