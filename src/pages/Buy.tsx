@@ -1,7 +1,23 @@
+import { useState } from "react";
+
 
 import "../statics/assets/lib/Swiper/swiper-bundle.min.css";
 import "../fonts.css";
+
+const goldRate = Number("7496400"); 
+
 const Buy = () => {
+  const [weight, setWeight] = useState<number>(0);
+
+const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+  const v = e.currentTarget.value;    
+  setWeight(v === '' ? 0 : Number(v));  
+};
+
+// const price = useMemo(() => weight * goldRate, [weight, goldRate]);
+ const price = weight * goldRate;
+
+
     return (
         <>
             <div className="min-h-screen bg-primary font-peyda text-white">
@@ -208,8 +224,18 @@ const Buy = () => {
                                                 <div className="flex flex-col gap-2">
                                                     <label className="font-kalameh text-sm text-white">مقدار طلا</label>
                                                     <div>
-                                                        <select className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm focus:outline-none focus:border-primary-blue">
-                                                            <option value={1}>مقدار 1 گرم</option>
+                                                        <select id="weight" value={weight || ""} onChange={handleWeight} className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm focus:outline-none focus:border-primary-blue">
+                                                            <option value="" disabled>انتخاب کنید</option>
+                                                            <option value="1">مقدار 1 گرم</option>
+                                                            <option value="2">مقدار 2 گرم</option>
+                                                            <option value="3">مقدار 3 گرم</option>
+                                                             <option value="4">مقدار 4 گرم</option>
+                                                             <option value="5">مقدار 5 گرم</option>
+                                                             <option value="6">مقدار 6 گرم</option>
+                                                            <option value="7">مقدار 7 گرم</option>
+                                                            <option value="8">مقدار 8 گرم</option>
+                                                             <option value="9">مقدار 9 گرم</option>
+                                                             <option value="10">مقدار 10 گرم</option>         
                                                         </select>
                                                     </div>
                                                 </div>
@@ -251,6 +277,7 @@ const Buy = () => {
                                                             className="w-full p-3 pl-12 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                                                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                                                         />
+                                                        {price ? price.toLocaleString("fa-IR") : "—"}
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-2 mt-3">
                                                         <button type="button" className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue">
