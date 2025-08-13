@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import DateField from '../../components/Inputs/Datepiker';
+import ValidNationalCode from '../../utils/index';
 
 const RegisterType = {
     None: 0,
@@ -18,7 +19,6 @@ const RegisterType = {
 };
 
 const Register = () => {
-
     const { t } = useTranslation();
     const navigate = useNavigate();
 
@@ -26,17 +26,18 @@ const Register = () => {
     const [phoneNumber, setPhoneNumber] = useState<string>();
     const [birthday, setBirthday] = useState<string>('');
     const [referCode, setReferCode] = useState<string>();
-    const [nationalId, setNationalId] = useState<string>();
+    const [nationalId, setNationalId] = useState<string>('');
+
+    const [nationalIdEror, setNationalIdEror] = useState<string>('');
+
     const [accept, setAccept] = useState<boolean>(false);
     const [otpCode, setOtpCode] = useState<string>();
     const [error, setError] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
     const [msg, setMsg] = useState('');
-    const [errorText, setErrorText] = useState<string>('');
 
     // const handleStep = (event: ChangeEvent<HTMLInputElement>) => setStep()
-    const handleNationalId = (event: ChangeEvent<HTMLInputElement>) =>
-        setNationalId(event.target.value);
+
     const handlePhoneNumber = (event: ChangeEvent<HTMLInputElement>) =>
         setPhoneNumber(event.target.value);
     const handleBirthday = (event: string) => setBirthday(event);
@@ -47,6 +48,19 @@ const Register = () => {
     const handleOtpCode = (value: string) => setOtpCode(value);
 
     const toEnDigits = (s = '') => s.replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)));
+
+    const handleNationalId = (event: ChangeEvent<HTMLInputElement>) => {
+        const raw = event.target.value || '';
+        const sanitizedCode  = toEnDigits(raw).replace(/\D/g, '').slice(0, 10);
+        setNationalId(sanitizedCode);
+
+        if (sanitizedCode.length === 10) {
+            setNationalIdEror(ValidNationalCode(sanitizedCode) ? '' : 'کد ملی معتبر نیست .');
+        } else {
+            setNationalIdEror(sanitizedCode ? 'کد ملی باید ۱۰ رقم باشد.' : '');
+        }
+        setNationalId(event.target.value);
+    };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -102,23 +116,9 @@ const Register = () => {
             }
         } catch (err: any) {
             console.error(err);
-            const status = err?.response?.status as number | undefined;
-            const response = err?.response?.data;
-
-            let serverMsg = '';
-            if (typeof response === 'string') serverMsg = response;
-            else if (Array.isArray(response)) serverMsg = String(response[0] ?? '');
-            else if (response?.message) serverMsg = String(response.message);
-            if (
-                status === 400 ||
-                (typeof serverMsg === 'string' && serverMsg.includes('نام کاربری قبلا ثبت شده است'))
-            ) {
-                serverMsg = 'حساب کاربری شما قبلاً ایجاد شده، لطفاً وارد شوید.';
-            }
-            setErrorText(serverMsg || 'اطلاعات به‌درستی وارد نشده، لطفاً دوباره تلاش کنید.');
-        } finally {
-            setLoading(false);
+            setError(err?.response?.data);
         }
+        setLoading(false);
     };
 
     if (loading) {
@@ -162,12 +162,14 @@ const Register = () => {
                                     onChange={handleNationalId}
                                     mobileIcon={<MdOutlineBadge />}
                                     placeholder={t('enterNationalId')}
+                                    inputMode="numeric"
                                 />
-                                {/* {message && (
+
+                                {nationalIdEror && (
                                     <Typography className="text-red-500" fontSize={12}>
-                                        {message}
+                                        {nationalIdEror}
                                     </Typography>
-                                )} */}
+                                )}
 
                                 <TextField
                                     onChange={handlePhoneNumber}
@@ -198,31 +200,7 @@ const Register = () => {
                                 <OTPInput onChange={handleOtpCode} length={6} />
                             </>
                         )}
-                        {/* 
-                        {error && (
-                            <Typography
-                                className="text-red-300"
-                                fontFamily={'Alibaba, sans-serif'}
-                                fontWeight={'bold'}
-                                fontSize={11}
-                            >
-                                {error?.[0]}
-                            </Typography> */}
 
-                        {Boolean(errorText) && (
-                            <Typography
-                                dir="rtl"
-                                className="text-red-500"
-                                fontFamily="Alibaba, sans-serif"
-                                fontWeight="bold"
-                                marginBottom="1rem"
-                                fontSize={11}
-                            >
-                                {errorText}
-                            </Typography>
-                        )}
-
-                        {/* Submit Button */}
                         <div>
                             {(msg || error) && (
                                 <Typography

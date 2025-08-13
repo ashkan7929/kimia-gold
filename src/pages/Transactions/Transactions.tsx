@@ -69,10 +69,10 @@ const Transactions = () => {
                     </div>
                     <div className='flex flex-col gap-1 items-end'>
                         <div className='flex gap-1 items-center'>
-                            <Typography className='!font-peyda text-white' fontWeight='bold' fontSize={12}>2,566,890</Typography>
+                            <Typography className='font-peyda text-white' fontWeight='bold' fontSize={12}>2,566,890</Typography>
                             <img alt='' src='/images/toman.svg' width={10} height={10} />
                         </div>
-                        <Typography className='!font-peyda text-green-500 bg-green-500/30 w-fit py-0.5 px-2.5 rounded-xl' fontSize={9}>موفق</Typography>
+                        <Typography className='font-peyda text-green-500 bg-green-500/30 w-fit py-0.5 px-2.5 rounded-xl' fontSize={9}>موفق</Typography>
                     </div>
                 </div>)}
             </div>

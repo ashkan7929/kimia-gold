@@ -8,35 +8,13 @@ const Settings = () => {
                     <div className="flex flex-col gap-3">
                         <div className="bg-custom-bg-card rounded-lg">
                             <div className="p-4 flex flex-col gap-4">
-                                <Typography className="!font-alibaba text-white" fontWeight='bold' fontSize={15}>مدیریت پیام ها</Typography>
+                                <Typography className="font-alibaba text-white" fontWeight='bold' fontSize={15}>مدیریت پیام‌ها</Typography>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>اطلاع رسانی با ایمیل</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>اطلاع‌رسانی با ایمیل</Typography>
                                     <ToggleButton />
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>اطلاع رسانی با پیامک</Typography>
-                                    <ToggleButton />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="bg-custom-bg-card rounded-lg">
-                            <div className="p-4 flex flex-col gap-4">
-                                <Typography className="!font-alibaba text-white" fontWeight='bold' fontSize={15}>مدیریت معامله ها</Typography>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>دریافت تایید برای ثبت سفارش</Typography>
-                                    <ToggleButton />
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>تایید با ایمیل کاربری</Typography>
-                                    <ToggleButton />
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>تایید دو مرحله ای پیامکی</Typography>
-                                    <ToggleButton />
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>دریافت تایید برای لغو سفارش</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>اطلاع‌رسانی با پیامک</Typography>
                                     <ToggleButton />
                                 </div>
                             </div>
@@ -44,17 +22,39 @@ const Settings = () => {
 
                         <div className="bg-custom-bg-card rounded-lg">
                             <div className="p-4 flex flex-col gap-4">
-                                <Typography className="!font-alibaba text-white" fontWeight='bold' fontSize={15}>اپدیت ها</Typography>
+                                <Typography className="font-alibaba text-white" fontWeight='bold' fontSize={15}>مدیریت معامله‌ها</Typography>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>اپدیت خودکار اپلیکیشن</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>دریافت تایید برای ثبت سفارش</Typography>
                                     <ToggleButton />
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>اپدیت خرید ها موجود</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>تایید با ایمیل کاربری</Typography>
                                     <ToggleButton />
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="!font-peyda text-white" fontSize={13}>اپدیت قیمت لحظه ای</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>تایید دو مرحله‌ای پیامکی</Typography>
+                                    <ToggleButton />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>دریافت تایید برای لغو سفارش</Typography>
+                                    <ToggleButton />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-custom-bg-card rounded-lg">
+                            <div className="p-4 flex flex-col gap-4">
+                                <Typography className="!font-alibaba text-white" fontWeight='bold' fontSize={15}>آپدیت‌ها</Typography>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>آپدیت خودکار اپلیکیشن</Typography>
+                                    <ToggleButton />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>آپدیت خریدها موجود</Typography>
+                                    <ToggleButton />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>آپدیت قیمت لحظه‌ای</Typography>
                                     <ToggleButton />
                                 </div>
                             </div>

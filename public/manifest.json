@@ -2,11 +2,11 @@
     "name": "VEM Club",
     "short_name": "VEM Club",
     "start_url": "/",
-	"description": "Investing with Vem Club",
+    "description": "Investing with Vem Club",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#0D1C4C",
-	"orientation": "any",
+    "orientation": "any",
 
     "icons": [
         {
@@ -18,8 +18,7 @@
             "src": "/images/logo/logo.png",
             "sizes": "512x512",
             "type": "image/png",
-			"purpose": "maskable"
-
+            "purpose": "maskable"
         }
     ]
 }

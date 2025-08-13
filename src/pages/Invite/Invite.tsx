@@ -1,5 +1,5 @@
-import Typography from "@mui/material/Typography"
-import { MdOutlineCopyAll } from "../../Icons"
+import Typography from '@mui/material/Typography';
+import { MdOutlineCopyAll } from '../../Icons';
 // Removed CSS imports - using Tailwind CSS instead
 const Invite = () => {
     return (
@@ -39,7 +39,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask0_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={34}
                                             y={104}
@@ -117,7 +117,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask1_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={76}
                                             y={74}
@@ -156,7 +156,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask2_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={76}
                                             y={34}
@@ -195,7 +195,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask3_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={111}
                                             y={72}
@@ -237,7 +237,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask4_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={129}
                                             y={76}
@@ -276,7 +276,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask5_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={158}
                                             y={76}
@@ -315,7 +315,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask6_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={117}
                                             y={102}
@@ -458,7 +458,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask7_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={157}
                                             y={102}
@@ -640,7 +640,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask8_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={85}
                                             y={140}
@@ -679,7 +679,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask9_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={48}
                                             y={138}
@@ -718,7 +718,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask10_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={60}
                                             y={22}
@@ -749,7 +749,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask11_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={55}
                                             y={33}
@@ -788,7 +788,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask12_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={80}
                                             y={29}
@@ -830,7 +830,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask13_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={80}
                                             y={18}
@@ -861,7 +861,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask14_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={79}
                                             y={20}
@@ -892,7 +892,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask15_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={82}
                                             y={23}
@@ -943,7 +943,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask16_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={85}
                                             y={19}
@@ -996,7 +996,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask17_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={47}
                                             y={65}
@@ -1067,7 +1067,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask18_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={57}
                                             y={65}
@@ -1105,7 +1105,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask19_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={57}
                                             y={36}
@@ -1143,7 +1143,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask20_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={63}
                                             y={19}
@@ -1174,7 +1174,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask21_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={66}
                                             y={25}
@@ -1205,7 +1205,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask22_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={63}
                                             y={34}
@@ -1261,13 +1261,28 @@ const Invite = () => {
                                         />
                                     </svg>
                                 </div>
-                                <Typography className="!font-alibaba text-white pb-2" fontWeight='bold' fontSize={12}>دعوت از دوستان</Typography>
-                                <Typography className="!font-peyda text-neutral-400 pb-2 text-center" fontSize={12}>
+                                <Typography
+                                    className="font-alibaba text-white pb-2"
+                                    fontWeight="bold"
+                                    fontSize={12}
+                                >
+                                    دعوت از دوستان
+                                </Typography>
+                                <Typography
+                                    className="font-peyda text-neutral-400 pb-2 text-center"
+                                    fontSize={12}
+                                >
                                     با دعوت از دوستانتان میتوانید در خرید بعدی طلا خود بدون کارمزد
                                     خرید کنید
                                 </Typography>
                                 <div className="pb-3 w-full">
-                                    <Typography className="!font-peyda text-white pb-2" fontWeight='bold' fontSize={10}>کد دعوت</Typography>
+                                    <Typography
+                                        className="font-peyda text-white pb-2"
+                                        fontWeight="bold"
+                                        fontSize={10}
+                                    >
+                                        کد دعوت
+                                    </Typography>
                                     <div className="flex gap-2 relative border border-custom-border-light rounded-xsm">
                                         <input
                                             type="text"
@@ -1279,12 +1294,18 @@ const Invite = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <Typography className="!font-peyda text-white w-full" fontSize={12}>
+                                <Typography className="font-peyda text-white w-full" fontSize={12}>
                                     با استقاده از کد زیر یا به اشتراک گذاری آن با دوستانتان میتوانید
                                     با ثبت نام آن ها تخفیف دریافت کنید
                                 </Typography>
                                 <div className="social-label"></div>
-                                <Typography className="!font-peyda text-neutral-300 w-full" fontWeight='medium' fontSize={14}>اشتراک گذاری :</Typography>
+                                <Typography
+                                    className="font-peyda text-neutral-300 w-full"
+                                    fontWeight="medium"
+                                    fontSize={14}
+                                >
+                                    اشتراک گذاری :
+                                </Typography>
                                 <div className="flex gap-3 w-full">
                                     <div className="item">
                                         <a href="#">
@@ -1502,7 +1523,7 @@ const Invite = () => {
                 </div>
             </main>
         </div>
-    )
-}
+    );
+};
 
-export default Invite
+export default Invite;

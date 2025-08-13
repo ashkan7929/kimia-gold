@@ -31,7 +31,7 @@ const Rules = () => {
                                                     } cursor-pointer text-neutral-200 px-6 py-2 rounded-md`}
                                                 >
                                                     <Typography
-                                                        className="!font-peyda text-white text-nowrap"
+                                                        className="font-peyda text-white text-nowrap"
                                                         fontWeight="semibold"
                                                         fontSize={9}
                                                     >

@@ -22,7 +22,7 @@ const MyCards = () => {
                                                 <span className="bg-accent-orange w-6.5 h-6.5 flex justify-center items-center rounded-md">
                                                     <FaRegUser className='text-xs text-white' />
                                                 </span>
-                                                <Typography className='text-white !font-alibaba' fontSize={13} fontWeight='bold'>افزودن کارت جدید</Typography>
+                                                <Typography className='text-white font-alibaba' fontSize={13} fontWeight='bold'>افزودن کارت جدید</Typography>
                                             </div>
                                             {open ? <div className='bg-primary-blue rounded-full w-6.5 h-6.5 flex justify-center items-center'><FaMinus className='text-white' fontSize={10} /></div> : <FaChevronDown className='text-white' fontSize={12} />}
                                         </Disclosure.Button>

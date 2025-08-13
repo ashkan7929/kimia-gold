@@ -30,10 +30,10 @@ const Profile = () => {
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <Typography className='text-white !font-alibaba !font-bold !text-4xl-custom'>{userData?.firstName + " " + userData?.lastName}</Typography>
+                                        <Typography className='text-white font-alibaba font-bold text-4xl-custom'>{userData?.firstName + " " + userData?.lastName}</Typography>
                                         <div className="flex items-center gap-1 ">
                                             <CiMobile3 className='text-white' />
-                                            <Typography className='text-white !font-peyda !text-4xl-custom'>{userData?.username}</Typography>
+                                            <Typography className='text-white font-peyda text-4xl-custom'>{userData?.username}</Typography>
                                         </div>
                                     </div>
                                 </div>
@@ -231,90 +231,6 @@ const Profile = () => {
                                                             <TextField disabled mobileIcon={<RiRoadMapLine />} placeholder={t('enterPostalCode')} />
                                                         </div>
                                                     </div>
-                                                    {/* <div className='flex justify-between items-center gap-6'>
-                                                        <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">جنسیت</label>
-                                                        <div className="w-full py-1 px-1.5 flex justify-center items-center gap-2 rounded-md bg-custom-bg-menu shadow">
-                                                            <div className="flex flex-1">
-                                                                <input
-                                                                    id="gender_man"
-                                                                    type="radio"
-                                                                    name="gender"
-                                                                    defaultChecked={true}
-                                                                    className="hidden"
-                                                                />
-                                                                <label htmlFor="gender_man" className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] bg-primary-blue cursor-pointer">
-                                                                    <span className="text-white">
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width={16}
-                                                                            height={16}
-                                                                            viewBox="0 0 16 16"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M10 6C11.1046 6 12 5.10457 12 4C12 2.89543 11.1046 2 10 2C8.89543 2 8 2.89543 8 4C8 5.10457 8.89543 6 10 6Z"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M10 6V14"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M7 9H13"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                        </svg>
-                                                                    </span>
-                                                                    <span className="text-white text-sm font-peyda">مرد</span>
-                                                                </label>
-                                                            </div>
-                                                            <div className="flex flex-1">
-                                                                <input
-                                                                    id="gender_woman"
-                                                                    type="radio"
-                                                                    name="gender"
-                                                                    className="hidden"
-                                                                />
-                                                                <label htmlFor="gender_woman" className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] cursor-pointer">
-                                                                    <span className="text-white">
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width={16}
-                                                                            height={16}
-                                                                            viewBox="0 0 16 16"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M8 9C9.65685 9 11 7.65685 11 6C11 4.34315 9.65685 3 8 3C6.34315 3 5 4.34315 5 6C5 7.65685 6.34315 9 8 9Z"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M8 9V13"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M6 11H10"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                        </svg>
-                                                                    </span>
-                                                                    <span className="text-white text-sm font-peyda">زن</span>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div> */}
                                                 </div>
                                             </Disclosure.Panel>
                                         </Transition>

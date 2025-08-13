@@ -1,22 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react';
+import '../statics/assets/lib/Swiper/swiper-bundle.min.css';
+import '../fonts.css';
 
-
-import "../statics/assets/lib/Swiper/swiper-bundle.min.css";
-import "../fonts.css";
-
-const goldRate = Number("7496400"); 
+const goldRate = Number('7496400');
 
 const Buy = () => {
-  const [weight, setWeight] = useState<number>(0);
+    const [weight, setWeight] = useState<number>(0);
 
-const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-  const v = e.currentTarget.value;    
-  setWeight(Number(v));  
-};
+    const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = e => {
+        const v = e.currentTarget.value;
+        setWeight(Number(v));
+    };
 
-// const price = useMemo(() => weight * goldRate, [weight, goldRate]);
- const price = weight * goldRate;
-
+    // const price = useMemo(() => weight * goldRate, [weight, goldRate]);
+    const price = weight * goldRate;
 
     return (
         <>
@@ -25,7 +22,7 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                     <nav className="flex items-center justify-between py-4">
                         <div className="flex gap-1">
                             <div>
-                                <button onClick={() => { }}>
+                                <button>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width={20}
@@ -75,7 +72,9 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                             </div>
                         </div>
                         <div>
-                            <div className="font-kalameh text-sm font-medium text-white">خرید طلا</div>
+                            <div className="font-kalameh text-sm font-medium text-white">
+                                سرمایه‌گذاری در طلا
+                            </div>
                         </div>
                         <div>
                             <div>
@@ -115,13 +114,19 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                             />
                                         </div>
                                         <div className="flex flex-col gap-1">
-                                            <div className="font-kalameh text-sm font-medium text-white">طلای 18 عیار</div>
-                                            <div className="font-alibaba text-xs text-custom-gray">Anas gold</div>
+                                            <div className="font-kalameh text-sm font-medium text-white">
+                                                طلای 18 عیار
+                                            </div>
+                                            <div className="font-alibaba text-xs text-custom-gray">
+                                                Anas gold
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="flex flex-col items-end gap-1">
-                                            <div className="font-kalameh text-xs text-custom-gray">قیمت هر گرم</div>
+                                            <div className="font-kalameh text-xs text-custom-gray">
+                                                قیمت هر گرم
+                                            </div>
                                             <div className="font-alibaba text-lg font-bold text-white flex items-center gap-1">
                                                 <span>2,566,890</span>
                                                 <i>
@@ -222,25 +227,36 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         >
                                             <div className="flex flex-col gap-3 mt-3">
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="font-kalameh text-sm text-white">مقدار طلا</label>
+                                                    <label className="font-kalameh text-sm text-white">
+                                                        مقدار طلا
+                                                    </label>
                                                     <div>
-                                                        <select id="weight" value={weight === 0 ? '' : weight} onChange={handleWeight} className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm focus:outline-none focus:border-primary-blue">
-                                                            <option value="" disabled>انتخاب کنید</option>
+                                                        <select
+                                                            id="weight"
+                                                            value={weight === 0 ? '' : weight}
+                                                            onChange={handleWeight}
+                                                            className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm focus:outline-none focus:border-primary-blue"
+                                                        >
+                                                            <option value="" disabled>
+                                                                انتخاب کنید
+                                                            </option>
                                                             <option value={1}>مقدار 1 گرم</option>
                                                             <option value={2}>مقدار 2 گرم</option>
                                                             <option value={3}>مقدار 3 گرم</option>
-                                                             <option value={4}>مقدار 4 گرم</option>
-                                                             <option value={5}>مقدار 5 گرم</option>
-                                                             <option value={6}>مقدار 6 گرم</option>
+                                                            <option value={4}>مقدار 4 گرم</option>
+                                                            <option value={5}>مقدار 5 گرم</option>
+                                                            <option value={6}>مقدار 6 گرم</option>
                                                             <option value={7}>مقدار 7 گرم</option>
                                                             <option value={8}>مقدار 8 گرم</option>
-                                                             <option value={9}>مقدار 9 گرم</option>
-                                                             <option value={10}>مقدار 10 گرم</option>         
+                                                            <option value={9}>مقدار 9 گرم</option>
+                                                            <option value={10}>مقدار 10 گرم</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="font-kalameh text-sm text-white">مبلغ پرداختی</label>
+                                                    <label className="font-kalameh text-sm text-white">
+                                                        مبلغ پرداختی
+                                                    </label>
                                                     <div className="relative">
                                                         <i className="absolute left-3 top-1/2 transform -translate-y-1/2">
                                                             <svg
@@ -277,25 +293,41 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                                             className="w-full p-3 pl-12 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                                                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                                                         />
-                                                        {price ? price.toLocaleString("fa-IR") : "—"}
+                                                        {price
+                                                            ? price.toLocaleString('fa-IR')
+                                                            : '—'}
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-2 mt-3">
-                                                        <button type="button" className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue">
+                                                        <button
+                                                            type="button"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                        >
                                                             1,000,000
                                                         </button>
-                                                        <button type="button" className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue">
+                                                        <button
+                                                            type="button"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                        >
                                                             5,000,000
                                                         </button>
-                                                        <button type="button" className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue">
+                                                        <button
+                                                            type="button"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                        >
                                                             10,000,000
                                                         </button>
-                                                        <button type="button" className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue">
+                                                        <button
+                                                            type="button"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                        >
                                                             15,000,000
                                                         </button>
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <button className="w-full py-3 bg-primary-blue text-white font-kalameh text-sm font-medium rounded-lg hover:bg-opacity-90 transition-colors">خرید</button>
+                                                    <button className="w-full py-3 bg-primary-blue text-white font-kalameh text-sm font-medium rounded-lg hover:bg-opacity-90 transition-colors">
+                                                        خرید
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -326,8 +358,8 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                                     aria-expanded="true"
                                                     aria-controls="collapseOne"
                                                 >
-                                                    آیا خرید طلا از باشگاه وِم مطمئن است؟ و چگونگی خرید از این
-                                                    صرافی
+                                                    آیا خرید طلا از باشگاه وِم مطمئن است؟ و چگونگی
+                                                    خرید از این صرافی
                                                 </button>
                                             </h2>
                                             <div
@@ -336,7 +368,8 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                                 data-bs-parent="#accordionInfo"
                                             >
                                                 <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-kalameh text-sm leading-relaxed">
-                                                    محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در ثبت
+                                                    محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در
+                                                    ثبت
                                                 </div>
                                             </div>
                                         </div>
@@ -350,8 +383,8 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                                     aria-expanded="false"
                                                     aria-controls="collapseTwo"
                                                 >
-                                                    آیا خرید طلا از باشگاه وِم مطمئن است؟ و چگونگی خرید از این
-                                                    صرافی
+                                                    آیا خرید طلا از باشگاه وِم مطمئن است؟ و چگونگی
+                                                    خرید از این صرافی
                                                 </button>
                                             </h2>
                                             <div
@@ -360,8 +393,8 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                                 data-bs-parent="#accordionInfo"
                                             >
                                                 <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-kalameh text-sm leading-relaxed">
-                                                    محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در ثبت
-                                                    سفارش‌ها. 
+                                                    محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در
+                                                    ثبت سفارش‌ها.
                                                 </div>
                                             </div>
                                         </div>
@@ -570,7 +603,7 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                         </div>
                     </div>
                     <div>
-                        <button onClick={() => { }}>
+                        <button onClick={() => {}}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={14}
@@ -621,7 +654,9 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">اطلاعات کاربری</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            اطلاعات کاربری
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
                                             در این بخش می‌توانید اطلاعات کاربری را ویرایش کنید.
                                         </div>
@@ -708,7 +743,9 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">قوانین و مقررات</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            قوانین و مقررات
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
                                             در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.
                                         </div>
@@ -758,7 +795,9 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">صندوق پیام‌ها</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            صندوق پیام‌ها
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
                                             در این بخش می‌توانید آخرین پیام‌های خود را مشاهده کنید.
                                         </div>
@@ -841,9 +880,12 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">دعوت از دوستان</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            دعوت از دوستان
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            از این بخش می‌توانید دوستان خود را به اپلیکیشن دعوت کنید.
+                                            از این بخش می‌توانید دوستان خود را به اپلیکیشن دعوت
+                                            کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -938,9 +980,12 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">نظرات و پیشنهادات</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            نظرات و پیشنهادات
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                            در این بخش می‌توانید نظرات خود را با ما به اشتراک بگذارید.
+                                            در این بخش می‌توانید نظرات خود را با ما به اشتراک
+                                            بگذارید.
                                         </div>
                                     </div>
                                 </div>
@@ -1027,7 +1072,9 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">گزارشات ریز تراکنش‌ها</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            گزارشات ریز تراکنش‌ها
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
                                             در این بخش می‌توانید تراکنش‌ها را با جزئیات مشاهده کنید.
                                         </div>
@@ -1084,7 +1131,9 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">تنظیمات</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            تنظیمات
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
                                             در این بخش می‌توانید تنظیمات را مشاهده کنید.
                                         </div>
@@ -1141,7 +1190,9 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">درباره باشگاه وِم</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            درباره باشگاه وِم
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
                                             در این بخش می‌توانید ما را بهتر بشناسید.
                                         </div>
@@ -1244,9 +1295,11 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">خروج از حساب کاربری</div>
+                                        <div className="font-kalameh text-sm font-medium text-white">
+                                            خروج از حساب کاربری
+                                        </div>
                                         <div className="font-alibaba text-xs text-custom-gray">
-                                                برای خروج از حساب کاربری کلیک کنید
+                                            برای خروج از حساب کاربری کلیک کنید
                                         </div>
                                     </div>
                                 </div>
@@ -1328,9 +1381,7 @@ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
                 </div>
             </div>
         </>
+    );
+};
 
-
-    )
-}
-
-export default Buy
+export default Buy;

@@ -13,7 +13,7 @@ import {
 } from '../../Icons';
 
 const rows = [
-    {   
+    {
         id: 1,
         name: 'انس طلا',
         enName: 'Anas gold',
@@ -43,11 +43,11 @@ const Home = () => {
                 <div className="flex flex-col gap-3 items-center pb-25">
                     <div className="bg-primary-darker flex gap-1 w-full p-3 rounded-lg">
                         <div className="flex flex-col gap-1">
-                            <Typography className="!font-alibaba text-white" fontSize={13}>
+                            <Typography className="font-alibaba text-white" fontSize={13}>
                                 <strong>{userData?.firstName + ' ' + userData?.lastName}</strong>{' '}
                                 خوش امدید
                             </Typography>
-                            <Typography className="!font-alibaba text-neutral-300" fontSize={11}>
+                            <Typography className="font-alibaba text-neutral-300" fontSize={11}>
                                 {'به باشگاه وِم خوش امدید'}
                             </Typography>
                         </div>
@@ -58,13 +58,10 @@ const Home = () => {
                     <div className="bg-primary-dark flex w-full p-3 rounded-lg">
                         <main className="px-4 flex-grow py-5 flex gap-3 flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
                             <div className="flex flex-col items-center gap-1.5">
-                                <Typography className="!font-alibaba text-white" fontSize={16}>
+                                <Typography className="font-alibaba text-white" fontSize={16}>
                                     صفحه <strong>باشگاه وِم</strong>
                                 </Typography>
-                                <Typography
-                                    className="!font-alibaba text-neutral-300"
-                                    fontSize={11}
-                                >
+                                <Typography className="font-alibaba text-neutral-300" fontSize={11}>
                                     {'محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر'}
                                 </Typography>
                             </div>
@@ -77,7 +74,7 @@ const Home = () => {
                         <div className="bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <img alt="" src="/images/Hand, Arm, Coins.svg" />
                             <Typography
-                                className="!font-alibaba text-neutral-300 text-center"
+                                className="font-alibaba text-neutral-300 text-center"
                                 fontSize={10}
                             >
                                 {'دریافت خدمات'}
@@ -87,7 +84,7 @@ const Home = () => {
                             <img alt="" src="/images/moneybag-modern-coins.svg" />
                             <Typography
                                 onClick={() => navigate('/buy')}
-                                className="!font-alibaba text-neutral-300 text-center"
+                                className="font-alibaba text-neutral-300 text-center"
                                 fontSize={10}
                             >
                                 {'سرمایه‌گذاری در طلا'}
@@ -96,7 +93,7 @@ const Home = () => {
                         <div className="bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <img alt="" src="/images/coins-document-chart.svg" />
                             <Typography
-                                className="!font-alibaba text-neutral-300 text-center"
+                                className="font-alibaba text-neutral-300 text-center"
                                 fontSize={10}
                             >
                                 {'بینش بازار'}
@@ -109,7 +106,7 @@ const Home = () => {
                                 <FaRegStar className="text-white" />
                                 <Typography
                                     fontSize={9}
-                                    className="text-white !font-peyda text-nowrap"
+                                    className="text-white font-peyda text-nowrap"
                                 >
                                     {'نام'}
                                 </Typography>
@@ -118,7 +115,7 @@ const Home = () => {
                             <div className="flex justify-center items-center col-span-2 py-2">
                                 <Typography
                                     fontSize={9}
-                                    className="text-white !font-peyda text-nowrap"
+                                    className="text-white font-peyda text-nowrap"
                                 >
                                     {'قیمت'}
                                 </Typography>
@@ -127,7 +124,7 @@ const Home = () => {
                             <div className="flex justify-center items-center col-span-2 py-2">
                                 <Typography
                                     fontSize={9}
-                                    className="text-white !font-peyda text-nowrap"
+                                    className="text-white font-peyda text-nowrap"
                                 >
                                     {'24H'}
                                 </Typography>
@@ -136,7 +133,7 @@ const Home = () => {
                             <div className="flex justify-center items-center col-span-2 py-2">
                                 <Typography
                                     fontSize={9}
-                                    className="text-white !font-peyda text-nowrap"
+                                    className="text-white font-peyda text-nowrap"
                                 >
                                     {'مشاهده'}
                                 </Typography>
@@ -144,20 +141,23 @@ const Home = () => {
                             </div>
                         </div>
                         {rows.map(row => (
-                            <div className="odd:bg-primary-dark grid grid-cols-9 w-full" key={row.id}>
+                            <div
+                                className="odd:bg-primary-dark grid grid-cols-9 w-full"
+                                key={row.id}
+                            >
                                 <div className="flex gap-1 items-center col-span-3 py-2">
                                     <FaRegStar className="text-white" />
                                     <div className="w-6.5 h-6.5 flex justify-center items-center rounded-full bg-gold-100"></div>
                                     <div>
                                         <Typography
                                             fontSize={9}
-                                            className="text-white !font-peyda text-nowrap"
+                                            className="text-white font-peyda text-nowrap"
                                         >
                                             {row.name}
                                         </Typography>
                                         <Typography
                                             fontSize={9}
-                                            className="text-white !font-peyda text-nowrap"
+                                            className="text-white font-peyda text-nowrap"
                                         >
                                             {row.enName}
                                         </Typography>
@@ -166,13 +166,13 @@ const Home = () => {
                                 <div className="flex flex-col justify-center items-center col-span-2 py-2">
                                     <Typography
                                         fontSize={13}
-                                        className="text-white !font-peyda text-nowrap"
+                                        className="text-white font-peyda text-nowrap"
                                     >
                                         {row.price}
                                     </Typography>
                                     <Typography
                                         fontSize={9}
-                                        className="text-white !font-peyda text-nowrap"
+                                        className="text-white font-peyda text-nowrap"
                                     >
                                         {row.dollar}
                                     </Typography>
@@ -194,7 +194,7 @@ const Home = () => {
                                 <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange">
                                     <BiLike fontSize={19} className="text-white" />
                                 </div>
-                                <Typography fontSize={10} className="text-white !font-peyda">
+                                <Typography fontSize={10} className="text-white font-peyda">
                                     کمپین
                                 </Typography>
                             </div>
@@ -204,7 +204,7 @@ const Home = () => {
                                 <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange">
                                     <FaChartLine fontSize={19} className="text-white" />
                                 </div>
-                                <Typography fontSize={10} className="text-white !font-peyda">
+                                <Typography fontSize={10} className="text-white font-peyda">
                                     تحلیلگر
                                 </Typography>
                             </div>
@@ -214,7 +214,7 @@ const Home = () => {
                                 <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange">
                                     <FaRegNewspaper fontSize={19} className="text-white" />
                                 </div>
-                                <Typography fontSize={10} className="text-white !font-peyda">
+                                <Typography fontSize={10} className="text-white font-peyda">
                                     اخبار
                                 </Typography>
                             </div>
@@ -222,8 +222,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[375px] mx-auto p-4.5">
- 
-                {/* <div className="fixed bottom-0 right-0 w-full p-4.5"> */}
+                    {/* <div className="fixed bottom-0 right-0 w-full p-4.5"> */}
                     <div className="grid grid-cols-3 bg-primary-blue rounded-3xl">
                         <div className="w-full flex justify-center items-center">
                             <div
@@ -231,7 +230,7 @@ const Home = () => {
                                 className="flex flex-col justify-center items-center w-fit cursor-pointer p-2 gap-1.5"
                             >
                                 <HiOutlineHome className="text-white" fontSize={20} />
-                                <Typography fontSize={10} className="text-white !font-peyda">
+                                <Typography fontSize={10} className="text-white font-peyda">
                                     صفحه اصلی
                                 </Typography>
                             </div>
@@ -246,7 +245,7 @@ const Home = () => {
                                 </div>
                                 <Typography
                                     fontSize={10}
-                                    className="text-white !font-peyda -translate-y-2"
+                                    className="text-white font-peyda -translate-y-2"
                                 >
                                     کیف پول
                                 </Typography>
@@ -261,7 +260,7 @@ const Home = () => {
                                     className="text-white"
                                     fontSize={20}
                                 />
-                                <Typography fontSize={10} className="text-white !font-peyda">
+                                <Typography fontSize={10} className="text-white font-peyda">
                                     همه تراکنش‌ها
                                 </Typography>
                             </div>

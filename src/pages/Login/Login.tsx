@@ -21,7 +21,7 @@ const Login = () => {
     const [step, setStep] = useState<number>(RegisterType.None);
     const [phoneNumber, setPhoneNumber] = useState<string>();
     const [otpCode, setOtpCode] = useState<string>();
-    const [error, setError] = useState<any>();
+    const [error, setError] = useState<string | string[] | null>();
     const [loading, setLoading] = useState<boolean>(false);
     const [phoneError, setPhoneError] = useState<string>('');
 
@@ -61,7 +61,6 @@ const Login = () => {
                 }
             }
         } catch (err: any) {
-            // console.error(err);
             setError(err?.response?.data);
         }
         setLoading(false);

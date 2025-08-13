@@ -145,13 +145,13 @@ const Layout = ({ children }: { children: any }) => {
                                     </div>
                                     <div className="grow">
                                         <Typography
-                                            className="!font-alibaba text-white"
+                                            className="font-alibaba text-white"
                                             fontSize={12}
                                         >
                                             {item.title}
                                         </Typography>
                                         <Typography
-                                            className="!font-alibaba text-neutral-300 line-clamp-1"
+                                            className="font-alibaba text-neutral-300 line-clamp-1"
                                             fontSize={10}
                                         >
                                             {item.subtitle}

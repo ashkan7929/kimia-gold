@@ -33,7 +33,7 @@ const DateField = ({ value, onChange, placeholder, className }: DateFieldProps) 
           locale={persian_fa}
           format="YYYYMMDD"
           calendarPosition="bottom-center"
-          inputClass="text-sm !w-full h-10 pr-10 pl-5 rounded-lg bg-transparent text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
+          inputClass="text-sm w-full h-10 pr-10 pl-5 rounded-lg bg-transparent text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
           placeholder={placeholder}
         />
       </div>

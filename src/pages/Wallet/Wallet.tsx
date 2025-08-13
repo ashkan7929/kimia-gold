@@ -1,4 +1,3 @@
-
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { BiTransferAlt, FaArrowDownLong, GoArrowDownLeft, GoArrowUpRight, MdAddCard } from '../../Icons';
@@ -24,16 +23,16 @@ const tabInfo = [
 ]
 
 const Wallet = () => {
-    const [selectedTab, setSelectedTab] = useState(tabInfo[0])
-    const [showWithdrawModal, setShowWithdrawModal] = useState<boolean>(false)
-    const [showDepositModal, setShowDepositModal] = useState<boolean>(false)
-    const [showTransferModal, setShowTransferModal] = useState<boolean>(false)
-    const [showNewCardModal, setShowNewCardModal] = useState<boolean>(false)
+    const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
+    const [showWithdrawModal, setShowWithdrawModal] = useState<boolean>(false);
+    const [showDepositModal, setShowDepositModal] = useState<boolean>(false);
+    const [showTransferModal, setShowTransferModal] = useState<boolean>(false);
+    const [showNewCardModal, setShowNewCardModal] = useState<boolean>(false);
 
-    const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal)
-    const handleShowDepositModal = () => setShowDepositModal(!showDepositModal)
-    const handleShowTransferModal = () => setShowTransferModal(!showTransferModal)
-    const handleShowNewCardModal = () => setShowNewCardModal(!showNewCardModal)
+    const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal);
+    const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
+    const handleShowTransferModal = () => setShowTransferModal(!showTransferModal);
+    const handleShowNewCardModal = () => setShowNewCardModal(!showNewCardModal);
 
     return (
         <>
@@ -84,9 +83,9 @@ const Wallet = () => {
                                     tabInfo.map((tab) => (
                                         <button key={tab.id} onClick={() => setSelectedTab(tab)} className={`${selectedTab == tab ? "bg-primary-blue" : "bg-transparent"} cursor-pointer text-neutral-200 w-full px-3 py-2 rounded-md`}>
                                             <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={9}>
-                                                {tab.title}
-                                            </Typography>
-                                        </button>
+                                            {tab.title}
+                                        </Typography>
+                                    </button>
                                     ))
                                 }
                             </div>
@@ -112,20 +111,18 @@ const Wallet = () => {
                             <div className='flex flex-col gap-1'>
                                 <Typography className="!font-kalameh text-white text-nowrap" fontWeight={600} fontSize={11}>
                                     افزایش موجودی
-                                </Typography>
-                                <Typography className="!font-kalameh text-white text-nowrap" fontSize={9}>
-                                    1403/09/14   15:25
+                                    </Typography>
+                                    <img alt="" src="/images/toman.svg" width={10} height={10} />
+                                </div>
+                                <Typography
+                                    className="font-peyda text-green-500 bg-green-500/30 w-fit py-0.5 px-2.5 rounded-xl"
+                                    fontSize={9}
+                                >
+                                    موفق
                                 </Typography>
                             </div>
                         </div>
-                        <div className='flex flex-col items-end gap-1'>
-                            <div className='flex gap-1 items-center'>
-                                <Typography className='!font-peyda text-white' fontWeight='bold' fontSize={12}>2,566,890</Typography>
-                                <img alt='' src='/images/toman.svg' width={10} height={10} />
-                            </div>
-                            <Typography className='!font-peyda text-green-500 bg-green-500/30 w-fit py-0.5 px-2.5 rounded-xl' fontSize={9}>موفق</Typography>
-                        </div>
-                    </div>)}
+                    ))}
                 </div>
             </div>
 
@@ -134,11 +131,20 @@ const Wallet = () => {
                 handleClose={handleShowDepositModal}
                 modalTitle='افزایش موجودی'
                 open={showDepositModal}
-                handleSubmit={handleShowDepositModal}>
-                <div className='flex flex-col gap-3'>
-                    <div className='flex gap-1 items-center'>
-                        <div className='w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md'>1</div>
-                        <Typography className='!font-peyda text-white' fontWeight={600} fontSize={13}>{'مبلغ افزایش موجودی'}</Typography>
+                handleSubmit={handleShowDepositModal}
+            >
+                <div className="flex flex-col gap-3">
+                    <div className="flex gap-1 items-center">
+                        <div className="w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md">
+                            1
+                        </div>
+                        <Typography
+                            className="font-peyda text-white"
+                            fontWeight={600}
+                            fontSize={13}
+                        >
+                            {'مبلغ افزایش موجودی'}
+                        </Typography>
                     </div>
                     <div className="relative">
                         <i className="absolute left-3 top-1/2 transform -translate-y-1/2">
@@ -164,17 +170,27 @@ const Wallet = () => {
                             15,000,000
                         </button>
                     </div>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex gap-1 items-center'>
-                            <div className='w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md'>2</div>
-                            <Typography className='!font-peyda text-white' fontWeight={600} fontSize={13}>{'شماره کارت'}</Typography>
+                    <div className="flex justify-between items-center">
+                        <div className="flex gap-1 items-center">
+                            <div className="w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md">
+                                2
+                            </div>
+                            <Typography
+                                className="font-peyda text-white"
+                                fontWeight={600}
+                                fontSize={13}
+                            >
+                                {'شماره کارت'}
+                            </Typography>
                         </div>
                         <div onClick={handleShowNewCardModal} className='flex gap-1 text-white bg-primary-light rounded-md px-3 py-1.5'>
                             <MdAddCard fontSize={12} />
-                            <Typography className='!font-peyda text-white' fontSize={9}>{'افزودن کارت'}</Typography>
+                            <Typography className="font-peyda text-white" fontSize={9}>
+                                {'افزودن کارت'}
+                            </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
+                    <select className="font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
@@ -196,11 +212,20 @@ const Wallet = () => {
                 handleClose={handleShowWithdrawModal}
                 modalTitle='برداشت موجودی'
                 open={showWithdrawModal}
-                handleSubmit={handleShowWithdrawModal}>
-                <div className='flex flex-col gap-3'>
-                    <div className='flex gap-1 items-center'>
-                        <div className='w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md'>1</div>
-                        <Typography className='!font-peyda text-white' fontWeight={600} fontSize={13}>{'مبلغ برداشتی'}</Typography>
+                handleSubmit={handleShowWithdrawModal}
+            >
+                <div className="flex flex-col gap-3">
+                    <div className="flex gap-1 items-center">
+                        <div className="w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md">
+                            1
+                        </div>
+                        <Typography
+                            className="font-peyda text-white"
+                            fontWeight={600}
+                            fontSize={13}
+                        >
+                            {'مبلغ برداشتی'}
+                        </Typography>
                     </div>
                     <div className="relative">
                         <i className="absolute left-3 top-1/2 transform -translate-y-1/2">
@@ -229,14 +254,16 @@ const Wallet = () => {
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-1 items-center'>
                             <div className='w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md'>2</div>
-                            <Typography className='!font-peyda text-white' fontWeight={600} fontSize={13}>{'شماره کارت واریز'}</Typography>
+                            <Typography className='font-peyda text-white' fontWeight={600} fontSize={13}>{'شماره کارت واریز'}</Typography>
                         </div>
                         <div onClick={handleShowNewCardModal} className='flex gap-1 text-white bg-primary-light rounded-md px-3 py-1.5'>
                             <MdAddCard fontSize={12} />
-                            <Typography className='!font-peyda text-white' fontSize={9}>{'افزودن کارت'}</Typography>
+                            <Typography className="font-peyda text-white" fontSize={9}>
+                                {'افزودن کارت'}
+                            </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
+                    <select className="font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
@@ -288,17 +315,27 @@ const Wallet = () => {
                             15,000,000
                         </button>
                     </div>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex gap-1 items-center'>
-                            <div className='w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md'>2</div>
-                            <Typography className='!font-peyda text-white' fontWeight={600} fontSize={13}>{'از کارت'}</Typography>
+                    <div className="flex justify-between items-center">
+                        <div className="flex gap-1 items-center">
+                            <div className="w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md">
+                                2
+                            </div>
+                            <Typography
+                                className="font-peyda text-white"
+                                fontWeight={600}
+                                fontSize={13}
+                            >
+                                {'از کارت'}
+                            </Typography>
                         </div>
                         <div onClick={handleShowNewCardModal} className='flex gap-1 text-white bg-primary-light rounded-md px-3 py-1.5'>
                             <MdAddCard fontSize={12} />
-                            <Typography className='!font-peyda text-white' fontSize={9}>{'افزودن کارت'}</Typography>
+                            <Typography className="font-peyda text-white" fontSize={9}>
+                                {'افزودن کارت'}
+                            </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
+                    <select className="font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
@@ -312,13 +349,21 @@ const Wallet = () => {
                             6219-8619-0943-67899
                         </option>
                     </select>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex gap-1 items-center'>
-                            <div className='w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md'>3</div>
-                            <Typography className='!font-peyda text-white' fontWeight={600} fontSize={13}>{'به کارت'}</Typography>
+                    <div className="flex justify-between items-center">
+                        <div className="flex gap-1 items-center">
+                            <div className="w-5 h-5 bg-primary-lighter/50 font-peyda text-center rounded-md">
+                                3
+                            </div>
+                            <Typography
+                                className="font-peyda text-white"
+                                fontWeight={600}
+                                fontSize={13}
+                            >
+                                {'به کارت'}
+                            </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
+                    <select className="font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />

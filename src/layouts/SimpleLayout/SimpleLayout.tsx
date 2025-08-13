@@ -82,7 +82,7 @@ const SimpleLayout = ({ children, title }: { children: any, title: string }) => 
                         </div>
                     </div>
                     <div className='flex justify-center items-center'>
-                        <Typography className='!font-alibaba text-white' fontWeight='bold' fontSize={11}>{title}</Typography>
+                        <Typography className='font-alibaba text-white' fontWeight='bold' fontSize={11}>{title}</Typography>
                     </div>
                     <div className='flex justify-end'>
                         <div onClick={() => navigate(-1)} className='w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 cursor-pointer'>
@@ -120,8 +120,8 @@ const SimpleLayout = ({ children, title }: { children: any, title: string }) => 
                                             <item.icon className='text-white' />
                                         </div>
                                         <div className='grow'>
-                                            <Typography className='!font-alibaba text-white' fontSize={13}>{item.title}</Typography>
-                                            <Typography className='!font-alibaba text-neutral-300 line-clamp-1' fontSize={11}>{item.subtitle}</Typography>
+                                            <Typography className='font-alibaba text-white' fontSize={13}>{item.title}</Typography>
+                                            <Typography className='font-alibaba text-neutral-300 line-clamp-1' fontSize={11}>{item.subtitle}</Typography>
                                         </div>
                                         <FaChevronLeft className='text-white' />
                                     </div>

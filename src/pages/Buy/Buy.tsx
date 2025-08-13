@@ -18,18 +18,16 @@ const goldRate = Number('7496400');
 
 const Buy = () => {
     // const { t } = useTranslation();
-    const [weight, setWeight] = useState<number>(0);
+const [weight, setWeight] = useState<number | ''>('');
 
-    const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = e => {
-        const v = e.currentTarget.value;
-        setWeight(Number(v));
-    };
+const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+  const number = e.currentTarget.value;
+  setWeight(number === '' ? '' : Number(number));
+};
 
-    // const price = useMemo(() => weight * goldRate, [weight, goldRate]);
-    const price = weight * goldRate;
-    const priceItem =  price ? price.toLocaleString('fa-IR') : '—'
-
-    const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
+const price = typeof weight === 'number' ? weight * goldRate : 0;
+const priceItem = price ? price.toLocaleString('fa-IR') : '—';
+const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
 
     return (
         <>
@@ -40,7 +38,9 @@ const Buy = () => {
                             <Disclosure as="div">
                                 {({ open }: { open: boolean }) => (
                                     <div
-                                        className={`p-1 w-full rounded-lg transition-all duration-700 ease-out bg-custom-bg-card`}
+                                        className={
+                                            'p-1 w-full rounded-lg transition-all duration-700 ease-out bg-custom-bg-card'
+                                        }
                                     >
                                         <div>
                                             <div
@@ -58,13 +58,13 @@ const Buy = () => {
                                                             </div>
                                                             <div className="flex flex-col gap-1 text-start">
                                                                 <Typography
-                                                                    className="text-white !font-peyda"
+                                                                    className="text-white font-peyda"
                                                                     fontSize={10}
                                                                 >
                                                                     طلای 18 عیار
                                                                 </Typography>
                                                                 <Typography
-                                                                    className="text-white !font-peyda"
+                                                                    className="text-white font-peyda"
                                                                     fontSize={9}
                                                                 >
                                                                     Anas gold
@@ -74,7 +74,7 @@ const Buy = () => {
                                                         <div className="flex items-center gap-2">
                                                             <div className="flex flex-col items-end gap-1">
                                                                 <Typography
-                                                                    className="!font-peyda text-neutral-300"
+                                                                    className="font-peyda text-neutral-300"
                                                                     fontWeight="bold"
                                                                     fontSize={12}
                                                                 >
@@ -82,7 +82,7 @@ const Buy = () => {
                                                                 </Typography>
                                                                 <div className="flex gap-1 items-center">
                                                                     <Typography
-                                                                        className="!font-peyda text-white"
+                                                                        className="font-peyda text-white"
                                                                         fontWeight="bold"
                                                                         fontSize={12}
                                                                     >
@@ -148,7 +148,7 @@ const Buy = () => {
                                                     type="button"
                                                 >
                                                     <Typography
-                                                        className="text-white !font-kalameh"
+                                                        className="text-white font-kalameh"
                                                         fontSize={10}
                                                     >
                                                         {tab.title}
@@ -171,90 +171,94 @@ const Buy = () => {
                                                     onChange={handleWeight}
                                                     className="w-full p-3 bg-transparent border border-custom-border-default rounded-lg font-peyda text-sm focus:outline-none focus:border-primary-blue !text-[10px]"
                                                 >
-                                                    <option value="" disabled  className=' bg-primary-dark'>
+                                                    <option
+                                                        value=""
+                                                        disabled
+                                                        className=" bg-primary-dark"
+                                                    >
                                                         انتخاب کنید
                                                     </option>
-                                                    <option value={1} className=' bg-primary-dark'>
+                                                    <option value={1} className=" bg-primary-dark">
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 1 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={2} className=' bg-primary-dark'>
+                                                    <option value={2} className=" bg-primary-dark">
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 2 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={3} className=' bg-primary-dark'>
+                                                    <option value={3} className=" bg-primary-dark">
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 3 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={4} className=' bg-primary-dark'>
+                                                    <option value={4} className=" bg-primary-dark">
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 4 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={5} className=' bg-primary-dark'>
+                                                    <option value={5} className=" bg-primary-dark">
                                                         {' '}
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 5 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={6} className=' bg-primary-dark'>
+                                                    <option value={6} className=" bg-primary-dark">
                                                         {' '}
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 6 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={7} className=' bg-primary-dark'>
+                                                    <option value={7} className=" bg-primary-dark">
                                                         {' '}
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 7 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={8} className=' bg-primary-dark'>
+                                                    <option value={8} className=" bg-primary-dark">
                                                         {' '}
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 8 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={9} className=' bg-primary-dark'>
+                                                    <option value={9} className=" bg-primary-dark">
                                                         {' '}
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 9 گرم
                                                         </Typography>
                                                     </option>
-                                                    <option value={10} className=' bg-primary-dark'>
+                                                    <option value={10} className=" bg-primary-dark">
                                                         {' '}
                                                         <Typography
-                                                            className="text-white !font-peyda"
+                                                            className="text-white font-peyda"
                                                             fontSize={10}
                                                         >
                                                             مقدار 10 گرم
@@ -278,7 +282,7 @@ const Buy = () => {
                                                 </i>
 
                                                 <input
-                                                 value={priceItem}
+                                                    value={priceItem}
                                                     type="text"
                                                     className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                                                     placeholder="مبلغ خرید طلا را وارد نمایید"
@@ -324,7 +328,7 @@ const Buy = () => {
                         <section>
                             <div className="bg-custom-bg-card p-4 rounded-lg flex flex-col gap-2.5">
                                 <Typography
-                                    className="text-white !font-peyda text-start py-1"
+                                    className="text-white font-peyda text-start py-1"
                                     fontWeight={600}
                                     fontSize={12}
                                 >
@@ -343,7 +347,7 @@ const Buy = () => {
                                                         <div className="flex items-center justify-between gap-5 w-full">
                                                             <div className="flex items-center gap-2">
                                                                 <Typography
-                                                                    className="text-white !font-peyda text-start"
+                                                                    className="text-white font-peyda text-start"
                                                                     fontSize={11}
                                                                 >
                                                                     آیا خرید طلا از وِم مطمئن است؟ و
@@ -379,7 +383,7 @@ const Buy = () => {
                                                         className="px-2 pb-4 overflow-hidden"
                                                     >
                                                         <Typography
-                                                            className="text-neutral-300 !font-peyda"
+                                                            className="text-neutral-300 font-peyda"
                                                             fontSize={10}
                                                         >
                                                             محیط کاربری ساده، امنیت بالا، و سرعت
@@ -406,7 +410,7 @@ const Buy = () => {
                                                         <div className="flex items-center justify-between gap-5 w-full">
                                                             <div className="flex items-center gap-2">
                                                                 <Typography
-                                                                    className="text-white !font-peyda text-start"
+                                                                    className="text-white font-peyda text-start"
                                                                     fontSize={11}
                                                                 >
                                                                     آیا باشگاه وِم معتبر است؟
@@ -441,7 +445,7 @@ const Buy = () => {
                                                         className="px-2 pb-4 overflow-hidden"
                                                     >
                                                         <Typography
-                                                            className="text-neutral-300 !font-peyda"
+                                                            className="text-neutral-300 font-peyda"
                                                             fontSize={10}
                                                         >
                                                             محیط کاربری ساده، امنیت بالا، و سرعت
