@@ -4,10 +4,11 @@ import { Disclosure, Transition } from "@headlessui/react"
 import { useTranslation } from 'react-i18next';
 import TextField from '../../components/Inputs/TextField';
 import Button from '../../components/Button/Button';
+import DateField from '../../components/Inputs/Datepiker';
 
 const Profile = () => {
     const { t } = useTranslation();
-    const userData = JSON.parse(localStorage.getItem("user-data")||"")
+    const userData = JSON.parse(localStorage.getItem("user-data") || "")
 
     return (
         <>
@@ -71,7 +72,7 @@ const Profile = () => {
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal text-white mb-2 font-peyda">تاریخ تولد</label>
                                                         <div className="relative">
-                                                            <TextField disabled mobileIcon={<CiCalendarDate />} placeholder={t('enterBirthday')} />
+                                                            <DateField disabled mobileIcon={<CiCalendarDate />} placeholder={t('enterBirthday')} />
                                                         </div>
                                                     </div>
                                                     {/* <div>

@@ -47,11 +47,9 @@ const Register = () => {
                 const data = {
                     nationalCode: nationalId,
                     mobileNumber: phoneNumber,
-                    birthDate: birthday.replace(/[۰-۹]/g, (d) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))),
+                    birthDate: birthday,
                     referralCode: referCode,
                 }
-                console.log(data);
-                
                 // const res = await axios.post("http://62.3.41.64:5016/api/auth/register", data);
                 // if (res.data) {
                 //     localStorage.setItem("user-data", JSON.stringify(res.data));
@@ -106,11 +104,7 @@ const Register = () => {
 
                             <TextField onChange={handlePhoneNumber} mobileIcon={<CiMobile3 />} placeholder={t('enterMobile')} />
 
-                            <DateField
-                                value={birthday}
-                                onChange={handleBirthday}
-                                placeholder={birthday || "تاریخ تولد"}
-                            />
+                            <DateField onChange={handleBirthday} mobileIcon={<CiCalendarDate />} placeholder={t('enterBirthday')} />
 
                             <TextField onChange={handleReferCode} mobileIcon={<FaRegUser />} placeholder={t('enterReferCode')} />
 
