@@ -41,6 +41,17 @@ export interface LoginResponse {
 export interface SendOtpResponse {
   success: boolean;
   message?: string;
+  ttlSec?: number;
+}
+
+export interface RegisterResponse {
+  userId: string;
+  next: string;
+}
+
+export interface ResendOtpResponse {
+  ok: boolean;
+  ttlSec: number;
 }
 
 export const authService = {
@@ -54,5 +65,16 @@ export const authService = {
     api.post<LoginResponse>('/api/auth/login-with-otp', { mobileNumber: mobile, otpCode, purpose }),
 
   loginWithPassword: (mobileNumber: string, password: string): Promise<LoginResponse> =>
-    api.post<LoginResponse>('/api/auth/login', { mobileNumber, password })
+    api.post<LoginResponse>('/api/auth/login', { mobileNumber, password }),
+
+  register: (data: {
+    nationalCode: string;
+    mobileNumber: string;
+    birthDate: string;
+    referralCode?: string;
+  }): Promise<RegisterResponse> =>
+    api.post<RegisterResponse>('/api/auth/register', data),
+
+  resendOtp: (mobile: string, purpose = 1): Promise<ResendOtpResponse> =>
+    api.post<ResendOtpResponse>('/api/auth/send-otp', { mobileNumber: mobile, purpose })
 };

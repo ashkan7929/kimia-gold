@@ -6,9 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { mobileSchema, type MobileFormData } from '../../lib/validations';
 import { authService } from '../../services/authService';
 import Button from '../../components/Button/Button';
-import AuthLayout from '../../layouts/AuthLayout/AuthLayout';
+import { CiMobile3 } from '../../Icons';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'react-i18next';
+import Loading from '../Loading/Loading';
 
 const MobilePage: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +32,7 @@ const MobilePage: React.FC = () => {
 
     try {
       const response = await authService.checkMobile(data.mobileNumber);
-      
+
       if (!response.userExists) {
         // کاربر جدید - هدایت به OTP
         navigate(`/auth/otp?mobile=${encodeURIComponent(data.mobileNumber)}`);
@@ -45,55 +50,51 @@ const MobilePage: React.FC = () => {
     }
   };
 
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
-    <AuthLayout title="ورود" subtitle="شماره موبایل خود را وارد کنید">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Mobile Input */}
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-white">
-            شماره موبایل
-          </label>
+    <div className="flex flex-col mx-auto w-full min-h-screen bg-primary-darker">
+      <main
+        className="px-4 flex-grow py-5 flex flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center"
+      >
+        <div className='text-white py-17'>
+          <img alt='' src='/images/login.svg' width={193} height={193} />
+        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4 w-full'>
+          <div className="flex flex-col gap-2">
+            <Typography className="text-white" fontFamily={'Alibaba, sans-serif'} fontWeight={'bold'} fontSize={19}>{t('loginToApp')}</Typography>
+            <Typography className="text-neutral-300" fontFamily={'Peyda, sans-serif'} fontSize={13}>{t('enterMobileForLogin')}</Typography>
+          </div>
           <div className="relative">
-            <input
-              {...register('mobileNumber')}
-              type="tel"
-              placeholder="09123456789"
-              className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              autoFocus
-              dir="ltr"
-            />
+            <div className="flex items-center text-white rounded-xsm border-custom-border-light border">
+              <div className="absolute h-full right-4 flex items-center justify-center"><CiMobile3 /></div>
+              <input
+                {...register('mobileNumber')}
+                type="text"
+                className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input border border-custom-border-light rounded-lg text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
+                placeholder={t('enterMobile')}
+              />
+            </div>
             {errors.mobileNumber && (
               <p className="text-red-400 text-sm mt-1">
                 {errors.mobileNumber.message}
               </p>
             )}
           </div>
-        </div>
+          {error && <Typography className="text-red-300" fontFamily={'Alibaba, sans-serif'} fontWeight={'bold'} fontSize={11}>
+            {error}
+          </Typography>}
 
-        {/* Error Message */}
-        {error && (
-          <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3">
-            <p className="text-red-400 text-sm">{error}</p>
+          <Button className="w-full text-white bg-primary-blue hover:bg-blue-600">{t('loginToAccount')}</Button>
+          <div className='flex gap-2'>
+            <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} className='text-neutral-300'>{t('noAccount')}</Typography>
+            <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} component={Link} href='/register' sx={{ color: "white", textDecoration: 'none' }}>{t('signUp')}</Typography>
           </div>
-        )}
-
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          disabled={isLoading}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium"
-        >
-          {isLoading ? (
-            <div className="flex items-center justify-center">
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-              در حال بررسی...
-            </div>
-          ) : (
-            'ادامه'
-          )}
-        </Button>
-      </form>
-    </AuthLayout>
+        </form>
+      </main>
+    </div>
   );
 };
 

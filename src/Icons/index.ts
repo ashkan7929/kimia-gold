@@ -38,3 +38,4 @@ export { GoArrowDownLeft } from "react-icons/go";
 export { BiTransferAlt } from "react-icons/bi";
 export { MdAddCard } from "react-icons/md";
 export { IoClose } from "react-icons/io5";
+export { RiLockPasswordLine } from "react-icons/ri";

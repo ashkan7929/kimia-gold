@@ -3,7 +3,7 @@ import { useAuth } from './stores/auth.store';
 import Layout from './layouts/Layout/Layout';
 import SimpleLayout from './layouts/SimpleLayout/SimpleLayout';
 import AuthGuard from './components/AuthGuard';
-import { MobilePage, ChooseMethodPage } from './pages/Auth';
+import { MobilePage, ChooseMethodPage, OtpPage, AuthPage } from './pages/Auth';
 import About from './pages/About/About';
 import Buy from './pages/Buy/Buy';
 import FailedTransaction from './pages/FailedTransaction/FailedTransaction';
@@ -46,6 +46,8 @@ const AppRoutes: React.FC = () => {
             {/* Auth Routes */}
             <Route path="/auth" element={<PublicRoute><MobilePage /></PublicRoute>} />
             <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} />
+            <Route path="/auth/otp" element={<PublicRoute><OtpPage /></PublicRoute>} />
+            <Route path="/auth/unified" element={<PublicRoute><AuthPage /></PublicRoute>} />
             
             {/* Public Routes */}
             <Route
@@ -57,7 +59,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/"
                 element={
-                    <Navigate to="/auth" replace />
+                    <Navigate to="/auth/unified" replace />
                 }
             />
             <Route

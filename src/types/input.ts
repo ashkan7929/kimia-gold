@@ -13,6 +13,7 @@ export interface TextFieldProps {
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     defaultValue?: string;
     disabled?: boolean;
+    type?: string;
 }
 
 export interface CheckboxProps {
