@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button';
 import '../../fonts.css';
 import { FaChevronDown, FaChevronUp } from '../../Icons';
 import '../../statics/assets/lib/Swiper/swiper-bundle.min.css';
+import OptionSelect from '../../components/Inputs/OptionSelect';
 
 const tabInfo = [
     {
@@ -14,20 +15,26 @@ const tabInfo = [
         title: 'فروش',
     },
 ];
-const goldRate = Number('7496400');
 
 const Buy = () => {
-    // const { t } = useTranslation();
-const [weight, setWeight] = useState<number | ''>('');
+ // const { t } = useTranslation();
+ const [weight, setWeight] = useState<number | ''>('');
+const [goldPrice, setGoldPrice] = useState<number>(7496400);
 
-const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+
+ const gramOptions = Array.from({ length: 10 }, (_, i) => ({
+    value: i + 1,
+    label: `مقدار ${i + 1} گرم`,
+ }));
+
+ const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
   const number = e.currentTarget.value;
-  setWeight(number === '' ? '' : Number(number));
-};
+  setWeight(number === 'انتخاب کنید' ? '' : Number(number));
+ };
 
-const price = typeof weight === 'number' ? weight * goldRate : 0;
-const priceItem = price ? price.toLocaleString('fa-IR') : '—';
-const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
+ const price = typeof weight === 'number' ? weight * goldPrice : 0;
+ const priceItem = price ? price.toLocaleString('fa-IR') : '—';
+ const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
 
     return (
         <>
@@ -164,108 +171,11 @@ const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
                                             <label className="font-peyda text-xs text-white">
                                                 مقدار طلا
                                             </label>
-                                            <div>
-                                                <select
-                                                    id="weight"
-                                                    value={weight === 0 ? '' : weight}
-                                                    onChange={handleWeight}
-                                                    className="w-full p-3 bg-transparent border border-custom-border-default rounded-lg font-peyda text-sm focus:outline-none focus:border-primary-blue !text-[10px]"
-                                                >
-                                                    <option
-                                                        value=""
-                                                        disabled
-                                                        className=" bg-primary-dark"
-                                                    >
-                                                        انتخاب کنید
-                                                    </option>
-                                                    <option value={1} className=" bg-primary-dark">
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 1 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={2} className=" bg-primary-dark">
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 2 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={3} className=" bg-primary-dark">
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 3 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={4} className=" bg-primary-dark">
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 4 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={5} className=" bg-primary-dark">
-                                                        {' '}
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 5 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={6} className=" bg-primary-dark">
-                                                        {' '}
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 6 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={7} className=" bg-primary-dark">
-                                                        {' '}
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 7 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={8} className=" bg-primary-dark">
-                                                        {' '}
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 8 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={9} className=" bg-primary-dark">
-                                                        {' '}
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 9 گرم
-                                                        </Typography>
-                                                    </option>
-                                                    <option value={10} className=" bg-primary-dark">
-                                                        {' '}
-                                                        <Typography
-                                                            className="text-white font-peyda"
-                                                            fontSize={10}
-                                                        >
-                                                            مقدار 10 گرم
-                                                        </Typography>
-                                                    </option>
-                                                </select>
-                                            </div>
+                
+                                                <OptionSelect id="weight"
+                                                value={weight === 0 ? '' : weight} 
+                                                onChange={handleWeight}
+                                                options={gramOptions} />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <label className="font-peyda text-xs text-white">

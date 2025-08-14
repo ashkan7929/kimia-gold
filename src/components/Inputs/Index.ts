@@ -5,3 +5,4 @@ export { default as MobileInput } from './MobileInput';
 export { default as NationalCodeInput } from './nationalCodeInput';
 export { default as NumberInput } from './NumberInput';
 export { default as TextareaInput } from './TextareaInput';
+export { default as OptionSelect } from './OptionSelect';
