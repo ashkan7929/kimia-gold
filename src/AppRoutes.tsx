@@ -10,7 +10,7 @@ import FailedTransaction from './pages/FailedTransaction/FailedTransaction';
 import Home from './pages/Home/Home';
 import Invite from './pages/Invite/Invite';
 import Loading from './pages/Loading/Loading';
-import Login from './pages/Login/Login';
+
 import MessageBox from './pages/MessageBox/MessageBox';
 import MyCards from './pages/MyCards/MyCards';
 import PaymentInformation from './pages/PaymentInformation/PaymentInformation';

@@ -57,18 +57,14 @@ export const portfolioApi = createApi({
 		getPortfolioSummary: builder.query<PortfolioSummary, void>({
 			query: () => '/summary',
 			providesTags: ['Portfolio'],
-			// Refetch every minute for real-time updates
-			pollingInterval: 60000,
 		}),
 		getHoldings: builder.query<Holding[], void>({
 			query: () => '/holdings',
 			providesTags: ['Holdings'],
-			// Refetch every minute for real-time price updates
-			pollingInterval: 60000,
 		}),
 		getHolding: builder.query<Holding, string>({
 			query: (symbol) => `/holdings/${symbol}`,
-			providesTags: (result, error, symbol) => [{ type: 'Holdings', id: symbol }],
+			providesTags: (_, __, symbol) => [{ type: 'Holdings', id: symbol }],
 		}),
 		getTransactions: builder.query<Transaction[], { page?: number; limit?: number; type?: string }>({
 			query: ({ page = 1, limit = 20, type }) => {
@@ -85,7 +81,7 @@ export const portfolioApi = createApi({
 		}),
 		getTransaction: builder.query<Transaction, string>({
 			query: (id) => `/transactions/${id}`,
-			providesTags: (result, error, id) => [{ type: 'Transactions', id }],
+			providesTags: (_, __, id) => [{ type: 'Transactions', id }],
 		}),
 		buyGold: builder.mutation<OrderResponse, BuyOrderRequest>({
 			query: (orderData) => ({

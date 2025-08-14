@@ -38,7 +38,7 @@ interface AuthState {
   logout: () => void;
 }
 
-export const useAuth = create<AuthState>((set, get) => ({
+export const useAuth = create<AuthState>((set) => ({
   token: localStorage.getItem('auth.token'),
   user: (() => {
     try {

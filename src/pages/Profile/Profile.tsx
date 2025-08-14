@@ -3,7 +3,7 @@ import { TbPencilMinus, CiMobile3, FaRegUser, FaChevronDown, FaChevronUp, MdOutl
 import { Disclosure, Transition } from "@headlessui/react"
 import { useTranslation } from 'react-i18next';
 import TextField from '../../components/Inputs/TextField';
-import Button from '../../components/Button/Button';
+
 import DateField from '../../components/Inputs/Datepiker';
 
 const Profile = () => {

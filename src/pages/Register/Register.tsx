@@ -21,11 +21,11 @@ const Register = () => {
     const { t } = useTranslation();
     const navigate = useNavigate()
 
-    const [step, setStep] = useState<number>(RegisterType.None)
+    const [step] = useState<number>(RegisterType.None)
     const [phoneNumber, setPhoneNumber] = useState<string>()
-    const [birthday, setBirthday] = useState<string>("")
-    const [referCode, setReferCode] = useState<string>()
-    const [nationalId, setNationalId] = useState<string>()
+    const [, setBirthday] = useState<string>("")
+    const [, setReferCode] = useState<string>()
+    const [, setNationalId] = useState<string>()
     const [accept, setAccept] = useState<boolean>(false)
     const [otpCode, setOtpCode] = useState<string>()
     const [error, setError] = useState<any>()
@@ -44,12 +44,12 @@ const Register = () => {
         setLoading(true)
         try {
             if (step == RegisterType.None) {
-                const data = {
-                    nationalCode: nationalId,
-                    mobileNumber: phoneNumber,
-                    birthDate: birthday,
-                    referralCode: referCode,
-                }
+                // const data = {
+                //     nationalCode: nationalId,
+                //     mobileNumber: phoneNumber,
+                //     birthDate: birthday,
+                //     referralCode: referCode,
+                // }
                 // const res = await axios.post("http://62.3.41.64:5016/api/auth/register", data);
                 // if (res.data) {
                 //     localStorage.setItem("user-data", JSON.stringify(res.data));

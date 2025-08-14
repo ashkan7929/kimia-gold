@@ -71,17 +71,15 @@ export const marketApi = createApi({
 		getCurrentPrices: builder.query<GoldPrice[], void>({
 			query: () => '/prices/current',
 			providesTags: ['GoldPrice'],
-			// Refetch every 30 seconds for real-time data
-			pollingInterval: 30000,
 		}),
 		getGoldPrice: builder.query<GoldPrice, string>({
 			query: (symbol) => `/prices/${symbol}`,
-			providesTags: (result, error, symbol) => [{ type: 'GoldPrice', id: symbol }],
+			providesTags: (_, __, symbol) => [{ type: 'GoldPrice', id: symbol }],
 		}),
 		getPriceHistory: builder.query<PriceHistory[], { symbol: string; timeframe: string; limit?: number }>({
 			query: ({ symbol, timeframe, limit = 100 }) =>
 				`/prices/${symbol}/history?timeframe=${timeframe}&limit=${limit}`,
-			providesTags: (result, error, { symbol, timeframe }) => [
+			providesTags: (_, __, { symbol, timeframe }) => [
 				{ type: 'PriceHistory', id: `${symbol}-${timeframe}` }
 			],
 		}),
@@ -100,7 +98,7 @@ export const marketApi = createApi({
 		}),
 		getNewsArticle: builder.query<MarketNews, string>({
 			query: (id) => `/news/${id}`,
-			providesTags: (result, error, id) => [{ type: 'MarketNews', id }],
+			providesTags: (_, __, id) => [{ type: 'MarketNews', id }],
 		}),
 		getMarketAlerts: builder.query<MarketAlert[], void>({
 			query: () => '/alerts',
@@ -143,8 +141,6 @@ export const marketApi = createApi({
 			fearGreedIndex: number;
 		}, void>({
 			query: () => '/stats',
-			// Refetch every 5 minutes
-			pollingInterval: 300000,
 		}),
 	}),
 });
