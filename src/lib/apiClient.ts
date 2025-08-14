@@ -1,6 +1,6 @@
 /* src/lib/apiClient.ts */
 export class ApiClient {
-  private base = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5016';
+  private base = import.meta.env.VITE_API_BASE_URL || 'https://vemclub.com/api';
   private timeout = Number(import.meta.env.VITE_TIMEOUT_MS || 15000);
   private get token() { return localStorage.getItem('auth.token'); }
 
