@@ -1,7 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-// import { useAuth } from './hooks/redux';
+import { useAuth } from './stores/auth.store';
 import Layout from './layouts/Layout/Layout';
 import SimpleLayout from './layouts/SimpleLayout/SimpleLayout';
+import AuthGuard from './components/AuthGuard';
+import { MobilePage, ChooseMethodPage } from './pages/Auth';
 import About from './pages/About/About';
 import Buy from './pages/Buy/Buy';
 import FailedTransaction from './pages/FailedTransaction/FailedTransaction';
@@ -23,22 +25,28 @@ import Transactions from './pages/Transactions/Transactions';
 import Wallet from './pages/Wallet/Wallet';
 
 // Protected Route Component
-// const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-//     const { isAuthenticated } = useAuth();
-//     return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
-// };
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    return (
+        <AuthGuard>
+            {children}
+        </AuthGuard>
+    );
+};
 
-// Public Route Component (redirect to home if authenticated)
+// Public Route Component (redirect to app if authenticated)
 const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    // const { isAuthenticated } = useAuth();
-    return <>{children}</>
-    // return !isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;
+    const { isAuthenticated } = useAuth();
+    return !isAuthenticated ? <>{children}</> : <Navigate to="/app" replace />;
 };
 
 // App Routes Component
 const AppRoutes: React.FC = () => {
     return (
         <Routes>
+            {/* Auth Routes */}
+            <Route path="/auth" element={<PublicRoute><MobilePage /></PublicRoute>} />
+            <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} />
+            
             {/* Public Routes */}
             <Route
                 path="/loading"
@@ -49,9 +57,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/"
                 element={
-                    <PublicRoute>
-                        <Login />
-                    </PublicRoute>
+                    <Navigate to="/auth" replace />
                 }
             />
             <Route
@@ -64,43 +70,53 @@ const AppRoutes: React.FC = () => {
             />
 
             <Route
-                path="/home"
+                path="/app"
                 element={
-                    <Layout>
-                        <Home />
-                    </Layout>
+                    <ProtectedRoute>
+                        <Layout>
+                            <Home />
+                        </Layout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/profile"
                 element={
-                    <Layout>
-                        <Profile />
-                    </Layout>
+                    <ProtectedRoute>
+                        <Layout>
+                            <Profile />
+                        </Layout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/my-cards"
                 element={
-                    <SimpleLayout title="کارت های من">
-                        <MyCards />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="کارت های من">
+                            <MyCards />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/wallet"
                 element={
-                    <SimpleLayout title="کیف پول">
-                        <Wallet />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="کیف پول">
+                            <Wallet />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/buy"
                 element={
-                    <SimpleLayout title="خرید طلا">
-                        <Buy />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="خرید طلا">
+                            <Buy />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
@@ -118,73 +134,91 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/payment-information"
                 element={
-                    <SimpleLayout title="اطلاعات پرداخت">
-                        <PaymentInformation />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="اطلاعات پرداخت">
+                            <PaymentInformation />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/transactions"
                 element={
-                    <SimpleLayout title="تراکنش ها">
-                        <Transactions />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="تراکنش ها">
+                            <Transactions />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/transaction-details"
                 element={
-                    <SimpleLayout title="جزئیات پرداخت">
-                        <TransactionDetails />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="جزئیات پرداخت">
+                            <TransactionDetails />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/rules"
                 element={
-                    <SimpleLayout title="قوانین و مقررات">
-                        <Rules />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="قوانین و مقررات">
+                            <Rules />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/invite"
                 element={
-                    <SimpleLayout title="دعوت از دوستان">
-                        <Invite />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="دعوت از دوستان">
+                            <Invite />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/suggestions"
                 element={
-                    <SimpleLayout title="نظرات و پیشنهادات">
-                        <Suggestions />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="نظرات و پیشنهادات">
+                            <Suggestions />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/about"
                 element={
-                    <SimpleLayout title="درباره ما">
-                        <About />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="درباره ما">
+                            <About />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/settings"
                 element={
-                    <SimpleLayout title="تنظیمات">
-                        <Settings />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="تنظیمات">
+                            <Settings />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/message-box"
                 element={
-                    <SimpleLayout title="صندوق پیام ها">
-                        <MessageBox />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout title="صندوق پیام ها">
+                            <MessageBox />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
 
