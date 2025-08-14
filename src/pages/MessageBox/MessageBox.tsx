@@ -11,7 +11,7 @@ const MessageBox = () => {
                     <div className="container flex flex-col gap-3 mx-auto mb-3">
                         <div className="rounded-lg shadow-lg bg-primary-darker">
                             <div className="flex flex-col gap-4 p-4">
-                                <div className="font-bold text-white text-md font-alibaba">صندوق پیام ها</div>
+                                <div className="font-bold text-white text-md font-peyda">صندوق پیام ها</div>
                                 <ul className="space-y-0">
                                     <li className="flex gap-3 items-center py-3 border-b border-primary-lighter last:border-b-0">
                                         <div className="w-3 h-3 bg-green-400 rounded-full" />

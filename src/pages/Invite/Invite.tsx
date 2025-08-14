@@ -1262,7 +1262,7 @@ const Invite = () => {
                                     </svg>
                                 </div>
                                 <Typography
-                                    className="font-alibaba text-white pb-2"
+                                    className="font-peyda text-white pb-2"
                                     fontWeight="bold"
                                     fontSize={12}
                                 >

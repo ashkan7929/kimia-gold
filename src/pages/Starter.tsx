@@ -18,7 +18,7 @@ const Starter = () => {
                                         <div className="text-custom-lightgray text-right text-[0.9375rem] font-semibold leading-6">
                                             ولت بانک
                                         </div>
-                                        <div className="text-white text-right font-alibaba text-[1.1875rem] font-bold leading-normal" style={{
+                                        <div className="text-white text-right font-peyda text-[1.1875rem] font-bold leading-normal" style={{
                                             textShadow: '0px 0px 64px rgba(245, 245, 245, 0.06)'
                                         }}>
                                             اپلیکیشن ولت‌بانک، <span className="font-normal">همیشه همراه تو</span>
@@ -41,7 +41,7 @@ const Starter = () => {
                                         <div className="text-custom-lightgray text-right text-[0.9375rem] font-semibold leading-6">
                                             ولت بانک
                                         </div>
-                                        <div className="text-white text-right font-alibaba text-[1.1875rem] font-bold leading-normal" style={{
+                                        <div className="text-white text-right font-peyda text-[1.1875rem] font-bold leading-normal" style={{
                                             textShadow: '0px 0px 64px rgba(245, 245, 245, 0.06)'
                                         }}>
                                             <span className="font-normal">

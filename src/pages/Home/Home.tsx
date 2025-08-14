@@ -43,11 +43,11 @@ const Home = () => {
                 <div className="flex flex-col gap-3 items-center pb-25">
                     <div className="bg-primary-darker flex gap-1 w-full p-3 rounded-lg">
                         <div className="flex flex-col gap-1">
-                            <Typography className="font-alibaba text-white" fontSize={13}>
+                            <Typography className="font-peyda text-white" fontSize={13}>
                                 <strong>{userData?.firstName + ' ' + userData?.lastName}</strong>{' '}
                                 خوش امدید
                             </Typography>
-                            <Typography className="font-alibaba text-neutral-300" fontSize={11}>
+                            <Typography className="font-peyda text-neutral-300" fontSize={11}>
                                 {'به باشگاه وِم خوش امدید'}
                             </Typography>
                         </div>
@@ -58,14 +58,14 @@ const Home = () => {
                     <div className="bg-primary-dark flex w-full p-3 rounded-lg">
                         <main className="px-4 flex-grow py-5 flex gap-3 flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
                             <div className="flex flex-col items-center gap-1.5">
-                                <Typography className="font-alibaba text-white" fontSize={16}>
+                                <Typography className="font-peyda text-white" fontSize={16}>
                                     صفحه <strong>باشگاه وِم</strong>
                                 </Typography>
-                                <Typography className="font-alibaba text-neutral-300" fontSize={11}>
+                                <Typography className="font-peyda text-neutral-300" fontSize={11}>
                                     {'محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر'}
                                 </Typography>
                             </div>
-                            <button className="bg-accent-orange text-white text-[9px] font-kalameh px-3 py-1.5 rounded-3xl">
+                            <button className="bg-accent-orange text-white text-[9px] font-peyda px-3 py-1.5 rounded-3xl">
                                 {'مشاهده خدمت'}
                             </button>
                         </main>
@@ -74,7 +74,7 @@ const Home = () => {
                         <div className="bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <img alt="" src="/images/Hand, Arm, Coins.svg" />
                             <Typography
-                                className="font-alibaba text-neutral-300 text-center"
+                                className="font-peyda text-neutral-300 text-center"
                                 fontSize={10}
                             >
                                 {'دریافت خدمات'}
@@ -84,7 +84,7 @@ const Home = () => {
                             <img alt="" src="/images/moneybag-modern-coins.svg" />
                             <Typography
                                 onClick={() => navigate('/buy')}
-                                className="font-alibaba text-neutral-300 text-center"
+                                className="font-peyda text-neutral-300 text-center"
                                 fontSize={10}
                             >
                                 {'سرمایه‌گذاری در طلا'}
@@ -93,7 +93,7 @@ const Home = () => {
                         <div className="bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <img alt="" src="/images/coins-document-chart.svg" />
                             <Typography
-                                className="font-alibaba text-neutral-300 text-center"
+                                className="font-peyda text-neutral-300 text-center"
                                 fontSize={10}
                             >
                                 {'بینش بازار'}

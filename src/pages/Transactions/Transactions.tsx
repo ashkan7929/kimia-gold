@@ -32,7 +32,7 @@ const Transactions = () => {
                             {
                                 tabInfo.map((tab) => (
                                     <button onClick={() => setSelectedTab(tab)} className={`${selectedTab == tab ? "bg-primary-blue" : "bg-transparent"} cursor-pointer text-neutral-200 w-full px-3 py-2 rounded-md`}>
-                                        <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={9}>
+                                        <Typography className="font-peyda text-white text-nowrap" fontWeight='semibold' fontSize={9}>
                                             {tab.title}
                                         </Typography>
                                     </button>
@@ -44,10 +44,10 @@ const Transactions = () => {
             </div>
 
             <div className="flex justify-between p-4 w-full rounded-lg bg-primary-darker">
-                <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={10}>
+                <Typography className="font-peyda text-white text-nowrap" fontWeight='semibold' fontSize={10}>
                     نوع عملیات
                 </Typography>
-                <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={10}>
+                <Typography className="font-peyda text-white text-nowrap" fontWeight='semibold' fontSize={10}>
                     مقدار تراکنش
                 </Typography>
             </div>
@@ -59,10 +59,10 @@ const Transactions = () => {
                             <FaArrowDownLong className='text-green-600' fontSize={11} />
                         </div>
                         <div className='flex flex-col gap-1'>
-                            <Typography className="!font-kalameh text-white text-nowrap" fontWeight={600} fontSize={11}>
+                            <Typography className="font-peyda text-white text-nowrap" fontWeight={600} fontSize={11}>
                                 افزایش موجودی
                             </Typography>
-                            <Typography className="!font-kalameh text-white text-nowrap" fontSize={9}>
+                            <Typography className="font-peyda text-white text-nowrap" fontSize={9}>
                                 1403/09/14   15:25
                             </Typography>
                         </div>

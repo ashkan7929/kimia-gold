@@ -72,7 +72,7 @@ const Buy = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="font-kalameh text-sm font-medium text-white">
+                            <div className="font-peyda text-sm font-medium text-white">
                                 سرمایه‌گذاری در طلا
                             </div>
                         </div>
@@ -114,20 +114,20 @@ const Buy = () => {
                                             />
                                         </div>
                                         <div className="flex flex-col gap-1">
-                                            <div className="font-kalameh text-sm font-medium text-white">
+                                            <div className="font-peyda text-sm font-medium text-white">
                                                 طلای 18 عیار
                                             </div>
-                                            <div className="font-alibaba text-xs text-custom-gray">
+                                            <div className="font-peyda text-xs text-custom-gray">
                                                 Anas gold
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="flex flex-col items-end gap-1">
-                                            <div className="font-kalameh text-xs text-custom-gray">
+                                            <div className="font-peyda text-xs text-custom-gray">
                                                 قیمت هر گرم
                                             </div>
-                                            <div className="font-alibaba text-lg font-bold text-white flex items-center gap-1">
+                                            <div className="font-peyda text-lg font-bold text-white flex items-center gap-1">
                                                 <span>2,566,890</span>
                                                 <i>
                                                     <svg
@@ -191,7 +191,7 @@ const Buy = () => {
                                                 role="tablist"
                                             >
                                                 <button
-                                                    className="flex-1 py-2 px-4 rounded-3xl bg-primary-blue text-white font-kalameh text-sm font-medium"
+                                                    className="flex-1 py-2 px-4 rounded-3xl bg-primary-blue text-white font-peyda text-sm font-medium"
                                                     id="pills-buy-tab"
                                                     data-bs-toggle="tab"
                                                     data-bs-target="#pills-buy"
@@ -203,7 +203,7 @@ const Buy = () => {
                                                     خرید
                                                 </button>
                                                 <button
-                                                    className="flex-1 py-2 px-4 rounded-3xl bg-transparent text-custom-gray font-kalameh text-sm font-medium"
+                                                    className="flex-1 py-2 px-4 rounded-3xl bg-transparent text-custom-gray font-peyda text-sm font-medium"
                                                     id="pills-sell-tab"
                                                     data-bs-toggle="tab"
                                                     data-bs-target="#pills-sell"
@@ -227,7 +227,7 @@ const Buy = () => {
                                         >
                                             <div className="flex flex-col gap-3 mt-3">
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="font-kalameh text-sm text-white">
+                                                    <label className="font-peyda text-sm text-white">
                                                         مقدار طلا
                                                     </label>
                                                     <div>
@@ -235,7 +235,7 @@ const Buy = () => {
                                                             id="weight"
                                                             value={weight === 0 ? '' : weight}
                                                             onChange={handleWeight}
-                                                            className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm focus:outline-none focus:border-primary-blue"
+                                                            className="w-full p-3 bg-primary border border-custom-border rounded-lg text-white font-peyda text-sm focus:outline-none focus:border-primary-blue"
                                                         >
                                                             <option value="" disabled>
                                                                 انتخاب کنید
@@ -254,7 +254,7 @@ const Buy = () => {
                                                     </div>
                                                 </div>
                                                 <div className="flex flex-col gap-2">
-                                                    <label className="font-kalameh text-sm text-white">
+                                                    <label className="font-peyda text-sm text-white">
                                                         مبلغ پرداختی
                                                     </label>
                                                     <div className="relative">
@@ -290,7 +290,7 @@ const Buy = () => {
                                                         </i>
                                                         <input
                                                             type="text"
-                                                            className="w-full p-3 pl-12 bg-primary border border-custom-border rounded-lg text-white font-kalameh text-sm placeholder-custom-gray focus:outline-none focus:border-primary-blue"
+                                                            className="w-full p-3 pl-12 bg-primary border border-custom-border rounded-lg text-white font-peyda text-sm placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                                                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                                                         />
                                                         {price
@@ -300,32 +300,32 @@ const Buy = () => {
                                                     <div className="grid grid-cols-2 gap-2 mt-3">
                                                         <button
                                                             type="button"
-                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-peyda text-sm hover:border-primary-blue"
                                                         >
                                                             1,000,000
                                                         </button>
                                                         <button
                                                             type="button"
-                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-peyda text-sm hover:border-primary-blue"
                                                         >
                                                             5,000,000
                                                         </button>
                                                         <button
                                                             type="button"
-                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-peyda text-sm hover:border-primary-blue"
                                                         >
                                                             10,000,000
                                                         </button>
                                                         <button
                                                             type="button"
-                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-alibaba text-sm hover:border-primary-blue"
+                                                            className="p-2 bg-primary border border-custom-border rounded-lg text-custom-gray font-peyda text-sm hover:border-primary-blue"
                                                         >
                                                             15,000,000
                                                         </button>
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <button className="w-full py-3 bg-primary-blue text-white font-kalameh text-sm font-medium rounded-lg hover:bg-opacity-90 transition-colors">
+                                                    <button className="w-full py-3 bg-primary-blue text-white font-peyda text-sm font-medium rounded-lg hover:bg-opacity-90 transition-colors">
                                                         خرید
                                                     </button>
                                                 </div>
@@ -351,7 +351,7 @@ const Buy = () => {
                                         <div className="border border-custom-border rounded-lg overflow-hidden">
                                             <h2>
                                                 <button
-                                                    className="w-full p-4 text-right bg-primary border-none text-white font-kalameh text-sm font-medium flex items-center justify-between"
+                                                    className="w-full p-4 text-right bg-primary border-none text-white font-peyda text-sm font-medium flex items-center justify-between"
                                                     type="button"
                                                     data-bs-toggle="collapse"
                                                     data-bs-target="#collapseOne"
@@ -367,7 +367,7 @@ const Buy = () => {
                                                 className="block"
                                                 data-bs-parent="#accordionInfo"
                                             >
-                                                <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-kalameh text-sm leading-relaxed">
+                                                <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-peyda text-sm leading-relaxed">
                                                     محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در
                                                     ثبت
                                                 </div>
@@ -376,7 +376,7 @@ const Buy = () => {
                                         <div className="border border-custom-border rounded-lg overflow-hidden">
                                             <h2>
                                                 <button
-                                                    className="w-full p-4 text-right bg-primary border-none text-white font-kalameh text-sm font-medium flex items-center justify-between"
+                                                    className="w-full p-4 text-right bg-primary border-none text-white font-peyda text-sm font-medium flex items-center justify-between"
                                                     type="button"
                                                     data-bs-toggle="collapse"
                                                     data-bs-target="#collapseTwo"
@@ -392,7 +392,7 @@ const Buy = () => {
                                                 className="hidden"
                                                 data-bs-parent="#accordionInfo"
                                             >
-                                                <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-kalameh text-sm leading-relaxed">
+                                                <div className="p-4 bg-primary-light border-t border-custom-border text-custom-gray font-peyda text-sm leading-relaxed">
                                                     محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در
                                                     ثبت سفارش‌ها.
                                                 </div>
@@ -654,10 +654,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             اطلاعات کاربری
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             در این بخش می‌توانید اطلاعات کاربری را ویرایش کنید.
                                         </div>
                                     </div>
@@ -743,10 +743,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             قوانین و مقررات
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -795,10 +795,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             صندوق پیام‌ها
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             در این بخش می‌توانید آخرین پیام‌های خود را مشاهده کنید.
                                         </div>
                                     </div>
@@ -880,10 +880,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             دعوت از دوستان
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             از این بخش می‌توانید دوستان خود را به اپلیکیشن دعوت
                                             کنید.
                                         </div>
@@ -980,10 +980,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             نظرات و پیشنهادات
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             در این بخش می‌توانید نظرات خود را با ما به اشتراک
                                             بگذارید.
                                         </div>
@@ -1072,10 +1072,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             گزارشات ریز تراکنش‌ها
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             در این بخش می‌توانید تراکنش‌ها را با جزئیات مشاهده کنید.
                                         </div>
                                     </div>
@@ -1131,10 +1131,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             تنظیمات
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             در این بخش می‌توانید تنظیمات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -1190,10 +1190,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             درباره باشگاه وِم
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             در این بخش می‌توانید ما را بهتر بشناسید.
                                         </div>
                                     </div>
@@ -1295,10 +1295,10 @@ const Buy = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="font-kalameh text-sm font-medium text-white">
+                                        <div className="font-peyda text-sm font-medium text-white">
                                             خروج از حساب کاربری
                                         </div>
-                                        <div className="font-alibaba text-xs text-custom-gray">
+                                        <div className="font-peyda text-xs text-custom-gray">
                                             برای خروج از حساب کاربری کلیک کنید
                                         </div>
                                     </div>

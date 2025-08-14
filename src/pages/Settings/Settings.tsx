@@ -1,42 +1,22 @@
 import Typography from "@mui/material/Typography"
 import ToggleButton from "../../components/Inputs/ToggleButton"
+import { useTranslation } from "react-i18next"
 
 const Settings = () => {
+  const { t } = useTranslation();
     return (
             <div className="w-full mx-auto flex flex-col">
                 <main className="flex-grow bg-cover bg-center" style={{ backgroundImage: "url('./assets/images/main-lines-pattern.png')" }}>
                     <div className="flex flex-col gap-3">
                         <div className="bg-custom-bg-card rounded-lg">
                             <div className="p-4 flex flex-col gap-4">
-                                <Typography className="font-alibaba text-white" fontWeight='bold' fontSize={15}>مدیریت پیام‌ها</Typography>
+                                <Typography className="font-peyda text-white" fontWeight='bold' fontSize={15}>{t('manageMessages')}</Typography>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>اطلاع‌رسانی با ایمیل</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>{t('emailNotification')}</Typography>
                                     <ToggleButton />
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>اطلاع‌رسانی با پیامک</Typography>
-                                    <ToggleButton />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="bg-custom-bg-card rounded-lg">
-                            <div className="p-4 flex flex-col gap-4">
-                                <Typography className="font-alibaba text-white" fontWeight='bold' fontSize={15}>مدیریت معامله‌ها</Typography>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>دریافت تایید برای ثبت سفارش</Typography>
-                                    <ToggleButton />
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>تایید با ایمیل کاربری</Typography>
-                                    <ToggleButton />
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>تایید دو مرحله‌ای پیامکی</Typography>
-                                    <ToggleButton />
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>دریافت تایید برای لغو سفارش</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>{t('messageNotification')}</Typography>
                                     <ToggleButton />
                                 </div>
                             </div>
@@ -44,17 +24,49 @@ const Settings = () => {
 
                         <div className="bg-custom-bg-card rounded-lg">
                             <div className="p-4 flex flex-col gap-4">
-                                <Typography className="!font-alibaba text-white" fontWeight='bold' fontSize={15}>آپدیت‌ها</Typography>
+                                <Typography className="font-peyda text-white" fontWeight='bold' fontSize={15}>{t('bargainManagement')}</Typography>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>آپدیت خودکار اپلیکیشن</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>{t('receiveConfirmation')}</Typography>
                                     <ToggleButton />
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>آپدیت خریدها موجود</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>{t('confirmEmail')}</Typography>
                                     <ToggleButton />
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <Typography className="font-peyda text-white" fontSize={13}>آپدیت قیمت لحظه‌ای</Typography>
+                                    <Typography className="font-peyda text-white" fontSize={13}>  
+
+                                        {t('verificationTwo-stepSMS')}
+                                    </Typography>
+                                    <ToggleButton />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>
+                                             {t('receiveConfirmatioCancelOrder')}
+                                    </Typography>
+                                    <ToggleButton />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-custom-bg-card rounded-lg">
+                            <div className="p-4 flex flex-col gap-4">
+                                <Typography className="font-peyda text-white" fontWeight='bold' fontSize={15}>{t('update')}</Typography>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>
+                                        {t('automaticUpdateApp')}
+                                    </Typography>
+                                    <ToggleButton />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>
+                                        {t('updateAvailablePurchases')}
+                                    </Typography>
+                                    <ToggleButton />
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <Typography className="font-peyda text-white" fontSize={13}>
+                                        {t('updatePrice')}
+                                    </Typography>
                                     <ToggleButton />
                                 </div>
                             </div>

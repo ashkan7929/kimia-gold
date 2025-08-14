@@ -47,7 +47,7 @@ export default function Modal({ open, handleClose, handleSubmit, children, modal
                 }
             >
                 <Stack direction={"row"} alignItems={"center"}>
-                    <DialogTitle sx={{ m: 0, px: 4, py: 3, color: "white", fontSize: 14 }} className='font-alibaba' fontWeight={'bold'} id="customized-dialog-title">
+                    <DialogTitle sx={{ m: 0, px: 4, py: 3, color: "white", fontSize: 14 }} className='font-peyda' fontWeight={'bold'} id="customized-dialog-title">
                         {modalTitle}
                     </DialogTitle>
                 </Stack>

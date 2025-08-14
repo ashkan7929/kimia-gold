@@ -228,10 +228,10 @@ const MyCards = () => {
                                         <img src="./assets/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                                     </div>
                                     <div className="flex flex-col gap-2 flex-grow">
-                                        <div className="text-[0.875rem] font-medium leading-normal" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                                        <div className="text-[0.875rem] font-medium leading-normal" style={{ fontFamily: 'peyda' }}>6219 - 86** - **** - 67899</div>
                                         <div className="flex items-center justify-between">
-                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>بانک اقتصاد نوین</div>
+                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>08/09</div>
                                         </div>
                                     </div>
                                 </button>
@@ -370,10 +370,10 @@ const MyCards = () => {
                                         <img src="./assets/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                                     </div>
                                     <div className="flex flex-col gap-2 flex-grow">
-                                        <div className="text-[0.875rem] font-medium leading-normal" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                                        <div className="text-[0.875rem] font-medium leading-normal" style={{ fontFamily: 'peyda' }}>6219 - 86** - **** - 67899</div>
                                         <div className="flex items-center justify-between">
                                             <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>08/09</div>
                                         </div>
                                     </div>
                                 </button>

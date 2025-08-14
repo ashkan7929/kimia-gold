@@ -22,7 +22,7 @@ const MyCards = () => {
                                                 <span className="bg-accent-orange w-6.5 h-6.5 flex justify-center items-center rounded-md">
                                                     <FaRegUser className='text-xs text-white' />
                                                 </span>
-                                                <Typography className='text-white font-alibaba' fontSize={13} fontWeight='bold'>افزودن کارت جدید</Typography>
+                                                <Typography className='text-white font-peyda' fontSize={13} fontWeight='bold'>افزودن کارت جدید</Typography>
                                             </div>
                                             {open ? <div className='bg-primary-blue rounded-full w-6.5 h-6.5 flex justify-center items-center'><FaMinus className='text-white' fontSize={10} /></div> : <FaChevronDown className='text-white' fontSize={12} />}
                                         </Disclosure.Button>
@@ -112,10 +112,10 @@ const MyCards = () => {
                                                 <img src="/images/banks/ansar bank.png" alt="" className="object-contain w-full h-full" />
                                             </div>
                                             <div className="flex flex-col flex-grow gap-2">
-                                                <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                                                <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'peyda' }}>6219 - 86** - **** - 67899</div>
                                                 <div className="flex justify-between items-center">
                                                     <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                                    <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                                    <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>08/09</div>
                                                 </div>
                                             </div>
                                             {open ? <FaChevronUp className='text-white' fontSize={12} /> : <FaChevronDown className='text-white' fontSize={12} />}
@@ -212,10 +212,10 @@ const MyCards = () => {
                                                 <img src="/images/banks/ansar bank.png" alt="" className="object-contain w-full h-full" />
                                             </div>
                                             <div className="flex flex-col flex-grow gap-2">
-                                                <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                                                <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'peyda' }}>6219 - 86** - **** - 67899</div>
                                                 <div className="flex justify-between items-center">
-                                                    <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                                    <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                                    <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>بانک اقتصاد نوین</div>
+                                                    <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>08/09</div>
                                                 </div>
                                             </div>
                                             {open ? <FaChevronUp className='text-white' fontSize={12} /> : <FaChevronDown className='text-white' fontSize={12} />}

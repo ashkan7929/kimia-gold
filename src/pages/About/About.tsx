@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import Button from "../../components/Button/Button"
 
 const About = () => {
-    return (
+  const { t } = useTranslation();
+      return (
         <>
             <div className="w-full mx-auto min-h-screen flex flex-col">
                 <main className="flex-grow bg-cover bg-center" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')" }}>
@@ -17,13 +19,15 @@ const About = () => {
                                             <img src="/images/about-group-icon.png" alt="" />
                                         </div>
                                     </div>
-                                    <div className="text-center font-alibaba text-lg font-bold leading-normal my-3 text-white">درباره ما</div>
+                                    <div className="text-center font-peyda text-lg font-bold leading-normal my-3 text-white">{t('about_title')}</div>
                                     <div className="text-white text-right font-normal leading-loose mb-3">
-                                        <p className="mb-2 font-peyda">وِم، بستری است جهت مدیریت ارزش ثروت شما. </p> 
-                                          <p className="mb-2 font-peyda">در این بستر، مجموعه‌ای از ابزارها به شیوه‌ای منحصربه‌فرد طراحی و تنظیم شده که تضمین گردد دریافت بیشترین ارزش و کمترین ریسک برای استفاده‌کنندگان ازآن است</p>                                            
+                                        <p className="mb-2 font-peyda">{t('about_p1')}
+                                         <br /> {t('about_p2')}</p>                                            
                                     </div>
                                     <div>
-                                        <Button className="bg-primary-blue w-full text-white text-sm">برقراری ارتباط با ما</Button>
+                                        <Button className="bg-primary-blue w-full text-white text-sm">
+                                           {t('support')}
+                                        </Button>
                                     </div>
                                 </div>
                             </div>

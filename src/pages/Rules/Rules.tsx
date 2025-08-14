@@ -31,7 +31,7 @@ const Rules = () => {
                                                     } cursor-pointer text-neutral-200 px-6 py-2 rounded-md`}
                                                 >
                                                     <Typography
-                                                        className="font-peyda text-white text-nowrap"
+                                                        className="!font-peyda text-white text-nowrap"
                                                         fontWeight="semibold"
                                                         fontSize={9}
                                                     >
@@ -48,7 +48,7 @@ const Rules = () => {
                                 <div className="flex flex-col gap-2">
                                     <div className="bg-primary-darker rounded-lg">
                                         <div className="p-[14px_12px]">
-                                            <div className="text-white font-alibaba text-[15.36px] font-normal leading-normal mb-4">
+                                            <div className="text-white font-peyda text-[15.36px] font-normal leading-normal mb-4">
                                                 قوانین مربوط به سرمایه‌گذاری در طلا
                                             </div>
                                             <div className="text-white">

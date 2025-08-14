@@ -12,23 +12,23 @@ const Suggestions = () => {
                         <div className="mb-8">
                             <img alt="" src="/images/man-checking-comment.svg" height={174} width={232} className="mx-auto" />
                         </div>
-                        <Typography className="text-white !font-alibaba" fontSize={17} fontWeight="bold">نظرات و پیشنهادات خود را با ما در میان بگذارید</Typography>
-                        <Typography className="text-white !font-alibaba" fontSize={12}>شما میتوانید پیشنهادات و انتقادات خود را با ما به اشتراک بگذارید</Typography>
+                        <Typography className="text-white font-peyda" fontSize={17} fontWeight="bold">نظرات و پیشنهادات خود را با ما در میان بگذارید</Typography>
+                        <Typography className="text-white font-peyda" fontSize={12}>شما میتوانید پیشنهادات و انتقادات خود را با ما به اشتراک بگذارید</Typography>
                         <div className="mb-4">
-                            <Typography className="text-white !font-alibaba w-full text-start pb-2" fontSize={12}> نام و نام خانوادگی</Typography>
+                            <Typography className="text-white font-peyda w-full text-start pb-2" fontSize={12}> نام و نام خانوادگی</Typography>
                             <div className="flex gap-2 items-center relative">
                                 <TextField mobileIcon={<CiCalendarDate />} className="w-full" placeholder="کد تخفیف را وارد نمایید" />
                             </div>
                         </div>
                         <div className="mb-4">
-                            <Typography className="text-white !font-alibaba w-full text-start pb-2" fontSize={12}> موضوع</Typography>
+                            <Typography className="text-white font-peyda w-full text-start pb-2" fontSize={12}> موضوع</Typography>
                             <select className="!font-peyda w-full bg-custom-bg-input border border-custom-border-light text-sm rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent">
                                 <option value={1}>خرید محصولات</option>
                                 <option value={2}>خرید محصولات</option>
                             </select>
                         </div>
                         <div className="mb-6">
-                            <Typography className="text-white !font-alibaba w-full text-start pb-2" fontSize={12}> موضوع</Typography>
+                            <Typography className="text-white font-peyda w-full text-start pb-2" fontSize={12}> موضوع</Typography>
                             <textarea
                                 className="text-sm font-peyda w-full bg-custom-bg-input border border-custom-border-light rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                                 rows={4}

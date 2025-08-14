@@ -82,7 +82,7 @@ const Wallet = () => {
                                 {
                                     tabInfo.map((tab) => (
                                         <button key={tab.id} onClick={() => setSelectedTab(tab)} className={`${selectedTab == tab ? "bg-primary-blue" : "bg-transparent"} cursor-pointer text-neutral-200 w-full px-3 py-2 rounded-md`}>
-                                            <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={9}>
+                                            <Typography className="font-peyda text-white text-nowrap" fontWeight='semibold' fontSize={9}>
                                             {tab.title}
                                         </Typography>
                                     </button>
@@ -94,22 +94,22 @@ const Wallet = () => {
                 </div>
 
                 <div className="bg-primary-darker rounded-lg w-full flex justify-between p-4">
-                    <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={10}>
+                    <Typography className="!font-peyda text-white text-nowrap" fontWeight='semibold' fontSize={10}>
                         نوع عملیات
                     </Typography>
-                    <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={10}>
+                    <Typography className="!font-peyda text-white text-nowrap" fontWeight='semibold' fontSize={10}>
                         مقدار تراکنش
                     </Typography>
                 </div>
 
                 <div className='flex flex-col gap-2 w-full'>
-                    {[0, 0, 0].map(() => <div className='flex justify-between w-full p-2.5 bg-primary-dark rounded-lg'>
+                      {[0, 0, 0].map((_, i) => (<div key={i} className='flex justify-between w-full p-2.5 bg-primary-dark rounded-lg'>
                         <div className='flex gap-2 items-center'>
                             <div className='bg-green-100 w-7 h-7 rounded-full flex justify-center items-center'>
                                 <FaArrowDownLong className='text-green-600' fontSize={11} />
                             </div>
                             <div className='flex flex-col gap-1'>
-                                <Typography className="!font-kalameh text-white text-nowrap" fontWeight={600} fontSize={11}>
+                                <Typography className="!font-peyda text-white text-nowrap" fontWeight={600} fontSize={11}>
                                     افزایش موجودی
                                     </Typography>
                                     <img alt="" src="/images/toman.svg" width={10} height={10} />
@@ -123,6 +123,7 @@ const Wallet = () => {
                             </div>
                         </div>
                     ))}
+                    
                 </div>
             </div>
 
@@ -152,7 +153,7 @@ const Wallet = () => {
                         </i>
                         <input
                             type="text"
-                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
+                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-peyda text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
@@ -233,7 +234,7 @@ const Wallet = () => {
                         </i>
                         <input
                             type="text"
-                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
+                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-peyda text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
@@ -297,7 +298,7 @@ const Wallet = () => {
                         </i>
                         <input
                             type="text"
-                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
+                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-peyda text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
@@ -392,10 +393,10 @@ const Wallet = () => {
                             <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'peyda' }}>6219 - 86** - **** - 67899</div>
                             <div className="flex items-center justify-between">
-                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>بانک اقتصاد نوین</div>
+                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>08/09</div>
                             </div>
                         </div>
                     </div>
@@ -405,10 +406,10 @@ const Wallet = () => {
                             <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'peyda' }}>6219 - 86** - **** - 67899</div>
                             <div className="flex items-center justify-between">
-                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>بانک اقتصاد نوین</div>
+                                <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'peyda' }}>08/09</div>
                             </div>
                         </div>
                     </div>

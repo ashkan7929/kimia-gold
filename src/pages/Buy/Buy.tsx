@@ -148,7 +148,7 @@ const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
                                                     type="button"
                                                 >
                                                     <Typography
-                                                        className="text-white font-kalameh"
+                                                        className="text-white font-peyda"
                                                         fontSize={10}
                                                     >
                                                         {tab.title}
@@ -284,7 +284,7 @@ const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
                                                 <input
                                                     value={priceItem}
                                                     type="text"
-                                                    className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
+                                                    className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-peyda text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                                                     placeholder="مبلغ خرید طلا را وارد نمایید"
                                                 />
                                             </div>
