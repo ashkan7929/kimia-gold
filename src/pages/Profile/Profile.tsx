@@ -34,7 +34,7 @@ const Profile = () => {
                                         <Typography className='text-white !font-alibaba !font-bold !text-4xl-custom'>{userData?.firstName + " " + userData?.lastName}</Typography>
                                         <div className="flex items-center gap-1 ">
                                             <CiMobile3 className='text-white' />
-                                            <Typography className='text-white !font-peyda !text-4xl-custom'>{userData?.username}</Typography>
+                                            <Typography className='text-white !font-peyda !text-4xl-custom'>{userData?.phoneNumber}</Typography>
                                         </div>
                                     </div>
                                 </div>
