@@ -45,7 +45,7 @@ const Home = () => {
                 <div className='bg-primary-darker flex gap-1 w-full p-3 rounded-lg'>
                     <div className='flex flex-col gap-1'>
                         <Typography className='!font-alibaba text-white' fontSize={13}><strong>{userData?.firstName && userData?.lastName ? userData.firstName + " " + userData.lastName : 'کاربر گرامی'}</strong> خوش امدید</Typography>
-                        <Typography className='!font-alibaba text-neutral-300' fontSize={11}>{'به اپلیکیشن کیمیا گری خوش امدید میتوانید خدمات خود را انتخاب کنید'}</Typography>
+                        <Typography className='!font-alibaba text-neutral-300' fontSize={11}>{'به باشگاه وِم خوش آمدید، از این صفحه می‌توانید خدمات خود را انتخاب کنید'}</Typography>
                     </div>
                     <div>
                         <img alt='' src='/images/welcome-home.svg' width={79} height={63} />
@@ -56,7 +56,7 @@ const Home = () => {
                         className="px-4 flex-grow py-5 flex gap-3 flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center"
                     >
                         <div className='flex flex-col items-center gap-1.5'>
-                            <Typography className='!font-alibaba text-white' fontSize={16}>صفحه <strong>کیمیاگری</strong></Typography>
+                            <Typography className='!font-alibaba text-white' fontSize={16}>صفحه <strong>باشگاه وِم</strong></Typography>
                             <Typography className='!font-alibaba text-neutral-300' fontSize={11}>{'محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر'}</Typography>
                         </div>
                         <button className='bg-accent-orange text-white text-[9px] font-kalameh px-3 py-1.5 rounded-3xl'>{'مشاهده خدمت'}</button>
