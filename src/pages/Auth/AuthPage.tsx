@@ -45,7 +45,7 @@ const AuthPage: React.FC = () => {
   const [otpCode, setOtpCode] = useState('');
   const [resendTimer, setResendTimer] = useState(0);
   const [canResend, setCanResend] = useState(true);
-
+  const [loginMethod, setLoginMethod] = useState<'password' | 'otp' | null>(null);
   // Mobile form
   const mobileForm = useForm<MobileFormData>({
     resolver: zodResolver(mobileSchema)
@@ -98,14 +98,18 @@ const AuthPage: React.FC = () => {
       if (!response.userExists) {
         // کاربر جدید - نمایش فرم ثبت‌نام
         registerForm.setValue('mobileNumber', data.mobileNumber);
+        setLoginMethod(null); 
         setCurrentStep('register');
       } else if (response.hasPassword) {
         // کاربر موجود با رمز عبور - نمایش فرم رمز عبور
         setCurrentStep('password');
+        setLoginMethod("password"); 
       } else {
         // کاربر موجود بدون رمز عبور - ارسال OTP
         await sendOtp(data.mobileNumber, 'login');
         setCurrentStep('otp');
+        setLoginMethod(null); 
+
       }
     } catch (err: any) {
       setError(err.message || 'خطایی رخ داده است. لطفاً دوباره تلاش کنید.');
@@ -129,6 +133,7 @@ const AuthPage: React.FC = () => {
 
       // پس از ثبت‌نام موفق، ارسال OTP
       await sendOtp(data.mobileNumber, 'register');
+      setLoginMethod(null);
       setCurrentStep('otp');
     } catch (err: any) {
       if (err.response?.status === 400) {
@@ -256,6 +261,7 @@ const AuthPage: React.FC = () => {
 
     try {
       await sendOtp(mobileNumber, 'login');
+      setLoginMethod('otp');   
       setCurrentStep('otp');
     } catch (err) {
       setError('خطا در ارسال کد تایید');
@@ -281,10 +287,11 @@ const AuthPage: React.FC = () => {
   return (
     <div className="flex flex-col mx-auto w-full min-h-screen bg-primary-darker">
       <main className="px-4 flex-grow py-5 flex flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
+        {!(currentStep === 'otp' && loginMethod === 'otp') && (
         <div className='text-white py-17'>
           <img alt='' src='/images/login.svg' width={193} height={193} />
         </div>
-
+        )}
         {/* Mobile Step */}
         {currentStep === 'mobile' && (
           <form onSubmit={mobileForm.handleSubmit(handleMobileSubmit)} className='flex flex-col gap-4 w-full'>
@@ -336,7 +343,7 @@ const AuthPage: React.FC = () => {
         {/* Register Step */}
         {currentStep === 'register' && (
           <div className="w-full max-w-md mx-auto">
-            <div className="text-center mb-8">
+            <div className="text-center mb-8 flex flex-col gap-2">
               <Typography className="text-white !font-alibaba mb-2" fontSize={20} fontWeight="bold">
                 تکمیل اطلاعات
               </Typography>
@@ -347,7 +354,7 @@ const AuthPage: React.FC = () => {
 
             <form onSubmit={registerForm.handleSubmit(handleRegisterSubmit)} className="space-y-4">
               {/* Mobile Number (Read-only) */}
-              <div>
+              <div className='flex flex-col gap-1'>
                 <Typography className="text-white !font-peyda mb-2" fontSize={12}>
                   شماره موبایل
                 </Typography>
@@ -361,7 +368,7 @@ const AuthPage: React.FC = () => {
               </div>
 
               {/* National Code */}
-              <div>
+              <div className='flex flex-col gap-1'>
                 <Typography className="text-white !font-peyda mb-2" fontSize={12}>
                   کد ملی *
                 </Typography>
@@ -379,7 +386,7 @@ const AuthPage: React.FC = () => {
               </div>
 
               {/* Birth Date */}
-              <div>
+              <div className='flex flex-col gap-1'>
                 <Typography className="text-white !font-peyda mb-2" fontSize={12}>
                   تاریخ تولد *
                 </Typography>
@@ -406,7 +413,7 @@ const AuthPage: React.FC = () => {
               </div>
 
               {/* Referral Code */}
-              <div>
+              <div className='flex flex-col gap-1'>
                 <Typography className="text-white !font-peyda mb-2" fontSize={12}>
                   کد معرف (اختیاری)
                 </Typography>
@@ -424,7 +431,7 @@ const AuthPage: React.FC = () => {
               </div>
 
               {/* Accept Rules */}
-              <div className="flex items-start gap-3">
+              <div className="flex items-center gap-1">
                 <CheckBox
                   label=""
                   defaultChecked={registerForm.watch('acceptRules')}
@@ -462,7 +469,7 @@ const AuthPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleBack}
-                className="w-full py-3 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-700 transition-colors font-peyda"
+                className="w-full py-3 rounded-lg border text-gray-300 hover:bg-primary-light transition-colors font-peyda"
               >
                 بازگشت
               </button>
@@ -555,16 +562,18 @@ const AuthPage: React.FC = () => {
 
         {/* OTP Step */}
         {currentStep === 'otp' && (
-          <div className="w-full max-w-md mx-auto text-center">
+          <div className="w-full max-w-md mx-auto text-center flex flex-col gap-2">
+          {loginMethod === 'otp' && (
             <div className="mb-8">
               <img
                 alt="OTP Verification"
-                src="/images/otp-verification.svg"
+                src="/images/otp.png"
                 height={174}
                 width={232}
                 className="mx-auto"
               />
             </div>
+          )}
 
             <Typography className="text-white !font-alibaba mb-2" fontSize={20} fontWeight="bold">
               {userStatus?.userExists ? 'ورود با کد تایید' : 'تایید شماره موبایل'}
@@ -593,14 +602,14 @@ const AuthPage: React.FC = () => {
             <Button
               onClick={handleOtpSubmit}
               disabled={isLoading || otpCode.length !== 6}
-              className="w-full mb-4 text-white"
+              className="w-full mb-4 text-white bg-primary-blue hover:bg-blue-600"
             >
               {userStatus?.userExists ? 'ورود' : 'تایید و ادامه'}
             </Button>
 
             <div className="text-center space-y-2 mb-4">
               <Typography className="text-gray-400 !font-peyda" fontSize={12}>
-                کد تایید دریافت نکردید؟
+                کد تایید را دریافت نکردید؟
               </Typography>
               {canResend ? (
                 <button
@@ -619,7 +628,7 @@ const AuthPage: React.FC = () => {
 
             <button
               onClick={handleBack}
-              className="w-full py-3 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-700 transition-colors font-peyda"
+              className="w-full py-3 rounded-lg border hover:border-none text-gray-300 hover:bg-primary-light transition-colors font-peyda"
             >
               بازگشت
             </button>

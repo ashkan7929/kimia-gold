@@ -191,7 +191,7 @@ const Register: React.FC = () => {
               </div>
 
               {/* Accept Rules */}
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 ">
                 <CheckBox
                   label=""
                   defaultChecked={watch('acceptRules')}

@@ -1,5 +1,4 @@
 import axios from "axios";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button/Button";
@@ -87,10 +86,7 @@ const Login = () => {
                     </Typography>}
 
                     <Button className="w-full text-white bg-primary-blue hover:bg-blue-600">{t('loginToAccount')}</Button>
-                    <div className='flex gap-2'>
-                        <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} className='text-neutral-300'>{t('noAccount')}</Typography>
-                        <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} component={Link} href='/register' sx={{ color: "white", textDecoration: 'none' }}>{t('signUp')}</Typography>
-                    </div>
+                  
                 </form>
             </main>
         </div>

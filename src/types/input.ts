@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import type { ChangeEvent } from 'react';
 
 export interface MobileInputProps {
     label: string;
@@ -20,20 +20,15 @@ export interface CheckboxProps {
     label: string;
 }
 
-
-
 export interface NationalCodeProps {
     MdOutlineBadge: React.ComponentType<any>;
     placeholder?: string;
 }
 
-
-
 export interface TextereaProps {
     title?: string;
     placeholder?: string;
 }
-
 
 export interface SubjectSelectProps {
     options: { value: string; label: string }[];
@@ -41,15 +36,23 @@ export interface SubjectSelectProps {
     onChange: (value: string) => void;
 }
 
-
 export interface NumberInputProps {
     placeholder?: string;
-
 }
-
-
 
 export interface IDatepicker {
     placeholder?: string;
+}
 
+export interface OptionSelectProps {
+    id?: string;
+    value: number | string;
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+    options: OptionItem[];
+    placeholder?: string;
+}
+
+interface OptionItem {
+    value: number | string;
+    label: string;
 }

@@ -3,7 +3,7 @@ import { useAuth } from './stores/auth.store';
 import Layout from './layouts/Layout/Layout';
 import SimpleLayout from './layouts/SimpleLayout/SimpleLayout';
 import AuthGuard from './components/AuthGuard';
-import { MobilePage, ChooseMethodPage, OtpPage, AuthPage } from './pages/Auth';
+import { MobilePage, OtpPage, AuthPage } from './pages/Auth';
 import About from './pages/About/About';
 import Buy from './pages/Buy/Buy';
 import FailedTransaction from './pages/FailedTransaction/FailedTransaction';
@@ -45,7 +45,7 @@ const AppRoutes: React.FC = () => {
         <Routes>
             {/* Auth Routes */}
             <Route path="/auth" element={<PublicRoute><MobilePage /></PublicRoute>} />
-            <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} />
+            {/* <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} /> */}
             <Route path="/auth/otp" element={<PublicRoute><OtpPage /></PublicRoute>} />
             <Route path="/auth/unified" element={<PublicRoute><AuthPage /></PublicRoute>} />
             
@@ -147,7 +147,7 @@ const AppRoutes: React.FC = () => {
                 path="/transactions"
                 element={
                     <ProtectedRoute>
-                        <SimpleLayout title="تراکنش ها">
+                        <SimpleLayout title="تراکنش‌ها">
                             <Transactions />
                         </SimpleLayout>
                     </ProtectedRoute>
@@ -177,7 +177,7 @@ const AppRoutes: React.FC = () => {
                 path="/invite"
                 element={
                     <ProtectedRoute>
-                        <SimpleLayout title="دعوت از دوستان">
+                        <SimpleLayout title="دعوت دوستان">
                             <Invite />
                         </SimpleLayout>
                     </ProtectedRoute>
@@ -197,7 +197,7 @@ const AppRoutes: React.FC = () => {
                 path="/about"
                 element={
                     <ProtectedRoute>
-                        <SimpleLayout title="درباره ما">
+                        <SimpleLayout title="درباره‌ی ما">
                             <About />
                         </SimpleLayout>
                     </ProtectedRoute>
@@ -217,7 +217,7 @@ const AppRoutes: React.FC = () => {
                 path="/message-box"
                 element={
                     <ProtectedRoute>
-                        <SimpleLayout title="صندوق پیام ها">
+                        <SimpleLayout title="صندوق پیام‌ها">
                             <MessageBox />
                         </SimpleLayout>
                     </ProtectedRoute>

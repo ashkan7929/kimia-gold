@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { BiLike, FaChartLine, FaRegNewspaper, FaRegStar, FiEye, HiOutlineHome, HiOutlinePresentationChartBar, PiCaretUpDownBold, PiUsersThreeBold } from '../../Icons';
 import { useAuth } from '../../stores/auth.store';
+import { Link } from 'react-router-dom';
 
 const rows = [
     {
@@ -66,10 +67,12 @@ const Home = () => {
                         <img alt='' src='/images/Hand, Arm, Coins.svg' />
                         <Typography className='!font-alibaba text-neutral-300 text-center' fontSize={10}>{'دریافت خدمات'}</Typography>
                     </div>
-                    <div className='bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg'>
+                    <Link to="/buy">
+                     <div className='bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg'>
                         <img alt='' src='/images/moneybag-modern-coins.svg' />
-                        <Typography className='!font-alibaba text-neutral-300 text-center' fontSize={10}>{'فروش محصول طلا'}</Typography>
+                        <Typography className='!font-alibaba text-neutral-300 text-center' fontSize={10}>{'سرمایه‌گذاری در طلا'}</Typography>
                     </div>
+                  </Link>
                     <div className='bg-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg'>
                         <img alt='' src='/images/coins-document-chart.svg' />
                         <Typography className='!font-alibaba text-neutral-300 text-center' fontSize={10}>{'بینش بازار'}</Typography>
@@ -147,7 +150,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='fixed bottom-0 right-0 w-full p-4.5'>
+            <div className='fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[345px] z-50'>
                 <div className='grid grid-cols-3 bg-primary-blue rounded-3xl'>
                     <div className='w-full flex justify-center items-center'>
                         <div onClick={() => navigate('/home')} className='flex flex-col justify-center items-center w-fit cursor-pointer p-2 gap-1.5'>

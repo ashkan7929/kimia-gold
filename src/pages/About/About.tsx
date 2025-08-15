@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import Button from "../../components/Button/Button"
 
 const About = () => {
-    return (
+  const { t } = useTranslation();
+      return (
         <>
             <div className="w-full mx-auto min-h-screen flex flex-col">
                 <main className="flex-grow bg-cover bg-center" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')" }}>
@@ -17,33 +19,15 @@ const About = () => {
                                             <img src="/images/about-group-icon.png" alt="" />
                                         </div>
                                     </div>
-                                    <div className="text-center font-alibaba text-lg font-bold leading-normal my-3 text-white">درباره ما</div>
+                                    <div className="text-center font-peyda text-lg font-bold leading-normal my-3 text-white">{t('about_title')}</div>
                                     <div className="text-white text-right font-normal leading-loose mb-3">
-                                        <p className="mb-2 font-peyda">
-                                            کیمیا، پلی است بین سنت سرمایه‌گذاری در طلا و فناوری روز. ما با
-                                            شناخت عمیق از بازار طلا و نیازهای کاربران، بستری دیجیتال و امن
-                                            فراهم کرده‌ایم تا هر فردی، بدون نیاز به تخصص مالی، بتواند
-                                            به‌راحتی و با اطمینان در طلا سرمایه‌گذاری کند. در دنیایی که
-                                            ارزش پول هر روز دستخوش تغییر است، طلا همیشه نماد ثبات و امنیت
-                                            بوده. کیمیا به شما این امکان را می‌دهد تا با چند کلیک، طلا
-                                            بخرید، بفروشید یا نگه‌داری کنید، بدون آنکه نگران نوسانات
-                                            غیرقابل پیش‌بینی یا ریسک‌های فیزیکی باشید. ما در کیمیا از
-                                            فناوری هوش مصنوعی، سیستم‌های امنیتی پیشرفته و تحلیل‌گرهای
-                                            بازار استفاده می‌کنیم تا تجربه‌ای بی‌نظیر و شفاف از
-                                            سرمایه‌گذاری طلا را در اختیار کاربران قرار دهیم. هدف ما این
-                                            است که هر فرد، چه حرفه‌ای باشد و چه مبتدی، بتواند از فرصت‌های
-                                            موجود در بازار طلا بهره‌مند شود. کیمیا فقط یک اپلیکیشن نیست؛
-                                            یک همراه قابل اعتماد برای ساختن آینده مالی بهتر است.
-                                        </p>
-                                        <p className="mb-2 font-peyda">
-                                            کیمیا، پلی است بین سنت سرمایه‌گذاری در طلا و فناوری روز. ما با
-                                            شناخت عمیق از بازار طلا و نیازهای کاربران، بستری دیجیتال و امن
-                                            فراهم کرده‌ایم تا هر فردی، بدون نیاز به تخصص مالی، بتواند
-                                            به‌راحتی و با اطمینان در طلا سرمایه‌گذاری کند.
-                                        </p>
+                                        <p className="mb-2 font-peyda">{t('about_p1')}
+                                         <br /> {t('about_p2')}</p>                                            
                                     </div>
                                     <div>
-                                        <Button className="bg-primary-blue w-full text-white text-sm">برقراری ارتباط با ما</Button>
+                                        <Button className="bg-primary-blue w-full text-white text-sm">
+                                           {t('support')}
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
