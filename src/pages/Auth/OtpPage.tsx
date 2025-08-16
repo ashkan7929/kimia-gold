@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button';
 import OTPInput from '../../components/Inputs/Otp';
@@ -9,7 +9,7 @@ import Loading from '../Loading/Loading';
 
 const OtpPage: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+    // const location = useLocation();
   const [searchParams] = useSearchParams();
   const { setToken, setUser } = useAuth();
 

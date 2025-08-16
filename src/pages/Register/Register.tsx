@@ -162,7 +162,9 @@ const Register: React.FC = () => {
                 <DateField
                   mobileIcon={<CiCalendarDate />}
                   placeholder="تاریخ تولد (YYYY-MM-DD)"
-                  onChange={(value) => setValue('birthDate', value)}
+                                    // onChange={value => setValue('birthDate', value)}
+                                   onChange={e => setValue('birthDate', e.target.value)}
+
                   className="w-full"
                 />
                 {errors.birthDate && (

@@ -24,9 +24,9 @@ const Starter = () => {
                     <img alt='' src='/images/welcome1.svg' width={326} height={326} />
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <Typography sx={{ color: 'white', fontSize: 15 }}>{t('name')}</Typography>
-                    <Typography sx={{ color: 'white', fontSize: 19 }}>{t('welcome.1.title')}</Typography>
-                    <Typography sx={{ color: 'white', fontSize: 13 }}>{t('welcome.1.caption')}</Typography>
+                    <Typography className="!font-peyda" sx={{ color: 'white', fontSize: 15 }}>{t('name')}</Typography>
+                    <Typography className="!font-peyda" sx={{ color: 'white', fontSize: 19 }}>{t('welcome.1.title')}</Typography>
+                    <Typography className="!font-peyda" sx={{ color: 'white', fontSize: 13 }}>{t('welcome.1.caption')}</Typography>
                 </div>
             </div>
             <div className='flex flex-col gap-8 justify-end mr-auto'>
@@ -49,10 +49,9 @@ const Starter = () => {
                 <div className='pb-8'>
                     <img alt='' src='/images/welcome2.svg' width={326} height={326} />
                 </div>
-                <div className='flex flex-col gap-2'>
-                    <Typography sx={{ color: 'white', fontSize: 15 }}>{t('name')}</Typography>
-                    <Typography sx={{ color: 'white', fontSize: 19 }}>{t('welcome.2.title')}</Typography>
-                    <Typography sx={{ color: 'white', fontSize: 13 }}>{t('welcome.2.caption')}</Typography>
+                <div className='flex flex-col gap-2 !font-peyda'>
+                    <Typography className="!font-peyda" sx={{ color: 'white', fontSize: 19 }}>{t('welcome.2.title')}</Typography>
+                    <Typography className="!font-peyda" sx={{ color: 'white', fontSize: 13 }}>{t('welcome.2.caption')}</Typography>
                 </div>
             </div>
             <div className='flex flex-col gap-8 justify-end mr-auto'>

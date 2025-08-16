@@ -14,7 +14,6 @@ import { CiMobile3, MdOutlineBadge, FaRegUser, CiCalendarDate, RiLockPasswordLin
 import {
   mobileSchema,
   registerSchema,
-  passwordSchema,
   type MobileFormData,
   type RegisterFormData,
   type PasswordFormData,
@@ -435,13 +434,18 @@ const AuthPage: React.FC = () => {
                 <CheckBox
                   label=""
                   defaultChecked={registerForm.watch('acceptRules')}
-                  onChange={(_, checked) => registerForm.setValue('acceptRules', checked)}
+                                    onChange={(_, checked) =>
+                                        registerForm.setValue('acceptRules', checked)
+                                    }
                 />
                 <Typography className="text-gray-300 !font-peyda" fontSize={12}>
-                  <Link href="/rules" className="text-primary-blue hover:underline">
+                                    <Link
+                                        href="/rules"
+                                        className="text-primary-blue hover:underline"
+                                    >
                     قوانین و مقررات
-                  </Link>
-                  {' '}را مطالعه کرده و می‌پذیرم *
+                                    </Link>{' '}
+                                    را مطالعه کرده و می‌پذیرم *
                 </Typography>
               </div>
               {registerForm.formState.errors.acceptRules && (
