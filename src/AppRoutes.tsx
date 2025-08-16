@@ -166,11 +166,11 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/rules"
                 element={
-                    <ProtectedRoute>
+                    // <ProtectedRoute>
                         <SimpleLayout title="قوانین و مقررات">
                             <Rules />
                         </SimpleLayout>
-                    </ProtectedRoute>
+                    // </ProtectedRoute>
                 }
             />
             <Route
