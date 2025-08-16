@@ -93,7 +93,9 @@ const SimpleLayout = ({ children, title }: { children: any, title: string }) => 
                 {children}
             </div>
             {
-                showMenu && <div className='overflow-y-auto fixed top-0 right-0 h-screen w-full bg-primary-dark/90 z-20'>
+                showMenu && 
+                <div className='overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[345px] bg-primary-dark/90 z-20'>
+                {/* // <div className='overflow-y-auto fixed top-0 right-0 h-screen w-full max-w- bg-primary-dark/90 z-20'> */}
                     <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
                     <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
                     <div className='flex flex-col p-4.5'>
