@@ -1,0 +1,23 @@
+{
+   "name": "VEMClub",
+   "short_name" : "VEMClub",
+   "start_url": "/",
+   "scope" : "/",
+   "description": "ابزاری منحصر به‌ فرد برای ارتقای ارزش دارایی‌ شما",
+   "icons": [
+       {
+           "src": "./photo192.jpg",
+           "sizes": "192x192",
+           "type": "image/jpeg"
+       },
+       {
+           "src": "./photo512.jpg",
+           "sizes": "512x512",
+           "type": "image/jpeg"
+       }
+   ],
+   "theme_color": "#030047",
+   "background_color": "#0D2778",
+   "display": "standalone",
+   "orientation": "portrait"
+}

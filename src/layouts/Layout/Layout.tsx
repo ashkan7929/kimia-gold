@@ -4,55 +4,64 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeftLong, FaChevronLeft, FaRegUser, IoNotificationsOutline, PiUsersThreeBold, TbLayoutGrid } from '../../Icons';
 
 const menu = [
-    {
+    {   
+        id: 1,
         icon: FaRegUser,
         title: 'اطلاعات کاربری',
         subtitle: 'در این بخش می‌توانید اطلاعات کاربری را مشاهده و ویرایش کنید.',
         link: '/profile',
     },
     {
+         id: 2,
         icon: FaRegUser,
         title: 'قوانین و مقررات',
         subtitle: 'در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.',
         link: '/rules',
     },
-    {
+    { 
+         id: 3,
         icon: FaRegUser,
         title: 'صندوق پیام‌ها',
         subtitle: 'در این بخش می‌توانید آخرین پیام‌ها را مشاهده کنید.',
         link: '/message-box',
     },
-    {
+    {  
+         id: 4,
         icon: FaRegUser,
         title: 'دعوت از دوستان',
         subtitle: 'از این بخش می‌توانید لینک دعوت دوستان را دریافت کنید.',
         link: '/invite',
     },
-    {
+    {   
+        id: 5,
         icon: FaRegUser,
         title: 'نظرات و پیشنهادات',
         subtitle: 'برای بهبود کیفیت خدمات، نظراتتان را با ما درمیان بگذارید',
         link: '/suggestions',
     },
-    {
+    {   
+        id: 6,
         icon: FaRegUser,
         title: 'گزارشات ریز تراکنش‌ها',
         subtitle: 'در این بخش می‌توانید تراکنشات اخیر را همراه با جزئیات مشاهده کنید.',
         link: '/transaction-details',
     },
-    {
+    { 
+        id: 7,
         icon: FaRegUser,
         title: 'تنظیمات',
         subtitle: 'برای تغییر تنظیمات وب‌اپلیکیشن کلیک کنید',
         link: '/settings',
     },
-    {
+    { 
+        id: 8,
         icon: FaRegUser,
         title: 'درباره باشگاه وِم',
         subtitle: 'در این بخش می‌توانید بیشتر ما را بشناسید',
         link: '/about',
     },
-    {
+    { 
+        id: 9,
         icon: FaRegUser,
         title: 'خروج از حساب کاربری',
         subtitle: 'برای خروج از حساب کاربری کلیک کنید',
@@ -125,7 +134,7 @@ const Layout = ({ children }: { children: any }) => {
                         <div className='flex flex-col gap-2 py-5 z-20'>
                             {
                                 menu.map((item) => (
-                                    <div onClick={() => handleNavigate(item.link)} className='bg-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer'>
+                                    <div key={item.id} onClick={() => handleNavigate(item.link)} className='bg-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer'>
                                         <div className='bg-accent-orange w-8 h-8 flex justify-center items-center rounded-lg'>
                                             <item.icon className='text-white' />
                                         </div>
