@@ -3,7 +3,7 @@
    "short_name" : "VEMClub",
    "start_url": "/",
    "scope" : "/",
-   "description": "ابزاری منحصر به‌ فرد برای ارتقای ارزش دارایی‌ شما",
+   "description": "ابزاری منحصربه‌فرد برای ارتقای ارزش دارایی‌ شما",
    "icons": [
        {
            "src": "./photo192.jpg",
