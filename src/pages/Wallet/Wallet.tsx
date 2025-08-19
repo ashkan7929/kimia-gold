@@ -179,13 +179,13 @@ const Wallet = () => {
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                         <option value={2}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                     </select>
                 </div>
@@ -241,13 +241,13 @@ const Wallet = () => {
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                         <option value={2}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                     </select>
                 </div>
@@ -303,13 +303,13 @@ const Wallet = () => {
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                         <option value={2}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                     </select>
                     <div className='flex justify-between items-center'>
@@ -329,7 +329,7 @@ const Wallet = () => {
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                     </select>
                 </div>
@@ -347,7 +347,7 @@ const Wallet = () => {
                             <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 6789</div>
                             <div className="flex items-center justify-between">
                                 <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
                                 <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
@@ -360,7 +360,7 @@ const Wallet = () => {
                             <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                         </div>
                         <div className="flex flex-col gap-2">
-                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 67899</div>
+                            <div className="text-[0.875rem] font-medium leading-normal text-start" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 6789</div>
                             <div className="flex items-center justify-between">
                                 <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
                                 <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>

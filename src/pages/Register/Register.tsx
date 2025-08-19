@@ -132,7 +132,7 @@ const Register: React.FC = () => {
                   placeholder="شماره موبایل"
                   defaultValue={state.mobileNumber}
                   disabled
-                  className="bg-gray-700"
+                  className="bg-gray-700 appearance-none !disabled:rounded-lg"
                 />
               </div>
 
