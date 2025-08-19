@@ -556,7 +556,7 @@ const AuthPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleBack}
-                className="w-full py-3 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-700 transition-colors font-peyda"
+                className="w-full py-3 rounded-lg border border-primary-blue hover:border-none hover:bg-[#0F3DFB] hover:text-white text-primary-blue transition-colors font-peyda"
               >
                 بازگشت
               </button>

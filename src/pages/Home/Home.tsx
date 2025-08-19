@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const rows = [
     {
+        id: 1,
         name: 'انس طلا',
         enName: 'Anas gold',
         price: '۶۲,۴۰۷ ت',
@@ -15,6 +16,7 @@ const rows = [
         changeColor: 'success',
     },
     {
+        id: 2,
         name: 'طلای ۱۸ عیار',
         enName: 'Anas gold',
         price: '۶۲,۴۰۷ ت',
@@ -100,7 +102,7 @@ const Home = () => {
                     </div>
                     {
                         rows.map((row) => (
-                            <div className='odd:bg-primary-dark grid grid-cols-9 w-full'>
+                            <div key={row.id} className='odd:bg-primary-dark grid grid-cols-9 w-full'>
                                 <div className='flex gap-1 items-center col-span-3 py-2'>
                                     <FaRegStar className='text-white' />
                                     <div className='w-6.5 h-6.5 flex justify-center items-center rounded-full bg-gold-100'></div>
@@ -150,7 +152,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[410px] z-50'>
+            <div className='fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[410px] z-50'>
                 <div className='grid grid-cols-3 bg-primary-blue rounded-3xl'>
                     <div className='w-full flex justify-center items-center'>
                         <div onClick={() => navigate('/home')} className='flex flex-col justify-center items-center w-fit cursor-pointer p-2 gap-1.5'>

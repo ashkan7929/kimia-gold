@@ -117,7 +117,7 @@ const SimpleLayout = ({ children, title }: { children: any, title: string }) => 
                         <div className='flex flex-col gap-3 py-5 z-20'>
                             {
                                 menu.map((item) => (
-                                    <div onClick={() => handleNavigate(item.link)} className='bg-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer'>
+                                    <div key={item.id} onClick={() => handleNavigate(item.link)} className='bg-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer'>
                                         <div className='bg-accent-orange w-8 h-8 flex justify-center items-center rounded-lg'>
                                             <item.icon className='text-white' />
                                         </div>

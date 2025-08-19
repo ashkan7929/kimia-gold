@@ -2,9 +2,11 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 const tabInfo = [
     {
+        id: 1,
         title: 'قوانین مربوط به سرمایه‌گذاری طلا',
     },
     {
+        id:2,
         title: 'قوانین مربوط به باشگاه وِم',
     },
 ];
@@ -23,6 +25,7 @@ const Rules = () => {
                                         <div className="flex justify-between overflow-x-auto scrollbar-hide !font-peyda">
                                             {tabInfo.map(tab => (
                                                 <button
+                                                    key={tab.id}
                                                     onClick={() => setSelectedTab(tab)}
                                                     className={` ${
                                                         selectedTab == tab

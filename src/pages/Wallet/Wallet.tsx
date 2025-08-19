@@ -6,15 +6,19 @@ import Modal from '../../components/Modal/Modal';
 
 const tabInfo = [
     {
+        id: 1,
         title: "برداشت موجودی"
     },
     {
+        id: 2,
         title: "افزایش موجودی"
     },
     {
+        id: 3,
         title: "خریدطلا"
     },
     {
+        id: 4,
         title: "فروش طلا"
     },
 ]
@@ -78,7 +82,7 @@ const Wallet = () => {
                             >
                                 {
                                     tabInfo.map((tab) => (
-                                        <button onClick={() => setSelectedTab(tab)} className={`${selectedTab == tab ? "bg-primary-blue" : "bg-transparent"} cursor-pointer text-neutral-200 w-full px-3 py-2 rounded-md`}>
+                                        <button key={tab.id} onClick={() => setSelectedTab(tab)} className={`${selectedTab == tab ? "bg-primary-blue" : "bg-transparent"} cursor-pointer text-neutral-200 w-full px-3 py-2 rounded-md`}>
                                             <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={9}>
                                                 {tab.title}
                                             </Typography>

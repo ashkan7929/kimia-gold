@@ -44,7 +44,7 @@ export const nationalCodeSchema = z.object({
         .string()
         .min(1, 'کد ملی اجباری است')
         .regex(/^\d{10}$/, 'کد ملی باید ۱۰ رقم باشد')
-        .refine(validateNationalCode, 'کد ملی نامعتبر است'),
+        .refine(validateNationalCode, 'کد ملی به درستی وارد نشده است'),
 });
 
 // Birth Date validation schema
