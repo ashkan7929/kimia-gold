@@ -18,7 +18,7 @@ const menu = [
     },
     {
         icon: FaRegUser,
-        title: 'صندوق پیام ها',
+        title: 'صندوق پیام‌ها',
         subtitle: 'در این بخش میتوانید قوانین و مقررات را مشاهده کنید.',
         link: '/message-box',
     },

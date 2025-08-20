@@ -1,7 +1,7 @@
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaArrowLeftLong, FaChevronLeft, FaRegUser, IoNotificationsOutline, PiUsersThreeBold, TbLayoutGrid } from '../../Icons';
+import { FaArrowLeftLong, FaChevronLeft, FaRegUser, IoNotificationsOutline, PiUsersThreeBold, HiOutlineHome, TbLayoutGrid } from '../../Icons';
 
 const menu = [
     {   
@@ -32,36 +32,43 @@ const menu = [
         subtitle: 'از این بخش می‌توانید لینک دعوت دوستان را دریافت کنید.',
         link: '/invite',
     },
-    {   
-        id: 5,
-        icon: FaRegUser,
-        title: 'نظرات و پیشنهادات',
-        subtitle: 'برای بهبود کیفیت خدمات، نظراتتان را با ما درمیان بگذارید',
-        link: '/suggestions',
+    {
+      id: 5,
+        icon: HiOutlineHome,
+        title: 'صفحه اصلی',
+        subtitle: 'برای بازگشت به صفحه اصلی کلیک کنید.',
+        link: '/',
     },
     {   
         id: 6,
+        icon: FaRegUser,
+        title: 'نظرات و پیشنهادات',
+        subtitle: '.برای بهبود کیفیت خدمات، نظراتتان را با ما درمیان بگذارید',
+        link: '/suggestions',
+    },
+    {   
+        id: 7,
         icon: FaRegUser,
         title: 'گزارشات ریز تراکنش‌ها',
         subtitle: 'در این بخش می‌توانید تراکنشات اخیر را همراه با جزئیات مشاهده کنید.',
         link: '/transaction-details',
     },
     { 
-        id: 7,
+        id: 8,
         icon: FaRegUser,
         title: 'تنظیمات',
         subtitle: 'برای تغییر تنظیمات وب‌اپلیکیشن کلیک کنید',
         link: '/settings',
     },
     { 
-        id: 8,
+        id: 9,
         icon: FaRegUser,
         title: 'درباره باشگاه وِم',
         subtitle: 'در این بخش می‌توانید بیشتر ما را بشناسید',
         link: '/about',
     },
     { 
-        id: 9,
+        id: 10,
         icon: FaRegUser,
         title: 'خروج از حساب کاربری',
         subtitle: 'برای خروج از حساب کاربری کلیک کنید',
@@ -133,9 +140,11 @@ const Layout = ({ children }: { children: any }) => {
                 <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
               </div>
               <div className="flex justify-end">
-                <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">
-                  <FaArrowLeftLong fontSize={14} className="text-white" />
+               <Link to="/">
+                   <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">
+                    <FaArrowLeftLong fontSize={14} className="text-white" />
                 </div>
+               </Link>
               </div>
             </div>
 
@@ -144,14 +153,10 @@ const Layout = ({ children }: { children: any }) => {
                                 <div
                                     key={item.id}
                                     onClick={() => {
-                                        if (item.id === 9) {
-                                            // localStorage.removeItem('token');
-                                            // localStorage.removeItem('user-data');
+                                        if (item.id === 10) {
                                             localStorage.clear();
-
                                             setShowMenu(false);
                                             window.location.reload();
-                                            // localStorage.clear();
                                             navigate('/auth', { replace: true });
                                         } else {
                                             handleNavigate(item.link);
@@ -176,6 +181,8 @@ const Layout = ({ children }: { children: any }) => {
                                             {item.subtitle}
                                         </Typography>
                                     </div>
+                                    <FaChevronLeft className='text-white' />
+
                                 </div>
                             ))}
                         </div>
