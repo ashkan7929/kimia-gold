@@ -139,45 +139,51 @@ const Layout = ({ children }: { children: any }) => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 py-5 z-20">
-              {menu.map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => {
-                    if (item.id === 9) {
-                      localStorage.clear();
-                      navigate("/auth");
-                    } else {
-                      handleNavigate(item.link);
-                    }
-                  }}
-                  className="bg-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
-                >
-                  <div className="bg-accent-orange w-8 h-8 flex justify-center items-center rounded-lg">
-                    <item.icon className="text-white" />
-                  </div>
-                  <div className="grow">
-                    <Typography
-                      className="!font-alibaba text-white"
-                      fontSize={12}
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      className="!font-alibaba text-neutral-300 line-clamp-1"
-                      fontSize={10}
-                    >
-                      {item.subtitle}
-                    </Typography>
-                  </div>
+                        <div className="flex flex-col gap-2 py-5 z-20">
+                            {menu.map(item => (
+                                <div
+                                    key={item.id}
+                                    onClick={() => {
+                                        if (item.id === 9) {
+                                            // localStorage.removeItem('token');
+                                            // localStorage.removeItem('user-data');
+                                            localStorage.clear();
+
+                                            setShowMenu(false);
+                                            window.location.reload();
+                                            // localStorage.clear();
+                                            navigate('/auth', { replace: true });
+                                        } else {
+                                            handleNavigate(item.link);
+                                        }
+                                    }}
+                                    className="bg-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
+                                >
+                                    <div className="bg-accent-orange w-8 h-8 flex justify-center items-center rounded-lg">
+                                        <item.icon className="text-white" />
+                                    </div>
+                                    <div className="grow">
+                                        <Typography
+                                            className="!font-alibaba text-white"
+                                            fontSize={12}
+                                        >
+                                            {item.title}
+                                        </Typography>
+                                        <Typography
+                                            className="!font-alibaba text-neutral-300 line-clamp-1"
+                                            fontSize={10}
+                                        >
+                                            {item.subtitle}
+                                        </Typography>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
+            )}
+        </>
+    );
 };
 
 export default Layout

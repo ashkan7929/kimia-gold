@@ -323,7 +323,7 @@ const Wallet = () => {
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img src="/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
                             </div>
-                            6219-8619-0943-67899
+                            6219-8619-0943-6789
                         </option>
                         <option value={2}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">

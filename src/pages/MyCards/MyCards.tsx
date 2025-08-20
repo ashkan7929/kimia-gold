@@ -1,12 +1,16 @@
-import { Disclosure, Transition } from "@headlessui/react";
+import { Disclosure, Transition } from '@headlessui/react';
 import Typography from '@mui/material/Typography';
 import Button from '../../components/Button/Button';
 import ToggleButton from '../../components/Inputs/ToggleButton';
 import { FaChevronDown, FaChevronUp, FaMinus, FaRegUser } from '../../Icons';
 
+import getBankByCard from '../../constants/bankPrefixes';
+import { useState } from 'react';
+
 // CSS imports removed - using Tailwind CSS instead
 const MyCards = () => {
-
+    const [cardNumber, setCardNumber] = useState('');
+    const bankName = getBankByCard(cardNumber);
     return (
         <>
             <div className="flex flex-col w-full" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -43,6 +47,22 @@ const MyCards = () => {
                                                         className="font-peyda text-sm w-full h-9.5 px-4 rounded-lg border border-custom-border-default bg-custom-bg-input text-center text-white placeholder-gray-400"
                                                         placeholder="شماره کارت را وارد نمایید"
                                                     />
+                                                        {bankName ? (
+                                                            <div className="flex flex-col items-center gap-1">
+                                                                <img
+                                                                    src={bankName.src}
+                                                                    alt={bankName.name}
+                                                                    className="w-20 h-20 object-contain"
+                                                                />
+                                                                <span className="font-bold">
+                                                                    {bankName.name}
+                                                                </span>
+                                                            </div>
+                                                        ) : (
+                                                            cardNumber.length >= 6 && (
+                                                                <span>بانک نامشخص</span>
+                                                            )
+                                                        )}
                                                 </div>
                                                 <div className="flex gap-3 items-center">
                                                     <div className="flex-grow">
@@ -118,7 +138,14 @@ const MyCards = () => {
                                                     <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
                                                 </div>
                                             </div>
-                                            {open ? <FaChevronUp className='text-white' fontSize={12} /> : <FaChevronDown className='text-white' fontSize={12} />}
+                                            {open ? (
+                                                <FaChevronUp className="text-white" fontSize={12} />
+                                            ) : (
+                                                <FaChevronDown
+                                                    className="text-white"
+                                                    fontSize={12}
+                                                />
+                                            )}
                                         </Disclosure.Button>
                                     </div>
                                     <Transition
@@ -133,10 +160,30 @@ const MyCards = () => {
                                                 <div>
                                                     <label className="block mb-2 font-semibold leading-normal text-white text-lg-custom">شماره کارت</label>
                                                     <input
+                                                        value={cardNumber}
+                                                        onChange={e =>
+                                                            setCardNumber(e.target.value)
+                                                        }
                                                         type="text"
                                                         className="text-sm font-peyda w-full h-9.5 px-4 rounded-lg border border-custom-border-default bg-custom-bg-input text-center text-white placeholder-gray-400"
                                                         placeholder="شماره کارت را وارد نمایید"
                                                     />
+                                                    {bankName ? (
+                                                        <div className="flex flex-col items-center gap-1">
+                                                            <img
+                                                                src={bankName.src}
+                                                                alt={bankName.name}
+                                                                className="w-20 h-20 object-contain"
+                                                            />
+                                                            <span className="font-bold">
+                                                                {bankName.name}
+                                                            </span>
+                                                        </div>
+                                                    ) : (
+                                                        cardNumber.length >= 6 && (
+                                                            <span>بانک نامشخص</span>
+                                                        )
+                                                    )}
                                                 </div>
                                                 <div className="flex gap-3 items-center">
                                                     <div className="flex-grow">
