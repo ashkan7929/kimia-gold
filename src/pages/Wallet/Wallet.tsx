@@ -13,14 +13,11 @@ const tabInfo = [
         id: 2,
         title: "افزایش موجودی"
     },
-    {
+       {
         id: 3,
-        title: "خریدطلا"
+        title: "انتقال موجودی"
     },
-    {
-        id: 4,
-        title: "فروش طلا"
-    },
+  
 ]
 
 const Wallet = () => {
@@ -78,11 +75,11 @@ const Wallet = () => {
                     <div className="p-2">
                         <nav className="w-full">
                             <div
-                                className="grid grid-cols-4"
+                                className="grid grid-cols-3 gap-10 w-full"
                             >
                                 {
                                     tabInfo.map((tab) => (
-                                        <button key={tab.id} onClick={() => setSelectedTab(tab)} className={`${selectedTab == tab ? "bg-primary-blue" : "bg-transparent"} cursor-pointer text-neutral-200 w-full px-3 py-2 rounded-md`}>
+                                        <button key={tab.id} onClick={() => setSelectedTab(tab)} className={`${selectedTab == tab ? "bg-primary-blue" : "bg-transparent"} cursor-pointer text-neutral-200 px-4 py-2 rounded-md`}>
                                             <Typography className="!font-kalameh text-white text-nowrap" fontWeight='semibold' fontSize={9}>
                                                 {tab.title}
                                             </Typography>

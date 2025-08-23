@@ -58,7 +58,7 @@ const menu = [
         icon: FaRegUser,
         title: 'صفحه اصلی',
         subtitle: 'برای بازگشت به صفحه اصلی کلیک کنید.',
-        link: '/about',
+        link: '/',
     },
     {
         id: 9,
@@ -121,7 +121,7 @@ const SimpleLayout = ({ children, title }: { children: any; title: string }) => 
                 {children}
             </div>
             {showMenu && (
-                <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[345px] bg-primary-dark/90 z-20">
+                <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[420px] bg-primary-dark/90 z-20">
                     {/* // <div className='overflow-y-auto fixed top-0 right-0 h-screen w-full max-w- bg-primary-dark/90 z-20'> */}
                     <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
                     <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>

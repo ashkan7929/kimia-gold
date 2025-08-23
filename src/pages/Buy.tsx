@@ -59,7 +59,7 @@ const Buy = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="font-kalameh text-sm font-medium text-white">خرید طلا</div>
+                            <div className="font-kalameh text-sm font-medium text-white">سرمایه‌گذاری در طلا</div>
                         </div>
                         <div>
                             <div>
@@ -324,7 +324,7 @@ const Buy = () => {
                                                     aria-expanded="false"
                                                     aria-controls="collapseTwo"
                                                 >
-                                                    آیا خرید طلا از کیمیا مطمئن است؟ و چگونگی خرید از این
+                                                    آیا خرید طلا از باشگاه وم مطمئن است؟ و چگونگی خرید از این
                                                     صرافی
                                                 </button>
                                             </h2>

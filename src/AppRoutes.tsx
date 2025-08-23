@@ -115,7 +115,7 @@ const AppRoutes: React.FC = () => {
                 path="/buy"
                 element={
                     <ProtectedRoute>
-                        <SimpleLayout title="خرید طلا">
+                        <SimpleLayout title="سرمایه‌گذاری در طلا">
                             <Buy />
                         </SimpleLayout>
                     </ProtectedRoute>

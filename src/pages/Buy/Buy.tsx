@@ -7,6 +7,7 @@ import { FaChevronDown, FaChevronUp } from '../../Icons';
 import '../../assets/lib/Swiper/swiper-bundle.min.css';
 import OptionSelect from '../../components/Inputs/OptionSelect';
 import { useTranslation } from 'react-i18next';
+import BottomNav from '../../layouts/BottomNav';
 
 const tabInfo = [
     {
@@ -281,6 +282,8 @@ const Buy = () => {
             </section>
           </div>
         </main>
+         <BottomNav />
+
       </div>
     </>
   );
