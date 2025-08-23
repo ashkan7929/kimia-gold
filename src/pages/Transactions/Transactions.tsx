@@ -5,16 +5,17 @@ import { FaArrowDownLong } from '../../Icons';
 
 const tabInfo = [
     {
+        id: 1,
         title: "برداشت موجودی"
     },
     {
+        id: 2,
         title: "افزایش موجودی"
     },
-    {
-        title: "خریدطلا"
-    },
-    {
-        title: "فروش طلا"
+     {
+        id: 3,
+        title: 'انتقال موجودی',
+        status: 'failed',
     },
 ]
 

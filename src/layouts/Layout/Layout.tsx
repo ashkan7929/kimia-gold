@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeftLong, FaChevronLeft, FaRegUser, IoNotificationsOutline, PiUsersThreeBold, HiOutlineHome, TbLayoutGrid } from '../../Icons';
+import SelectTheme from "../../SelectTheme";
 
 const menu = [
     {   
@@ -110,7 +111,9 @@ const Layout = ({ children }: { children: any }) => {
               <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
             </Link>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end items-center gap-2">
+           <SelectTheme />
+
             <Link to={"/profile"}>
               <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 cursor-pointer">
                 <PiUsersThreeBold fontSize={19} className="text-white" />
