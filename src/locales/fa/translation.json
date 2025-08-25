@@ -56,7 +56,10 @@
     "buy": "خرید",
     "valueGold": "مقدار طلا",
     "payValue": "مبلغ پرداختی",
-    "listRequestGold": "لیست درخواست‌های سرمایه‌گذاری طلا"
-
+    "listRequestGold": "لیست درخواست‌های سرمایه‌گذاری طلا",
+    "transaction": {
+        "TransactionsHeader": "لیست تراکنش‌ها",
+        "TransactionsFilter": "فیلتر تراکنش‌ها"
+    }
 
 }
