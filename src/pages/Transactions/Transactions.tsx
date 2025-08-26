@@ -25,11 +25,11 @@ const tabInfo = [
 ];
 
 const data = [
-  { id: 1, title: 'افزایش موجودی', amount: 2566890, date: '۱۴۰۳/۰۶/۱۰ 15:25', status: 'success' },
-  { id: 2, title: 'برداشت موجودی', amount: 350000,   date: '۱۴۰۳/۰۹/۱۵ 10:12', status: 'failed'  },
-  { id: 3, title: 'انتقال موجودی', amount: 149000,   date: '۱۴۰۳/۰۹/۱۶ 18:40', status: 'success' },
-  { id: 4, title: 'انتقال موجودی', amount: 150000,   date: '۱۴۰۳/۰۶/۱۰ 14:40', status: 'failed'  },
-  { id: 5, title: 'برداشت موجودی', amount: 350000,   date: '۱۴۰۴/۱۱/۱۵ 10:12', status: 'success' },
+    { id: 1, title: 'افزایش موجودی', amount: 2566890, date: '۱۴۰۳/۰۶/۱۰ ۱۵:۲۵', status: 'success' },
+    { id: 2, title: 'برداشت موجودی', amount: 350000, date: '۱۴۰۳/۰۹/۱۵ ۱۰:۱۲', status: 'failed' },
+    { id: 3, title: 'انتقال موجودی', amount: 149000, date: '۱۴۰۳/۰۹/۱۶ ۱۸:۴۰', status: 'success' },
+    { id: 4, title: 'انتقال موجودی', amount: 150000, date: '۱۴۰۳/۰۶/۱۰ ۱۴:۴۰', status: 'failed' },
+    { id: 5, title: 'برداشت موجودی', amount: 350000, date: '۱۴۰۴/۱۱/۱۵ ۱۰:۱۲', status: 'success' },
 ] as const;
 
 
@@ -104,23 +104,29 @@ const Transactions = () => {
     });
   }, [filter]);
 
-  return (
-    <div className="flex flex-col gap-3 items-center pb-25">
-      <div className="w-full px-4 py-3 rounded-lg bg-primary-darker">
-        <div className="flex w-full gap-x-4">
-          {tabInfo.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setSelectedTab(tab)}
-              className={`${selectedTab == tab ? 'bg-primary-blue' : 'bg-transparent'} flex-1 cursor-pointer text-neutral-200 px-3 py-2 rounded-md`}
-            >
-              <Typography className="!font-kalameh text-white text-nowrap" fontWeight="semibold" fontSize={9}>
-                {tab.title}
-              </Typography>
-            </button>
-          ))}
-        </div>
-      </div>
+    return (
+        <div className="flex flex-col gap-3 items-center pb-25">
+            <div className="w-full px-4 py-3 rounded-lg bg-primary-darker">
+                <div className="flex w-full gap-x-4">
+                    {tabInfo.map(tab => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setSelectedTab(tab)}
+                            className={`${
+                                selectedTab == tab ? 'bg-primary-blue' : 'bg-transparent'
+                            } flex-1 cursor-pointer text-neutral-200 px-3 py-2 rounded-md`}
+                        >
+                            <Typography
+                                className="!font-kalameh text-white text-nowrap"
+                                fontWeight="semibold"
+                                fontSize={9}
+                            >
+                                {tab.title}
+                            </Typography>
+                        </button>
+                    ))}
+                </div>
+            </div>
 
       <div className="flex justify-between p-4 w-full rounded-lg bg-primary-darker">
         <Typography className="!font-kalameh text-white text-nowrap" fontWeight="semibold" fontSize={11}>
@@ -169,56 +175,84 @@ const Transactions = () => {
         ))}
       </div>
 
-      {open && (
-        <div role="dialog" aria-modal="true" className="fixed top-3 left-1/2 rounded-lg -translate-x-1/2 w-full max-w-[410px] z-50">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
-
-          <div className="relative z-10 flex h-full w-full flex-col bg-primary-darker text-white rounded-xl">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-              <Typography className="!font-kalameh" fontWeight="bold" fontSize={12}>
-                {t('transaction.TransactionsFilter')}
-              </Typography>
-              <div className="flex items-center gap-2">
-                <button onClick={handleClearFilter} className="px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/15 text-xs font-peyda">
-                  حذف فیلتر
-                </button>
-                <button onClick={() => setOpen(false)} className="p-1.5 rounded-md hover:bg-white/10" aria-label="بستن">
-                  <MdClose size={20} />
-                </button>
-              </div>
-            </div>
-
-            <div className="flex-1 overflow-y-auto p-4 space-y-6">
-              <section>
-                <h3 className="!font-kalameh text-sm mb-2 opacity-80">وضعیت</h3>
-                <div className="grid grid-cols-1 gap-2">
-                  {(['all', 'success', 'failed'] as const).map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => setFilter((prev) => ({ ...prev, status: item }))}
-                      className={`w-full text-right px-4 py-3 rounded-xl border text-xs ${
-                        filter.status === item ? 'bg-primary-blue border-transparent' : 'bg-white/5 border-white/10 hover:bg-white/10'
-                      }`}
-                    >
-                      {item === 'all' ? 'همه' : item === 'success' ? 'تراکنش‌های موفق' : 'تراکنش‌های ناموفق'}
-                    </button>
-                  ))}
-                </div>
-              </section>
-
-              <section>
-                <h3 className="!font-kalameh text-sm mb-3 opacity-80">نوع تراکنش</h3>
-                <select
-                  value={filter.productType ?? ''}
-                  onChange={(e) => setFilter((prev) => ({ ...prev, productType: e.target.value || null }))}
-                  className="w-full bg-primary-dark border border-white/10 rounded-lg px-4 py-2 text-sm outline-none"
+            {open && (
+                <div
+                    role="dialog"
+                    aria-modal="true"
+                    className="fixed bottom-12 left-1/2 rounded-lg -translate-x-1/2 w-full max-w-[410px] z-50"
                 >
-                  <option value="">همه</option>
-                  <option value="افزایش موجودی">افزایش موجودی</option>
-                  <option value="انتقال موجودی">انتقال موجودی</option>
-                  <option value="برداشت موجودی">برداشت موجودی</option>
-                </select>
-              </section>
+                    <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
+
+                    <div className="relative z-10 flex h-full w-full flex-col bg-primary-darker text-white rounded-xl">
+                        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                            <Typography className="!font-kalameh" fontWeight="bold" fontSize={12}>
+                                {t('transaction.TransactionsFilter')}
+                            </Typography>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={handleClearFilter}
+                                    className="px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/15 text-xs font-peyda"
+                                >
+                                    {t('transaction.deleteFilter')}
+                                </button>
+                                <button
+                                    onClick={() => setOpen(false)}
+                                    className="p-1.5 rounded-md hover:bg-white/10"
+                                    aria-label="بستن"
+                                >
+                                    <MdClose size={20} />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="flex-1 overflow-y-auto p-4 space-y-6">
+                            <section>
+                                <h3 className="!font-kalameh text-sm mb-2 opacity-80">
+                                    {t('transaction.status')}
+                                </h3>
+                                <div className="grid grid-cols-1 gap-2">
+                                    {(['all', 'success', 'failed'] as const).map(item => (
+                                        <button
+                                            key={item}
+                                            onClick={() =>
+                                                setFilter(prev => ({ ...prev, status: item }))
+                                            }
+                                            className={`w-full text-right px-4 py-3 rounded-xl border text-xs ${
+                                                filter.status === item
+                                                    ? 'bg-primary-blue border-transparent'
+                                                    : 'bg-white/5 border-white/10 hover:bg-white/10'
+                                            }`}
+                                        >
+                                            {item === 'all'
+                                                ? 'همه'
+                                                : item === 'success'
+                                                ? 'تراکنش‌های موفق'
+                                                : 'تراکنش‌های ناموفق'}
+                                        </button>
+                                    ))}
+                                </div>
+                            </section>
+
+                            <section>
+                                <h3 className="!font-kalameh text-sm mb-3 opacity-80">
+                                    {t('transaction.typeTransaction')}
+                                </h3>
+                                <select
+                                    value={filter.productType ?? ''}
+                                    onChange={e =>
+                                        setFilter(prev => ({
+                                            ...prev,
+                                            productType: e.target.value || null,
+                                        }))
+                                    }
+                                    className="w-full bg-primary-dark border border-white/10 rounded-lg px-4 py-2 text-sm outline-none"
+                                >
+                                    <option value=""> {t('transaction.typeProduct')}</option>
+                                    <option value="طلای 18 عیار">{t('transaction.typeProduct1')}</option>
+                                    <option value="طلای 24 عیار"> {t('transaction.typeProduct2')}</option>
+                                    <option value="کارت اعتباری">{t('transaction.typeProduct3')} </option>
+                                </select>
+                            </section>
 
               <section>
                 <h3 className="!font-kalameh text-sm mb-2 opacity-80">تاریخ</h3>

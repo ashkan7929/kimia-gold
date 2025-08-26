@@ -59,7 +59,15 @@
     "listRequestGold": "لیست درخواست‌های سرمایه‌گذاری طلا",
     "transaction": {
         "TransactionsHeader": "لیست تراکنش‌ها",
-        "TransactionsFilter": "فیلتر تراکنش‌ها"
+        "TransactionsFilter": "فیلتر تراکنش‌ها",
+        "status": "وضعیت",
+        "deleteFilter": "حذف فیلتر",
+        "typeTransaction": "نوع محصول",
+        "typeProduct": "همه",
+        "typeProduct1": "طلای 18 عیار",
+        "typeProduct2": "طلای 24 عیار",
+        "typeProduct3": "کارت اعتباری"
+        
     }
 
 }

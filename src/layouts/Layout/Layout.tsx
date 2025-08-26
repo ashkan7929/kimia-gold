@@ -73,7 +73,7 @@ const menu = [
         icon: FaRegUser,
         title: 'خروج از حساب کاربری',
         subtitle: 'برای خروج از حساب کاربری کلیک کنید',
-        link: '/',
+        link: '/starter',
     },
 ];
 

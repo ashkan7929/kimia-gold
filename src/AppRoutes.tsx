@@ -23,6 +23,7 @@ import Suggestions from './pages/Suggestions/Suggestions';
 import TransactionDetails from './pages/TransactionDetails/TransactionDetails';
 import Transactions from './pages/Transactions/Transactions';
 import Wallet from './pages/Wallet/Wallet';
+// import ChooseMethodPage from './pages/Auth/ChooseMethodPage';
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -95,7 +96,7 @@ const AppRoutes: React.FC = () => {
                 path="/my-cards"
                 element={
                     <ProtectedRoute>
-                        <SimpleLayout title="کارت های من">
+                        <SimpleLayout title="کارت‌های من">
                             <MyCards />
                         </SimpleLayout>
                     </ProtectedRoute>

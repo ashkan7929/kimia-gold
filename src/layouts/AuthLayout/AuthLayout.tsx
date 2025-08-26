@@ -15,11 +15,11 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) =>
         <div className="text-center mb-8">
           <img 
             src="/images/ki-logo.svg" 
-            alt="کیمیا گلد" 
+            alt="باشگاه وِم" 
             className="h-16 mx-auto mb-4"
           />
           <h1 className="text-2xl font-bold text-white mb-2">
-            {title || 'کیمیا گلد'}
+            {title || 'باشگاه وِم'}
           </h1>
           {subtitle && (
             <p className="text-gray-400 text-sm">
