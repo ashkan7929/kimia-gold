@@ -1,41 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: ['class', 'html[data-theme="dark"]'],
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
             colors: {
                 gold: {
-                    50: '#fffbeb',
                     100: '#fef3c7',
-                    200: '#fde68a',
-                    300: '#fcd34d',
-                    400: '#fbbf24',
-                    500: '#f59e0b',
-                    600: '#d97706',
-                    700: '#b45309',
-                    800: '#92400e',
-                    900: '#78350f',
+                    200: '#f59e0b',
                 },
                 dark: {
-                    50: '#f8fafc',
-                    100: '#f1f5f9',
-                    200: '#e2e8f0',
-                    300: '#cbd5e1',
-                    400: '#94a3b8',
-                    500: '#64748b',
-                    600: '#475569',
-                    700: '#334155',
-                    800: '#1e293b',
                     900: '#0f172a',
+                    800: "#373A41",
+                    700: "#303030",
+                    600: "#43464C",
                 },
                 primary: {
-                    DEFAULT: '#040320',
                     lighter: '#384673',
                     light: '#090088',
                     blue: '#2256FF',
                     purple: '#010056',
                     dark: '#02006C',
                     darker: '#010048',
+                    whiteSpecial: "#EEEEEE",
+                    "gray-50": "#E9ECEC",
+                    "gray-100": "#F7F7F7F7",
+                    "gray-200" :"C0C0C0C0",
                 },
                 accent: {
                     orange: '#EA8A2A',
@@ -53,26 +43,20 @@ export default {
                     text: {
                         primary: '#FFF',
                         secondary: '#C7C7C7',
-                        muted: '#D3D3D3',
-                        light: '#E4E4E4',
                         gray: '#B8B8B8',
                         subtitle: '#C4C4C4',
                     },
                     bg: {
                         card: '#010048',
-                        menu: '#1C1A7D',
                         success: '#14472C',
                         danger: '#993F3F',
                         input: '#12116B',
-                        checkbox: "#0052DC",
-
+                        checkbox: '#0052DC',
                     },
                     border: {
                         default: '#213163',
                         light: '#303072',
-                        card: '#31299C',
                         dashed: '#303030',
-                        message: '#2B2A6C',
                     },
                 },
             },
@@ -175,12 +159,10 @@ export default {
             gap: {
                 custom: '0.56125rem',
                 sm: '0.3125rem',
-
             },
             borderRadius: {
                 xsm: '0.555rem',
-                sm: "#5549375"
-
+                sm: '#5549375',
             },
             lineHeight: {
                 sm: '1.3125rem',
@@ -217,6 +199,9 @@ export default {
         },
     },
     plugins: [
-        require('tailwind-scrollbar-hide')
+        require('tailwind-scrollbar-hide'),
+        function ({ addVariant }) {
+            addVariant('light', 'html[data-theme="light"] &');
+        },
     ],
 };

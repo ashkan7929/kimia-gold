@@ -284,10 +284,10 @@ const AuthPage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col mx-auto w-full min-h-screen bg-primary-darker">
+    <div className="flex flex-col mx-auto w-full min-h-screen bg-primary-darker light:bg-white">
       <main className="px-4 flex-grow py-5 flex flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
         {!(currentStep === 'otp' && loginMethod === 'otp') && (
-        <div className='text-white py-17'>
+        <div className='text-white light:text-black py-17'>
           <img alt='' src='/images/login.svg' width={193} height={193} />
         </div>
         )}
@@ -295,27 +295,27 @@ const AuthPage: React.FC = () => {
         {currentStep === 'mobile' && (
           <form onSubmit={mobileForm.handleSubmit(handleMobileSubmit)} className='flex flex-col gap-4 w-full'>
             <div className="flex flex-col gap-2">
-              <Typography className="text-white" fontFamily={'Alibaba, sans-serif'} fontWeight={'bold'} fontSize={19}>
+              <Typography className="text-white light:text-dark-800" fontFamily={'Alibaba, sans-serif'} fontWeight={'bold'} fontSize={19}>
                 {t('loginToApp')}
               </Typography>
-              <Typography className="text-neutral-300" fontFamily={'Peyda, sans-serif'} fontSize={13}>
+              <Typography className="text-neutral-300 light:text-dark-600" fontFamily={'Peyda, sans-serif'} fontSize={13}>
                 {t('enterMobileForLogin')}
               </Typography>
             </div>
             <div className="relative">
-              <div className="flex items-center text-white rounded-xsm border-custom-border-light border">
+              <div className="flex items-center text-white rounded-xsm border-custom-border-light light:border-primary-blue border">
                 <div className="absolute h-full right-4 flex items-center justify-center">
-                  <CiMobile3 />
+                  <CiMobile3 className='light:text-black'/>
                 </div>
                 <input
                   {...mobileForm.register('mobileNumber')}
                   type="text"
-                  className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input border border-custom-border-light rounded-lg text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
+                  className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input light:bg-none border border-custom-border-light rounded-lg text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue light:focus:border-black"
                   placeholder={t('enterMobile')}
                 />
               </div>
               {mobileForm.formState.errors.mobileNumber && (
-                <p className="text-red-400 text-sm mt-1">
+                <p className="text-red-400 light:text-red-600 light:font-bold text-sm mt-1">
                   {mobileForm.formState.errors.mobileNumber.message}
                 </p>
               )}

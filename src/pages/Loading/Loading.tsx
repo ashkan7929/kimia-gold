@@ -1,7 +1,7 @@
 const Loading = () => {
     return (
         <>
-            <div className="w-full mx-auto bg-primary-purple min-h-screen flex flex-col h-full">
+            <div className="w-full mx-auto bg-primary-purple light:bg-white min-h-screen flex flex-col h-full">
                 <main
                     className="flex-grow flex items-center justify-center h-full"
                     style={{
@@ -20,7 +20,7 @@ const Loading = () => {
                         </div>
                         <div className="fixed bottom-10 right-0 left-0 flex items-center justify-center">
                             <div
-                                className="w-12.5 h-12.5 border-[3px] border-white border-b-primary-blue rounded-full inline-block animate-spin"
+                                className="w-12.5 h-12.5 border-[3px] border-white border-b-primary-blue light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
                                 style={{
                                     animation: 'rotation 1s linear infinite'
                                 }}

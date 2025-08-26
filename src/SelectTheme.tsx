@@ -1,25 +1,27 @@
-import { useState } from "react";
-import { BiSolidMoon } from "react-icons/bi";
-import { FiSun } from "react-icons/fi";
+    // src/contexts/ThemeContext.jsx
+    import React, { createContext, useState, useEffect, useContext } from 'react';
 
-const SelectTheme = () => {
-  const [isDark, setIsDark] = useState(false);
+    const ThemeContext = createContext();
 
-  const toggleTheme = () => {
-    setIsDark(prev => !prev);
-  };
+    export const ThemeProvider = ({ children }) => {
+      const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('theme') || 'light';
+      });
 
-  return (
-    <button
-      onClick={toggleTheme}
-      className={
-        (isDark ? "bg-primary text-white " : "bg-gold-500 text-dark-900 ")
-        + "p-2 rounded bg-primary-darker text-white flex items-center gap-2"
-      }
-    >
-      {isDark ? <BiSolidMoon /> :  <FiSun />}
-    </button>
-  );
-};
+      useEffect(() => {
+        document.documentElement.className = theme; 
+        localStorage.setItem('theme', theme);
+      }, [theme]);
 
-export default SelectTheme;
+      const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+      };
+
+      return (
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+          {children}
+        </ThemeContext.Provider>
+      );
+    };
+
+    export const useTheme = () => useContext(ThemeContext);

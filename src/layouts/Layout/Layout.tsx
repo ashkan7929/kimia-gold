@@ -1,8 +1,18 @@
-import Typography from "@mui/material/Typography";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FaArrowLeftLong, FaChevronLeft, FaRegUser, IoNotificationsOutline, PiUsersThreeBold, HiOutlineHome, TbLayoutGrid } from '../../Icons';
-import SelectTheme from "../../SelectTheme";
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+    FaArrowLeftLong,
+    FaChevronLeft,
+    FaRegUser,
+    IoNotificationsOutline,
+    PiUsersThreeBold,
+    HiOutlineHome,
+    TbLayoutGrid,
+} from '../../Icons';
+import { useTheme } from '../../contexts/ThemeContext';
+import { BiSolidMoon } from 'react-icons/bi';
+import { FiSun } from 'react-icons/fi';
 
 const menu = [
     {   
@@ -78,7 +88,10 @@ const menu = [
 ];
 
 const Layout = ({ children }: { children: any }) => {
-    const [showMenu, setShowMenu] = useState(false)
+    const { theme, toggleTheme } = useTheme();
+    const isDark = theme === 'dark';
+
+    const [showMenu, setShowMenu] = useState(false);
 
     const navigate = useNavigate()
 
@@ -89,67 +102,69 @@ const Layout = ({ children }: { children: any }) => {
         handleShowMenu()
     }
 
-  return (
-    <>
-      <div className="bg-black min-h-screen p-4.5">
-        <header className="bg-primary-darker grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
-          <div className="flex gap-1">
-            <div
-              onClick={handleShowMenu}
-              className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 cursor-pointer"
-            >
-              <TbLayoutGrid fontSize={19} className="text-white" />
+    return (
+        <>
+            <div className="bg-black light:bg-primary-whiteSpecial min-h-screen p-4.5">
+                <header className="bg-primary-darker light:bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
+                    <div className="flex gap-1">
+                        <div
+                            onClick={handleShowMenu}
+                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer"
+                        >
+                            <TbLayoutGrid fontSize={19} className="text-white light:text-black" />
+                        </div>
+                        <Link to={'/message-box'}>
+                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer">
+                                <IoNotificationsOutline fontSize={19} className="text-white light:text-black" />
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="flex justify-center">
+                        <Link to={'/home'}>
+                            <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
+                        </Link>
+                    </div>
+                    <div className="flex justify-end items-center gap-2">
+                        <button onClick={toggleTheme} className="-ml-2 p-2 bg-secondary rounded">
+                            {isDark ? <FiSun className='text-white light:text-black' size={18} /> : <BiSolidMoon className='text-white light:text-black' size={18} />  }
+                        </button>
+
+                        <Link to={'/profile'}>
+                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer">
+                                <PiUsersThreeBold fontSize={19} className="text-white light:text-black" />
+                            </div>
+                        </Link>
+                    </div>
+                </header>
+                {children}
             </div>
-            <Link to={"/message-box"}>
-              <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 cursor-pointer">
-                <IoNotificationsOutline fontSize={19} className="text-white" />
-              </div>
-            </Link>
-          </div>
-          <div className="flex justify-center">
-            <Link to={"/home"}>
-              <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
-            </Link>
-          </div>
-          <div className="flex justify-end items-center gap-2">
-           <SelectTheme />
 
-            <Link to={"/profile"}>
-              <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 cursor-pointer">
-                <PiUsersThreeBold fontSize={19} className="text-white" />
-              </div>
-            </Link>
-          </div>
-        </header>
-        {children}
-      </div>
+            {showMenu && (
+                <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[420px] bg-primary-dark/90 z-20">
+                    <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
+                    <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
 
-      {showMenu && (
-        <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[420px] bg-primary-dark/90 z-20">
-          <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
-          <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
-
-          <div className="flex flex-col p-4.5">
-            <div className="grid grid-cols-3 w-full z-20">
-              <div className="flex gap-1">
-                <div
-                  onClick={handleShowMenu}
-                  className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer"
-                >
-                  <TbLayoutGrid fontSize={19} className="text-white" />
-                </div>
-              </div>
-              <div className="flex justify-center cursor-pointer">
-                <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
-              </div>
-              <div className="flex justify-end">
-               <Link to="/">
-                   <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">
-                    <FaArrowLeftLong fontSize={14} className="text-white" />
-                </div>
-               </Link>
-              </div>
-            </div>
+                    <div className="flex flex-col p-4.5">
+                        <div className="grid grid-cols-3 w-full z-20">
+                            <div className="flex gap-1">
+                                <div
+                                    onClick={handleShowMenu}
+                                    className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer"
+                                >
+                                    <TbLayoutGrid fontSize={19} className="text-white" />
+                                </div>
+                            </div>
+                            <div className="flex justify-center cursor-pointer">
+                                <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
+                            </div>
+                            <div className="flex justify-end">
+                                <Link to="/">
+                                    <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">
+                                        <FaArrowLeftLong fontSize={14} className="text-white" />
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
 
                         <div className="flex flex-col gap-2 py-5 z-20">
                             {menu.map(item => (
@@ -157,7 +172,9 @@ const Layout = ({ children }: { children: any }) => {
                                     key={item.id}
                                     onClick={() => {
                                         if (item.id === 10) {
+                                            const theme = localStorage.getItem('theme');
                                             localStorage.clear();
+                                            if (theme) localStorage.setItem('theme', theme);
                                             setShowMenu(false);
                                             window.location.reload();
                                             navigate('/auth', { replace: true });

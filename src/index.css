@@ -2,3 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+   --text-color: white; 
+}
+
+.light {
+ --text-color: black; 
+}

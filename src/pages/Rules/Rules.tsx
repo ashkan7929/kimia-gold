@@ -15,7 +15,10 @@ const Rules = () => {
 
     return (
         <>
-            <div className="w-full mx-auto min-h-screen flex flex-col font-peyda text-xs rtl">
+            <div
+                className="w-full mx-auto min-h-screen flex flex-col font-peyda text-xs rtl"
+                style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}
+            >
                 <main className="flex-grow bg-[url('/images/main-lines-pattern.png')] bg-cover bg-center">
                     <div className="container flex flex-col gap-3 mb-3">
                         <section className="rules">
