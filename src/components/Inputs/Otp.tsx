@@ -44,7 +44,7 @@ const OTPInput = ({ length = 6, onChange, className }: OTPInputProps) => {
             value={otp[i]}
             onChange={(e) => handleChange(e.target.value, i)}
             onKeyDown={(e) => handleKeyDown(e, i)}
-            className="h-12 text-center text-lg font-peyda text-white bg-custom-bg-input border border-custom-border-light rounded-lg focus:outline-none focus:border-primary-blue"
+            className="h-12 text-center text-lg font-peyda text-text-color light:text-light-text-color bg-custom-bg-input light:bg-gray-100 light:border-custom-gray border border-custom-border-light rounded-lg focus:outline-none focus:border-primary-blue light:focus:border-light-text-color"
           />
         ))}
     </div>

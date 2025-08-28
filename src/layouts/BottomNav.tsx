@@ -17,7 +17,7 @@ const BottomNav = () => {
                     <div className='w-full flex justify-center items-center'>
                         <div onClick={() => navigate('/wallet')} className='flex flex-col justify-center items-center w-fit cursor-pointer'>
                             <div className='w-10.5 h-10.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue -translate-y-3 shadow shadow-black/50'>
-                                <PiUsersThreeBold fontSize={19} className='text-white light:text-black' />
+                                <PiUsersThreeBold fontSize={19} className='text-white ' />
                             </div>
                             <Typography fontSize={10} className='text-white !font-peyda -translate-y-2 light:text-black'>کیف پول</Typography>
                         </div>

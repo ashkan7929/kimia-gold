@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaArrowLeftLong, LuMoveRight } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
+
+import packageJson from '../../../package.json';
+
 const StepsEnum = {
     one: 0,
     two: 1,
@@ -22,7 +25,7 @@ const Starter = () => {
         <div
             className={`${
                 step == StepsEnum.login ? 'hidden' : 'flex'
-            } absolute z-10 bg-primary-darker h-screen flex-col justify-center items-center p-6`}
+            } absolute z-10 bg-primary-darker light:bg-light-primary-darker h-screen flex-col justify-center items-center p-6`}
         >
             {step == StepsEnum.one && (
                 <>
@@ -68,6 +71,15 @@ const Starter = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="w-full flex justify-center items-center mt-2">
+                        <span className="block mx-auto text-primary-blue text-center ">
+                            VEM Club
+                            {" "}
+                            <span className="text-text-color light:text-light-text-color">
+                                {packageJson.version}
+                            </span>
+                        </span>
+                    </div>
                 </>
             )}
             {step == StepsEnum.two && (
@@ -93,22 +105,33 @@ const Starter = () => {
                     </div>
                     <div className="flex flex-col gap-8 justify-end mr-auto">
                         <div className="grid grid-cols-3 gap-1">
-                            <div className="bg-primary-blue light:bg-white h-1 rounded-lg col-span-2"></div>
+                            <div className="bg-primary-blue h-1 rounded-lg col-span-2"></div>
                             <div className="bg-neutral-400 h-1 rounded-lg"></div>
                         </div>
                         <div className="flex gap-3">
-                            <div
+                            <button
                                 onClick={() => setStep(StepsEnum.login)}
-                                className="bg-primary-blue rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
+                                className={`rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl 
+                                    ${
+                                        step === StepsEnum.login
+                                            ? 'bg-primary-blue text-white'
+                                            : 'border-2 border-primary-lighter text-light-text-color'
+                                    }`}
                             >
-                                <LuMoveRight color="white" className="light:text-black" />
-                            </div>
-                            <div
+                                <LuMoveRight className="text-text-color light:text-light-text-color" />
+                            </button>
+
+                            <button
                                 onClick={() => setStep(StepsEnum.one)}
-                                className="border-2 border-primary-lighter rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
+                                className={`rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl 
+                                    ${
+                                        step === StepsEnum.one
+                                            ? 'border-2 border-primary-lighter text-light-text-color'
+                                            : 'bg-primary-blue text-text-color'
+                                    }`}
                             >
-                                <FaArrowLeftLong color="white" className="light:text-black" />
-                            </div>
+                                <FaArrowLeftLong className="" />
+                            </button>
                         </div>
                     </div>
                 </>

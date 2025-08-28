@@ -9,6 +9,9 @@ export default {
                     100: '#fef3c7',
                     200: '#f59e0b',
                 },
+                text: {
+                    color: '#fff'
+                },
                 dark: {
                     900: '#0f172a',
                     800: "#373A41",
@@ -48,6 +51,7 @@ export default {
                     },
                     bg: {
                         card: '#010048',
+                        box: "#E0E7FF",
                         success: '#14472C',
                         danger: '#993F3F',
                         input: '#12116B',
@@ -59,6 +63,41 @@ export default {
                         dashed: '#303030',
                     },
                 },
+                light: {
+                    gold: {
+                        100: '#fef3c7', 
+                        200: '#f59e0b', 
+                    },
+
+                    bg: {
+                        box: "#F9FAFB",
+                        input: '#12116B',
+                        checkbox: '#0052DC',
+                    },
+                     text: {
+                         color: '#000',
+                         charcoal: '#373A3A',
+                     },
+                    dark: {
+                        900: "#303030",
+                        800: "#43464C",
+                    },
+
+                   primary: {
+                        lighter: '#f0f0f0', 
+                        light: '#0000ff', 
+                        blue: '#007bff', 
+                        purple: '#6f42c1', 
+                        dark: '#343a40', 
+                        darker: '#ffffff', 
+                        whiteSpecial: "#000000", 
+                        "gray-50": "#f8f9fa", 
+                        "gray-100": "#e9ecef", 
+                        "gray-200": "#ced4da",
+                 },
+                 
+
+            }
             },
             fontSize: {
                 'xs-custom': '0.43331rem',

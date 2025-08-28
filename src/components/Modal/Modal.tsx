@@ -68,7 +68,7 @@ export default function Modal({ open, handleClose, handleSubmit, children, modal
                     {children}
                 </DialogContent>
                 <DialogActions sx={{px:3, pb:3}}>
-                    <Button className='px-4 w-full text-xs text-white bg-accent-orange' onClick={handleSubmit || handleClose} >{confirmText}</Button>
+                    <Button className='px-4 w-full text-xs text-white bg-accent-orange light:bg-primary-blue' onClick={handleSubmit || handleClose} >{confirmText}</Button>
                 </DialogActions>
             </Dialog>
             {/* </ThemeProvider> */}

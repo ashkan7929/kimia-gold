@@ -90,19 +90,19 @@ const SimpleLayout = ({ children, title }: { children: any; title: string }) => 
 
     return (
         <>
-            <div className="bg-black min-h-screen p-4.5">
-                <header className="bg-primary-darker grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
+            <div className="bg-black light:bg-primary-whiteSpecial min-h-screen p-4.5">
+                <header className="bg-primary-darker light:bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
                     <div className="flex gap-1">
                         <div
                             onClick={handleShowMenu}
-                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 cursor-pointer"
+                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer"
                         >
-                            <TbLayoutGrid fontSize={19} className="text-white" />
+                            <TbLayoutGrid fontSize={19} className="text-white light:text-black" />
                         </div>
                     </div>
                     <div className="flex justify-center items-center">
                         <Typography
-                            className="!font-alibaba text-white"
+                            className="!font-alibaba text-white light:text-black"
                             fontWeight="bold"
                             fontSize={11}
                         >
@@ -112,9 +112,9 @@ const SimpleLayout = ({ children, title }: { children: any; title: string }) => 
                     <div className="flex justify-end">
                         <div
                             onClick={() => navigate(-1)}
-                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 cursor-pointer"
+                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer"
                         >
-                            <FaArrowLeftLong fontSize={13} className="text-white" />
+                            <FaArrowLeftLong fontSize={13} className="text-white light:text-black" />
                         </div>
                     </div>
                 </header>

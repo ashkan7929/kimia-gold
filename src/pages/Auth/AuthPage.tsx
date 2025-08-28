@@ -284,18 +284,18 @@ const AuthPage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col mx-auto w-full min-h-screen bg-primary-darker light:bg-white">
+    <div className="flex flex-col mx-auto w-full min-h-screen bg-primary-darker light:bg-light-primary-darker">
       <main className="px-4 flex-grow py-5 flex flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
         {!(currentStep === 'otp' && loginMethod === 'otp') && (
-        <div className='text-white light:text-black py-17'>
-          <img alt='' src='/images/login.svg' width={193} height={193} />
+        <div className='text-text-color light:text-light-text-color py-17'>
+          <img alt='login user' src='/images/login.svg' width={193} height={193} />
         </div>
         )}
         {/* Mobile Step */}
         {currentStep === 'mobile' && (
           <form onSubmit={mobileForm.handleSubmit(handleMobileSubmit)} className='flex flex-col gap-4 w-full'>
             <div className="flex flex-col gap-2">
-              <Typography className="text-white light:text-dark-800" fontFamily={'Alibaba, sans-serif'} fontWeight={'bold'} fontSize={19}>
+              <Typography className="text-text-color light:text-dark-800" fontFamily={'Alibaba, sans-serif'} fontWeight={'bold'} fontSize={19}>
                 {t('loginToApp')}
               </Typography>
               <Typography className="text-neutral-300 light:text-dark-600" fontFamily={'Peyda, sans-serif'} fontSize={13}>
@@ -303,14 +303,14 @@ const AuthPage: React.FC = () => {
               </Typography>
             </div>
             <div className="relative">
-              <div className="flex items-center text-white rounded-xsm border-custom-border-light light:border-primary-blue border">
+              <div className="flex items-center text-text-color rounded-xsm border-custom-border-light light:border-custom-gray border">
                 <div className="absolute h-full right-4 flex items-center justify-center">
-                  <CiMobile3 className='light:text-black'/>
+                  <CiMobile3 className='text-black'/>
                 </div>
                 <input
                   {...mobileForm.register('mobileNumber')}
                   type="text"
-                  className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input light:bg-none border border-custom-border-light rounded-lg text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue light:focus:border-black"
+                  className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input light:bg-transparent light:border-custom-gray rounded-lg text-text-color light:text-light-text-color font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue light:focus:border-light-text-color"
                   placeholder={t('enterMobile')}
                 />
               </div>
@@ -325,17 +325,10 @@ const AuthPage: React.FC = () => {
                 {error}
               </Typography>
             )}
-            <Button className="w-full text-white bg-primary-blue hover:bg-blue-600">
+            <Button className="w-full text-text-color bg-primary-blue hover:bg-blue-600">
               {t('loginToAccount')}
             </Button>
-            {/* <div className='flex gap-2'>
-              <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} className='text-neutral-300'>
-                {t('noAccount')}
-              </Typography>
-              <Typography fontSize={13} fontFamily={'Peyda, sans-serif'} component={Link} href='/register' sx={{ color: "white", textDecoration: 'none' }}>
-                {t('signUp')}
-              </Typography>
-            </div> */}
+            
           </form>
         )}
 
@@ -343,7 +336,7 @@ const AuthPage: React.FC = () => {
         {currentStep === 'register' && (
           <div className="w-full max-w-md mx-auto">
             <div className="text-center mb-8 flex flex-col gap-2">
-              <Typography className="text-white !font-alibaba mb-2" fontSize={20} fontWeight="bold">
+              <Typography className="text-text-color light:text-light-text-color !font-alibaba mb-2" fontSize={20} fontWeight="bold">
                 تکمیل اطلاعات
               </Typography>
               <Typography className="text-gray-300 !font-peyda" fontSize={14}>
@@ -353,8 +346,8 @@ const AuthPage: React.FC = () => {
 
             <form onSubmit={registerForm.handleSubmit(handleRegisterSubmit)} className="space-y-4">
               {/* Mobile Number (Read-only) */}
-              <div className='flex flex-col gap-1'>
-                <Typography className="text-white !font-peyda mb-2" fontSize={12}>
+              <div className='flex flex-col gap-1 '>
+                <Typography className="text-color text-tex-color light:text-light-text-color !font-peyda mb-2" fontSize={12}>
                   شماره موبایل
                 </Typography>
                 <TextField
@@ -362,7 +355,7 @@ const AuthPage: React.FC = () => {
                   placeholder="شماره موبایل"
                   defaultValue={mobileNumber}
                   disabled
-                  className="bg-gray-700"
+                  className="bg-gray-700 light:bg-transparent"
                 />
               </div>
 
@@ -485,10 +478,10 @@ const AuthPage: React.FC = () => {
         {currentStep === 'password' && (
           <div className="w-full max-w-md mx-auto">
             <div className="text-center mb-8">
-              <Typography className="text-white !font-alibaba mb-2" fontSize={20} fontWeight="bold">
+              <Typography className="text-color light:text-light-text-color !font-alibaba mb-2" fontSize={20} fontWeight="bold">
                 ورود با رمز عبور
               </Typography>
-              <Typography className="text-gray-300 !font-peyda" fontSize={14}>
+              <Typography className="text-gray-300 light:text-gray-700 !font-peyda" fontSize={14}>
                 رمز عبور خود را وارد کنید
               </Typography>
             </div>
@@ -496,7 +489,7 @@ const AuthPage: React.FC = () => {
             <form onSubmit={passwordForm.handleSubmit(handlePasswordSubmit)} className="space-y-4">
               {/* Mobile Number (Read-only) */}
               <div>
-                <Typography className="text-white !font-peyda mb-2" fontSize={12}>
+                <Typography className="text-color text-text-color light:text-light-text-color !font-peyda mb-2" fontSize={12}>
                   شماره موبایل
                 </Typography>
                 <TextField
@@ -504,13 +497,13 @@ const AuthPage: React.FC = () => {
                   placeholder="شماره موبایل"
                   defaultValue={mobileNumber}
                   disabled
-                  className="bg-gray-700"
+                  className="bg-gray-700 light:bg-transparent "
                 />
               </div>
 
               {/* Password */}
               <div>
-                <Typography className="text-white !font-peyda mb-2" fontSize={12}>
+                <Typography className="text-text-color light:text-light-text-color !font-peyda mb-2" fontSize={12}>
                   رمز عبور *
                 </Typography>
                 <TextField
@@ -579,11 +572,11 @@ const AuthPage: React.FC = () => {
             </div>
           )}
 
-            <Typography className="text-white !font-alibaba mb-2" fontSize={20} fontWeight="bold">
+            <Typography className="text-white light:text-gray-700 !font-alibaba mb-2" fontSize={20} fontWeight="bold">
               {userStatus?.userExists ? 'ورود با کد تایید' : 'تایید شماره موبایل'}
             </Typography>
 
-            <Typography className="text-gray-300 !font-peyda mb-8" fontSize={14}>
+            <Typography className="text-gray-300 light:text-gray-700 !font-peyda mb-8" fontSize={14}>
               کد تایید ارسال شده به شماره {mobileNumber} را وارد کنید
             </Typography>
 
@@ -612,7 +605,7 @@ const AuthPage: React.FC = () => {
             </Button>
 
             <div className="text-center space-y-2 mb-4">
-              <Typography className="text-gray-400 !font-peyda" fontSize={12}>
+              <Typography className="text-gray-400 light:text-gray-700 !font-peyda" fontSize={12}>
                 کد تایید را دریافت نکردید؟
               </Typography>
               {canResend ? (
@@ -632,7 +625,7 @@ const AuthPage: React.FC = () => {
 
             <button
               onClick={handleBack}
-              className="w-full py-3 rounded-lg border hover:border-none text-gray-300 hover:bg-primary-light transition-colors font-peyda"
+              className="w-full py-3 rounded-lg border hover:border-none text-gray-300 light:text-gray-700 light:hover:text-text-color hover:bg-primary-light transition-colors font-peyda"
             >
               بازگشت
             </button>
