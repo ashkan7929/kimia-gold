@@ -31,11 +31,13 @@ export { IoMailOutline } from "react-icons/io5";
 export { RiRoadMapLine } from "react-icons/ri";
 export { BiSolidMapPin } from "react-icons/bi";
 
-export { MdOutlineCopyAll } from "react-icons/md";
-export { FaMinus } from "react-icons/fa";
-export { GoArrowUpRight } from "react-icons/go";
-export { GoArrowDownLeft } from "react-icons/go";
-export { BiTransferAlt } from "react-icons/bi";
-export { MdAddCard } from "react-icons/md";
-export { IoClose } from "react-icons/io5";
-export { RiLockPasswordLine } from "react-icons/ri";
+export { MdOutlineCopyAll } from 'react-icons/md';
+export { FaMinus } from 'react-icons/fa';
+export { GoArrowUpRight } from 'react-icons/go';
+export { GoArrowDownLeft } from 'react-icons/go';
+export { BiTransferAlt } from 'react-icons/bi';
+export { MdAddCard } from 'react-icons/md';
+export { IoClose } from 'react-icons/io5';
+export { RiLockPasswordLine } from 'react-icons/ri';
+
+export { IoMdPerson } from 'react-icons/io';

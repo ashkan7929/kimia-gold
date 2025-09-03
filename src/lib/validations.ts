@@ -72,7 +72,10 @@ export const registerSchema = mobileSchema
 // Combined login schemas
 export const mobileLoginSchema = mobileSchema;
 export const otpLoginSchema = mobileSchema.merge(otpSchema);
-export const passwordLoginSchema = mobileSchema.merge(passwordSchema);
+// export const passwordLoginSchema = mobileSchema.merge(passwordSchema);
+export const passwordLoginSchema = z.object({
+    password: z.string().min(1, 'رمز عبور خود را وارد کنید'),
+});
 
 export type MobileFormData = z.infer<typeof mobileSchema>;
 export type OtpFormData = z.infer<typeof otpLoginSchema>;
