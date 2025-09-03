@@ -24,14 +24,7 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    plugins: [
-        'react',
-        'react-hooks',
-        '@typescript-eslint',
-        'jsx-a11y',
-        'import',
-        'prettier',
-    ],
+    plugins: ['react', 'react-hooks', '@typescript-eslint', 'jsx-a11y', 'import', 'prettier'],
     extends: [
         'airbnb',
         'airbnb/hooks',

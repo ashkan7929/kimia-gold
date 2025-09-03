@@ -115,7 +115,10 @@ const Layout = ({ children }: { children: any }) => {
                         </div>
                         <Link to={'/message-box'}>
                             <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer">
-                                <IoNotificationsOutline fontSize={19} className="text-white light:text-black" />
+                                <IoNotificationsOutline
+                                    fontSize={19}
+                                    className="text-white light:text-black"
+                                />
                             </div>
                         </Link>
                     </div>
@@ -182,27 +185,26 @@ const Layout = ({ children }: { children: any }) => {
                                             handleNavigate(item.link);
                                         }
                                     }}
-                                    className="bg-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
+                                    className="bg-primary-darker light:bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
                                 >
-                                    <div className="bg-accent-orange w-8 h-8 flex justify-center items-center rounded-lg">
-                                        <item.icon className="text-white" />
+                                    <div className="bg-accent-orange light:bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
+                                        <item.icon className="text-text-color " />
                                     </div>
                                     <div className="grow">
                                         <Typography
-                                            className="!font-alibaba text-white"
+                                            className="!font-alibaba text-text-color light:text-light-text-color"
                                             fontSize={12}
                                         >
                                             {item.title}
                                         </Typography>
                                         <Typography
-                                            className="!font-alibaba text-neutral-300 line-clamp-1"
+                                            className="!font-alibaba text-neutral-300 light:text-neutral-700 line-clamp-1"
                                             fontSize={10}
                                         >
                                             {item.subtitle}
                                         </Typography>
                                     </div>
-                                    <FaChevronLeft className='text-white' />
-
+                                    <FaChevronLeft className="text-white" />
                                 </div>
                             ))}
                         </div>
@@ -213,4 +215,4 @@ const Layout = ({ children }: { children: any }) => {
     );
 };
 
-export default Layout
+export default Layout;

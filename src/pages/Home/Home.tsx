@@ -45,28 +45,47 @@ const { theme } = useTheme();
         }
     })();
     console.log(userData);
-    return (<>
-        <div className="">
-            <div className='flex flex-col gap-3 items-center pb-25'>
-                <div className='bg-primary-darker light:bg-white flex gap-1 w-full p-3 rounded-lg'>
-                    <div className='flex flex-col gap-1'>
-                        <Typography className='!font-alibaba text-text-color light:text-light-text-color' fontSize={13}><strong>{userData?.firstName && userData?.lastName ? userData.firstName + " " + userData.lastName : 'کاربر گرامی'}</strong> خوش امدید</Typography>
-                        <Typography className='!font-alibaba text-neutral-300 light:text-neutral-700' fontSize={11}>{'به باشگاه وِم خوش آمدید، از این صفحه می‌توانید خدمات خود را انتخاب کنید'}</Typography>
+    return (
+        <>
+            <div className="">
+                <div className="flex flex-col gap-3 items-center pb-25">
+                    <div className="bg-primary-darker light:bg-white flex gap-1 w-full p-3 rounded-lg">
+                        <div className="flex flex-col gap-1">
+                            <Typography
+                                className="!font-alibaba text-text-color light:text-light-text-color"
+                                fontSize={13}
+                            >
+                                <strong>
+                                    {userData?.firstName && userData?.lastName
+                                        ? userData.firstName + ' ' + userData.lastName
+                                        : 'کاربر گرامی'}
+                                </strong>{' '}
+                                خوش امدید
+                            </Typography>
+                            <Typography
+                                className="!font-alibaba text-neutral-300 light:text-neutral-700"
+                                fontSize={11}
+                            >
+                                {
+                                    'به باشگاه وِم خوش آمدید، از این صفحه می‌توانید خدمات خود را انتخاب کنید'
+                                }
+                            </Typography>
+                        </div>
+                        <div>
+                            <img alt="" src="/images/welcome-home.svg" width={79} height={63} />
+                        </div>
                     </div>
-                    <div>
-                        <img alt='' src='/images/welcome-home.svg' width={79} height={63} />
-                    </div>
-                    <div className="bg-primary-dark flex w-full p-3 rounded-lg">
+                    <div className="bg-primary-dark light:bg-light-primary-darker flex w-full p-3 rounded-lg">
                         <main className="px-4 flex-grow py-5 flex gap-3 flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
                             <div className="flex flex-col items-center gap-1.5">
                                 <Typography
-                                    className="!font-alibaba text-text-color "
+                                    className="!font-alibaba text-text-color light:text-light-text-color"
                                     fontSize={16}
                                 >
                                     صفحه <strong>باشگاه وِم</strong>
                                 </Typography>
                                 <Typography
-                                    className="!font-alibaba text-neutral-300 "
+                                    className="!font-alibaba text-neutral-300 light:text-neutral-700"
                                     fontSize={11}
                                 >
                                     {'محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر'}
@@ -78,7 +97,7 @@ const { theme } = useTheme();
                         </main>
                     </div>
                     <div className="grid gap-2 light:gap-4 grid-cols-3 w-full">
-                        <div className="bg-primary-darker light:bg-light-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded/-lg">
+                        <div className="bg-primary-darker light:bg-light-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
                                 <img alt="coin" src="/images/Hand, Arm, Coins.svg" />
                             ) : (
