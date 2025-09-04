@@ -7,7 +7,12 @@ import {
     GoArrowUpRight,
     MdAddCard,
 } from '../../Icons';
+
+import { useWalletData } from '../../hooks/useWalletData';
+import { useTheme } from '../../contexts/ThemeContext';
 import Modal from '../../components/Modal/Modal';
+
+import tomanBlack from '../../assets/images/blackToman.svg';
 
 const tabInfo = [
     {
@@ -25,11 +30,14 @@ const tabInfo = [
 ];
 
 const Wallet = () => {
+    const { theme } = useTheme();
+    const isDark = theme === 'dark';
     const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
     const [showWithdrawModal, setShowWithdrawModal] = useState<boolean>(false);
     const [showDepositModal, setShowDepositModal] = useState<boolean>(false);
     const [showTransferModal, setShowTransferModal] = useState<boolean>(false);
     const [showNewCardModal, setShowNewCardModal] = useState<boolean>(false);
+    const { balance, transactions, loading, txLoading } = useWalletData();
 
     const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal);
     const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
@@ -59,9 +67,24 @@ const Wallet = () => {
                                         fontWeight="bold"
                                         fontSize={24}
                                     >
-                                        2,566,890
+                                     {loading ? '…' : balance ? balance.balance.toLocaleString('fa-IR') : '0'}
                                     </Typography>
-                                    <img alt="" src="/images/toman.svg" width={22} height={17} />
+                                          {isDark ? (
+                                                <img alt="toman"
+                                                     src="/images/toman.svg"
+                                                     width={10}
+                                                    height={10}
+                                                     />
+                                                      ) : (
+                                                      <img
+                                                       src={tomanBlack}
+                                                      alt="toman"
+                                                       width={20}
+                                                       height={20}
+                                                    />
+                                      )}
+                                                                                                                    
+                                    {/* <img alt="" src="/images/toman.svg" className='' width={22} height={17} /> */}
                                 </div>
                             </div>
                             <div>
@@ -79,20 +102,29 @@ const Wallet = () => {
                                 className="bg-accent-orange group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
                             >
                                 {'افزایش موجودی'}
-                                <GoArrowUpRight className="text-text-color light:text-light-text-color light:group-hover:text-text-color" fontSize={15} />
+                                <GoArrowUpRight
+                                    className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
+                                    fontSize={15}
+                                />
                             </button>
                             <button
                                 onClick={handleShowWithdrawModal}
                                 className="bg-primary-dark group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
                             >
                                 {'برداشت موجودی'}
-                                <GoArrowDownLeft className="text-text-color light:text-light-text-color light:group-hover:text-text-color" fontSize={15} />
+                                <GoArrowDownLeft
+                                    className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
+                                    fontSize={15}
+                                />
                             </button>
                             <button
                                 onClick={handleShowTransferModal}
                                 className="bg-primary-light group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
                             >
-                                <BiTransferAlt className="text-text-color light:text-light-text-color light:group-hover:text-text-color" fontSize={15} />
+                                <BiTransferAlt
+                                    className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
+                                    fontSize={15}
+                                />
                                 {'انتقال موجودی'}
                             </button>
                         </div>
@@ -133,8 +165,51 @@ const Wallet = () => {
                         </nav>
                     </div>
                 </div>
+                <div className="flex flex-col gap-2 w-full">
+                {txLoading && <div className="p-3 text-xs">در حال بارگذاری تراکنش‌ها…</div>}
+                {transactions?.map(tx => {
+                    const isDeposit = (tx.transactionTypeCode ?? '').toLowerCase().includes('deposit') ||
+                                    (tx.transactionTypeName ?? '').includes('افزایش') ||
+                                    tx.amount > 0;
+                    const signClass = isDeposit ? 'text-green-500 bg-green-500/30' : 'text-red-400 bg-red-400/20';
+                    const iconBgClass = isDeposit ? 'bg-green-100' : 'bg-red-100';
+                    const iconColor = isDeposit ? 'text-green-600' : 'text-red-600';
+                    const amountAbs = Math.abs(tx.amount);
 
-                <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg w-full flex justify-between p-4">
+                    return (
+                    <div key={tx.id} className="flex justify-between w-full p-2.5 bg-primary-dark light:bg-light-primary-darker rounded-lg">
+                        <div className="flex gap-2 items-center">
+                        <div className={`${iconBgClass} w-7 h-7 rounded-full flex justify-center items-center`}>
+                            <FaArrowDownLong className={iconColor} fontSize={11} />
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <Typography className="!font-kalameh text-text-color light:text-light-text-color text-nowrap" fontWeight={600} fontSize={11}>
+                            {tx.transactionTypeName}
+                            </Typography>
+                            <Typography className="!font-kalameh text-text-color light:text-light-text-color text-nowrap" fontSize={9}>
+                            {new Date(tx.processedAt).toLocaleString('fa-IR')}
+                            </Typography>
+                        </div>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                        <div className="flex gap-1 items-center">
+                            <Typography className="!font-peyda text-text-color light:text-light-text-color" fontWeight="bold" fontSize={12}>
+                            {amountAbs.toLocaleString('fa-IR')}
+                            </Typography>
+                            <img alt="" src="/images/toman.svg" width={10} height={10} />
+                        </div>
+                        <Typography className={`!font-peyda ${signClass} w-fit py-0.5 px-2.5 rounded-xl`} fontSize={9}>
+                            {tx.status === 1 ? 'موفق' : 'ناموفق'}
+                        </Typography>
+                        </div>
+                    </div>
+                    );
+                })}
+                {!txLoading && (!transactions || transactions.length === 0) && (
+                    <div className="p-3 text-xs text-text-color light:text-light-text-color">تراکنشی یافت نشد.</div>
+                )}
+                </div>
+                {/* <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg w-full flex justify-between p-4">
                     <Typography
                         className="!font-kalameh text-text-color light:text-light-text-color text-nowrap"
                         fontWeight="semibold"
@@ -194,7 +269,7 @@ const Wallet = () => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
 
             <Modal
@@ -370,7 +445,7 @@ const Wallet = () => {
                                 {'شماره کارت واریز'}
                             </Typography>
                         </div>
-                       <div
+                        <div
                             onClick={handleShowNewCardModal}
                             className="flex gap-1 text-white bg-primary-light light:bg-primary-blue rounded-md px-3 py-1.5"
                         >
@@ -380,7 +455,7 @@ const Wallet = () => {
                             </Typography>
                         </div>
                     </div>
-                     <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
+                    <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0 !font-peyda light:text-black">
                                 <img
@@ -484,7 +559,7 @@ const Wallet = () => {
                             </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent border border-custom-border-light text-xs rounded-lg px-4 py-3 text-text-color light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker focus:border-transparent light:border-custom-gray light:focus:border-primary-whiteSpecial">
+                    <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img
@@ -503,9 +578,8 @@ const Wallet = () => {
                                     className="w-full h-full object-contain"
                                 />
                             </div>
-                            <p className='font-peyda text-text-color light:text-light-text-color'>
-                               6219-8619-0943-6789
- 
+                            <p className="font-peyda text-text-color light:text-light-text-color">
+                                6219-8619-0943-6789
                             </p>
                         </option>
                     </select>
@@ -523,7 +597,7 @@ const Wallet = () => {
                             </Typography>
                         </div>
                     </div>
-                       <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
+                    <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0 !font-peyda light:text-black">
                                 <img

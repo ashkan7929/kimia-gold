@@ -3,6 +3,7 @@ export interface WalletCreateRequest {
     walletTypeId: string;
     currency: string;
 }
+export type Currency = 'IRT' | 'IRR' | 'USD';
 
 export interface UserWallet {
     id: string;
@@ -10,7 +11,7 @@ export interface UserWallet {
     walletTypeId: string;
     walletTypeName: string;
     balance: number;
-    currency: string;
+    currency: Currency;
     isLocked: boolean;
     lockReason: string;
     // createdOn: Date;
@@ -30,7 +31,7 @@ export interface BalanceResponse {
 // واریز وجه به حساب
 
 export interface DepositRequest {
-    walletId: string;
+    // walletId: string;
     amount: number;
     description: string;
     reference: string;
@@ -38,9 +39,8 @@ export interface DepositRequest {
 }
 
 // برداشت از کیف پول
-
 export interface WithdrawRequest {
-    walletId: string;
+    // walletId: string;
     amount: number;
     description: string;
     reference: string;
@@ -88,5 +88,5 @@ export interface TransferRequest {
     amount: number;
     description: string;
     reference: string;
-    metadata: string;
+    metadata?: Record<string, any> | string;
 }

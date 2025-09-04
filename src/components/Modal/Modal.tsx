@@ -28,39 +28,45 @@ export default function Modal({ open, handleClose, handleSubmit, children, modal
                 aria-labelledby="customized-dialog-title"
                 open={open}
                 // className='bg-primary-dark'
-                sx={(theme) => ({
+                sx={theme => ({
                     '& .MuiPaper-root': {
                         padding: 0,
                         width: 600,
                         borderRadius: 4,
-                        bgcolor: '#02006C',
+                        bgcolor: theme.palette.mode === 'dark' ? '#02006C' : '#fff',
                         [theme.breakpoints.down('sm')]: {
                             position: 'absolute',
                             bottom: 0,
                             width: '100%',
                             borderRadius: '16px 16px 0 0',
                             margin: 0,
-                            color: "white"
+                            color: 'white',
                         },
-                    }
-                })
-                }
+                    },
+                })}
             >
-                <Stack direction={"row"} alignItems={"center"}>
-                    <DialogTitle sx={{ m: 0, px: 4, py: 3, color: "white", fontSize: 14 }} className='!font-alibaba' fontWeight={'bold'} id="customized-dialog-title">
+                <Stack direction={'row'} alignItems={'center'}>
+                    <DialogTitle
+                        sx={{ m: 0, px: 4, py: 3, 
+                        color: (theme) => theme.palette.mode === 'dark' ? 'white' : 'black',
+                        fontSize: 14 }}
+                        className="!font-alibaba"
+                        fontWeight={'bold'}
+                        id="customized-dialog-title"
+                    >
                         {modalTitle}
                     </DialogTitle>
                 </Stack>
                 <IconButton
                     aria-label="close"
                     onClick={handleClose}
-                    sx={{
-                        position: 'absolute',
-                        left: 15,
-                        top: 20,
-                        color: 'white',
-                        border: '1px solid #384673'
-                    }}
+                    sx={theme => ({
+                    position: 'absolute',
+                    left: 15,
+                    top: 20,
+                    color: theme.palette.mode === 'dark' ? 'white' : '#808080',
+                    border: '1px solid #384673',
+                })}
                 >
                     <IoClose fontSize={15} />
                 </IconButton>

@@ -8,37 +8,51 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 // Custom hooks for common state selections
 export const useAuth = () => {
-	return useAppSelector((state) => state.auth);
+    return useAppSelector(state => state.auth);
 };
 
 export const usePortfolio = () => {
-	return useAppSelector((state) => state.portfolio);
+    return useAppSelector(state => state.portfolio);
+};
+
+// wallet
+
+export const useWallet = () => {
+    return useAppSelector(state => state.wallet.wallets);
+};
+
+export const useSelectedWallet = () => {
+    return useAppSelector(state => state.wallet.selectedWallet);
+};
+
+export const useTransactions = () => {
+    return useAppSelector(state => state.wallet.transactions);
 };
 
 export const useUI = () => {
-	return useAppSelector((state) => state.ui);
+    return useAppSelector(state => state.ui);
 };
 
 export const useIsAuthenticated = () => {
-	return useAppSelector((state) => state.auth.isAuthenticated);
+    return useAppSelector(state => state.auth.isAuthenticated);
 };
 
 export const useCurrentUser = () => {
-	return useAppSelector((state) => state.auth.user);
+    return useAppSelector(state => state.auth.user);
 };
 
 export const useTheme = () => {
-	return useAppSelector((state) => state.ui.theme);
+    return useAppSelector(state => state.ui.theme);
 };
 
 export const useNotifications = () => {
-	return useAppSelector((state) => state.ui.notifications);
+    return useAppSelector(state => state.ui.notifications);
 };
 
 export const useModals = () => {
-	return useAppSelector((state) => state.ui.modals);
+    return useAppSelector(state => state.ui.modals);
 };
 
 export const useLoading = () => {
-	return useAppSelector((state) => state.ui.loading);
+    return useAppSelector(state => state.ui.loading);
 };
