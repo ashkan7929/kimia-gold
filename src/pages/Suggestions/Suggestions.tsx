@@ -1,7 +1,8 @@
-import Typography from "@mui/material/Typography"
-import TextField from "../../components/Inputs/TextField"
-import { CiCalendarDate } from "../../Icons"
-import Button from "../../components/Button/Button"
+import Typography from '@mui/material/Typography';
+import TextField from '../../components/Inputs/TextField';
+import { IoMdPerson } from '../../Icons';
+
+import Button from '../../components/Button/Button';
 
 const Suggestions = () => {
     return (
@@ -10,7 +11,13 @@ const Suggestions = () => {
                 <section className="min-h-screen bg-primary-darker light:bg-light-primary-darker rounded-lg p-4 flex flex-col justify-center items-center py-8 relative">
                     <div className="w-full mx-auto text-center">
                         <div className="mb-8">
-                            <img alt="" src="/images/man-checking-comment.svg" height={174} width={232} className="mx-auto" />
+                            <img
+                                alt=""
+                                src="/images/man-checking-comment.svg"
+                                height={174}
+                                width={232}
+                                className="mx-auto"
+                            />
                         </div>
                         <Typography
                             className="text-text-color text-right text-sm light:text-light-text-color !font-alibaba"

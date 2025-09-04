@@ -41,3 +41,7 @@ export { IoClose } from 'react-icons/io5';
 export { RiLockPasswordLine } from 'react-icons/ri';
 
 export { IoMdPerson } from 'react-icons/io';
+export { FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa6';
+export { PiTelegramLogo } from 'react-icons/pi';
+export { TbBrandLinkedin } from 'react-icons/tb';
+export { IoIosLink } from 'react-icons/io';

@@ -1,5 +1,5 @@
-import Typography from "@mui/material/Typography"
-import { MdOutlineCopyAll } from "../../Icons"
+import Typography from '@mui/material/Typography';
+import { MdOutlineCopyAll, IoIosLink, FaInstagram, FaTwitter, FaWhatsapp, PiTelegramLogo, TbBrandLinkedin } from '../../Icons';
 // Removed CSS imports - using Tailwind CSS instead
 const Invite = () => {
     return (
@@ -7,7 +7,7 @@ const Invite = () => {
             <main className="flex-1 bg-[url('../images/main-lines-pattern.png')] bg-cover bg-center">
                 <div className="flex flex-col gap-3 mb-3">
                     <section className="invite">
-                        <div className="bg-custom-bg-card rounded-lg">
+                        <div className="bg-custom-bg-card light:bg-light-primary-darker rounded-lg">
                             <div className="p-4 flex flex-col items-center gap-2">
                                 <div className="text-center">
                                     <svg
@@ -39,7 +39,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask0_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={34}
                                             y={104}
@@ -117,7 +117,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask1_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={76}
                                             y={74}
@@ -156,7 +156,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask2_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={76}
                                             y={34}
@@ -195,7 +195,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask3_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={111}
                                             y={72}
@@ -237,7 +237,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask4_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={129}
                                             y={76}
@@ -276,7 +276,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask5_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={158}
                                             y={76}
@@ -315,7 +315,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask6_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={117}
                                             y={102}
@@ -458,7 +458,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask7_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={157}
                                             y={102}
@@ -640,7 +640,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask8_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={85}
                                             y={140}
@@ -679,7 +679,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask9_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={48}
                                             y={138}
@@ -718,7 +718,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask10_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={60}
                                             y={22}
@@ -749,7 +749,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask11_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={55}
                                             y={33}
@@ -788,7 +788,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask12_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={80}
                                             y={29}
@@ -830,7 +830,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask13_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={80}
                                             y={18}
@@ -861,7 +861,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask14_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={79}
                                             y={20}
@@ -892,7 +892,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask15_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={82}
                                             y={23}
@@ -943,7 +943,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask16_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={85}
                                             y={19}
@@ -996,7 +996,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask17_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={47}
                                             y={65}
@@ -1067,7 +1067,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask18_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={57}
                                             y={65}
@@ -1105,7 +1105,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask19_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={57}
                                             y={36}
@@ -1143,7 +1143,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask20_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={63}
                                             y={19}
@@ -1174,7 +1174,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask21_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={66}
                                             y={25}
@@ -1205,7 +1205,7 @@ const Invite = () => {
                                         />
                                         <mask
                                             id="mask22_135_2984"
-                                            style={{ maskType: "luminance" }}
+                                            style={{ maskType: 'luminance' }}
                                             maskUnits="userSpaceOnUse"
                                             x={63}
                                             y={34}
@@ -1261,238 +1261,81 @@ const Invite = () => {
                                         />
                                     </svg>
                                 </div>
-                                <Typography className="!font-alibaba text-white pb-2" fontWeight='bold' fontSize={12}>دعوت از دوستان</Typography>
-                                <Typography className="!font-peyda text-neutral-400 pb-2 text-center" fontSize={12}>
-                                    با دعوت از دوستانتان میتوانید در خرید بعدی طلا خود بدون کارمزد
+                                <Typography
+                                    className="!font-alibaba text-white pb-2"
+                                    fontWeight="bold"
+                                    fontSize={12}
+                                >
+                                    دعوت از دوستان
+                                </Typography>
+                                <Typography
+                                    className="!font-peyda text-neutral-400 light:text-neutral-600 pb-2 text-right"
+                                    fontSize={12}
+                                >
+                                    با دعوت از دوستانتان می‌توانید در خرید بعدی طلا خود را بدون کارمزد
                                     خرید کنید
                                 </Typography>
                                 <div className="pb-3 w-full">
-                                    <Typography className="!font-peyda text-white pb-2" fontWeight='bold' fontSize={10}>کد دعوت</Typography>
-                                    <div className="flex gap-2 relative border border-custom-border-light rounded-xsm">
+                                    <Typography
+                                        className="!font-peyda text-white light:text-light-text-color pb-2"
+                                        fontWeight="bold"
+                                        fontSize={10}
+                                    >
+                                        کد دعوت
+                                    </Typography>
+                                    <div className="flex gap-2 relative border border-custom-border-light light:border-custom-gray rounded-xsm">
                                         <input
                                             type="text"
                                             className="form-control flex-1 ps-5 bg-transparent focus:outline-0 text-white font-peyda text-xs"
                                             placeholder="کد دعوت را وارد نمایید"
                                         />
-                                        <button className="px-2 py-2.5 font-semibold text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-[#010048] border-[#010048] text-white flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
+                                        <button className="px-2 py-2.5 font-semibold text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-[#010048] light:bg-primary-blue border-[#010048] text-white flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
                                             <MdOutlineCopyAll fontSize={22} />
                                         </button>
                                     </div>
                                 </div>
-                                <Typography className="!font-peyda text-white w-full" fontSize={12}>
-                                    با استقاده از کد زیر یا به اشتراک گذاری آن با دوستانتان میتوانید
+                                <Typography className="!font-peyda text-white  light:text-neutral-600 w-full" fontSize={12}>
+                                    با استقاده از کد زیر یا به اشتراک گذاری آن با دوستانتان می‌توانید
                                     با ثبت نام آن ها تخفیف دریافت کنید
                                 </Typography>
                                 <div className="social-label"></div>
-                                <Typography className="!font-peyda text-neutral-300 w-full" fontWeight='medium' fontSize={14}>اشتراک گذاری :</Typography>
+                                <Typography
+                                    className="!font-peyda text-neutral-300 light:text-neutral-700 w-full"
+                                    fontWeight="medium"
+                                    fontSize={14}
+                                >
+                                    اشتراک‌گذاری :
+                                </Typography>
                                 <div className="flex gap-3 w-full">
                                     <div className="item">
                                         <a href="#">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width={24}
-                                                height={25}
-                                                viewBox="0 0 24 25"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M11.9308 17.4751L9.88885 19.4617C9.53484 19.8059 8.94252 19.6536 8.79914 19.1809L7.43848 14.7014"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M14.2147 11.5619C14.2147 11.5619 11.6546 13.8719 10.3414 15.0575C9.94884 15.4115 9.98147 16.0345 10.4067 16.3479L15.7247 20.2766C16.2478 20.6633 16.9954 20.3795 17.1309 19.7427L19.7424 7.43444C19.869 6.83915 19.2846 6.34176 18.717 6.56029L3.37496 12.4776C2.92305 12.6516 2.94481 13.2973 3.4066 13.4417L7.43815 14.6995"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <PiTelegramLogo className='h-5 w-5 text-text-color light:text-neutral-600 '/>
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width={25}
-                                                height={25}
-                                                viewBox="0 0 25 25"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    clipRule="evenodd"
-                                                    d="M18.7151 6.45597C17.0874 4.82733 14.9228 3.92946 12.6168 3.92847C7.86344 3.92847 3.99604 7.79389 3.99505 12.5453C3.99307 14.0573 4.3896 15.5435 5.14508 16.8537L3.92188 21.3194L8.49235 20.1209C9.75709 20.8091 11.1731 21.1701 12.6129 21.1701H12.6168C17.3683 21.1701 21.2357 17.3037 21.2376 12.5522C21.2386 10.2502 20.3427 8.0856 18.7151 6.45597Z"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M13.6631 14.1696L14.0646 13.7711C14.4334 13.4052 15.0168 13.3587 15.442 13.6574C15.8534 13.9461 16.2252 14.2052 16.5713 14.4465C17.1211 14.8282 17.1874 15.6113 16.7137 16.084L16.3587 16.439"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M8.76855 8.84748L9.12355 8.49248C9.59622 8.01981 10.3794 8.08606 10.7611 8.63488C11.0014 8.98098 11.2605 9.35278 11.5502 9.76415C11.8488 10.1894 11.8033 10.7728 11.4365 11.1416L11.038 11.5431"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M16.3591 16.4367C14.8946 17.8943 12.4333 16.6562 10.4902 14.7122"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M10.4923 14.7161C8.54921 12.772 7.31117 10.3118 8.76873 8.84729"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M11.0391 11.5421C11.3545 12.0395 11.7589 12.532 12.2158 12.9888L12.2178 12.9908C12.6746 13.4476 13.1671 13.8521 13.6645 14.1675"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <FaWhatsapp className="h-5 w-5 text-text-color light:text-neutral-600 " />
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width={24}
-                                                height={25}
-                                                viewBox="0 0 24 25"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    clipRule="evenodd"
-                                                    d="M7.57776 3.72473H16.4814C18.9367 3.72473 20.9273 5.71529 20.9273 8.17061V17.0792C20.9273 19.5335 18.9367 21.5241 16.4814 21.5241H7.5738C5.11849 21.5241 3.12793 19.5335 3.12793 17.0782V8.17456C3.12793 5.71727 5.12047 3.72473 7.57776 3.72473V3.72473Z"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M8.19071 11.7354V17.0751"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M11.749 17.0765V13.9616C11.749 12.7325 12.7448 11.7367 13.9739 11.7367V11.7367C15.2031 11.7367 16.1989 12.7325 16.1989 13.9616V17.0765"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M8.18875 8.50936C8.06614 8.50936 7.96626 8.60923 7.96725 8.73185C7.96725 8.85447 8.06712 8.95434 8.18974 8.95434C8.31236 8.95434 8.41223 8.85447 8.41223 8.73185C8.41223 8.60825 8.31236 8.50936 8.18875 8.50936"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <TbBrandLinkedin className="h-5 w-5 text-text-color light:text-neutral-600 " />
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width={25}
-                                                height={25}
-                                                viewBox="0 0 25 25"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    clipRule="evenodd"
-                                                    d="M8.01814 3.72473H16.9267C19.381 3.72473 21.3716 5.7143 21.3716 8.17061V17.0792C21.3716 19.5335 19.382 21.5241 16.9257 21.5241H8.01814C5.56282 21.5241 3.57227 19.5345 3.57227 17.0782V8.17061C3.57227 5.71529 5.56183 3.72473 8.01814 3.72473V3.72473Z"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M17.365 7.39702C17.1811 7.39801 17.0318 7.54732 17.0318 7.73125C17.0318 7.91517 17.1821 8.06449 17.366 8.06449C17.5499 8.06449 17.6993 7.91517 17.6993 7.73125C17.7002 7.54633 17.5499 7.39702 17.365 7.39702"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M14.9892 10.1078C16.3794 11.4981 16.3794 13.752 14.9892 15.1423C13.599 16.5325 11.345 16.5325 9.95477 15.1423C8.56456 13.752 8.56456 11.4981 9.95477 10.1078C11.345 8.71763 13.599 8.71763 14.9892 10.1078"
-                                                    stroke="white"
-                                                    strokeWidth="1.48328"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <FaInstagram className="h-5 w-5 text-text-color light:text-neutral-600 " />
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width={24}
-                                                height={25}
-                                                viewBox="0 0 24 25"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M19.7796 10.0056C19.7796 9.59605 19.4475 9.26401 19.0379 9.26401C18.6283 9.26401 18.2963 9.59605 18.2963 10.0056H19.7796ZM3.61746 16.6879C3.37587 16.3572 2.91189 16.2849 2.58112 16.5265C2.25036 16.7681 2.17807 17.232 2.41965 17.5628L3.61746 16.6879ZM2.89255 16.3947C2.48891 16.4643 2.21811 16.848 2.2877 17.2516C2.35729 17.6552 2.74092 17.926 3.14456 17.8564L2.89255 16.3947ZM5.68845 16.2356L5.92409 16.9388C6.16692 16.8575 6.35059 16.6566 6.40992 16.4074C6.46925 16.1583 6.39583 15.8962 6.21573 15.7141L5.68845 16.2356ZM4.79849 5.55603L5.4517 5.20484C5.33045 4.97932 5.10146 4.83229 4.84594 4.81591C4.59042 4.79953 4.34452 4.91611 4.19547 5.1243L4.79849 5.55603ZM10.1383 10.0059L9.96314 10.7265C10.18 10.7792 10.4092 10.7315 10.5869 10.5964C10.7647 10.4614 10.8721 10.2535 10.8795 10.0304L10.1383 10.0059ZM18.148 7.33596L17.5288 7.74413C17.666 7.95231 17.8986 8.0776 18.148 8.0776V7.33596ZM20.8179 7.33596L21.435 7.74735C21.5867 7.51977 21.6008 7.22716 21.4718 6.98601C21.3427 6.74487 21.0914 6.59432 20.8179 6.59432V7.33596ZM18.4209 9.59447C18.1937 9.93528 18.2858 10.3957 18.6266 10.6229C18.9674 10.8501 19.4278 10.7581 19.655 10.4172L18.4209 9.59447ZM19.0379 10.0056H18.2963C18.2963 12.984 17.446 15.4651 15.9232 17.1909C14.4105 18.9052 12.1746 19.9436 9.24832 19.9436V20.6852V21.4269C12.5518 21.4269 15.2107 20.2403 17.0354 18.1723C18.85 16.1158 19.7796 13.257 19.7796 10.0056H19.0379ZM9.24832 20.6852V19.9436C7.61135 19.9436 6.51652 19.5208 5.69299 18.9381C4.84681 18.3393 4.24248 17.5437 3.61746 16.6879L3.01855 17.1254L2.41965 17.5628C3.03762 18.4089 3.76823 19.3932 4.83622 20.1489C5.92686 20.9206 7.32542 21.4269 9.24832 21.4269V20.6852ZM3.01855 17.1256L3.14456 17.8564C3.16806 17.8524 3.18624 17.8481 3.19252 17.8465C3.20108 17.8445 3.208 17.8427 3.21215 17.8415C3.22046 17.8393 3.22722 17.8373 3.23074 17.8363C3.2382 17.8341 3.245 17.832 3.2494 17.8307C3.25886 17.8277 3.26991 17.8242 3.28111 17.8206C3.30408 17.8131 3.33553 17.8028 3.37337 17.7904C3.44943 17.7654 3.55581 17.7301 3.68181 17.6882C3.93402 17.6044 4.2673 17.4931 4.59933 17.3821C4.93145 17.2712 5.26263 17.1603 5.51076 17.0773C5.63483 17.0357 5.73815 17.0011 5.81046 16.9769C5.84661 16.9648 5.87501 16.9553 5.89438 16.9488C5.90406 16.9455 5.91148 16.9431 5.91649 16.9414C5.91899 16.9405 5.92089 16.9399 5.92216 16.9395C5.9228 16.9393 5.92328 16.9391 5.9236 16.939C5.92376 16.9389 5.92388 16.9389 5.92396 16.9389C5.924 16.9389 5.92403 16.9389 5.92405 16.9388C5.92407 16.9388 5.92409 16.9388 5.68845 16.2356C5.45282 15.5324 5.45281 15.5324 5.45279 15.5324C5.45277 15.5324 5.45274 15.5324 5.4527 15.5325C5.45262 15.5325 5.4525 15.5325 5.45234 15.5326C5.45203 15.5327 5.45155 15.5328 5.45092 15.5331C5.44965 15.5335 5.44776 15.5341 5.44526 15.5349C5.44027 15.5366 5.43286 15.5391 5.42319 15.5423C5.40385 15.5488 5.37548 15.5583 5.33935 15.5704C5.26711 15.5946 5.16386 15.6292 5.03987 15.6707C4.79187 15.7537 4.46096 15.8645 4.12918 15.9754C3.79732 16.0863 3.46492 16.1972 3.21384 16.2807C3.08819 16.3225 2.98352 16.3572 2.90965 16.3815C2.87253 16.3937 2.84429 16.4029 2.82542 16.409C2.8157 16.4121 2.81029 16.4139 2.80807 16.4145C2.80664 16.415 2.80879 16.4143 2.81285 16.4131C2.81466 16.4126 2.82003 16.411 2.82725 16.4091C2.83087 16.4081 2.83732 16.4064 2.8455 16.4044C2.85139 16.403 2.86927 16.3987 2.89255 16.3947L3.01855 17.1256ZM5.68845 16.2356L6.21573 15.7141C3.50251 12.9711 3.29955 8.92365 5.40151 5.98776L4.79849 5.55603L4.19547 5.1243C1.68146 8.63572 1.92943 13.4899 5.16118 16.7572L5.68845 16.2356ZM4.79849 5.55603L4.14527 5.90722C5.31219 8.07767 7.50714 10.1296 9.96314 10.7265L10.1383 10.0059L10.3134 9.2852C8.36706 8.81216 6.4741 7.10648 5.4517 5.20484L4.79849 5.55603ZM10.1383 10.0059L10.8795 10.0304C10.9167 8.90705 11.313 7.97839 11.9421 7.33553C12.5672 6.69672 13.4629 6.29767 14.5881 6.29767V5.55603V4.81439C13.0919 4.81439 11.8051 5.35475 10.882 6.2981C9.9628 7.2374 9.44494 8.53366 9.39705 9.98134L10.1383 10.0059ZM14.5881 5.55603V6.29767C15.3848 6.29767 15.9684 6.44887 16.4164 6.68794C16.8627 6.92615 17.2202 7.27599 17.5288 7.74413L18.148 7.33596L18.7672 6.92779C18.3509 6.29633 17.8209 5.7562 17.1147 5.37935C16.4102 5.00335 15.5763 4.81439 14.5881 4.81439V5.55603ZM18.148 7.33596V8.0776H20.8179V7.33596V6.59432H18.148V7.33596ZM20.8179 7.33596L20.2008 6.92458L18.4209 9.59447L19.0379 10.0059L19.655 10.4172L21.435 7.74735L20.8179 7.33596Z"
-                                                    fill="white"
-                                                />
-                                            </svg>
+                                            <FaTwitter className="h-5 w-5 text-text-color light:text-neutral-600 " />
                                         </a>
                                     </div>
-                                    <div className="border border-primary-lighter"></div>
+                                    <div className="border border-primary-lighter light:border-custom-gray"></div>
                                     <div className="item">
                                         <a href="#">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width={26}
-                                                height={26}
-                                                viewBox="0 0 26 26"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M18.4579 13.4349L20.8878 11.005C22.6771 9.21568 22.6771 6.31401 20.8878 4.52364V4.52364C19.0985 2.73431 16.1968 2.73431 14.4064 4.52364L11.9766 6.9535"
-                                                    stroke="white"
-                                                    strokeWidth="1.56228"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M9.54785 15.863L16.0261 9.38477"
-                                                    stroke="white"
-                                                    strokeWidth="1.56228"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M7.11561 11.8158L4.68575 14.2457C2.89642 16.035 2.89642 18.9367 4.68575 20.727V20.727C6.47508 22.5164 9.37675 22.5164 11.1671 20.727L13.597 18.2972"
-                                                    stroke="white"
-                                                    strokeWidth="1.56228"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
+                                            <IoIosLink className="h-5 w-5 text-text-color light:text-neutral-600 "/>
                                         </a>
                                     </div>
                                 </div>
@@ -1502,7 +1345,7 @@ const Invite = () => {
                 </div>
             </main>
         </div>
-    )
-}
+    );
+};
 
-export default Invite
+export default Invite;

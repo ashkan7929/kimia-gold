@@ -11,6 +11,7 @@ import {
 import { useWalletData } from '../../hooks/useWalletData';
 import { useTheme } from '../../contexts/ThemeContext';
 import Modal from '../../components/Modal/Modal';
+import { useDepositMutation } from '../../store/api/walletApi';
 
 import tomanBlack from '../../assets/images/blackToman.svg';
 
@@ -37,12 +38,22 @@ const Wallet = () => {
     const [showDepositModal, setShowDepositModal] = useState<boolean>(false);
     const [showTransferModal, setShowTransferModal] = useState<boolean>(false);
     const [showNewCardModal, setShowNewCardModal] = useState<boolean>(false);
-    const { balance, transactions, loading, txLoading } = useWalletData();
+    const { walletId, balance, transactions, loading, txLoading } = useWalletData();
+const [deposit, { isLoading: depositing }] = useDepositMutation();
 
     const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal);
     const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
     const handleShowTransferModal = () => setShowTransferModal(!showTransferModal);
     const handleShowNewCardModal = () => setShowNewCardModal(!showNewCardModal);
+const toNumber = (s: string) => {
+  const fa2en: Record<string, string> = {'۰':'0','۱':'1','۲':'2','۳':'3','۴':'4','۵':'5','۶':'6','۷':'7','۸':'8','۹':'9'};
+  const norm = s.replace(/[۰-۹]/g, d => fa2en[d]).replace(/[,٬\s]/g, '');
+  const n = Number(norm);
+  return Number.isFinite(n) ? n : 0;
+};
+const [depositAmount, setDepositAmount] = useState('');
+
+
 
     return (
         <>
@@ -275,9 +286,33 @@ const Wallet = () => {
             <Modal
                 confirmText="افزایش موجودی"
                 handleClose={handleShowDepositModal}
-                modalTitle="افزایش موجودی"
-                open={showDepositModal}
-                handleSubmit={handleShowDepositModal}
+               modalTitle="افزایش موجودی"
+  open={showDepositModal}
+  handleSubmit={async () => {
+    if (!walletId) return;
+    const amount = toNumber(depositAmount);
+    if (!amount) return; // می‌تونی اینجا ارور UI هم بدهی
+
+    try {
+      await deposit({
+        walletId,
+        payload: {
+          amount,
+          description: 'افزایش موجودی',
+          reference: `DEP-${Date.now()}`,
+          metadata: '{}',
+        }
+      }).unwrap();
+
+      setDepositAmount('');
+      setShowDepositModal(false);
+      // Balance و Transactions به‌خاطر invalidatesTags خودشون رفرش می‌شن
+    } catch (err) {
+      console.error('Deposit failed', err);
+      // اینجا toast/snackbar ارور هم می‌تونی بزنی
+    }
+  }}
+                // handleSubmit={handleShowDepositModal}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -298,11 +333,13 @@ const Wallet = () => {
                         </i>
                         <input
                             type="text"
+                              onChange={(e) => setDepositAmount(e.target.value)}
+
                             className="w-full p-3 pl-12 bg-transparent border border-custom-border-default light:border-custom-gray rounded-lg text-white light:text-black font-kalameh text-xs placeholder-custom-gray  focus:outline-none focus:border-primary-blue"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
-                    <div className="grid grid-cols-4 gap-2">
+                    {/* <div className="grid grid-cols-4 gap-2">
                         <button
                             type="button"
                             className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
@@ -327,7 +364,15 @@ const Wallet = () => {
                         >
                             15,000,000
                         </button>
-                    </div>
+                    </div> */}
+                    <div className="grid grid-cols-4 gap-2">
+  {['1,000,000','5,000,000','10,000,000','15,000,000'].map(v => (
+    <button key={v} type="button" onClick={() => setDepositAmount(v)}
+      className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue">
+      {v}
+    </button>
+  ))}
+</div>
                     <div className="flex justify-between items-center">
                         <div className="flex gap-1 items-center">
                             <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
@@ -630,7 +675,7 @@ const Wallet = () => {
                 handleSubmit={handleShowNewCardModal}
             >
                 <div className="flex flex-col gap-3">
-                    <div className="flex justify-between items-center py-3 px-4 w-full rounded-lg bg-custom-bg-card border border-custom-border-default light:bg-light-primary-darker light:border-custom-gray">
+                    <div className="flex justify-between items-center light:text-black py-3 px-4 w-full rounded-lg bg-custom-bg-card border border-custom-border-default light:bg-light-primary-darker light:border-custom-gray">
                         <div className="w-7.5 h-7.5 flex-shrink-0">
                             <img
                                 src="/images/banks/ansar bank.png"
@@ -662,7 +707,7 @@ const Wallet = () => {
                         </div>
                     </div>
 
-                    <div className="flex justify-between items-center py-3 px-4 w-full rounded-lg bg-custom-bg-card border border-custom-border-default light:bg-light-primary-darker light:border-custom-gray">
+                    <div className="flex justify-between light:text-black items-center py-3 px-4 w-full rounded-lg bg-custom-bg-card border border-custom-border-default light:bg-light-primary-darker light:border-custom-gray">
                         <div className="w-7.5 h-7.5 flex-shrink-0">
                             <img
                                 src="/images/banks/ansar bank.png"
