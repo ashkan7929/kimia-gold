@@ -13,6 +13,8 @@ import Loading from './pages/Loading/Loading';
 
 import MessageBox from './pages/MessageBox/MessageBox';
 import MyCards from './pages/MyCards/MyCards';
+import Products from './pages/Product/Products';
+import ProductDetail from "./pages/Product/ProductDetail"
 import PaymentInformation from './pages/PaymentInformation/PaymentInformation';
 import Profile from './pages/Profile/Profile';
 import Register from './pages/Register/Register';
@@ -27,11 +29,7 @@ import Wallet from './pages/Wallet/Wallet';
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    return (
-        <AuthGuard>
-            {children}
-        </AuthGuard>
-    );
+    return <AuthGuard>{children}</AuthGuard>;
 };
 
 // Public Route Component (redirect to app if authenticated)
@@ -45,24 +43,35 @@ const AppRoutes: React.FC = () => {
     return (
         <Routes>
             {/* Auth Routes */}
-            <Route path="/auth" element={<PublicRoute><MobilePage /></PublicRoute>} />
+            <Route
+                path="/auth"
+                element={
+                    <PublicRoute>
+                        <MobilePage />
+                    </PublicRoute>
+                }
+            />
             {/* <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} /> */}
-            <Route path="/auth/otp" element={<PublicRoute><OtpPage /></PublicRoute>} />
-            <Route path="/auth/unified" element={<PublicRoute><AuthPage /></PublicRoute>} />
-            
+            <Route
+                path="/auth/otp"
+                element={
+                    <PublicRoute>
+                        <OtpPage />
+                    </PublicRoute>
+                }
+            />
+            <Route
+                path="/auth/unified"
+                element={
+                    <PublicRoute>
+                        <AuthPage />
+                    </PublicRoute>
+                }
+            />
+
             {/* Public Routes */}
-            <Route
-                path="/loading"
-                element={
-                    <Loading />
-                }
-            />
-            <Route
-                path="/"
-                element={
-                    <Navigate to="/auth/unified" replace />
-                }
-            />
+            <Route path="/loading" element={<Loading />} />
+            <Route path="/" element={<Navigate to="/auth/unified" replace />} />
             <Route
                 path="/register"
                 element={
@@ -112,6 +121,17 @@ const AppRoutes: React.FC = () => {
                     </ProtectedRoute>
                 }
             />
+            <Route path="/products" element={
+                <SimpleLayout title="صدور بیمه عمر">
+                    <Products />
+                </SimpleLayout>
+
+                }  />
+               <Route path="/products/:id" element={
+                 <SimpleLayout title="صدور بیمه عمر کیمیا">
+                    <ProductDetail />
+                </SimpleLayout>
+               } />
             <Route
                 path="/buy"
                 element={
@@ -122,18 +142,8 @@ const AppRoutes: React.FC = () => {
                     </ProtectedRoute>
                 }
             />
-            <Route
-                path="/successful-transaction"
-                element={
-                    <SuccessfulTransaction />
-                }
-            />
-            <Route
-                path="/failed-transaction"
-                element={
-                    <FailedTransaction />
-                }
-            />
+            <Route path="/successful-transaction" element={<SuccessfulTransaction />} />
+            <Route path="/failed-transaction" element={<FailedTransaction />} />
             <Route
                 path="/payment-information"
                 element={
@@ -168,9 +178,9 @@ const AppRoutes: React.FC = () => {
                 path="/rules"
                 element={
                     // <ProtectedRoute>
-                        <SimpleLayout title="قوانین و مقررات">
-                            <Rules />
-                        </SimpleLayout>
+                    <SimpleLayout title="قوانین و مقررات">
+                        <Rules />
+                    </SimpleLayout>
                     // </ProtectedRoute>
                 }
             />

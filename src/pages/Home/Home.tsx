@@ -8,7 +8,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 
 
 import goldProduct  from "/src/assets/images/gold.svg";
-
+// import insuranceIcon from "../../assets/images/gold-insurance-icon.jpg";
 const rows = [
     {
         id: 1,
@@ -18,16 +18,19 @@ const rows = [
         dollar: '۸,۰۸۲ $',
         change: '+۰.۸۳٪',
         changeColor: 'success',
+        img:goldProduct,
     },
     {
         id: 2,
-        name: 'طلای ۱۸ عیار',
-        enName: 'Anas gold',
-        price: '۶۲,۴۰۷ ت',
-        dollar: '۸,۰۸۲ $',
+        name: 'طرح کیمیا ۱',
+        enName: 'kimia 1',
+        price: 'به‌زودی',
+        dollar: 'به‌زودی',
         change: '+۰.۸۳٪',
         changeColor: 'success',
+        img: goldProduct,
     },
+ 
 ];
 
 const Home = () => {
@@ -188,7 +191,9 @@ const Home = () => {
                                 <div className="flex gap-1 items-center col-span-3 py-2">
                                     <FaRegStar className="text-text-color light:text-light-text-color" />
                                     <div className="w-6.5 h-6.5 flex justify-center items-center rounded-full bg-gold-100">
-                                        <img src={goldProduct} alt="image of product gold" />
+                                        <Link to={`/product?id=${row.id}`} >
+                                            <img src={row.img} alt="image of product gold" />
+                                        </Link>
                                     </div>
                                     <div>
                                         <Typography

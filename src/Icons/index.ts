@@ -45,3 +45,4 @@ export { FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa6';
 export { PiTelegramLogo } from 'react-icons/pi';
 export { TbBrandLinkedin } from 'react-icons/tb';
 export { IoIosLink } from 'react-icons/io';
+export { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
