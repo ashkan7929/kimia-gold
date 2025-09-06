@@ -25,7 +25,7 @@ const Starter = () => {
         <div
             className={`${
                 step == StepsEnum.login ? 'hidden' : 'flex'
-            } absolute z-10 bg-primary-darker light:bg-light-primary-darker h-screen flex-col justify-center items-center p-6`}
+            } absolute z-10 bg-primary-darker light:bg-light-primary-darker h-screen flex-col justify-center items-center p-6 pt-0`}
         >
             {step == StepsEnum.one && (
                 <>
@@ -73,8 +73,7 @@ const Starter = () => {
                     </div>
                     <div className="w-full flex justify-center items-center mt-2">
                         <span className="block mx-auto text-primary-blue text-center ">
-                            VEM Club
-                            {" "}
+                            VEM Club{' '}
                             <span className="text-text-color light:text-light-text-color">
                                 {packageJson.version}
                             </span>

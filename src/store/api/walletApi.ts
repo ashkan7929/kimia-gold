@@ -49,7 +49,8 @@ export const walletApi = createApi({
         }),
 
         getBalance: builder.query<BalanceResponse, string>({
-            query: walletId => `/api/Wallet/${walletId}/balance`,
+            query: walletId => `/Wallet/${walletId}/balance`,
+
             // query: walletId => `/Wallet/${walletId}/balance`,
             providesTags: (_res, _err, walletId) => [{ type: 'Balance', id: walletId }],
         }),

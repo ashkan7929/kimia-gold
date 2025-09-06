@@ -14,7 +14,7 @@ const About = () => {
                 >
                     <div className="flex flex-col gap-3 mb-3">
                         <section className="">
-                            <div className="bg-primary-darker rounded-lg shadow-[0px_0px_91.921px_0px_rgba(0,0,0,0.08)]">
+                            <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg shadow-[0px_0px_91.921px_0px_rgba(0,0,0,0.08)]">
                                 <div className="p-4 flex flex-col gap-2">
                                     <div className="text-center relative w-56 h-[8.25rem] mx-auto my-4 flex items-center justify-center">
                                         <div className="w-24 h-24">
@@ -28,10 +28,10 @@ const About = () => {
                                             <img src="/images/about-group-icon.png" alt="" />
                                         </div>
                                     </div>
-                                    <div className="text-center font-peyda text-lg font-bold leading-normal my-3 text-white">
+                                    <div className="text-center font-peyda text-lg font-bold leading-normal my-3 text-white light:text-light-text-color">
                                         {t('about_title')}
                                     </div>
-                                    <div className="text-white text-right font-normal leading-loose mb-3">
+                                    <div className="text-white light:text-light-text-color text-right font-normal leading-loose mb-3">
                                         <p className="mb-2 font-peyda">
                                             {t('about_p1')}
                                             <br /> {t('about_p2')}
