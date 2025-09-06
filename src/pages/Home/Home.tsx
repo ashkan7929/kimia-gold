@@ -32,8 +32,8 @@ const rows = [
 
 const Home = () => {
     // const { t } = useTranslation();
-    const { user } = useAuth();
-const { theme } = useTheme();
+  const { user } = useAuth();
+  const { theme } = useTheme();
   const isDark = theme === 'dark';
 
     // Fallback to localStorage if user is not in store (for backward compatibility)

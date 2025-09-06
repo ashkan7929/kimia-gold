@@ -1,8 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
 
+import logoDarkMode from "/images/vemLogo1.png"
+import logoLightMode from "/images/vemLogoSite.png"
+import { useTheme } from '../../contexts/ThemeContext';
+
 const About = () => {
     const { t } = useTranslation();
+   const { theme } = useTheme();
+     const isDark = theme === 'dark';
     return (
         <>
             <div className="w-full mx-auto min-h-screen flex flex-col">
@@ -18,9 +24,7 @@ const About = () => {
                                 <div className="p-4 flex flex-col gap-2">
                                     <div className="text-center relative w-56 h-[8.25rem] mx-auto my-4 flex items-center justify-center">
                                         <div className="w-24 h-24">
-                                            <img
-                                                src="/images/logo/logo.png"
-                                                alt=""
+                                          <img alt="logo site" src={isDark ? logoDarkMode : logoLightMode } width={34} height={34}
                                                 className="w-full h-full object-contain"
                                             />
                                         </div>

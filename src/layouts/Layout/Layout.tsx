@@ -13,6 +13,9 @@ import {
 import { useTheme } from '../../contexts/ThemeContext';
 import { BiSolidMoon } from 'react-icons/bi';
 import { FiSun } from 'react-icons/fi';
+// import logoDarkMode from "../../assets/images/logoSite.jpg"
+import logoLightMode from "/images/vemLogoSite.png"
+import logoDarkMode from "/images/vemLogo1.png"
 
 const menu = [
     {   
@@ -124,7 +127,9 @@ const Layout = ({ children }: { children: any }) => {
                     </div>
                     <div className="flex justify-center">
                         <Link to={'/home'}>
-                            <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
+                            {isDark ? <img alt="" src={logoDarkMode} width={34} height={34} /> : <img alt="" src={logoLightMode} width={34} height={34} />  }
+
+                            
                         </Link>
                     </div>
                     <div className="flex justify-end items-center gap-2">
@@ -158,7 +163,9 @@ const Layout = ({ children }: { children: any }) => {
                                 </div>
                             </div>
                             <div className="flex justify-center cursor-pointer">
-                                <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
+                                <img alt=""  src={isDark ? logoDarkMode : logoLightMode} className='w-8 h-8' />
+
+                                
                             </div>
                             <div className="flex justify-end">
                                 <Link to="/">

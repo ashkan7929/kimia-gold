@@ -1,4 +1,10 @@
+import logoDarkMode from "../../assets/images/logoSite.jpg"
+import { useTheme } from "../contexts/ThemeContext";
+import logoLightMode from "/images/vemLogoSite.png"
+
 const Loading = () => {
+      const { theme } = useTheme();
+      const isDark = theme === 'dark';
     return (
         <>
             <div className="w-full max-w-[375px] mx-auto bg-primary-purple min-h-screen flex flex-col">
@@ -13,7 +19,8 @@ const Loading = () => {
                     <div className="text-center relative">
                         <div className="w-24 h-24">
                             <img
-                                src="/images/logo/logo.png"
+                                src={isDark ? logoDarkMode : logoLightMode}
+
                                 alt=""
                                 className="w-full h-full object-contain"
                             />

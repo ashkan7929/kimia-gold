@@ -3,6 +3,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong, FaChevronLeft, FaRegUser, TbLayoutGrid } from '../../Icons';
 
+import logoDarkMode from "/images/vemLogo1.png"
+import logoLightMode from "/images/vemLogoSite.png"
+
+import { useTheme } from '../../contexts/ThemeContext';
 const menu = [
     {
         id: 1,
@@ -77,6 +81,8 @@ const menu = [
 ];
 
 const SimpleLayout = ({ children, title }: { children: any; title: string }) => {
+    const { theme } = useTheme();
+    const isDark = theme === 'dark';
     const [showMenu, setShowMenu] = useState(false);
 
     const navigate = useNavigate();
@@ -139,7 +145,8 @@ const SimpleLayout = ({ children, title }: { children: any; title: string }) => 
                                 </div>
                             </div>
                             <div className="flex justify-center cursor-pointer">
-                                <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
+                             <img alt="" src={isDark ? logoDarkMode : logoLightMode} width={34} height={34} />
+                             
                             </div>
                             <div className="flex justify-end">
                                 <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">

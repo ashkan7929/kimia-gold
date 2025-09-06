@@ -38,22 +38,29 @@ const Wallet = () => {
     const [showDepositModal, setShowDepositModal] = useState<boolean>(false);
     const [showTransferModal, setShowTransferModal] = useState<boolean>(false);
     const [showNewCardModal, setShowNewCardModal] = useState<boolean>(false);
-    const { walletId, balance, transactions, loading, txLoading } = useWalletData();
-const [deposit, { isLoading: depositing }] = useDepositMutation();
-
+    const { walletId, wallets, balance, transactions, loading, txLoading } = useWalletData();
+    const [deposit, { isLoading: depositing }] = useDepositMutation();
     const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal);
     const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
     const handleShowTransferModal = () => setShowTransferModal(!showTransferModal);
     const handleShowNewCardModal = () => setShowNewCardModal(!showNewCardModal);
-const toNumber = (s: string) => {
-  const fa2en: Record<string, string> = {'۰':'0','۱':'1','۲':'2','۳':'3','۴':'4','۵':'5','۶':'6','۷':'7','۸':'8','۹':'9'};
-  const norm = s.replace(/[۰-۹]/g, d => fa2en[d]).replace(/[,٬\s]/g, '');
-  const n = Number(norm);
-  return Number.isFinite(n) ? n : 0;
-};
-const [depositAmount, setDepositAmount] = useState('');
+  
+    const [depositAmount, setDepositAmount] = useState('');
+     if (!wallets) {
+    return (
+      <div className="flex items-center gap-2 p-4">
+        <span className="font-peyda">در حال بارگذاری کیف…</span>
+      </div>
+    );
+  }
 
-
+  if (wallets.length === 0) {
+    return (
+      <div className="p-4 text-sm font-peyda">
+        در حال ساخت کیف پیش‌فرض…
+      </div>
+    );
+  }
 
     return (
         <>
@@ -63,7 +70,12 @@ const [depositAmount, setDepositAmount] = useState('');
                         <div className="flex justify-between">
                             <div>
                                 <div className="flex items-center gap-1">
-                                    <img alt="" src="/images/ki-logo.svg" width={34} height={34} />
+                                    <img
+                                        alt=""
+                                        src="/images/vemLogo192.png"
+                                        width={34}
+                                        height={34}
+                                    />
                                     <Typography
                                         className="!font-peyda text-text-color light:text-light-text-color"
                                         fontWeight={600}
@@ -80,21 +92,17 @@ const [depositAmount, setDepositAmount] = useState('');
                                     >
                                      {loading ? '…' : balance ? balance.balance.toLocaleString('fa-IR') : '0'}
                                     </Typography>
-                                          {isDark ? (
-                                                <img alt="toman"
-                                                     src="/images/toman.svg"
-                                                     width={10}
-                                                    height={10}
-                                                     />
-                                                      ) : (
-                                                      <img
-                                                       src={tomanBlack}
-                                                      alt="toman"
-                                                       width={20}
-                                                       height={20}
-                                                    />
-                                      )}
-                                                                                                                    
+                                    {isDark ? (
+                                        <img
+                                            alt="toman"
+                                            src="/images/toman.svg"
+                                            width={10}
+                                            height={10}
+                                        />
+                                    ) : (
+                                        <img src={tomanBlack} alt="toman" width={20} height={20} />
+                                    )}
+
                                     {/* <img alt="" src="/images/toman.svg" className='' width={22} height={17} /> */}
                                 </div>
                             </div>
@@ -220,99 +228,35 @@ const [depositAmount, setDepositAmount] = useState('');
                     <div className="p-3 text-xs text-text-color light:text-light-text-color">تراکنشی یافت نشد.</div>
                 )}
                 </div>
-                {/* <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg w-full flex justify-between p-4">
-                    <Typography
-                        className="!font-kalameh text-text-color light:text-light-text-color text-nowrap"
-                        fontWeight="semibold"
-                        fontSize={11}
-                    >
-                        نوع عملیات
-                    </Typography>
-                    <Typography
-                        className="!font-kalameh text-text-color light:text-light-text-color text-nowrap"
-                        fontWeight="semibold"
-                        fontSize={11}
-                    >
-                        مقدار تراکنش
-                    </Typography>
-                </div>
-
-                <div className="flex flex-col gap-2 w-full">
-                    {[0, 0, 0].map(() => (
-                        <div className="flex justify-between w-full p-2.5 bg-primary-dark light:bg-light-primary-darker rounded-lg">
-                            <div className="flex gap-2 items-center">
-                                <div className="bg-green-100 w-7 h-7 rounded-full flex justify-center items-center">
-                                    <FaArrowDownLong className="text-green-600" fontSize={11} />
-                                </div>
-                                <div className="flex flex-col gap-1">
-                                    <Typography
-                                        className="!font-kalameh text-text-color light:text-light-text-color text-nowrap"
-                                        fontWeight={600}
-                                        fontSize={11}
-                                    >
-                                        افزایش موجودی
-                                    </Typography>
-                                    <Typography
-                                        className="!font-kalameh text-text-color light:text-light-text-color text-nowrap"
-                                        fontSize={9}
-                                    >
-                                        1403/09/14 15:25
-                                    </Typography>
-                                </div>
-                            </div>
-                            <div className="flex flex-col items-end gap-1">
-                                <div className="flex gap-1 items-center">
-                                    <Typography
-                                        className="!font-peyda text-text-color light:text-light-text-color"
-                                        fontWeight="bold"
-                                        fontSize={12}
-                                    >
-                                        2,566,890
-                                    </Typography>
-                                    <img alt="" src="/images/toman.svg" width={10} height={10} />
-                                </div>
-                                <Typography
-                                    className="!font-peyda text-green-500 bg-green-500/30 w-fit py-0.5 px-2.5 rounded-xl"
-                                    fontSize={9}
-                                >
-                                    موفق
-                                </Typography>
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
+              
             </div>
 
             <Modal
                 confirmText="افزایش موجودی"
                 handleClose={handleShowDepositModal}
-               modalTitle="افزایش موجودی"
-  open={showDepositModal}
-  handleSubmit={async () => {
-    if (!walletId) return;
-    const amount = toNumber(depositAmount);
-    if (!amount) return; // می‌تونی اینجا ارور UI هم بدهی
-
-    try {
-      await deposit({
-        walletId,
-        payload: {
-          amount,
-          description: 'افزایش موجودی',
-          reference: `DEP-${Date.now()}`,
-          metadata: '{}',
-        }
+                modalTitle="افزایش موجودی"
+                open={showDepositModal}
+                handleSubmit={async () => {
+                    if (!walletId) return;
+                    const amount = toNumber(depositAmount);
+                    if (!amount) return;
+                    try {
+                        await deposit({
+                            walletId,
+                            payload: {
+                                amount,
+                                description: 'افزایش موجودی',
+                                reference: `DEP-${Date.now()}`,
+                                metadata: '{}',
+                            }
       }).unwrap();
 
-      setDepositAmount('');
-      setShowDepositModal(false);
-      // Balance و Transactions به‌خاطر invalidatesTags خودشون رفرش می‌شن
-    } catch (err) {
-      console.error('Deposit failed', err);
-      // اینجا toast/snackbar ارور هم می‌تونی بزنی
-    }
-  }}
-                // handleSubmit={handleShowDepositModal}
+                        setDepositAmount('');
+                        setShowDepositModal(false);
+                    } catch (err) {
+                        console.error('Deposit failed', err);
+                    }
+                }}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -333,38 +277,12 @@ const [depositAmount, setDepositAmount] = useState('');
                         </i>
                         <input
                             type="text"
-                              onChange={(e) => setDepositAmount(e.target.value)}
-
+                            pattern="[0-9۰-۹٠-٩,٬]*"
+                            onChange={e => setDepositAmount(e.target.value)}
                             className="w-full p-3 pl-12 bg-transparent border border-custom-border-default light:border-custom-gray rounded-lg text-white light:text-black font-kalameh text-xs placeholder-custom-gray  focus:outline-none focus:border-primary-blue"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
-                    {/* <div className="grid grid-cols-4 gap-2">
-                        <button
-                            type="button"
-                            className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
-                        >
-                            1,000,000
-                        </button>
-                        <button
-                            type="button"
-                            className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10  rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
-                        >
-                            5,000,000
-                        </button>
-                        <button
-                            type="button"
-                            className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
-                        >
-                            10,000,000
-                        </button>
-                        <button
-                            type="button"
-                            className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10  rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
-                        >
-                            15,000,000
-                        </button>
-                    </div> */}
                     <div className="grid grid-cols-4 gap-2">
   {['1,000,000','5,000,000','10,000,000','15,000,000'].map(v => (
     <button key={v} type="button" onClick={() => setDepositAmount(v)}

@@ -1,5 +1,9 @@
 /* src/layouts/AuthLayout/AuthLayout.tsx */
 import React from 'react';
+import { useTheme } from '../../contexts/ThemeContext';
+
+import logoDarkMode from "../../assets/images/logoSite.jpg"
+import logoLightMode from "/images/vemLogoSite.png"
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -8,13 +12,15 @@ interface AuthLayoutProps {
 }
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) => {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
           <img 
-            src="/images/ki-logo.svg" 
+            src={isDark ? logoDarkMode : logoLightMode}
             alt="باشگاه وِم" 
             className="h-16 mx-auto mb-4"
           />

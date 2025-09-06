@@ -8,7 +8,11 @@ import { ThemeProvider } from './contexts/ThemeContext.tsx';
 import { Provider } from 'react-redux';
 import { store } from './store/index.ts';
 
-if ('serviceWorker' in navigator) {
+const isLocalhost = ['localhost', '127.0.0.1'].includes(location.hostname);
+
+if ('serviceWorker' in navigator && (import.meta.env.PROD || isLocalhost)) {
+
+// if ('serviceWorker' in navigator && import.meta.env.PROD) {
     window.addEventListener('load', () => {
         navigator.serviceWorker
             .register('/sw.js')

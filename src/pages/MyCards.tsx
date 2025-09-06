@@ -1,5 +1,12 @@
 // CSS imports removed - using Tailwind CSS instead
+import logoDarkMode from "../../assets/images/logoSite.jpg"
+import logoLightMode from "../../assets/images/logoLightMode.jpg"
+import { useTheme } from "../contexts/ThemeContext";
+
+
 const MyCards = () => {
+    const { theme } = useTheme();
+    const isDark = theme === 'dark';
     return (
         <>
             <div className="w-full mx-auto bg-[#040320] min-h-screen flex flex-col" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -557,7 +564,8 @@ const MyCards = () => {
                     </div>
                     <div>
                         <div className="flex justify-center items-center">
-                            <img src="./assets/images/logo/logo.png" alt="logo" className="h-8 w-auto" />
+                            <img  src={isDark ? logoDarkMode : logoLightMode}
+                             alt="logo VEM Club" className="h-8 w-auto" />
                         </div>
                     </div>
                     <div>

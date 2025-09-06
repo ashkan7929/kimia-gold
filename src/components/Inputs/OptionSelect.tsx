@@ -34,4 +34,3 @@ const OptionSelect = ({ id, value, onChange, placeholder, options }: OptionSelec
 
 export default OptionSelect;
 
-export default OptionSelect

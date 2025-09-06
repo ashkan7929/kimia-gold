@@ -1,10 +1,17 @@
 // CSS imports removed - using Tailwind CSS instead
+import logoDarkMode from "../../assets/images/logoSite.jpg"
+import logoLightMode from "../../assets/images/logoLightMode.jpg"
+import { useTheme } from "../contexts/ThemeContext";
+
 const MessageBox = () => {
+      const { theme } = useTheme();
+      const isDark = theme === 'dark';
     const toggleMenu = () => {
         // Menu toggle logic here
     };
 
     return (
+        
         <>
             <div className="min-h-screen bg-gradient-to-b from-blue-900 to-blue-950">
                 <header className="container mx-auto px-4">
@@ -181,7 +188,9 @@ const MessageBox = () => {
                         </div>
                         <div>
                             <div className="w-12 h-12">
-                                <img src="./assets/images/logo/logo.png" alt="logo" className="w-full h-full object-contain" />
+                                <img           
+                                  src={isDark ? logoDarkMode : logoLightMode}
+                                 alt="logo" className="w-full h-full object-contain" />
                             </div>
                         </div>
                         <div>

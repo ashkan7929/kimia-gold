@@ -13,7 +13,7 @@ const Loading = () => {
                     <div className="text-center relative h-full">
                         <div className="w-24 h-24">
                             <img
-                                src="/images/logo/logo.png"
+                                src="/images/vemLogo192.png"
                                 alt=""
                                 className="w-full h-full object-contain"
                             />

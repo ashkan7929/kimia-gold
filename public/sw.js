@@ -2,7 +2,7 @@ const CACHE_NAME = "my-pwa-cache-v1";
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/manifest.json",
+  "/manifest.webmanifest",
   "/photo192.jpeg", 
   "/photo512.jpeg"
 ];
