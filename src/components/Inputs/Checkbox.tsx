@@ -9,13 +9,13 @@ const CheckBox = ({ label, onChange, defaultChecked }: { label: string, onChange
                 onChange={onChange}
                 icon={<span className="block w-5 h-5 rounded border border-gray-100" />}
                 checkedIcon={
-                    <div className="flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox">
+                    <div className="flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox light:bg-primary-blue">
                         <CheckIcon sx={{ fontSize: 14, color: 'white' }} className='"flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox"' />
                     </div>
                 }
                 defaultChecked={defaultChecked}
             />
-            <label className="font-peyda font-medium text-xl-custom text-white">{label}</label>
+            <label className="font-peyda font-medium text-xl-custom text-text-color light:text-light-text-color">{label}</label>
         </div>
     );
 };

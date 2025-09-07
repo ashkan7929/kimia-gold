@@ -14,7 +14,8 @@ import Loading from './pages/Loading/Loading';
 import MessageBox from './pages/MessageBox/MessageBox';
 import MyCards from './pages/MyCards/MyCards';
 import Products from './pages/Product/Products';
-import ProductDetail from "./pages/Product/ProductDetail"
+import ProductDetail from './pages/Product/ProductDetail';
+import ProductDetailCard from './pages/Product/ProductDetailCard';
 import PaymentInformation from './pages/PaymentInformation/PaymentInformation';
 import Profile from './pages/Profile/Profile';
 import Register from './pages/Register/Register';
@@ -25,6 +26,8 @@ import Suggestions from './pages/Suggestions/Suggestions';
 import TransactionDetails from './pages/TransactionDetails/TransactionDetails';
 import Transactions from './pages/Transactions/Transactions';
 import Wallet from './pages/Wallet/Wallet';
+import PaymentInsurance from './pages/Product/PaymentInsurance';
+import ProductTransaction from './pages/Product/ProductTransaction';
 // import ChooseMethodPage from './pages/Auth/ChooseMethodPage';
 
 // Protected Route Component
@@ -121,17 +124,47 @@ const AppRoutes: React.FC = () => {
                     </ProtectedRoute>
                 }
             />
-            <Route path="/products" element={
-                <SimpleLayout title="صدور بیمه عمر">
-                    <Products />
-                </SimpleLayout>
-
-                }  />
-               <Route path="/products/:id" element={
-                 <SimpleLayout title="صدور بیمه عمر کیمیا">
-                    <ProductDetail />
-                </SimpleLayout>
-               } />
+            <Route
+                path="/products"
+                element={
+                    <SimpleLayout title="صدور بیمه عمر">
+                        <Products />
+                    </SimpleLayout>
+                }
+            />
+            <Route
+                path="/products/:id"
+                element={
+                    <SimpleLayout title="صدور بیمه عمر کیمیا ۱">
+                        <ProductDetail />
+                    </SimpleLayout>
+                }
+            />
+            <Route
+                path="/products/:id/card"
+                element={
+                    <SimpleLayout title="صدور بیمه عمر سامان ">
+                        <ProductDetailCard />
+                    </SimpleLayout>
+                }
+            />
+            <Route
+                path="/paymentInsurance"
+                element={
+                    <SimpleLayout title="صفحه پرداخت حق بیمه">
+                        <PaymentInsurance />
+                    </SimpleLayout>
+                }
+            />
+            <Route
+                path="/productTransaction"
+                element={
+                    <SimpleLayout title="اطلاعات بیمه پرداختی">
+                        <ProductTransaction />
+                    </SimpleLayout>
+                }
+            />
+            
             <Route
                 path="/buy"
                 element={

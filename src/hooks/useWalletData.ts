@@ -10,7 +10,7 @@ import {
 } from '../store/api/walletApi';
 
 type WalletLite = { id: string; title?: string };
-type BalanceLite = { balance: number; currency: string; lastUpdated?: string };
+type BalanceLite = { balance: number; currency: string;  };
 
 type UseWalletDataResult = {
     walletId?: string;
@@ -65,7 +65,6 @@ export function useWalletData(): UseWalletDataResult {
 
     const { data: transactions, isLoading: txLoading } = useGetTransactionsQuery(
         walletId ? { walletId } : skipToken,
-        { refetchInterval: 10000 },
     );
 
     const loading = wlLoading || wlFetching || creating || balLoading;

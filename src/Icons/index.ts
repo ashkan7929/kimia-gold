@@ -46,3 +46,6 @@ export { PiTelegramLogo } from 'react-icons/pi';
 export { TbBrandLinkedin } from 'react-icons/tb';
 export { IoIosLink } from 'react-icons/io';
 export { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+
+export { FaWeightScale } from 'react-icons/fa6';
+export { GiBodyHeight } from "react-icons/gi";

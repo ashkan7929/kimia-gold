@@ -58,7 +58,7 @@ const DateField = forwardRef<HTMLInputElement, DateFieldProps>(({ value, onChang
 
   return (<>
     <div className={`${className} relative`}>
-      <div className="flex items-center text-white rounded-xsm bg-custom-bg-input border-custom-border-light border-2">
+      <div className="flex items-center text-white light:!text-black light:bg-white light:border-custom-gray rounded-xsm bg-custom-bg-input border-custom-border-light border-2">
         <div className="absolute h-full right-4 flex items-center justify-center">
           {mobileIcon}
         </div>

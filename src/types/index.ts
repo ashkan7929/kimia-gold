@@ -218,3 +218,19 @@ export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export type RequiredFields<T, K extends keyof T> = T & Required<Pick<T, K>>;
 
+
+
+// button group 
+
+export type SegmentedButtonsProps = {
+  className?: string;
+  buttons: { label: string; value?: string }[];
+  defaultIndex?: number;   
+  onChange?: (index: number, label: string) => void;
+};
+
+
+export type TabelProps = {
+  className?: string;
+  children?: React.ReactNode;
+};

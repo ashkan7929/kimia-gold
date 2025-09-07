@@ -11,7 +11,7 @@ import {
 import { useWalletData } from '../../hooks/useWalletData';
 import { useTheme } from '../../contexts/ThemeContext';
 import Modal from '../../components/Modal/Modal';
-import { useDepositMutation } from '../../store/api/walletApi';
+// import { useDepositMutation } from '../../store/api/walletApi';
 
 import tomanBlack from '../../assets/images/blackToman.svg';
 
@@ -38,29 +38,27 @@ const Wallet = () => {
     const [showDepositModal, setShowDepositModal] = useState<boolean>(false);
     const [showTransferModal, setShowTransferModal] = useState<boolean>(false);
     const [showNewCardModal, setShowNewCardModal] = useState<boolean>(false);
-    const { walletId, wallets, balance, transactions, loading, txLoading } = useWalletData();
-    const [deposit, { isLoading: depositing }] = useDepositMutation();
+    const { balance, transactions, loading, txLoading } = useWalletData();
     const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal);
     const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
     const handleShowTransferModal = () => setShowTransferModal(!showTransferModal);
     const handleShowNewCardModal = () => setShowNewCardModal(!showNewCardModal);
   
-    const [depositAmount, setDepositAmount] = useState('');
-     if (!wallets) {
-    return (
-      <div className="flex items-center gap-2 p-4">
-        <span className="font-peyda">در حال بارگذاری کیف…</span>
-      </div>
-    );
-  }
+//      if (!wallets) {
+//     return (
+//       <div className="flex items-center gap-2 p-4">
+//         <span className="font-peyda">در حال بارگذاری کیف…</span>
+//       </div>
+//     );
+//   }
 
-  if (wallets.length === 0) {
-    return (
-      <div className="p-4 text-sm font-peyda">
-        در حال ساخت کیف پیش‌فرض…
-      </div>
-    );
-  }
+//   if (wallets.length === 0) {
+//     return (
+//       <div className="p-4 text-sm font-peyda">
+//         در حال ساخت کیف پیش‌فرض…
+//       </div>
+//     );
+//   }
 
     return (
         <>
@@ -236,27 +234,7 @@ const Wallet = () => {
                 handleClose={handleShowDepositModal}
                 modalTitle="افزایش موجودی"
                 open={showDepositModal}
-                handleSubmit={async () => {
-                    if (!walletId) return;
-                    const amount = toNumber(depositAmount);
-                    if (!amount) return;
-                    try {
-                        await deposit({
-                            walletId,
-                            payload: {
-                                amount,
-                                description: 'افزایش موجودی',
-                                reference: `DEP-${Date.now()}`,
-                                metadata: '{}',
-                            }
-      }).unwrap();
-
-                        setDepositAmount('');
-                        setShowDepositModal(false);
-                    } catch (err) {
-                        console.error('Deposit failed', err);
-                    }
-                }}
+        
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -278,14 +256,14 @@ const Wallet = () => {
                         <input
                             type="text"
                             pattern="[0-9۰-۹٠-٩,٬]*"
-                            onChange={e => setDepositAmount(e.target.value)}
+                            // onChange={e => setDepositAmount(e.target.value)}
                             className="w-full p-3 pl-12 bg-transparent border border-custom-border-default light:border-custom-gray rounded-lg text-white light:text-black font-kalameh text-xs placeholder-custom-gray  focus:outline-none focus:border-primary-blue"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
                     <div className="grid grid-cols-4 gap-2">
   {['1,000,000','5,000,000','10,000,000','15,000,000'].map(v => (
-    <button key={v} type="button" onClick={() => setDepositAmount(v)}
+    <button key={v} type="button"
       className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue">
       {v}
     </button>

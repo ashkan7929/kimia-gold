@@ -10,7 +10,13 @@ import TextField from '../../components/Inputs/TextField';
 import CheckBox from '../../components/Inputs/Checkbox';
 import DateField from '../../components/Inputs/Datepiker';
 import OTPInput from '../../components/Inputs/Otp';
-import { CiMobile3, MdOutlineBadge, FaRegUser, CiCalendarDate, RiLockPasswordLine } from '../../Icons';
+import {
+    CiMobile3,
+    MdOutlineBadge,
+    FaRegUser,
+    CiCalendarDate,
+    RiLockPasswordLine,
+} from '../../Icons';
 import {
   mobileSchema,
   registerSchema,
@@ -195,11 +201,11 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const handleOtpSubmit = async () => {
-    if (!otpCode || otpCode.length !== 6) {
-      setError('لطفاً کد ۶ رقمی را کامل وارد کنید');
-      return;
-    }
+    const handleOtpSubmit = async () => {
+        if (!otpCode || otpCode.length !== 6) {
+            setError('لطفاً کد ۶ رقمی را کامل وارد کنید');
+            return;
+        }
 
     setIsLoading(true);
     setError(null);
@@ -377,32 +383,38 @@ const AuthPage: React.FC = () => {
                 )}
               </div>
 
-              {/* Birth Date */}
-              <div className='flex flex-col gap-1'>
-                <Typography className="text-white !font-peyda mb-2" fontSize={12}>
-                  تاریخ تولد *
-                </Typography>
-                <Controller
-                  name="birthDate"
-                  control={registerForm.control}
-                  render={({ field }) => (
-                    <DateField
-                      mobileIcon={<CiCalendarDate />}
-                      placeholder="تاریخ تولد"
-                      value={field.value}
-                      onChange={field.onChange}
-                      onBlur={field.onBlur}
-                      name={field.name}
-                      className="w-full"
-                    />
-                  )}
-                />
-                {registerForm.formState.errors.birthDate && (
-                  <Typography className="text-red-400 !font-peyda mt-1" fontSize={11}>
-                    {registerForm.formState.errors.birthDate.message}
-                  </Typography>
-                )}
-              </div>
+                            {/* Birth Date */}
+                            <div className="flex flex-col gap-1">
+                                <Typography
+                                    className="text-white light:text-light-text-color !font-peyda mb-2"
+                                    fontSize={12}
+                                >
+                                    تاریخ تولد *
+                                </Typography>
+                                <Controller
+                                    name="birthDate"
+                                    control={registerForm.control}
+                                    render={({ field }) => (
+                                        <DateField
+                                            mobileIcon={<CiCalendarDate />}
+                                            placeholder="تاریخ تولد"
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                            onBlur={field.onBlur}
+                                            name={field.name}
+                                            className="w-full "
+                                        />
+                                    )}
+                                />
+                                {registerForm.formState.errors.birthDate && (
+                                    <Typography
+                                        className="text-red-400 !font-peyda mt-1"
+                                        fontSize={11}
+                                    >
+                                        {registerForm.formState.errors.birthDate.message}
+                                    </Typography>
+                                )}
+                            </div>
 
               {/* Referral Code */}
               <div className='flex flex-col gap-1'>
