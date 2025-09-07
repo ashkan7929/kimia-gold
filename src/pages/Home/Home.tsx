@@ -1,13 +1,19 @@
 import Typography from '@mui/material/Typography';
-import { BiLike, FaChartLine, FaRegNewspaper, FaRegStar, FiEye, PiCaretUpDownBold } from '../../Icons';
+import {
+    BiLike,
+    FaChartLine,
+    FaRegNewspaper,
+    FaRegStar,
+    FiEye,
+    PiCaretUpDownBold,
+} from '../../Icons';
 import { useAuth } from '../../stores/auth.store';
 import { Link } from 'react-router-dom';
 import BottomNav from '../../layouts/BottomNav';
 import { useTheme } from '../../contexts/ThemeContext';
 
-
-
-import goldProduct  from "/src/assets/images/gold.svg";
+import goldProduct from '/src/assets/images/gold.svg';
+import CampaignImg from '/src/assets/images/campign.svg';
 // import insuranceIcon from "../../assets/images/gold-insurance-icon.jpg";
 const rows = [
     {
@@ -18,35 +24,36 @@ const rows = [
         dollar: '۸,۰۸۲ $',
         change: '+۰.۸۳٪',
         changeColor: 'success',
-        img:goldProduct,
+        img: goldProduct,
     },
     {
         id: 2,
-        name: 'طرح کیمیا ۱',
-        enName: 'kimia 1',
-        price: 'به‌زودی',
-        dollar: 'به‌زودی',
+          name: 'انس طلا',
+        enName: 'Anas gold',
+        price: '۶۲,۴۰۷ ت',
+        dollar: '۸,۰۸۲ $',
         change: '+۰.۸۳٪',
         changeColor: 'success',
         img: goldProduct,
     },
- 
 ];
 
 const Home = () => {
     // const { t } = useTranslation();
-  const { user } = useAuth();
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
+    const { user } = useAuth();
+    const { theme } = useTheme();
+    const isDark = theme === 'dark';
 
     // Fallback to localStorage if user is not in store (for backward compatibility)
-    const userData = user || (() => {
-        try {
-            return JSON.parse(localStorage.getItem("user-data") || "{}");
-        } catch {
-            return {};
-        }
-    })();
+    const userData =
+        user ||
+        (() => {
+            try {
+                return JSON.parse(localStorage.getItem('user-data') || '{}');
+            } catch {
+                return {};
+            }
+        })();
     console.log(userData);
     return (
         <>
@@ -110,7 +117,7 @@ const Home = () => {
                                 className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
                                 fontSize={10}
                             >
-                                {'دریافت خدمات'}
+                                {'خدمات بیمه'}
                             </Typography>
                         </div>
                         <Link to="/buy">
@@ -139,7 +146,88 @@ const Home = () => {
                                 className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
                                 fontSize={10}
                             >
-                                {'بینش بازار'}
+                                {' خدمات اعتباری'}
+                            </Typography>
+                        </div>
+                        <Link to="/products">
+                            <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
+                                {isDark ? (
+                                    <img alt="" src="/images/coins-document-chart.svg" />
+                                ) : (
+                                    <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                )}
+
+                                <Typography
+                                    className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                    fontSize={10}
+                                >
+                                    {'کیمیا'}
+                                </Typography>
+                            </div>
+                        </Link>
+
+                        <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
+                            {isDark ? (
+                                <img alt="" src="/images/coins-document-chart.svg" />
+                            ) : (
+                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                            )}
+
+                            <Typography
+                                className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                fontSize={10}
+                            >
+                                {'فروشگاه'}
+                            </Typography>
+                        </div>
+
+                        <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
+                            {isDark ? (
+                                <img alt="" src="/images/coins-document-chart.svg" />
+                            ) : (
+                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                            )}
+
+                            <Typography
+                                className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                fontSize={10}
+                            >
+                                {'سایر'}
+                            </Typography>
+                        </div>
+
+                        <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
+                            <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
+                                <img src={CampaignImg} alt="کمپین" />
+                            </div>
+
+                            <Typography
+                                fontSize={10}
+                                className="text-text-color light:text-light-text-color !font-peyda"
+                            >
+                                کمپین
+                            </Typography>
+                        </div>
+                        <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
+                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue">
+                                <FaChartLine fontSize={19} className="text-white " />
+                            </div>
+                            <Typography
+                                fontSize={10}
+                                className="text-text-color light:text-light-text-color !font-peyda"
+                            >
+                                تحلیل‌گر
+                            </Typography>
+                        </div>
+                        <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
+                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue">
+                                <FaRegNewspaper fontSize={19} className="text-white " />
+                            </div>
+                            <Typography
+                                fontSize={10}
+                                className="text-text-color light:text-light-text-color !font-peyda"
+                            >
+                                اخبار
                             </Typography>
                         </div>
                     </div>
@@ -191,7 +279,7 @@ const Home = () => {
                                 <div className="flex gap-1 items-center col-span-3 py-2">
                                     <FaRegStar className="text-text-color light:text-light-text-color" />
                                     <div className="w-6.5 h-6.5 flex justify-center items-center rounded-full bg-gold-100">
-                                        <Link to={`/product?id=${row.id}`} >
+                                        <Link to={`/product?id=${row.id}`}>
                                             <img src={row.img} alt="image of product gold" />
                                         </Link>
                                     </div>
@@ -234,47 +322,6 @@ const Home = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                    <div className="bg-primary-darker light:bg-light-primary-darker grid grid-cols-3 w-full rounded-lg py-2.5 px-8">
-                        <div className="flex justify-start w-full">
-                            <div className="flex flex-col gap-1 justify-center items-center w-fit">
-                                <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue ">
-                                    <BiLike fontSize={19} className="text-white " />
-                                </div>
-                                <Typography
-                                    fontSize={10}
-                                    className="text-text-color light:text-light-text-color !font-peyda"
-                                >
-                                    کمپین
-                                </Typography>
-                            </div>
-                        </div>
-                        <div className="flex justify-center w-full">
-                            <div className="flex flex-col gap-1 justify-center items-center w-fit">
-                                <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue">
-                                    <FaChartLine fontSize={19} className="text-white " />
-                                </div>
-                                <Typography
-                                    fontSize={10}
-                                    className="text-text-color light:text-light-text-color !font-peyda"
-                                >
-                                    تحلیل‌گر
-                                </Typography>
-                            </div>
-                        </div>
-                        <div className="flex justify-end w-full">
-                            <div className="flex flex-col gap-1 justify-center items-center w-fit">
-                                <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue">
-                                    <FaRegNewspaper fontSize={19} className="text-white " />
-                                </div>
-                                <Typography
-                                    fontSize={10}
-                                    className="text-text-color light:text-light-text-color !font-peyda"
-                                >
-                                    اخبار
-                                </Typography>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <BottomNav />

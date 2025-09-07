@@ -17,22 +17,26 @@ export const walletApi = createApi({
         prepareHeaders: headers => {
             const token = localStorage.getItem('auth.token');
             if (token) headers.set('Authorization', `Bearer ${token}`);
-            headers.set('accept', 'text/plain, application/json, */*');
+            headers.set('accept', ' application/json, */*');
             return headers;
         },
     }),
     tagTypes: ['Wallet', 'Balance', 'Tx'],
     endpoints: builder => ({
-        getUserWallets: builder.query<UserWalletList, string>({
+            getUserWallets: builder.query<UserWalletList | { items: UserWalletList }, string>({
             query: userId => `/Wallet/user/${userId}`,
-            providesTags: result =>
-                result
-                    ? [
-                          ...result.map(w => ({ type: 'Wallet' as const, id: w.id })),
-                          { type: 'Wallet' as const, id: 'LIST' },
-                      ]
-                    : [{ type: 'Wallet' as const, id: 'LIST' }],
-        }),
+            providesTags: (result) => {
+                const list = Array.isArray(result)
+                ? result
+                : Array.isArray((result as any)?.items)
+                ? (result as any).items
+                : [];
+
+                return list.length
+                ? [...list.map((w: any) => ({ type: 'Wallet' as const, id: w.id })), { type: 'Wallet' as const, id: 'LIST' }]
+                : [{ type: 'Wallet' as const, id: 'LIST' }];
+            },
+            }),
 
         createWallet: builder.mutation<UserWallet, WalletCreateRequest>({
             query: payload => ({

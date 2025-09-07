@@ -490,7 +490,7 @@ const AuthPage: React.FC = () => {
         {currentStep === 'password' && (
           <div className="w-full max-w-md mx-auto">
             <div className="text-center mb-8">
-              <Typography className="text-color light:text-light-text-color !font-alibaba mb-2" fontSize={20} fontWeight="bold">
+              <Typography className="text-text-color light:text-light-text-color !font-alibaba mb-2" fontSize={20} fontWeight="bold">
                 ورود با رمز عبور
               </Typography>
               <Typography className="text-gray-300 light:text-gray-700 !font-peyda" fontSize={14}>

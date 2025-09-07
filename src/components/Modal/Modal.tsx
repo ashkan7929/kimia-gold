@@ -7,18 +7,27 @@ import IconButton from '@mui/material/IconButton';
 import * as React from 'react';
 import { IoClose } from '../../Icons';
 import Button from '../Button/Button';
+import { useTheme } from '../../contexts/ThemeContext';
 
 interface IModal {
-    open: boolean
-    handleClose: () => void
-    handleSubmit?: () => void
-    children: React.ReactElement
-    modalTitle: string
-    confirmText: string
+    open: boolean;
+    handleClose: () => void;
+    handleSubmit?: () => void;
+    children: React.ReactElement;
+    modalTitle: string;
+    confirmText: string;
 }
 
-export default function Modal({ open, handleClose, handleSubmit, children, modalTitle, confirmText }: IModal) {
-
+export default function Modal({
+    open,
+    handleClose,
+    handleSubmit,
+    children,
+    modalTitle,
+    confirmText,
+}: IModal) {
+    const { theme } = useTheme();
+    const isDark = theme === 'dark';
     return (
         <>
             {/* <ThemeProvider theme={createTheme({ colorSchemes: { dark: true } })} defaultMode={"dark"}> */}
@@ -33,7 +42,7 @@ export default function Modal({ open, handleClose, handleSubmit, children, modal
                         padding: 0,
                         width: 600,
                         borderRadius: 4,
-                        bgcolor: theme.palette.mode === 'dark' ? '#02006C' : '#fff',
+                        bgcolor: isDark ? '#02006C' : '#ffffff',
                         [theme.breakpoints.down('sm')]: {
                             position: 'absolute',
                             bottom: 0,
@@ -47,9 +56,13 @@ export default function Modal({ open, handleClose, handleSubmit, children, modal
             >
                 <Stack direction={'row'} alignItems={'center'}>
                     <DialogTitle
-                        sx={{ m: 0, px: 4, py: 3, 
-                        color: (theme) => theme.palette.mode === 'dark' ? 'white' : 'black',
-                        fontSize: 14 }}
+                        sx={{
+                            m: 0,
+                            px: 4,
+                            py: 3,
+                            color: isDark ? '#fff' : '#000',
+                            fontSize: 14,
+                        }}
                         className="!font-alibaba"
                         fontWeight={'bold'}
                         id="customized-dialog-title"
@@ -61,20 +74,24 @@ export default function Modal({ open, handleClose, handleSubmit, children, modal
                     aria-label="close"
                     onClick={handleClose}
                     sx={theme => ({
-                    position: 'absolute',
-                    left: 15,
-                    top: 20,
-                    color: theme.palette.mode === 'dark' ? 'white' : '#808080',
-                    border: '1px solid #384673',
-                })}
+                        position: 'absolute',
+                        left: 15,
+                        top: 20,
+                        color: theme.palette.mode === 'dark' ? 'white' : '#808080',
+                        border: '1px solid #384673',
+                    })}
                 >
                     <IoClose fontSize={15} />
                 </IconButton>
-                <DialogContent>
-                    {children}
-                </DialogContent>
-                <DialogActions sx={{px:3, pb:3}}>
-                    <Button className='px-4 w-full text-xs text-white bg-accent-orange light:bg-primary-blue' onClick={handleSubmit || handleClose} >{confirmText}</Button>
+                <DialogContent>{children}</DialogContent>
+                <DialogActions sx={{ px: 3, pb: 3 }}>
+                    <Button
+                        className="px-4 w-full text-xs text-white bg-accent-orange light:bg-primary-blue"
+                        // onClick={handleSubmit || handleClose}
+                        onClick={handleSubmit}
+                    >
+                        {confirmText}
+                    </Button>
                 </DialogActions>
             </Dialog>
             {/* </ThemeProvider> */}

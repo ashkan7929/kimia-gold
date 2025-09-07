@@ -10,7 +10,7 @@ import {
 } from '../store/api/walletApi';
 
 type WalletLite = { id: string; title?: string };
-type BalanceLite = { balance: number; currency: string;  };
+type BalanceLite = { balance: number; currency: string };
 
 type UseWalletDataResult = {
     walletId?: string;
@@ -29,6 +29,8 @@ export function useWalletData(): UseWalletDataResult {
         data: walletsRes,
         isLoading: wlLoading,
         isFetching: wlFetching,
+        error: Error,
+        refetch: refetchWallets,
     } = useGetUserWalletsQuery(userIdArg);
 
     const wallets: WalletLite[] | undefined = useMemo(() => {
@@ -37,6 +39,27 @@ export function useWalletData(): UseWalletDataResult {
         if (Array.isArray(walletsRes as any)) return walletsRes as any;
         return undefined;
     }, [walletsRes]);
+
+    useEffect(() => {
+        if (!user?.id) return;
+
+        const list = wallets ?? [];
+        const notFound = (Error as any)?.status === 404;
+
+        if ((notFound || list.length === 0) && !triedCreateRef.current) {
+            triedCreateRef.current = true;
+            createWallet({
+                userId: user.id,
+                walletTypeId: 'YOUR-WALLET-TYPE-GUID',
+                currency: 'IRT',
+            })
+                .unwrap()
+                .then(() => refetchWallets())
+                .catch(() => {
+                    triedCreateRef.current = false;
+                });
+        }
+    }, [user?.id, wallets]);
 
     const [createWallet, { isLoading: creating }] = useCreateWalletMutation();
 
