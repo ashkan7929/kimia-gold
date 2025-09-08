@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import ToggleButton from '../../components/Inputs/ToggleButton';
 import { Disclosure, Transition } from '@headlessui/react';
-import { GiBodyHeight, FaWeightScale, FaChevronDown, FaChevronUp } from '../../Icons';
+import { GiBodyHeight, FaWeightScale, FaChevronDown, FaChevronUp, FaUserAlt } from '../../Icons';
 import CheckBox from '../../components/Inputs/Checkbox';
 import Button from '../../components/Button/Button';
 import SegmentedButtons from '../../components/Button/ButtonGroups';
@@ -184,7 +184,7 @@ const ProductDetailCard = () => {
                                          نام
                                     </Typography>
                                     <TextField
-                                        mobileIcon={<GiBodyHeight />}
+                                        mobileIcon={<FaUserAlt />}
                                         placeholder="لطفاً نام خود را وارد کنید"
                                     />
                                 </div>
@@ -197,7 +197,7 @@ const ProductDetailCard = () => {
                                          نام خانوادگی
                                     </Typography>
                                     <TextField
-                                        mobileIcon={<GiBodyHeight />}
+                                        mobileIcon={<FaUserAlt />}
                                         placeholder="لطفاً نام خانوادگی خود را وارد کنید"
                                     />
                                 </div>
@@ -210,7 +210,7 @@ const ProductDetailCard = () => {
                                         شماره موبایل
                                     </Typography>
                                     <TextField
-                                        mobileIcon={<GiBodyHeight />}
+                                        mobileIcon={<FaUserAlt />}
                                         placeholder="لطفاً شماره موبایل خود را وارد کنید"
                                     />
                                 </div>
@@ -251,7 +251,7 @@ const ProductDetailCard = () => {
                 </Button>
                 <div>
                     <Modal open={OpenModal} handleClose={handleControl}>
-                        <div className="flex flex-col items-center justify-center gap-4 p-4">
+                        <div className="flex flex-col items-center justify-center gap-4 p-4 pt-0">
                             <p className="font-peyda text-lg font-semibold text-white light:text-gray-800">
                                 قابل صدور با ۲۰٪ اضافه نرخ
                             </p>

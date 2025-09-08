@@ -49,3 +49,6 @@ export { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 export { FaWeightScale } from 'react-icons/fa6';
 export { GiBodyHeight } from "react-icons/gi";
+
+
+export { FaUserAlt } from "react-icons/fa";

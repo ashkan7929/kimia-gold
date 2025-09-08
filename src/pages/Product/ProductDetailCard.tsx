@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import ToggleButton from '../../components/Inputs/ToggleButton';
 import { Disclosure, Transition } from '@headlessui/react';
-import { GiBodyHeight, FaWeightScale, FaChevronDown, FaChevronUp } from '../../Icons';
+import { GiBodyHeight, FaWeightScale, FaChevronDown, FaChevronUp, FaUserAlt } from '../../Icons';
 import CheckBox from '../../components/Inputs/Checkbox';
 import Button from '../../components/Button/Button';
 import SegmentedButtons from '../../components/Button/ButtonGroups';
@@ -197,7 +197,7 @@ const ProductDetailCard = () => {
                                          نام خانوادگی
                                     </Typography>
                                     <TextField
-                                        mobileIcon={<GiBodyHeight />}
+                                        mobileIcon={<FaUserAlt />}
                                         placeholder="لطفاً نام خانوادگی خود را وارد کنید"
                                     />
                                 </div>
