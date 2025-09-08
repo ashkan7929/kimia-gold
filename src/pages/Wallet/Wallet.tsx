@@ -1,35 +1,16 @@
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
-import {
-    BiTransferAlt,
-    FaArrowDownLong,
-    GoArrowDownLeft,
-    GoArrowUpRight,
-    MdAddCard,
-} from '../../Icons';
+import { useEffect, useRef, useState } from 'react';
+import { BiTransferAlt, GoArrowDownLeft, GoArrowUpRight, MdAddCard } from '../../Icons';
 
-import { useWalletData } from '../../hooks/useWalletData';
 import { useTheme } from '../../contexts/ThemeContext';
 import Modal from '../../components/Modal/Modal';
-import {
-    FormControl,
-    InputLabel,
-    Select,
-    MenuItem,
-    ListItemIcon,
-    ListItemText,
-    Stack,
-    Box,
-} from '@mui/material';
+import { FormControl, Select, MenuItem, Stack, Box } from '@mui/material';
 import tomanBlack from '../../assets/images/blackToman.svg';
+import type { UserWallet, CardOption } from '../../types/wallet';
 
-import {
-    useDepositMutation,
-    useWithdrawMutation,
-    useTransferMutation,
-} from '../../store/api/walletApi';
-import type { CardOption } from '../../types/wallet';
-import { Link } from 'react-router-dom';
+import logoDarkMode from '/images/vemLogo1.png';
+import logoLightMode from '/images/vemLogoSite.png';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const tabInfo = [
     {
@@ -47,6 +28,7 @@ const tabInfo = [
 ];
 
 const Wallet = () => {
+    const baseUrl = "https://vemclub.com/api"
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
@@ -57,124 +39,104 @@ const Wallet = () => {
     const [depositAmount, setDepositAmount] = useState<string>('');
     const [withdrawAmount, setWithdrawAmount] = useState<string>('');
     const [transferAmount, setTransferAmount] = useState<string>('');
-    const [toWalletId] = useState<string>('TARGET-WALLET-ID');
+    const [loading, setLoading] = useState(true);
+    const [wallet, setWallet] = useState<UserWallet | null>(null);
+    const token: string = localStorage.getItem('auth.token') ?? '';
+    // const token = localStorage.getItem('auth_token');
+    console.log(token);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const alertedRef = useRef(false);
 
-    const [deposit] = useDepositMutation();
-    const [withdraw] = useWithdrawMutation();
-    const [transfer] = useTransferMutation();
+    useEffect(() => {
+        if (!token && !alertedRef.current) {
+            alertedRef.current = true;
+            setLoading(false);
+            alert('نشست شما منقضی شده است. لطفاً دوباره وارد شوید.');
+            navigate('/auth/unified', { replace: true, state: { from: location } });
+        }
+    }, [token, navigate, location]);
+
+    useEffect(() => {
+        if (!token) return;
+
+        const ac = new AbortController();
+        setLoading(true);
+
+        (async () => {
+            try {
+                const res = await fetch('/api/Wallet', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify({
+                        userId: '8f6a1b85-2a3c-4f51-9d7a-1b2c34de5f67',
+                        walletTypeId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+                        currency: 'IRR',
+                    }),
+                    signal: ac.signal,
+                });
+
+                if (res.ok) {
+                    const loc = res.headers.get('Location') || res.headers.get('location');
+                    const id = loc?.split('/').filter(Boolean).pop();
+
+                    if (id) {
+                        const getRes = await fetch(`/api/Wallet/${id}`, {
+                            headers: {
+                                Accept: 'application/json',
+                                Authorization: `Bearer ${token}`,
+                            },
+                            signal: ac.signal,
+                        });
+                        if (!getRes.ok) throw new Error(`HTTP ${getRes.status}`);
+                        const data: UserWallet = await getRes.json();
+                        setWallet(data);
+                        return;
+                    }
+
+                    const text = await res.text();
+                    if (text) {
+                        const data = JSON.parse(text) as UserWallet;
+                        setWallet(data);
+                    }
+                    return;
+                }
+
+                if (res.status === 409) {
+                    const id = wallet?.id; 
+                    if (!id) throw new Error('Wallet ID not found');
+                    const byIdRes = await fetch(`/api/Wallet/${id}`, {
+                        headers: {
+                            Accept: 'application/json',
+                            Authorization: `Bearer ${token}`,
+                        },
+                        signal: ac.signal,
+                    });
+                    if (!byIdRes.ok) throw new Error(`HTTP ${byIdRes.status}`);
+                    const data: UserWallet = await byIdRes.json();
+                    setWallet(data);
+                    return;
+                }
+
+                throw new Error(`HTTP ${res.status}`);
+            } catch (err: any) {
+                if (err?.name !== 'AbortError') console.error(err);
+            } finally {
+                if (!ac.signal.aborted) setLoading(false);
+            }
+        })();
+
+        return () => ac.abort();
+    }, [token, wallet?.id]);
+
     const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal);
     const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
     const handleShowTransferModal = () => setShowTransferModal(!showTransferModal);
     const handleShowNewCardModal = () => setShowNewCardModal(!showNewCardModal);
-    // const userId = localStorage.getItem('user.id') || undefined;
-    // const walletTypeId = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
-
-    const { walletId: irtWalletId, loading, balance, transactions, txLoading } = useWalletData();
-
-    const normalizeAmount = (s: string) => {
-        if (!s) return 0;
-        const map: Record<string, string> = {
-            '۰': '0',
-            '۱': '1',
-            '۲': '2',
-            '۳': '3',
-            '۴': '4',
-            '۵': '5',
-            '۶': '6',
-            '۷': '7',
-            '۸': '8',
-            '۹': '9',
-            '٠': '0',
-            '١': '1',
-            '٢': '2',
-            '٣': '3',
-            '٤': '4',
-            '٥': '5',
-            '٦': '6',
-            '٧': '7',
-            '٨': '8',
-            '٩': '9',
-            '٬': ',',
-            '،': ',',
-        };
-        const en = s
-            .replace(/[۰-۹٠-٩٬،]/g, ch => map[ch] ?? ch)
-            .replace(/,/g, '')
-            .trim();
-        const n = Number(en);
-        return Number.isFinite(n) ? n : 0;
-    };
-
-    const handleDepositSubmit = async () => {
-        if (!irtWalletId) return;
-
-        const amount = normalizeAmount(depositAmount);
-        alert('2');
-        if (!amount) return;
-        try {
-            await deposit({
-                walletId: irtWalletId,
-                payload: {
-                    walletId: irtWalletId,
-                    amount,
-                    description: 'UI deposit',
-                    reference: `ui-${Date.now()}`,
-                    metadata: JSON.stringify({ source: 'wallet-ui' }),
-                },
-            }).unwrap();
-            alert('depositAmount');
-
-            setShowDepositModal(false);
-            setDepositAmount('');
-        } catch (err) {
-            console.error('Deposit failed:', err);
-        }
-    };
-
-    const handleWithdrawSubmit = async () => {
-        if (!irtWalletId) return;
-        const amount = normalizeAmount(withdrawAmount);
-        if (!amount) return;
-        try {
-            await withdraw({
-                walletId: irtWalletId,
-                payload: {
-                    walletId: irtWalletId,
-                    amount,
-                    description: 'UI withdraw',
-                    reference: `ui-${Date.now()}`,
-                    metadata: JSON.stringify({ source: 'wallet-ui', reason: 'manual' }),
-                },
-            }).unwrap();
-            setShowWithdrawModal(false);
-            setWithdrawAmount('');
-        } catch (err) {
-            console.error('Withdraw failed:', err);
-        }
-    };
-
-    const handleTransferSubmit = async () => {
-        if (!irtWalletId || !toWalletId) return;
-        const amount = normalizeAmount(transferAmount);
-        if (!amount) return;
-        try {
-            await transfer({
-                walletId: irtWalletId,
-                payload: {
-                    fromWalletId: irtWalletId,
-                    toWalletId,
-                    amount,
-                    description: 'UI transfer',
-                    reference: `ui-${Date.now()}`,
-                    metadata: JSON.stringify({ source: 'wallet-ui' }),
-                },
-            }).unwrap();
-            setShowTransferModal(false);
-            setTransferAmount('');
-        } catch (err) {
-            console.error('Transfer failed:', err);
-        }
-    };
 
     const options: CardOption[] = [
         {
@@ -204,10 +166,11 @@ const Wallet = () => {
                                 <div className="flex items-center gap-1">
                                     <img
                                         alt=""
-                                        src="/images/vemLogo192.png"
+                                        src={isDark ? logoDarkMode : logoLightMode}
                                         width={34}
                                         height={34}
                                     />
+
                                     <Typography
                                         className="!font-peyda text-text-color light:text-light-text-color"
                                         fontWeight={600}
@@ -217,29 +180,24 @@ const Wallet = () => {
                                     </Typography>
                                 </div>
                                 <div className="flex gap-1 items-center">
-                                    <Typography
-                                        className="!font-peyda text-text-color light:text-light-text-color"
-                                        fontWeight="bold"
-                                        fontSize={24}
-                                    >
-                                        {loading
-                                            ? '…'
-                                            : balance
-                                              ? balance.balance.toLocaleString('fa-IR')
-                                              : '0'}
-                                    </Typography>
-                                    {isDark ? (
-                                        <img
-                                            alt="toman"
-                                            src="/images/toman.svg"
-                                            width={10}
-                                            height={10}
-                                        />
-                                    ) : (
-                                        <img src={tomanBlack} alt="toman" width={20} height={20} />
+                                    {loading && <Typography>در حال بارگذاری کیف پول...</Typography>}
+                                    {!loading && wallet && (
+                                        <Typography
+                                            className="!font-peyda text-text-color light:text-light-text-color"
+                                            fontWeight="bold"
+                                            fontSize={24}
+                                        >
+                                            {(wallet?.balance ?? 0).toLocaleString('fa-IR')}
+                                        </Typography>
                                     )}
 
-                                    {/* <img alt="" src="/images/toman.svg" className='' width={22} height={17} /> */}
+                                    <div className="flex justify-center items-center">
+                                        <img
+                                            alt="toman"
+                                            src={isDark ? '/images/toman.svg' : tomanBlack}
+                                            className={`w-5 h-5 shrink-0 min-w-[20px]  ${loading ? 'invisible' : ''}`}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -320,79 +278,6 @@ const Wallet = () => {
                         </nav>
                     </div>
                 </div>
-                <div className="flex flex-col gap-2 w-full">
-                    {txLoading && <div className="p-3 text-xs">در حال بارگذاری تراکنش‌ها…</div>}
-                    {transactions?.map(tx => {
-                        const isDeposit =
-                            (tx.transactionTypeCode ?? '').toLowerCase().includes('deposit') ||
-                            (tx.transactionTypeName ?? '').includes('افزایش') ||
-                            tx.amount > 0;
-                        const signClass = isDeposit
-                            ? 'text-green-500 bg-green-500/30'
-                            : 'text-red-400 bg-red-400/20';
-                        const iconBgClass = isDeposit ? 'bg-green-100' : 'bg-red-100';
-                        const iconColor = isDeposit ? 'text-green-600' : 'text-red-600';
-                        const amountAbs = Math.abs(tx.amount);
-
-                        return (
-                            <div
-                                key={tx.id}
-                                className="flex justify-between w-full p-2.5 bg-primary-dark light:bg-light-primary-darker rounded-lg"
-                            >
-                                <div className="flex gap-2 items-center">
-                                    <div
-                                        className={`${iconBgClass} w-7 h-7 rounded-full flex justify-center items-center`}
-                                    >
-                                        <FaArrowDownLong className={iconColor} fontSize={11} />
-                                    </div>
-                                    <div className="flex flex-col gap-1">
-                                        <Typography
-                                            className="!font-kalameh text-text-color light:text-light-text-color text-nowrap"
-                                            fontWeight={600}
-                                            fontSize={11}
-                                        >
-                                            {tx.transactionTypeName}
-                                        </Typography>
-                                        <Typography
-                                            className="!font-kalameh text-text-color light:text-light-text-color text-nowrap"
-                                            fontSize={9}
-                                        >
-                                            {new Date(tx.processedAt).toLocaleString('fa-IR')}
-                                        </Typography>
-                                    </div>
-                                </div>
-                                <div className="flex flex-col items-end gap-1">
-                                    <div className="flex gap-1 items-center">
-                                        <Typography
-                                            className="!font-peyda text-text-color light:text-light-text-color"
-                                            fontWeight="bold"
-                                            fontSize={12}
-                                        >
-                                            {amountAbs.toLocaleString('fa-IR')}
-                                        </Typography>
-                                        <img
-                                            alt=""
-                                            src="/images/toman.svg"
-                                            width={10}
-                                            height={10}
-                                        />
-                                    </div>
-                                    <Typography
-                                        className={`!font-peyda ${signClass} w-fit py-0.5 px-2.5 rounded-xl`}
-                                        fontSize={9}
-                                    >
-                                        {tx.status === 1 ? 'موفق' : 'ناموفق'}
-                                    </Typography>
-                                </div>
-                            </div>
-                        );
-                    })}
-                    {!txLoading && (!transactions || transactions.length === 0) && (
-                        <div className="p-3 text-xs text-text-color light:text-light-text-color">
-                            تراکنشی یافت نشد.
-                        </div>
-                    )}
-                </div>
             </div>
 
             <Modal
@@ -400,7 +285,6 @@ const Wallet = () => {
                 handleClose={handleShowDepositModal}
                 modalTitle="افزایش موجودی"
                 open={showDepositModal}
-                handleSubmit={handleDepositSubmit}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -459,9 +343,7 @@ const Wallet = () => {
                         >
                             <MdAddCard fontSize={12} />
                             <Typography className="!font-peyda text-white" fontSize={9}>
-                                <Link to="/myCard" className="text-inherit no-underline">
-                                    افزودن کارت
-                                </Link>
+                                افزودن کارت
                             </Typography>
                         </div>
                     </div>
@@ -586,7 +468,6 @@ const Wallet = () => {
                 handleClose={handleShowWithdrawModal}
                 modalTitle="برداشت موجودی"
                 open={showWithdrawModal}
-                handleSubmit={handleWithdrawSubmit}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -678,7 +559,6 @@ const Wallet = () => {
                 handleClose={handleShowTransferModal}
                 modalTitle="انتقال موجودی"
                 open={showTransferModal}
-                handleSubmit={handleTransferSubmit}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -800,80 +680,6 @@ const Wallet = () => {
                             6219-8619-0943-6789
                         </option>
                     </select>
-                </div>
-            </Modal>
-
-            <Modal
-                confirmText="اضافه کردن کارت جدید"
-                handleClose={handleShowNewCardModal}
-                modalTitle="کارت های من"
-                open={showNewCardModal}
-                handleSubmit={handleShowNewCardModal}
-            >
-                <div className="flex flex-col gap-3">
-                    <div className="flex justify-between items-center light:text-black py-3 px-4 w-full rounded-lg bg-custom-bg-card border border-custom-border-default light:bg-light-primary-darker light:border-custom-gray">
-                        <div className="w-7.5 h-7.5 flex-shrink-0">
-                            <img
-                                src="/images/banks/ansar bank.png"
-                                alt=""
-                                className="w-full h-full object-contain"
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <div
-                                className="text-[0.875rem] font-medium leading-normal text-start"
-                                style={{ fontFamily: 'Kalameh' }}
-                            >
-                                6219 - 86** - **** - 6789
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <div
-                                    className="text-[0.6875rem] font-normal leading-normal"
-                                    style={{ fontFamily: 'Alibaba' }}
-                                >
-                                    بانک اقتصاد نوین
-                                </div>
-                                <div
-                                    className="text-[0.6875rem] font-normal leading-normal"
-                                    style={{ fontFamily: 'Kalameh' }}
-                                >
-                                    08/09
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-between light:text-black items-center py-3 px-4 w-full rounded-lg bg-custom-bg-card border border-custom-border-default light:bg-light-primary-darker light:border-custom-gray">
-                        <div className="w-7.5 h-7.5 flex-shrink-0">
-                            <img
-                                src="/images/banks/ansar bank.png"
-                                alt=""
-                                className="w-full h-full object-contain"
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <div
-                                className="text-[0.875rem] font-medium leading-normal text-start"
-                                style={{ fontFamily: 'Kalameh' }}
-                            >
-                                6219 - 86** - **** - 6789
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <div
-                                    className="text-[0.6875rem] font-normal leading-normal"
-                                    style={{ fontFamily: 'Alibaba' }}
-                                >
-                                    بانک اقتصاد نوین
-                                </div>
-                                <div
-                                    className="text-[0.6875rem] font-normal leading-normal"
-                                    style={{ fontFamily: 'Kalameh' }}
-                                >
-                                    08/09
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </Modal>
         </>
