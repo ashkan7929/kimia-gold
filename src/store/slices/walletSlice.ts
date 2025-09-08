@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { walletService } from '../../services/walletService';
 import type {
     UserWallet,
@@ -165,7 +166,6 @@ const walletSlice = createSlice({
             s.transactions.unshift(a.payload);
         });
 
-        // خطاهای عمومی
         builder.addMatcher(
             a => a.type.startsWith('wallet/') && a.type.endsWith('/rejected'),
             (s, a: any) => {

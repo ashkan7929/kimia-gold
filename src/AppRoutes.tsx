@@ -124,6 +124,8 @@ const AppRoutes: React.FC = () => {
                     </ProtectedRoute>
                 }
             />
+
+            
             <Route
                 path="/products"
                 element={
@@ -265,6 +267,14 @@ const AppRoutes: React.FC = () => {
                             <MessageBox />
                         </SimpleLayout>
                     </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/myCard"
+                element={
+                    <SimpleLayout title="افزودن کارت‌های من">
+                        <MyCards />
+                    </SimpleLayout>
                 }
             />
 

@@ -19,6 +19,9 @@ type UseWalletDataResult = {
     transactions?: any[];
     loading: boolean;
     txLoading: boolean;
+    userId?: string;
+    walletTypeId?: string;
+    currency?: string;
 };
 
 export function useWalletData(): UseWalletDataResult {
@@ -49,8 +52,9 @@ export function useWalletData(): UseWalletDataResult {
         if ((notFound || list.length === 0) && !triedCreateRef.current) {
             triedCreateRef.current = true;
             createWallet({
-                userId: user.id,
-                walletTypeId: 'YOUR-WALLET-TYPE-GUID',
+                // userId: user.id,
+                userId: localStorage.getItem('user.id') || undefined,
+                walletTypeId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
                 currency: 'IRT',
             })
                 .unwrap()
@@ -59,7 +63,7 @@ export function useWalletData(): UseWalletDataResult {
                     triedCreateRef.current = false;
                 });
         }
-    }, [user?.id, wallets]);
+    }, [ wallets]);
 
     const [createWallet, { isLoading: creating }] = useCreateWalletMutation();
 

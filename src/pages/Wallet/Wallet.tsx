@@ -18,6 +18,8 @@ import {
     MenuItem,
     ListItemIcon,
     ListItemText,
+    Stack,
+    Box,
 } from '@mui/material';
 import tomanBlack from '../../assets/images/blackToman.svg';
 
@@ -26,6 +28,8 @@ import {
     useWithdrawMutation,
     useTransferMutation,
 } from '../../store/api/walletApi';
+import type { CardOption } from '../../types/wallet';
+import { Link } from 'react-router-dom';
 
 const tabInfo = [
     {
@@ -50,7 +54,6 @@ const Wallet = () => {
     const [showDepositModal, setShowDepositModal] = useState<boolean>(false);
     const [showTransferModal, setShowTransferModal] = useState<boolean>(false);
     const [showNewCardModal, setShowNewCardModal] = useState<boolean>(false);
-    const { walletId, balance, transactions, loading, txLoading } = useWalletData();
     const [depositAmount, setDepositAmount] = useState<string>('');
     const [withdrawAmount, setWithdrawAmount] = useState<string>('');
     const [transferAmount, setTransferAmount] = useState<string>('');
@@ -63,6 +66,11 @@ const Wallet = () => {
     const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
     const handleShowTransferModal = () => setShowTransferModal(!showTransferModal);
     const handleShowNewCardModal = () => setShowNewCardModal(!showNewCardModal);
+    // const userId = localStorage.getItem('user.id') || undefined;
+    // const walletTypeId = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
+
+    const { walletId: irtWalletId, loading, balance, transactions, txLoading } = useWalletData();
+
     const normalizeAmount = (s: string) => {
         if (!s) return 0;
         const map: Record<string, string> = {
@@ -76,11 +84,21 @@ const Wallet = () => {
             '۷': '7',
             '۸': '8',
             '۹': '9',
+            '٠': '0',
+            '١': '1',
+            '٢': '2',
+            '٣': '3',
+            '٤': '4',
+            '٥': '5',
+            '٦': '6',
+            '٧': '7',
+            '٨': '8',
+            '٩': '9',
             '٬': ',',
             '،': ',',
         };
         const en = s
-            .replace(/[۰-۹٬،]/g, ch => map[ch] ?? ch)
+            .replace(/[۰-۹٠-٩٬،]/g, ch => map[ch] ?? ch)
             .replace(/,/g, '')
             .trim();
         const n = Number(en);
@@ -88,22 +106,24 @@ const Wallet = () => {
     };
 
     const handleDepositSubmit = async () => {
-        if (!walletId) return;
-        const amount = normalizeAmount(depositAmount);
-        if (!amount || amount <= 0) return;
+        if (!irtWalletId) return;
 
+        const amount = normalizeAmount(depositAmount);
+        alert('2');
+        if (!amount) return;
         try {
-            const res = await deposit({
-                walletId,
+            await deposit({
+                walletId: irtWalletId,
                 payload: {
+                    walletId: irtWalletId,
                     amount,
                     description: 'UI deposit',
                     reference: `ui-${Date.now()}`,
                     metadata: JSON.stringify({ source: 'wallet-ui' }),
                 },
             }).unwrap();
+            alert('depositAmount');
 
-            console.log('Deposit OK:', res);
             setShowDepositModal(false);
             setDepositAmount('');
         } catch (err) {
@@ -112,23 +132,20 @@ const Wallet = () => {
     };
 
     const handleWithdrawSubmit = async () => {
-        if (!walletId) return;
+        if (!irtWalletId) return;
         const amount = normalizeAmount(withdrawAmount);
-        if (!amount || amount <= 0) return;
-
+        if (!amount) return;
         try {
-            const metadata = JSON.stringify({ source: 'wallet-ui', reason: 'manual' });
-            const res = await withdraw({
-                walletId,
+            await withdraw({
+                walletId: irtWalletId,
                 payload: {
+                    walletId: irtWalletId,
                     amount,
                     description: 'UI withdraw',
                     reference: `ui-${Date.now()}`,
-                    metadata,
+                    metadata: JSON.stringify({ source: 'wallet-ui', reason: 'manual' }),
                 },
             }).unwrap();
-
-            console.log('Withdraw OK:', res);
             setShowWithdrawModal(false);
             setWithdrawAmount('');
         } catch (err) {
@@ -137,27 +154,45 @@ const Wallet = () => {
     };
 
     const handleTransferSubmit = async () => {
-        if (!walletId) return;
+        if (!irtWalletId || !toWalletId) return;
         const amount = normalizeAmount(transferAmount);
-        if (!amount || amount <= 0 || !toWalletId) return;
-
+        if (!amount) return;
         try {
-            const res = await transfer({
-                walletId,
+            await transfer({
+                walletId: irtWalletId,
                 payload: {
-                    amount,
+                    fromWalletId: irtWalletId,
                     toWalletId,
+                    amount,
                     description: 'UI transfer',
+                    reference: `ui-${Date.now()}`,
+                    metadata: JSON.stringify({ source: 'wallet-ui' }),
                 },
             }).unwrap();
-
-            console.log('Transfer OK:', res);
             setShowTransferModal(false);
             setTransferAmount('');
         } catch (err) {
             console.error('Transfer failed:', err);
         }
     };
+
+    const options: CardOption[] = [
+        {
+            value: '6219861909436779',
+            bankName: 'بانک اقتصاد نوین',
+            icon: '/images/banks/ansar bank.png',
+            display: '6219-8619-0943-6779',
+        },
+        {
+            value: '6219861909436789',
+            bankName: 'بانک اقتصاد نوین',
+            icon: '/images/banks/ansar bank.png',
+            display: '6219-8619-0943-6789',
+        },
+    ];
+
+    const [card, setCard] = useState<string>(options[0].value);
+    const selected = options.find(o => o.value === card)!;
 
     return (
         <>
@@ -424,66 +459,123 @@ const Wallet = () => {
                         >
                             <MdAddCard fontSize={12} />
                             <Typography className="!font-peyda text-white" fontSize={9}>
-                                {'افزودن کارت'}
+                                <Link to="/myCard" className="text-inherit no-underline">
+                                    افزودن کارت
+                                </Link>
                             </Typography>
                         </div>
                     </div>
-              
-
                     <FormControl
                         fullWidth
                         size="small"
-                        // change
                         sx={{
-                            '.MuiInputLabel-root': { color: 'white' }, 
-                            '.MuiOutlinedInput-notchedOutline': { borderColor: 'gray' },
+                            '.MuiInputLabel-root': { color: isDark ? 'white' : 'black' },
+                            '.MuiOutlinedInput-notchedOutline': {
+                                borderColor: isDark ? '#3b82f6' : 'gray',
+                            },
+                            '.MuiSvgIcon-root, .MuiSelect-icon': {
+                                color: isDark ? 'white' : 'black',
+                            },
+                            '.MuiInputBase-input': { color: isDark ? 'white' : 'black' },
                         }}
-                        className=''
                     >
-                        <InputLabel id="card-select" className=''>شماره کارت</InputLabel>
                         <Select
                             labelId="card-select"
+                            value={card}
+                            onChange={e => setCard(e.target.value as string)}
+                            renderValue={() => (
+                                <Stack direction="row" alignItems="center" spacing={1.25}>
+                                    <Box
+                                        component="img"
+                                        src={selected.icon}
+                                        alt=""
+                                        sx={{ width: 20, height: 20 }}
+                                    />
+                                    <Box>
+                                        <Typography
+                                            sx={{
+                                                color: isDark ? 'white' : 'black',
+                                                whiteSpace: 'nowrap',
+                                                direction: 'ltr',
+                                                fontFeatureSettings: '"tnum"',
+                                            }}
+                                        >
+                                            {selected.display}
+                                        </Typography>
+                                        <Typography
+                                            sx={{
+                                                color: isDark
+                                                    ? 'rgba(255,255,255,0.65)'
+                                                    : 'rgba(0,0,0,0.6)',
+                                                fontSize: 12,
+                                            }}
+                                        >
+                                            {selected.bankName}
+                                        </Typography>
+                                    </Box>
+                                </Stack>
+                            )}
+                            MenuProps={{
+                                PaperProps: {
+                                    sx: {
+                                        bgcolor: isDark ? '#0b1c7a' : 'white',
+                                        color: isDark ? 'white' : 'black',
+                                    },
+                                },
+                            }}
                             sx={{
-                                color: 'white',
-                                '.MuiSvgIcon-root': { color: isDark ? 'white' : 'black' },
-                                '.MuiSelect-icon': { color: isDark ? 'white' : 'black' },
+                                '.MuiSelect-select': {
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    py: 1.25,
+                                },
                             }}
                         >
-                            <MenuItem value="6219861909436779">
-                                <ListItemIcon sx={{ minWidth: 30 }}>
-                                    <img
-                                        src="/images/banks/ansar bank.png"
-                                        width={20}
-                                        height={20}
-                                        alt=""
-                                    />
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary="6219-8619-0943-6779"
-                                    secondary="بانک اقتصاد نوین"
-                                    primaryTypographyProps={{
-                                        sx: { color: isDark ? 'black' : 'white' },
-                                    }}
-                                />
-                            </MenuItem>
-                            <MenuItem value="6219861909436789">
-                                <ListItemIcon sx={{ minWidth: 30 }}>
-                                    <img
-                                        src="/images/banks/ansar bank.png"
-                                        width={20}
-                                        height={20}
-                                        alt=""
-                                    />
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary="6219-8619-0943-6789"
-                                    secondary="بانک اقتصاد نوین"
-                                    primaryTypographyProps={{
-                                        sx: { color: isDark ? 'black' : 'white' },
-                                    }}
-                                    secondaryTypographyProps={{ sx: { color: 'gray.400' } }}
-                                />
-                            </MenuItem>
+                            {options.map(opt => (
+                                <MenuItem key={opt.value} value={opt.value}>
+                                    <Stack
+                                        direction="row"
+                                        spacing={1.25}
+                                        alignItems="center"
+                                        sx={{ width: '100%' }}
+                                    >
+                                        <Box
+                                            component="img"
+                                            src={opt.icon}
+                                            alt=""
+                                            sx={{ width: 20, height: 20 }}
+                                        />
+                                        <Box>
+                                            <Typography
+                                                sx={{
+                                                    color: isDark
+                                                        ? card === opt.value
+                                                            ? 'white'
+                                                            : 'white'
+                                                        : card === opt.value
+                                                          ? 'black'
+                                                          : 'black',
+                                                    whiteSpace: 'nowrap',
+                                                    direction: 'ltr',
+                                                    fontFeatureSettings: '"tnum"',
+                                                }}
+                                            >
+                                                {opt.display}
+                                            </Typography>
+                                            <Typography
+                                                sx={{
+                                                    color: isDark
+                                                        ? 'rgba(255,255,255,0.65)'
+                                                        : 'rgba(0,0,0,0.6)',
+                                                    fontSize: 12,
+                                                }}
+                                            >
+                                                {opt.bankName}
+                                            </Typography>
+                                        </Box>
+                                    </Stack>
+                                </MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
                 </div>
