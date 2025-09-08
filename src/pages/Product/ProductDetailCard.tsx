@@ -1,13 +1,7 @@
 import { Typography } from '@mui/material';
 import ToggleButton from '../../components/Inputs/ToggleButton';
 import { Disclosure, Transition } from '@headlessui/react';
-import {
-    GiBodyHeight,
-    FaWeightScale,
-    FaChevronDown,
-    FaChevronUp,
-    CiCalendarDate,
-} from '../../Icons';
+import { GiBodyHeight, FaWeightScale, FaChevronDown, FaChevronUp } from '../../Icons';
 import CheckBox from '../../components/Inputs/Checkbox';
 import Button from '../../components/Button/Button';
 import SegmentedButtons from '../../components/Button/ButtonGroups';
@@ -22,6 +16,18 @@ const ProductDetailCard = () => {
 
     return (
         <div className="bg-primary-darker light:bg-white">
+            <h1 className="font-peyda text-md m-4 text-center text-text-color light:text-light-text-color">
+                فرم پیشنهاد
+            </h1>
+            <SegmentedButtons
+                className="w-full"
+                buttons={[
+                    { label: 'برای خودم' },
+                    { label: 'کاربر جدید' },
+                    { label: 'مشتریان قبلی' },
+                ]}
+                defaultIndex={0}
+            />
             <div className="mx-3 flex items-center justify-between mt-4">
                 <Typography
                     className="!font-peyda text-text-color light:text-light-text-color"
@@ -34,7 +40,6 @@ const ProductDetailCard = () => {
                 </div>
             </div>
 
-            {/* سکشن 1: اطلاعات هویتی */}
             <Disclosure as="div" className="p-1">
                 {({ open }) => (
                     <div className="w-full rounded-lg bg-custom-bg-card light:bg-white transition-all duration-700">
@@ -85,80 +90,6 @@ const ProductDetailCard = () => {
                                             placeholder="لطفاً وزن خود را وارد کنید"
                                         />
                                     </div>
-
-                                    <div className="flex items-center text-text-color dark:text-white">
-                                        <CheckBox label="آیا سیگار می‌کشید؟" defaultChecked />
-                                    </div>
-                                </div>
-                            </Disclosure.Panel>
-                        </Transition>
-                    </div>
-                )}
-            </Disclosure>
-
-            <Disclosure as="div" className="p-1">
-                {({ open }) => (
-                    <div className="w-full rounded-lg bg-custom-bg-card light:bg-white transition-all duration-700">
-                        <Disclosure.Button className="flex w-full cursor-pointer items-center justify-between p-4">
-                            <span className="font-peyda text-xs text-text-color light:text-light-text-color">
-                                تکمیل اطلاعات بیمه‌ای
-                            </span>
-                            {open ? (
-                                <FaChevronUp
-                                    className="text-text-color light:text-light-text-color"
-                                    fontSize={12}
-                                />
-                            ) : (
-                                <FaChevronDown
-                                    className="text-text-color light:text-light-text-color"
-                                    fontSize={12}
-                                />
-                            )}
-                        </Disclosure.Button>
-
-                        <Transition
-                            enter="transition transition-[max-height] duration-500 ease-in"
-                            enterFrom="transform max-h-0"
-                            enterTo="transform max-h-[200vh]"
-                            leave="transition transition-[max-height] duration-500 ease-out"
-                            leaveFrom="transform max-h-screen"
-                            leaveTo="transform max-h-0"
-                        >
-                            <Disclosure.Panel as="div" className="">
-                                <div className="flex flex-col gap-5 p-4">
-                                    <SegmentedButtons
-                                        className="w-full"
-                                        buttons={[
-                                            { label: 'برای خودم' },
-                                            { label: 'کاربر جدید' },
-                                            { label: 'مشتریان قبلی' },
-                                        ]}
-                                        defaultIndex={0}
-                                    />
-                                    <div className="">
-                                        <Typography
-                                            className="text-white light:text-light-text-color !font-peyda mb-2"
-                                            fontSize={12}
-                                        >
-                                            تاریخ تولد *
-                                        </Typography>
-                                        <Controller
-                                            name="birthDate"
-                                            control={control}
-                                            render={({ field }) => (
-                                                <DateField
-                                                    mobileIcon={<CiCalendarDate />}
-                                                    placeholder="تاریخ تولد"
-                                                    value={field.value}
-                                                    onChange={field.onChange}
-                                                    onBlur={field.onBlur}
-                                                    name={field.name}
-                                                    className="w-full"
-                                                />
-                                            )}
-                                        />
-                                    </div>
-
                                     <div className="flex items-center gap-0 text-sm text-text-color light:text-light-bg-input">
                                         <CheckBox defaultChecked label="آیا بیماری خاصی دارید؟" />
                                     </div>
@@ -197,6 +128,10 @@ const ProductDetailCard = () => {
                                             </tr>
                                         </tbody>
                                     </Tabel>
+                                    
+                                    <div className="flex items-center text-text-color dark:text-white">
+                                        <CheckBox label="آیا سیگار می‌کشید؟" defaultChecked />
+                                    </div>
                                 </div>
                             </Disclosure.Panel>
                         </Transition>
@@ -204,7 +139,103 @@ const ProductDetailCard = () => {
                 )}
             </Disclosure>
 
-            <Link to="/paymentInsurance">
+            <Disclosure as="div" className="p-1">
+                {({ open }) => (
+                    <div className="w-full rounded-lg bg-custom-bg-card light:bg-white transition-all duration-700">
+                        <Disclosure.Button className="flex w-full cursor-pointer items-center justify-between p-4">
+                            <span className="font-peyda text-xs text-text-color light:text-light-text-color">
+                                اطلاعات فردی{' '}
+                            </span>
+                            {open ? (
+                                <FaChevronUp
+                                    className="text-text-color light:text-light-text-color"
+                                    fontSize={12}
+                                />
+                            ) : (
+                                <FaChevronDown
+                                    className="text-text-color light:text-light-text-color"
+                                    fontSize={12}
+                                />
+                            )}
+                        </Disclosure.Button>
+
+                        <Transition
+                            enter="transition transition-[max-height] duration-500 ease-in"
+                            enterFrom="transform max-h-0"
+                            enterTo="transform max-h-[200vh]"
+                            leave="transition transition-[max-height] duration-500 ease-out"
+                            leaveFrom="transform max-h-screen"
+                            leaveTo="transform max-h-0"
+                        >
+                            <Disclosure.Panel as="div" className="flex gap-2 flex-col">
+                                <div>
+                                    <Typography
+                                        className="text-white light:text-light-text-color !font-peyda mb-2 mr-2 "
+                                        fontSize={12}
+                                    >
+                                        {' '}
+                                         نام
+                                    </Typography>
+                                    <TextField
+                                        mobileIcon={<GiBodyHeight />}
+                                        placeholder="لطفاً نام خود را وارد کنید"
+                                    />
+                                </div>
+                                <div>
+                                     <Typography
+                                        className="text-white light:text-light-text-color !font-peyda mb-2 mr-2"
+                                        fontSize={12}
+                                    >
+                                        {' '}
+                                         نام خانوادگی
+                                    </Typography>
+                                    <TextField
+                                        mobileIcon={<GiBodyHeight />}
+                                        placeholder="لطفاً نام خانوادگی خود را وارد کنید"
+                                    />
+                                </div>
+                                <div>
+                                    <Typography
+                                        className="text-white light:text-light-text-color !font-peyda mb-2 "
+                                        fontSize={12}
+                                    >
+                                        {' '}
+                                        شماره موبایل
+                                    </Typography>
+                                    <TextField
+                                        mobileIcon={<GiBodyHeight />}
+                                        placeholder="لطفاً شماره موبایل خود را وارد کنید"
+                                    />
+                                </div>
+                                <div className="">
+                                    <Typography
+                                        className="text-white light:text-light-text-color !font-peyda mb-2 "
+                                        fontSize={12}
+                                    >
+                                        تاریخ تولد *
+                                    </Typography>
+                                    <Controller
+                                        name="birthDate"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <DateField
+                                                placeholder="تاریخ تولد"
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                                name={field.name}
+                                                className="w-full"
+                                            />
+                                        )}
+                                    />
+                                </div>
+                            </Disclosure.Panel>
+                        </Transition>
+                    </div>
+                )}
+            </Disclosure>
+
+            <Link to="/products/:id/card">
                 <Button className="font-peyda mt-4 w-full rounded-md bg-primary-blue text-sm text-white">
                     ثبت اطلاعات
                 </Button>
