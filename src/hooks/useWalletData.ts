@@ -77,7 +77,7 @@ export function useWalletData(): UseWalletDataResult {
         triedCreateRef.current = true;
         createWallet({
             userId: user.id,
-            walletTypeId: 'YOUR-WALLET-TYPE-GUID',
+            walletTypeId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
             currency: 'IRT',
         })
             .unwrap()
