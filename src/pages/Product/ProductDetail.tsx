@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/img.png';
 
-import Button from '../../components/Button/Button';
 
 const ProductDetail = () => {
     return (
@@ -13,11 +12,12 @@ const ProductDetail = () => {
                 <div className="">
                     <img src={logoImg} alt="" />
                 </div>
-                <Link to="/products/:id/card">
-                    <Button className="mt-4 w-full rounded-md bg-primary-blue text-white text-sm font-peyda">
-                        ثبت اطلاعات
-                    </Button>
-                </Link>
+             <Link to="/paymentInsurance" className='px-10 flex justify-center items-center py-4 !w-full rounded-md bg-primary-blue text-sm text-white'>
+                <button className="font-peyda mx-4 ">
+                    ثبت اطلاعات
+                </button>
+            </Link>
+              
             </div>
         </div>
     );

@@ -14,6 +14,7 @@ const menu = [
         title: 'اطلاعات کاربری',
         subtitle: 'در این بخش می‌توانید اطلاعات کاربری را مشاهده و ویرایش کنید.',
         link: '/profile',
+        img: FaRegUser,
     },
     {
         id: 2,
@@ -21,6 +22,7 @@ const menu = [
         title: 'قوانین و مقررات',
         subtitle: 'در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.',
         link: '/rules',
+        img: FaRegUser,
     },
     {
         id: 3,
@@ -28,6 +30,7 @@ const menu = [
         title: 'صندوق پیام‌ها',
         subtitle: 'در این بخش می‌توانید آخرین پیام‌ها را مشاهده کنید.',
         link: '/message-box',
+        img: FaRegUser,
     },
     {
         id: 4,
@@ -35,6 +38,7 @@ const menu = [
         title: 'دعوت از دوستان',
         subtitle: 'از این بخش می‌توانید دوستان خود را به باشگاه وِم دعوت کنید.',
         link: '/invite',
+        img: FaRegUser,
     },
     {
         id: 5,
@@ -42,6 +46,7 @@ const menu = [
         title: 'نظرات و پیشنهادات',
         subtitle: '.برای بهبود کیفیت خدمات، نظراتتان را با ما درمیان بگذارید',
         link: '/suggestions',
+        img: FaRegUser,
     },
     {
         id: 6,
@@ -49,6 +54,7 @@ const menu = [
         title: 'گزارشات ریز تراکنش‌ها',
         subtitle: 'در این بخش می‌توانید کلیه تراکنش‌های خود را مشاهده کنید.',
         link: '/transaction-details',
+        img: FaRegUser,
     },
     {
         id: 7,
@@ -56,6 +62,7 @@ const menu = [
         title: 'تنظیمات',
         subtitle: 'برای تغییر تنظیمات، کلیک کنید.',
         link: '/settings',
+        img: FaRegUser,
     },
     {
         id: 8,
@@ -63,6 +70,7 @@ const menu = [
         title: 'صفحه اصلی',
         subtitle: 'برای بازگشت به صفحه اصلی کلیک کنید.',
         link: '/',
+        img: FaRegUser,
     },
     {
         id: 9,
@@ -70,6 +78,7 @@ const menu = [
         title: 'درباره باشگاه وِم',
         subtitle: 'برای شناخت بیشتر باشگاه وِم کلیک کنید.',
         link: '/about',
+        img: FaRegUser,
     },
     {
         id: 10,
@@ -77,10 +86,21 @@ const menu = [
         title: 'خروج از حساب کاربری',
         subtitle: 'برای خروج از حساب کاربری کلیک کنید.',
         link: '/',
+        img: FaRegUser,
     },
 ];
 
-const SimpleLayout = ({ children, title }: { children: any; title: string }) => {
+const SimpleLayout = ({
+    children,
+    title,
+    img,
+    headerImg,
+}: {
+    children: any;
+    title: string;
+    img: any;
+    headerImg: string;
+}) => {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const [showMenu, setShowMenu] = useState(false);
@@ -107,13 +127,17 @@ const SimpleLayout = ({ children, title }: { children: any; title: string }) => 
                         </div>
                     </div>
                     <div className="flex justify-center items-center">
-                        <Typography
-                            className="!font-alibaba text-white light:text-black"
-                            fontWeight="bold"
-                            fontSize={11}
-                        >
-                            {title}
-                        </Typography>
+                        {headerImg ? (
+                            <img src={headerImg} alt="" className="h-6 object-contain" />
+                        ) : (
+                            <Typography
+                                className="!font-alibaba text-white light:text-black"
+                                fontWeight="bold"
+                                fontSize={11}
+                            >
+                                {title}
+                            </Typography>
+                        )}
                     </div>
                     <div className="flex justify-end">
                         <div
@@ -127,6 +151,12 @@ const SimpleLayout = ({ children, title }: { children: any; title: string }) => 
                         </div>
                     </div>
                 </header>
+                {img && (
+                    <div className="mb-3">
+                        <img src={img} alt="" className="w-full rounded-lg object-cover" />
+                    </div>
+                )}
+
                 {children}
             </div>
             {showMenu && (
@@ -145,8 +175,12 @@ const SimpleLayout = ({ children, title }: { children: any; title: string }) => 
                                 </div>
                             </div>
                             <div className="flex justify-center cursor-pointer">
-                             <img alt="" src={isDark ? logoDarkMode : logoLightMode} width={34} height={34} />
-                             
+                                <img
+                                    alt=""
+                                    src={isDark ? logoDarkMode : logoLightMode}
+                                    width={34}
+                                    height={34}
+                                />
                             </div>
                             <div className="flex justify-end">
                                 <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">

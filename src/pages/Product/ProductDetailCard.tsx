@@ -40,7 +40,7 @@ const ProductDetailCard = () => {
                     <div className="w-full rounded-lg bg-custom-bg-card light:bg-white transition-all duration-700">
                         <Disclosure.Button className="flex w-full cursor-pointer items-center justify-between p-4">
                             <span className="font-peyda text-xs text-text-color light:text-light-text-color">
-                                تکمیل اطلاعات هویتی
+                                اطلاعات سلامت
                             </span>
                             {open ? (
                                 <FaChevronUp

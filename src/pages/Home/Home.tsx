@@ -1,19 +1,15 @@
 import Typography from '@mui/material/Typography';
-import {
-    BiLike,
-    FaChartLine,
-    FaRegNewspaper,
-    FaRegStar,
-    FiEye,
-    PiCaretUpDownBold,
-} from '../../Icons';
+import { FaRegStar, FiEye, PiCaretUpDownBold } from '../../Icons';
 import { useAuth } from '../../stores/auth.store';
 import { Link } from 'react-router-dom';
 import BottomNav from '../../layouts/BottomNav';
 import { useTheme } from '../../contexts/ThemeContext';
 
 import goldProduct from '/src/assets/images/gold.svg';
-import CampaignImg from '/src/assets/images/campign.svg';
+import analizImg from '/src/assets/images/analiz.svg';
+import CampaignImg from '/src/assets/images/campagin.svg';
+import newsImg from '/src/assets/images/news.svg';
+
 // import insuranceIcon from "../../assets/images/gold-insurance-icon.jpg";
 const rows = [
     {
@@ -28,7 +24,7 @@ const rows = [
     },
     {
         id: 2,
-          name: 'انس طلا',
+        name: 'انس طلا',
         enName: 'Anas gold',
         price: '۶۲,۴۰۷ ت',
         dollar: '۸,۰۸۲ $',
@@ -209,8 +205,8 @@ const Home = () => {
                             </Typography>
                         </div>
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue">
-                                <FaChartLine fontSize={19} className="text-white " />
+                            <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full">
+                                <img src={analizImg} alt="تحلیل بازار" />
                             </div>
                             <Typography
                                 fontSize={10}
@@ -220,8 +216,8 @@ const Home = () => {
                             </Typography>
                         </div>
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue">
-                                <FaRegNewspaper fontSize={19} className="text-white " />
+                            <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
+                                <img src={newsImg} alt="اخبار" />
                             </div>
                             <Typography
                                 fontSize={10}

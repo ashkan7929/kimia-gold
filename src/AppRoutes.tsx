@@ -29,7 +29,7 @@ import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
 // import ChooseMethodPage from './pages/Auth/ChooseMethodPage';
-
+import alborzImg from "../src/assets/images/alborzImg.png"
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
@@ -129,31 +129,32 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products"
                 element={
-                    <SimpleLayout title="صدور بیمه عمر">
+                    <SimpleLayout headerImg={alborzImg} >
                         <Products />
                     </SimpleLayout>
                 }
             />
-            <Route
+             <Route
                 path="/products/:id"
                 element={
-                    <SimpleLayout title="صدور بیمه عمر کیمیا ۱">
-                        <ProductDetail />
+                    <SimpleLayout headerImg={alborzImg}>
+                        <ProductDetailCard />
                     </SimpleLayout>
                 }
             />
             <Route
                 path="/products/:id/card"
                 element={
-                    <SimpleLayout title="صدور بیمه عمر سامان ">
-                        <ProductDetailCard />
+                    <SimpleLayout headerImg={alborzImg}>
+                        <ProductDetail />
                     </SimpleLayout>
                 }
             />
+           
             <Route
                 path="/paymentInsurance"
                 element={
-                    <SimpleLayout title="صفحه پرداخت حق بیمه">
+                    <SimpleLayout headerImg={alborzImg}>
                         <PaymentInsurance />
                     </SimpleLayout>
                 }
@@ -161,7 +162,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/productTransaction"
                 element={
-                    <SimpleLayout title="اطلاعات بیمه پرداختی">
+                    <SimpleLayout headerImg={alborzImg}>
                         <ProductTransaction />
                     </SimpleLayout>
                 }
