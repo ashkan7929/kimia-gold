@@ -28,7 +28,7 @@ const tabInfo = [
 ];
 
 const Wallet = () => {
-    const baseUrl = "https://vemclub.com/api"
+    const baseUrl = "https://vemclub.com/api";
     const { theme } = useTheme();
     const isDark = theme === 'dark';
     const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
@@ -43,7 +43,6 @@ const Wallet = () => {
     const [wallet, setWallet] = useState<UserWallet | null>(null);
     const token: string = localStorage.getItem('auth.token') ?? '';
     // const token = localStorage.getItem('auth_token');
-    console.log(token);
     const navigate = useNavigate();
     const location = useLocation();
     const alertedRef = useRef(false);
@@ -65,7 +64,7 @@ const Wallet = () => {
 
         (async () => {
             try {
-                const res = await fetch('/api/Wallet', {
+                const res = await fetch(`${baseUrl}/api/Wallet`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -85,7 +84,7 @@ const Wallet = () => {
                     const id = loc?.split('/').filter(Boolean).pop();
 
                     if (id) {
-                        const getRes = await fetch(`/api/Wallet/${id}`, {
+                        const getRes = await fetch(`${baseUrl}/api/Wallet/${id}`, {
                             headers: {
                                 Accept: 'application/json',
                                 Authorization: `Bearer ${token}`,
@@ -109,7 +108,7 @@ const Wallet = () => {
                 if (res.status === 409) {
                     const id = wallet?.id; 
                     if (!id) throw new Error('Wallet ID not found');
-                    const byIdRes = await fetch(`/api/Wallet/${id}`, {
+                    const byIdRes = await fetch(`${baseUrl}/api/Wallet${id}`, {
                         headers: {
                             Accept: 'application/json',
                             Authorization: `Bearer ${token}`,
