@@ -52,8 +52,7 @@ export function useWalletData(): UseWalletDataResult {
         if ((notFound || list.length === 0) && !triedCreateRef.current) {
             triedCreateRef.current = true;
             createWallet({
-                // userId: user.id,
-                userId: localStorage.getItem('user.id') || undefined,
+                userId: user.id,
                 walletTypeId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
                 currency: 'IRT',
             })
@@ -68,23 +67,6 @@ export function useWalletData(): UseWalletDataResult {
     const [createWallet, { isLoading: creating }] = useCreateWalletMutation();
 
     const triedCreateRef = useRef(false);
-    useEffect(() => {
-        if (!user?.id) return;
-        if (!wallets) return;
-        if (wallets.length > 0) return;
-        if (triedCreateRef.current) return;
-
-        triedCreateRef.current = true;
-        createWallet({
-            userId: user.id,
-            walletTypeId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-            currency: 'IRT',
-        })
-            .unwrap()
-            .catch(() => {
-                triedCreateRef.current = false;
-            });
-    }, [user?.id, wallets, createWallet]);
 
     const walletId = useMemo(() => wallets?.[0]?.id, [wallets]);
 

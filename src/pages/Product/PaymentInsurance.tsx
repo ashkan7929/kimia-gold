@@ -1,7 +1,77 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
+import { useWalletData } from '../../hooks/useWalletData';
+import { walletService } from '../../services/walletService';
+import { useAuth } from '../../stores/auth.store';
+import type { UserWallet } from '../../types/wallet';
 
 const PaymentInsurance = () => {
+    const navigate = useNavigate();
+    const { loading } = useWalletData();
+    const { user, isAuthenticated } = useAuth();
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [usdWallet, setUsdWallet] = useState<UserWallet | null>(null);
+    const [walletsLoading, setWalletsLoading] = useState(false);
+    
+    useEffect(() => {
+        const fetchUserWallets = async () => {
+            if (!user?.id || !isAuthenticated) {
+                console.log('User not authenticated or user ID missing:', { user, isAuthenticated });
+                return;
+            }
+            
+            setWalletsLoading(true);
+            try {
+                const wallets = await walletService.getUserWallets(user.id);
+                const usdWalletFound = wallets.find(wallet => 
+                    wallet.walletTypeName === 'USD' || wallet.currency === 'USD'
+                );
+                setUsdWallet(usdWalletFound || null);
+            } catch (error) {
+                console.error('Failed to fetch user wallets:', error);
+            } finally {
+                setWalletsLoading(false);
+            }
+        };
+        console.log(user);
+        
+        fetchUserWallets();
+    }, [user?.id, isAuthenticated]);
+    
+    const handlePayment = async () => {
+        if (!usdWallet?.id || isProcessing) return;
+        
+        setIsProcessing(true);
+        try {
+            const withdrawResult = await walletService.withdraw(usdWallet.id, {
+                walletId: usdWallet.id,
+                amount: 100, // مبلغ پرداختی
+                description: 'خرید بیمه عمر سامان',
+                reference: 'INSURANCE_PAYMENT_' + Date.now()
+            });
+            
+            // در صورت موفقیت، به صفحه تراکنش موفق هدایت کن
+            navigate('/productTransaction', { 
+                state: { 
+                    transaction: withdrawResult,
+                    success: true 
+                } 
+            });
+        } catch (error) {
+            console.error('Payment failed:', error);
+            // در صورت خطا، به صفحه تراکنش ناموفق هدایت کن
+            navigate('/productTransaction', { 
+                state: { 
+                    error: error,
+                    success: false 
+                } 
+            });
+        } finally {
+            setIsProcessing(false);
+        }
+    };
+    
     return (
         <div className="bg-primary-darker light:bg-white">
             <section>
@@ -54,13 +124,18 @@ const PaymentInsurance = () => {
                         </ul>
                     </div>
                 </div>
-                <Link to="/productTransaction">
-                    <div className="flex flex-col gap-2 mt-3">
-                        <Button className="bg-accent-orange light:bg-primary-darker text-white text-sm">
-                            {' پرداخت با کیف پول'}
-                        </Button>
-                    </div>
-                </Link>
+                <div className="flex flex-col gap-2 mt-3">
+                    <Button 
+                        onClick={handlePayment}
+                        disabled={loading || isProcessing || walletsLoading || !usdWallet}
+                        className="bg-accent-orange light:bg-primary-darker text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {isProcessing ? 'در حال پردازش...' : 
+                         walletsLoading ? 'در حال بارگذاری کیف پول...' :
+                         !usdWallet ? 'کیف پول USD یافت نشد' :
+                         'پرداخت با کیف پول USD'}
+                    </Button>
+                </div>
             </section>
         </div>
     );

@@ -1,12 +1,15 @@
 import Typography from '@mui/material/Typography';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { BiTransferAlt, GoArrowDownLeft, GoArrowUpRight, MdAddCard } from '../../Icons';
 
 import { useTheme } from '../../contexts/ThemeContext';
 import Modal from '../../components/Modal/Modal';
 import { FormControl, Select, MenuItem, Stack, Box } from '@mui/material';
 import tomanBlack from '../../assets/images/blackToman.svg';
-import type { UserWallet, CardOption } from '../../types/wallet';
+import type { CardOption, UserWallet, TransactionWallet } from '../../types/wallet';
+import { useWalletData } from '../../hooks/useWalletData';
+import { walletService } from '../../services/walletService';
+import { useAuth } from '../../stores/auth.store';
 
 import logoDarkMode from '/images/vemLogo1.png';
 import logoLightMode from '/images/vemLogoSite.png';
@@ -28,9 +31,9 @@ const tabInfo = [
 ];
 
 const Wallet = () => {
-    const baseUrl = "https://vemclub.com/api";
     const { theme } = useTheme();
     const isDark = theme === 'dark';
+    const { user, isAuthenticated } = useAuth();
     const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
     const [showWithdrawModal, setShowWithdrawModal] = useState<boolean>(false);
     const [showDepositModal, setShowDepositModal] = useState<boolean>(false);
@@ -39,98 +42,133 @@ const Wallet = () => {
     const [depositAmount, setDepositAmount] = useState<string>('');
     const [withdrawAmount, setWithdrawAmount] = useState<string>('');
     const [transferAmount, setTransferAmount] = useState<string>('');
-    const [loading, setLoading] = useState(true);
-    const [wallet, setWallet] = useState<UserWallet | null>(null);
+    const [isProcessing, setIsProcessing] = useState(false);
+    
+    // New states for wallets and transactions
+    const [userWallets, setUserWallets] = useState<UserWallet[]>([]);
+    const [selectedWallet, setSelectedWallet] = useState<UserWallet | null>(null);
+    const [walletsLoading, setWalletsLoading] = useState(false);
+    const [transactions, setTransactions] = useState<TransactionWallet[]>([]);
+    const [transactionsLoading, setTransactionsLoading] = useState(false);
+    const [showTransactions, setShowTransactions] = useState(false);
+    
+    const { walletId, balance, loading } = useWalletData();
     const token: string = localStorage.getItem('auth.token') ?? '';
-    // const token = localStorage.getItem('auth_token');
     const navigate = useNavigate();
     const location = useLocation();
     const alertedRef = useRef(false);
 
+    // Check authentication
+    if (!token && !alertedRef.current) {
+        alertedRef.current = true;
+        alert('نشست شما منقضی شده است. لطفاً دوباره وارد شوید.');
+        navigate('/auth/unified', { replace: true, state: { from: location } });
+        return null;
+    }
+
+    // Fetch user wallets
     useEffect(() => {
-        if (!token && !alertedRef.current) {
-            alertedRef.current = true;
-            setLoading(false);
-            alert('نشست شما منقضی شده است. لطفاً دوباره وارد شوید.');
-            navigate('/auth/unified', { replace: true, state: { from: location } });
-        }
-    }, [token, navigate, location]);
-
-    useEffect(() => {
-        if (!token) return;
-
-        const ac = new AbortController();
-        setLoading(true);
-
-        (async () => {
-            try {
-                const res = await fetch(`${baseUrl}/api/Wallet`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                        Authorization: `Bearer ${token}`,
-                    },
-                    body: JSON.stringify({
-                        userId: '8f6a1b85-2a3c-4f51-9d7a-1b2c34de5f67',
-                        walletTypeId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-                        currency: 'IRR',
-                    }),
-                    signal: ac.signal,
-                });
-
-                if (res.ok) {
-                    const loc = res.headers.get('Location') || res.headers.get('location');
-                    const id = loc?.split('/').filter(Boolean).pop();
-
-                    if (id) {
-                        const getRes = await fetch(`${baseUrl}/api/Wallet/${id}`, {
-                            headers: {
-                                Accept: 'application/json',
-                                Authorization: `Bearer ${token}`,
-                            },
-                            signal: ac.signal,
-                        });
-                        if (!getRes.ok) throw new Error(`HTTP ${getRes.status}`);
-                        const data: UserWallet = await getRes.json();
-                        setWallet(data);
-                        return;
-                    }
-
-                    const text = await res.text();
-                    if (text) {
-                        const data = JSON.parse(text) as UserWallet;
-                        setWallet(data);
-                    }
-                    return;
-                }
-
-                if (res.status === 409) {
-                    const id = wallet?.id; 
-                    if (!id) throw new Error('Wallet ID not found');
-                    const byIdRes = await fetch(`${baseUrl}/api/Wallet${id}`, {
-                        headers: {
-                            Accept: 'application/json',
-                            Authorization: `Bearer ${token}`,
-                        },
-                        signal: ac.signal,
-                    });
-                    if (!byIdRes.ok) throw new Error(`HTTP ${byIdRes.status}`);
-                    const data: UserWallet = await byIdRes.json();
-                    setWallet(data);
-                    return;
-                }
-
-                throw new Error(`HTTP ${res.status}`);
-            } catch (err: any) {
-                if (err?.name !== 'AbortError') console.error(err);
-            } finally {
-                if (!ac.signal.aborted) setLoading(false);
+        const fetchUserWallets = async () => {
+            if (!user?.id || !isAuthenticated) {
+                console.log('User not authenticated or user ID not available');
+                return;
             }
-        })();
 
-        return () => ac.abort();
-    }, [token, wallet?.id]);
+            setWalletsLoading(true);
+            try {
+                const wallets = await walletService.getUserWallets(user.id);
+                setUserWallets(wallets);
+                if (wallets.length > 0) {
+                    setSelectedWallet(wallets[0]);
+                }
+            } catch (error) {
+                console.error('Failed to fetch user wallets:', error);
+            } finally {
+                setWalletsLoading(false);
+            }
+        };
+
+        fetchUserWallets();
+    }, [user?.id, isAuthenticated]);
+
+    // Fetch transactions for selected wallet
+    const fetchTransactions = async (walletId: string) => {
+        setTransactionsLoading(true);
+        try {
+            const walletTransactions = await walletService.getTransactions(walletId);
+            setTransactions(walletTransactions);
+            setShowTransactions(true);
+        } catch (error) {
+            console.error('Failed to fetch transactions:', error);
+        } finally {
+            setTransactionsLoading(false);
+        }
+    };
+
+    // Handle wallet selection
+    const handleWalletSelect = (wallet: UserWallet) => {
+        setSelectedWallet(wallet);
+        setShowTransactions(false);
+        setTransactions([]);
+    };
+    
+    const handleDeposit = async () => {
+        if (!walletId || !depositAmount || isProcessing) return;
+        
+        setIsProcessing(true);
+        try {
+            await walletService.deposit(walletId, {
+                walletId,
+                amount: parseFloat(depositAmount.replace(/,/g, '')),
+                description: 'افزایش موجودی کیف پول'
+            });
+            setDepositAmount('');
+            setShowDepositModal(false);
+        } catch (error) {
+            console.error('Deposit failed:', error);
+        } finally {
+            setIsProcessing(false);
+        }
+    };
+    
+    const handleWithdraw = async () => {
+        if (!walletId || !withdrawAmount || isProcessing) return;
+        
+        setIsProcessing(true);
+        try {
+            await walletService.withdraw(walletId, {
+                walletId,
+                amount: parseFloat(withdrawAmount.replace(/,/g, '')),
+                description: 'برداشت از کیف پول'
+            });
+            setWithdrawAmount('');
+            setShowWithdrawModal(false);
+        } catch (error) {
+            console.error('Withdraw failed:', error);
+        } finally {
+            setIsProcessing(false);
+        }
+    };
+    
+    const handleTransfer = async () => {
+        if (!walletId || !transferAmount || isProcessing) return;
+        
+        setIsProcessing(true);
+        try {
+            await walletService.transfer(walletId, {
+                fromWalletId: walletId,
+                toWalletId: 'target-wallet-id', // باید از کاربر دریافت شود
+                amount: parseFloat(transferAmount.replace(/,/g, '')),
+                description: 'انتقال موجودی'
+            });
+            setTransferAmount('');
+            setShowTransferModal(false);
+        } catch (error) {
+            console.error('Transfer failed:', error);
+        } finally {
+            setIsProcessing(false);
+        }
+    };
 
     const handleShowWithdrawModal = () => setShowWithdrawModal(!showWithdrawModal);
     const handleShowDepositModal = () => setShowDepositModal(!showDepositModal);
@@ -158,125 +196,282 @@ const Wallet = () => {
     return (
         <>
             <div className="flex flex-col gap-3 items-center pb-25">
-                <div className="bg-primary-blue light:bg-light-primary-darker flex w-full p-4 rounded-lg">
-                    <main className="flex-grow flex gap-3 flex-col bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
-                        <div className="flex justify-between">
-                            <div>
-                                <div className="flex items-center gap-1">
-                                    <img
-                                        alt=""
-                                        src={isDark ? logoDarkMode : logoLightMode}
-                                        width={34}
-                                        height={34}
-                                    />
-
-                                    <Typography
-                                        className="!font-peyda text-text-color light:text-light-text-color"
-                                        fontWeight={600}
-                                        fontSize={11}
-                                    >
-                                        {'کیف پول'}
-                                    </Typography>
-                                </div>
-                                <div className="flex gap-1 items-center">
-                                    {loading && <Typography>در حال بارگذاری کیف پول...</Typography>}
-                                    {!loading && wallet && (
-                                        <Typography
-                                            className="!font-peyda text-text-color light:text-light-text-color"
-                                            fontWeight="bold"
-                                            fontSize={24}
-                                        >
-                                            {(wallet?.balance ?? 0).toLocaleString('fa-IR')}
-                                        </Typography>
-                                    )}
-
-                                    <div className="flex justify-center items-center">
-                                        <img
-                                            alt="toman"
-                                            src={isDark ? '/images/toman.svg' : tomanBlack}
-                                            className={`w-5 h-5 shrink-0 min-w-[20px]  ${loading ? 'invisible' : ''}`}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <img
-                                    alt="wallet img"
-                                    src="/images/wallet.svg"
-                                    width={96}
-                                    height={76}
-                                />
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-3 gap-1">
-                            <button
-                                onClick={handleShowDepositModal}
-                                className="bg-accent-orange group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
-                            >
-                                {'افزایش موجودی'}
-                                <GoArrowUpRight
-                                    className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
-                                    fontSize={15}
-                                />
-                            </button>
-                            <button
-                                onClick={handleShowWithdrawModal}
-                                className="bg-primary-dark group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
-                            >
-                                {'برداشت موجودی'}
-                                <GoArrowDownLeft
-                                    className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
-                                    fontSize={15}
-                                />
-                            </button>
-                            <button
-                                onClick={handleShowTransferModal}
-                                className="bg-primary-light group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
-                            >
-                                <BiTransferAlt
-                                    className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
-                                    fontSize={15}
-                                />
-                                {'انتقال موجودی'}
-                            </button>
-                        </div>
-                    </main>
-                </div>
-
-                <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg">
-                    <div className="p-2">
-                        <nav className="w-full">
-                            <div className="grid grid-cols-3 gap-12 w-full">
-                                {tabInfo.map(tab => {
-                                    const isSelected = selectedTab?.id === tab.id;
+                {/* User Wallets Horizontal Slider */}
+                {walletsLoading ? (
+                    <div className="text-center py-8">
+                        <Typography
+                            className="!font-peyda text-custom-gray"
+                            fontSize={12}
+                        >
+                            در حال بارگذاری کیف پول‌ها...
+                        </Typography>
+                    </div>
+                ) : userWallets.length === 0 ? (
+                    <div className="text-center py-8">
+                        <Typography
+                            className="!font-peyda text-custom-gray"
+                            fontSize={12}
+                        >
+                            کیف پولی یافت نشد
+                        </Typography>
+                    </div>
+                ) : (
+                    <div className="w-full">
+                        {/* Horizontal Wallet Cards Slider */}
+                        <div className="overflow-x-auto scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
+                            <div className="flex gap-4 pb-2 px-2" style={{ scrollSnapType: 'x mandatory' }}>
+                                {userWallets.map((wallet, index) => {
+                                    const isSelected = selectedWallet?.id === wallet.id;
                                     return (
-                                        <button
-                                            key={tab.id}
-                                            onClick={() => setSelectedTab(tab)}
-                                            type="button"
-                                            className={`${
-                                                isSelected
-                                                    ? 'bg-primary-blue text-xs'
-                                                    : 'bg-transparent'
-                                            } cursor-pointer px-4 py-2 rounded-md`}
+                                        <div 
+                                            key={wallet.id || index} 
+                                            className={`min-w-[300px] max-w-[300px] cursor-pointer transition-all duration-300 ${
+                                                isSelected 
+                                                    ? 'bg-primary-blue light:bg-light-primary-darker scale-105 shadow-lg' 
+                                                    : 'bg-primary-darker light:bg-light-primary-light hover:bg-primary-blue light:hover:bg-light-primary-darker'
+                                            } flex p-4 rounded-lg`}
+                                            style={{ scrollSnapAlign: 'center' }}
+                                            onClick={() => {
+                                                setSelectedWallet(wallet);
+                                                fetchTransactions(wallet.id);
+                                            }}
                                         >
-                                            <Typography
-                                                className={`!font-kalameh text-nowrap font-semibold ${
-                                                    isSelected
-                                                        ? '!text-white'
-                                                        : ' text-text-color light:text-light-text-color'
-                                                }`}
-                                                fontSize={9}
-                                            >
-                                                {tab.title}
-                                            </Typography>
-                                        </button>
+                                            <main className="flex-grow flex gap-3 flex-col bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
+                                                <div className="flex justify-between">
+                                                    <div>
+                                                        <div className="flex items-center gap-1">
+                                                            <img
+                                                                alt=""
+                                                                src={isDark ? logoDarkMode : logoLightMode}
+                                                                width={34}
+                                                                height={34}
+                                                            />
+                                                            <Typography
+                                                                className="!font-peyda text-text-color light:text-light-text-color"
+                                                                fontWeight={600}
+                                                                fontSize={11}
+                                                            >
+                                                                {wallet.walletTypeName || 'کیف پول'}
+                                                            </Typography>
+                                                        </div>
+                                                        <div className="flex gap-1 items-center">
+                                                            <Typography
+                                                                className="!font-peyda text-text-color light:text-light-text-color"
+                                                                fontWeight="bold"
+                                                                fontSize={24}
+                                                            >
+                                                                {(wallet.balance ?? 0).toLocaleString('fa-IR')}
+                                                            </Typography>
+                                                            <div className="flex justify-center items-center">
+                                                                <img
+                                                                    alt="toman"
+                                                                    src={isDark ? '/images/toman.svg' : tomanBlack}
+                                                                    className="w-5 h-5 shrink-0 min-w-[20px]"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <img
+                                                            alt="wallet img"
+                                                            src="/images/wallet.svg"
+                                                            width={96}
+                                                            height={76}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-1">
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleShowDepositModal();
+                                                        }}
+                                                        className="bg-accent-orange group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
+                                                    >
+                                                        {'افزایش موجودی'}
+                                                        <GoArrowUpRight
+                                                            className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
+                                                            fontSize={15}
+                                                        />
+                                                    </button>
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleShowWithdrawModal();
+                                                        }}
+                                                        className="bg-primary-dark group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
+                                                    >
+                                                        {'برداشت موجودی'}
+                                                        <GoArrowDownLeft
+                                                            className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
+                                                            fontSize={15}
+                                                        />
+                                                    </button>
+                                                </div>
+                                            </main>
+                                        </div>
                                     );
                                 })}
                             </div>
-                        </nav>
+                        </div>
+                        
+                        {/* Selected Wallet Indicator */}
+                        {selectedWallet && (
+                            <div className="mt-4 text-center">
+                                <Typography
+                                    className="!font-peyda text-text-color light:text-light-text-color"
+                                    fontSize={12}
+                                    fontWeight={500}
+                                >
+                                    کیف پول انتخاب شده: {selectedWallet.walletTypeName}
+                                </Typography>
+                            </div>
+                        )}
                     </div>
-                </div>
+                )}
+
+                {/* Transactions Section - Only show when wallet is selected */}
+                {selectedWallet && (
+                    <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg">
+                        <div className="p-2">
+                            <nav className="w-full">
+                                <div className="grid grid-cols-3 gap-12 w-full">
+                                    {tabInfo.map(tab => {
+                                        const isSelected = selectedTab?.id === tab.id;
+                                        return (
+                                            <button
+                                                key={tab.id}
+                                                onClick={() => setSelectedTab(tab)}
+                                                type="button"
+                                                className={`${
+                                                    isSelected
+                                                        ? 'bg-primary-blue text-xs'
+                                                        : 'bg-transparent'
+                                                } cursor-pointer px-4 py-2 rounded-md`}
+                                            >
+                                                <Typography
+                                                    className={`!font-kalameh text-nowrap font-semibold ${
+                                                        isSelected
+                                                            ? '!text-white'
+                                                            : ' text-text-color light:text-light-text-color'
+                                                    }`}
+                                                    fontSize={9}
+                                                >
+                                                    {tab.title}
+                                                </Typography>
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            </nav>
+                        </div>
+
+                        {/* Filtered Transactions based on selected tab */}
+                        {transactionsLoading ? (
+                            <div className="text-center py-8">
+                                <Typography
+                                    className="!font-peyda text-custom-gray"
+                                    fontSize={12}
+                                >
+                                    در حال بارگذاری تراکنش‌ها...
+                                </Typography>
+                            </div>
+                        ) : (
+                            <div className="space-y-3 max-h-96 overflow-y-auto p-4">
+                                {transactions
+                                    .filter(transaction => {
+                                        if (selectedTab.id === 1) {
+                                            // برداشت موجودی - تراکنش‌های منفی
+                                            return transaction.amount < 0;
+                                        } else if (selectedTab.id === 2) {
+                                            // افزایش موجودی - تراکنش‌های مثبت
+                                            return transaction.amount > 0;
+                                        } else if (selectedTab.id === 3) {
+                                            // انتقال موجودی - تراکنش‌هایی که نوع آنها انتقال است
+                                            return transaction.transactionTypeName?.includes('انتقال') || transaction.transactionTypeName?.includes('transfer');
+                                        }
+                                        return true;
+                                    })
+                                    .map((transaction, index) => (
+                                        <div
+                                            key={index}
+                                            className="bg-primary-light light:bg-light-primary-light p-3 rounded-lg"
+                                        >
+                                            <div className="flex justify-between items-start">
+                                                <div>
+                                                    <Typography
+                                                         className="!font-peyda text-text-color light:text-light-text-color"
+                                                         fontWeight={600}
+                                                         fontSize={12}
+                                                     >
+                                                         {transaction.transactionTypeName || 'تراکنش'}
+                                                     </Typography>
+                                                    <Typography
+                                                        className="!font-peyda text-custom-gray"
+                                                        fontSize={10}
+                                                    >
+                                                        {transaction.description || 'توضیحات موجود نیست'}
+                                                    </Typography>
+                                                </div>
+                                                <div className="text-left">
+                                                    <Typography
+                                                        className={`!font-peyda ${
+                                                            transaction.amount > 0 
+                                                                ? 'text-green-500' 
+                                                                : 'text-red-500'
+                                                        }`}
+                                                        fontWeight="bold"
+                                                        fontSize={14}
+                                                    >
+                                                        {transaction.amount > 0 ? '+' : ''}
+                                                        {transaction.amount?.toLocaleString('fa-IR')}
+                                                    </Typography>
+                                                    <div className="flex justify-end items-center mt-1">
+                                                        <img
+                                                            alt="toman"
+                                                            src={isDark ? '/images/toman.svg' : tomanBlack}
+                                                            className="w-3 h-3"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            {transaction.processedAt && (
+                                                 <div className="mt-2 pt-2 border-t border-custom-gray border-opacity-20">
+                                                     <Typography
+                                                         className="!font-peyda text-custom-gray"
+                                                         fontSize={9}
+                                                     >
+                                                         {new Date(transaction.processedAt).toLocaleDateString('fa-IR')}
+                                                     </Typography>
+                                                 </div>
+                                             )}
+                                        </div>
+                                    ))
+                                }
+                                {transactions.filter(transaction => {
+                                    if (selectedTab.id === 1) {
+                                        return transaction.amount < 0;
+                                    } else if (selectedTab.id === 2) {
+                                        return transaction.amount > 0;
+                                    } else if (selectedTab.id === 3) {
+                                        return transaction.transactionTypeName?.includes('انتقال') || transaction.transactionTypeName?.includes('transfer');
+                                    }
+                                    return true;
+                                }).length === 0 && (
+                                    <div className="text-center py-8">
+                                        <Typography
+                                            className="!font-peyda text-custom-gray"
+                                            fontSize={12}
+                                        >
+                                            تراکنشی برای این دسته یافت نشد
+                                        </Typography>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
 
             <Modal
@@ -284,6 +479,7 @@ const Wallet = () => {
                 handleClose={handleShowDepositModal}
                 modalTitle="افزایش موجودی"
                 open={showDepositModal}
+                handleSubmit={handleDeposit}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -467,6 +663,7 @@ const Wallet = () => {
                 handleClose={handleShowWithdrawModal}
                 modalTitle="برداشت موجودی"
                 open={showWithdrawModal}
+                handleSubmit={handleWithdraw}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
@@ -558,6 +755,7 @@ const Wallet = () => {
                 handleClose={handleShowTransferModal}
                 modalTitle="انتقال موجودی"
                 open={showTransferModal}
+                handleSubmit={handleTransfer}
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">

@@ -11,43 +11,27 @@ import type {
 } from './../types/wallet';
 
 export const walletService = {
-    async getUserWallets(userId: string): Promise<UserWalletList> {
-        const res = await api.get<UserWalletList>(`/Wallet/user/${userId}`);
-        return res;
-    },
+    getUserWallets: (userId: string): Promise<UserWalletList> =>
+        api.get<UserWalletList>(`/api/Wallet/user/${userId}`),
 
-    async createWallet(payload: WalletCreateRequest): Promise<UserWallet> {
-        const res = await api.post<UserWallet>('/Wallet', payload);
-        return res;
-    },
+    createWallet: (payload: WalletCreateRequest): Promise<UserWallet> =>
+        api.post<UserWallet>('/api/Wallet', payload),
 
-    async getWalletById(walletId: string): Promise<UserWallet> {
-        const res = await api.get<UserWallet>(`/Wallet/${walletId}`);
-        return res;
-    },
+    getWalletById: (walletId: string): Promise<UserWallet> =>
+        api.get<UserWallet>(`/api/Wallet/${walletId}`),
 
-    async getBalance(walletId: string): Promise<BalanceResponse> {
-        const res = await api.get<BalanceResponse>(`/Wallet/${walletId}/balance`);
-        return res;
-    },
+    getBalance: (walletId: string): Promise<BalanceResponse> =>
+        api.get<BalanceResponse>(`/api/Wallet/${walletId}/balance`),
 
-    async getTransactions(walletId: string): Promise<TransactionWallet[]> {
-        const res = await api.get<TransactionWallet[]>(`/Wallet/${walletId}/transactions`);
-        return res;
-    },
+    getTransactions: (walletId: string): Promise<TransactionWallet[]> =>
+        api.get<TransactionWallet[]>(`/api/Wallet/${walletId}/transactions`),
 
-    async deposit(walletId: string, payload: DepositRequest): Promise<TransactionWallet> {
-        const res = await api.post<TransactionWallet>(`/Wallet/${walletId}/deposit`, payload);
-        return res;
-    },
+    deposit: (walletId: string, payload: DepositRequest): Promise<TransactionWallet> =>
+        api.post<TransactionWallet>(`/api/Wallet/${walletId}/deposit`, payload),
 
-    async withdraw(walletId: string, payload: WithdrawRequest): Promise<TransactionWallet> {
-        const res = await api.post<TransactionWallet>(`/Wallet/${walletId}/withdraw`, payload);
-        return res;
-    },
+    withdraw: (walletId: string, payload: WithdrawRequest): Promise<TransactionWallet> =>
+        api.post<TransactionWallet>(`/api/Wallet/${walletId}/withdraw`, payload),
 
-    async transfer(walletId: string, payload: TransferRequest): Promise<TransactionWallet> {
-        const res = await api.post<TransactionWallet>(`/Wallet/${walletId}/transfer`, payload);
-        return res;
-    },
+    transfer: (walletId: string, payload: TransferRequest): Promise<TransactionWallet> =>
+        api.post<TransactionWallet>(`/api/Wallet/${walletId}/transfer`, payload),
 };
