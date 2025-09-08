@@ -14,7 +14,7 @@ const ProductDetail = () => {
                 </div>
              <Link to="/paymentInsurance" className='px-10 flex justify-center items-center py-4 !w-full rounded-md bg-primary-blue text-sm text-white'>
                 <button className="font-peyda mx-4 ">
-                    ثبت اطلاعات
+                     ادامه و خرید
                 </button>
             </Link>
               

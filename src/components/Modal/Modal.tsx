@@ -84,15 +84,17 @@ export default function Modal({
                     <IoClose fontSize={15} />
                 </IconButton>
                 <DialogContent>{children}</DialogContent>
-                <DialogActions sx={{ px: 3, pb: 3 }}>
-                    <Button
-                        className="px-4 w-full text-xs text-white bg-accent-orange light:bg-primary-blue"
-                        // onClick={handleSubmit || handleClose}
-                        onClick={handleSubmit}
-                    >
-                        {confirmText}
-                    </Button>
-                </DialogActions>
+                {confirmText && (
+                    <DialogActions sx={{ px: 3, pb: 3 }}>
+                        <Button
+                            className="px-4 w-full text-xs text-white bg-accent-orange light:bg-primary-blue"
+                            onClick={handleSubmit}
+                        >
+                            {confirmText}
+                        </Button>
+                    </DialogActions>
+                )}
+                
             </Dialog>
             {/* </ThemeProvider> */}
         </>

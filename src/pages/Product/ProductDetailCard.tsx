@@ -11,8 +11,15 @@ import DateField from '../../components/Inputs/Datepiker';
 import Tabel from '../../components/Inputs/Tabel';
 import { Link } from 'react-router-dom';
 
+import { useState } from 'react';
+import Modal from '../../components/Modal/Modal';
+
 const ProductDetailCard = () => {
     const { control } = useForm();
+    const [OpenModal, setOpenModal] = useState(false);
+    const handleControl = () => {
+        setOpenModal(!OpenModal);
+    };
 
     return (
         <div className="bg-primary-darker light:bg-white">
@@ -234,6 +241,32 @@ const ProductDetailCard = () => {
                     </div>
                 )}
             </Disclosure>
+
+            <div>
+                <Button
+                    onClick={() => setOpenModal(true)}
+                    className="font-peyda mt-4 w-full rounded-md bg-accent-orange text-sm text-white"
+                >
+                    ادامه
+                </Button>
+                <div>
+                    <Modal open={OpenModal} handleClose={handleControl}>
+                        <div className="flex flex-col items-center justify-center gap-4 p-4">
+                            <p className="font-peyda text-lg font-semibold text-white light:text-gray-800">
+                                قابل صدور با ۲۰٪ اضافه نرخ
+                            </p>
+
+                            <button
+                                className="w-full max-w-xs bg-accent-orange text-white font-peyda text-sm 
+                    flex items-center justify-center gap-1 py-3 px-4 rounded-xl 
+                    shadow-md transition-all hover:bg-accent-orange/90 active:scale-95"
+                            >
+                                <span>تایید عامل فروش</span>
+                            </button>
+                        </div>
+                    </Modal>
+                </div>
+            </div>
 
             <Link to="/products/:id/card">
                 <Button className="font-peyda mt-4 w-full rounded-md bg-primary-blue text-sm text-white">

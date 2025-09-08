@@ -35,7 +35,7 @@ const Product = () => {
                                                 />
                                             </div>
                                             <h2 className="font-peyda text-sm text-slate-900 text-nowrap">
-                                                طرح کیمیا ۱ - بیمه سامان
+                                                طرح کیمیا ۱ - بیمه البرز
                                             </h2>
                                             {OpenMenu ? (
                                                 <IoIosArrowDown onClick={handleMenu} />
@@ -84,7 +84,7 @@ const Product = () => {
                                                 />
                                             </div>
                                             <h2 className="font-peyda text-sm text-slate-900 text-nowrap">
-                                                طرح کیمیا ۲ - بیمه ایران
+                                                طرح کیمیا ۲ - بیمه البرز
                                             </h2>
                                             {open ? (
                                                 <IoIosArrowDown onClick={handleMenu} />

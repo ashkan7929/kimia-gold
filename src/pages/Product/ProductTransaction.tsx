@@ -1,6 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 
 const ProductTransaction = () => {
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate("/")
+    }
     return (
         <div className="bg-primary-darker light:bg-white">
             <section>
@@ -49,7 +54,7 @@ const ProductTransaction = () => {
                     <Button className="bg-accent-orange light:bg-primary-darker text-white text-sm">
                         {'دانلود فاکتور'}
                     </Button>
-				      <Button className="bg-primary-blue text-white text-sm">
+				      <Button onClick={handleNavigate} className="bg-primary-blue text-white text-sm">
                         {'بازگشت به صفحه اصلی'}
                     </Button>
                 </div>
