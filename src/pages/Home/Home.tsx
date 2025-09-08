@@ -1,6 +1,5 @@
 import Typography from '@mui/material/Typography';
 import {
-    BiLike,
     FaChartLine,
     FaRegNewspaper,
     FaRegStar,

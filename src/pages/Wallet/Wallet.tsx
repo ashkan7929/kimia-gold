@@ -13,11 +13,8 @@ import { useTheme } from '../../contexts/ThemeContext';
 import Modal from '../../components/Modal/Modal';
 import {
     FormControl,
-    InputLabel,
     Select,
     MenuItem,
-    ListItemIcon,
-    ListItemText,
     Stack,
     Box,
 } from '@mui/material';
