@@ -311,7 +311,7 @@ const AuthPage: React.FC = () => {
             <div className="relative">
               <div className="flex items-center text-text-color rounded-xsm border-custom-border-light light:border-custom-gray border">
                 <div className="absolute h-full right-4 flex items-center justify-center">
-                  <CiMobile3 className='text-black'/>
+                  <CiMobile3 className='text-text-color light:text-light-text-color'/>
                 </div>
                 <input
                   {...mobileForm.register('mobileNumber')}
