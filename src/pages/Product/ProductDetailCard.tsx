@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import ToggleButton from '../../components/Inputs/ToggleButton';
 import { Disclosure, Transition } from '@headlessui/react';
-import { GiBodyHeight, FaWeightScale, FaChevronDown, FaChevronUp, FaUserAlt } from '../../Icons';
+import { GiBodyHeight, FaWeightScale, FaChevronDown, FaChevronUp, FaUserAlt, MdOutlinePhoneAndroid } from '../../Icons';
 import CheckBox from '../../components/Inputs/Checkbox';
 import Button from '../../components/Button/Button';
 import SegmentedButtons from '../../components/Button/ButtonGroups';
@@ -184,7 +184,8 @@ const ProductDetailCard = () => {
                                          نام
                                     </Typography>
                                     <TextField
-                                        mobileIcon={<GiBodyHeight />}
+                                        
+                                        mobileIcon={<FaUserAlt className='w-3 h-3' />}
                                         placeholder="لطفاً نام خود را وارد کنید"
                                     />
                                 </div>
@@ -197,7 +198,7 @@ const ProductDetailCard = () => {
                                          نام خانوادگی
                                     </Typography>
                                     <TextField
-                                        mobileIcon={<FaUserAlt />}
+                                        mobileIcon={<FaUserAlt className='w-3 h-3' />}
                                         placeholder="لطفاً نام خانوادگی خود را وارد کنید"
                                     />
                                 </div>
@@ -210,7 +211,7 @@ const ProductDetailCard = () => {
                                         شماره موبایل
                                     </Typography>
                                     <TextField
-                                        mobileIcon={<GiBodyHeight />}
+                                        mobileIcon={<MdOutlinePhoneAndroid />}
                                         placeholder="لطفاً شماره موبایل خود را وارد کنید"
                                     />
                                 </div>
@@ -241,6 +242,7 @@ const ProductDetailCard = () => {
                     </div>
                 )}
             </Disclosure>
+        <div></div>
 
             <div>
                 <Button

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { HiOutlineHome, HiOutlinePresentationChartBar, PiUsersThreeBold } from '../Icons/index';
+import { HiOutlineHome, HiOutlinePresentationChartBar, GiWallet } from '../Icons/index';
 import Typography from '@mui/material/Typography';
 
 const BottomNav = () => {
@@ -17,7 +17,7 @@ const BottomNav = () => {
                     <div className='w-full flex justify-center items-center'>
                         <div onClick={() => navigate('/wallet')} className='flex flex-col justify-center items-center w-fit cursor-pointer'>
                             <div className='w-10.5 h-10.5 flex justify-center items-center rounded-full bg-accent-orange light:bg-primary-blue -translate-y-3 shadow shadow-black/50'>
-                                <PiUsersThreeBold fontSize={19} className='text-white ' />
+                                <GiWallet fontSize={19} className='text-white ' />
                             </div>
                             <Typography fontSize={10} className='text-white !font-peyda -translate-y-2 light:text-black'>کیف پول</Typography>
                         </div>

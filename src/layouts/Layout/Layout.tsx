@@ -162,11 +162,15 @@ const Layout = ({ children }: { children: any }) => {
                                     <TbLayoutGrid fontSize={19} className="text-white" />
                                 </div>
                             </div>
-                            <div className="flex justify-center cursor-pointer">
-                                <img alt=""  src={isDark ? logoDarkMode : logoLightMode} className='w-8 h-8' />
-
-                                
-                            </div>
+                            <Link to="/">
+                                <div className="flex justify-center cursor-pointer">
+                                    <img
+                                        alt=""
+                                        src={isDark ? logoDarkMode : logoLightMode}
+                                        className="w-8 h-8"
+                                    />
+                                </div>
+                            </Link>
                             <div className="flex justify-end">
                                 <Link to="/">
                                     <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">
@@ -211,7 +215,9 @@ const Layout = ({ children }: { children: any }) => {
                                             {item.subtitle}
                                         </Typography>
                                     </div>
-                                    <FaChevronLeft className="text-white" />
+                                    <Link to="/">
+                                        <FaChevronLeft className="text-text-color light:text-light-text-color" />
+                                    </Link>
                                 </div>
                             ))}
                         </div>
