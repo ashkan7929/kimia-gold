@@ -98,9 +98,9 @@ const SimpleLayout = ({
     headerImg,
 }: {
     children: any;
-    title: string;
-    img: any;
-    headerImg: string;
+    title?: string;
+    img?: any;
+    headerImg?: string;
 }) => {
     const { theme } = useTheme();
     const isDark = theme === 'dark';

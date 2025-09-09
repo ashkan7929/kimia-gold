@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { useRef, useState, useEffect } from 'react';
-import { BiTransferAlt, GoArrowDownLeft, GoArrowUpRight, MdAddCard } from '../../Icons';
+import { GoArrowDownLeft, GoArrowUpRight, MdAddCard } from '../../Icons';
 
 import { useTheme } from '../../contexts/ThemeContext';
 import Modal from '../../components/Modal/Modal';
@@ -50,9 +50,9 @@ const Wallet = () => {
     const [walletsLoading, setWalletsLoading] = useState(false);
     const [transactions, setTransactions] = useState<TransactionWallet[]>([]);
     const [transactionsLoading, setTransactionsLoading] = useState(false);
-    const [showTransactions, setShowTransactions] = useState(false);
+
     
-    const { walletId, balance, loading } = useWalletData();
+    const { walletId } = useWalletData();
     const token: string = localStorage.getItem('auth.token') ?? '';
     const navigate = useNavigate();
     const location = useLocation();
@@ -97,7 +97,7 @@ const Wallet = () => {
         try {
             const walletTransactions = await walletService.getTransactions(walletId);
             setTransactions(walletTransactions);
-            setShowTransactions(true);
+            // Show transactions for selected wallet
         } catch (error) {
             console.error('Failed to fetch transactions:', error);
         } finally {
@@ -105,12 +105,7 @@ const Wallet = () => {
         }
     };
 
-    // Handle wallet selection
-    const handleWalletSelect = (wallet: UserWallet) => {
-        setSelectedWallet(wallet);
-        setShowTransactions(false);
-        setTransactions([]);
-    };
+
     
     const handleDeposit = async () => {
         if (!walletId || !depositAmount || isProcessing) return;

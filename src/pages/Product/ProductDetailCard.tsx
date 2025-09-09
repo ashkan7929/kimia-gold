@@ -250,7 +250,12 @@ const ProductDetailCard = () => {
                     ادامه
                 </Button>
                 <div>
-                    <Modal open={OpenModal} handleClose={handleControl}>
+                    <Modal 
+                        open={OpenModal} 
+                        handleClose={handleControl}
+                        modalTitle="تأیید خرید"
+                        confirmText="تأیید"
+                    >
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
                             <p className="font-peyda text-lg font-semibold text-white light:text-gray-800">
                                 قابل صدور با ۲۰٪ اضافه نرخ
