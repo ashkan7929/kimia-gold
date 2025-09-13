@@ -18,23 +18,24 @@ import {
     RiLockPasswordLine,
 } from '../../Icons';
 import {
-  mobileSchema,
-  registerSchema,
-  type MobileFormData,
-  type RegisterFormData,
-  type PasswordFormData,
-  passwordLoginSchema
+    mobileSchema,
+    registerSchema,
+    type MobileFormData,
+    type RegisterFormData,
+    type PasswordFormData,
+    passwordLoginSchema,
 } from '../../lib/validations';
 import { authService } from '../../services/authService';
 import { useAuth } from '../../stores/auth.store';
 import { useTranslation } from 'react-i18next';
 import Loading from '../Loading/Loading';
+import PasswordInput from '../../components/Inputs/PasswordInput';
 
 type AuthStep = 'mobile' | 'register' | 'otp' | 'password';
 
 interface UserStatus {
-  userExists: boolean;
-  hasPassword: boolean;
+    userExists: boolean;
+    hasPassword: boolean;
 }
 
 const AuthPage: React.FC = () => {
@@ -171,23 +172,37 @@ const AuthPage: React.FC = () => {
     try {
       const response = await authService.loginWithPassword(mobileNumber, data.password);
 
-      if (response.token) {
-        setToken(response.token);
-        setUser(response.user);
-        navigate('/app', { replace: true });
-      }
-    } catch (err: any) {
-      if (err.response?.status === 401) {
-        setError('رمز عبور نادرست است');
-      } else if (err.response?.status === 429) {
-        setError('تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید');
-      } else {
-        setError('خطا در ارتباط با سرور');
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
+            if (response.token) {
+                setToken(response.token);
+                setUser(response.user);
+                navigate('/app', { replace: true });
+            }
+        } catch (err: any) {
+            const erroMsg = err.response?.status;
+            const msg =
+                erroMsg === 401
+                    ? 'رمز عبور اشتباه وارد شده است& لطفا دوباره تلاش کنید'
+                    : erroMsg === 403
+                      ? 'دسترسی غیرمجاز است'
+                      : erroMsg === 429
+                        ? 'تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید'
+                        : !err?.response
+                          ? 'اتصال به سرور برقرار نشد'
+                          : erroMsg && erroMsg >= 500
+                            ? 'مشکل سمت سرور پیش‌آمده است'
+                            : 'در حال حاضر مشکلی پیش اومده، لطفاً مجدداً تلاش کنید';
+            setError(msg);
+            // if (err.response?.status === 401) {
+            //     setError('رمز عبور نادرست است');
+            // } else if (err.response?.status === 429) {
+            //     setError('تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید');
+            // } else {
+            //     setError('خطا  ارتباط با سرور');
+            // }
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
   const sendOtp = async (mobile: string, purpose: 'login' | 'register') => {
     try {
@@ -416,34 +431,37 @@ const AuthPage: React.FC = () => {
                                 )}
                             </div>
 
-              {/* Referral Code */}
-              <div className='flex flex-col gap-1'>
-                <Typography className="text-white !font-peyda mb-2" fontSize={12}>
-                  کد معرف (اختیاری)
-                </Typography>
-                <TextField
-                  mobileIcon={<FaRegUser />}
-                  placeholder="کد معرف"
-                  {...registerForm.register('referralCode')}
-                  className="w-full"
-                />
-                {registerForm.formState.errors.referralCode && (
-                  <Typography className="text-red-400 !font-peyda mt-1" fontSize={11}>
-                    {registerForm.formState.errors.referralCode.message}
-                  </Typography>
-                )}
-              </div>
+                            {/* Referral Code */}
+                            <div className="flex flex-col gap-1">
+                                <Typography className="text-white !font-peyda mb-2" fontSize={12}>
+                                    کد معرف (اختیاری)
+                                </Typography>
+                                <TextField
+                                    mobileIcon={<FaRegUser />}
+                                    placeholder="کد معرف"
+                                    {...registerForm.register('referralCode')}
+                                    className="w-full"
+                                />
+                                {registerForm.formState.errors.referralCode && (
+                                    <Typography
+                                        className="text-red-400 !font-peyda mt-1"
+                                        fontSize={11}
+                                    >
+                                        {registerForm.formState.errors.referralCode.message}
+                                    </Typography>
+                                )}
+                            </div>
 
-              {/* Accept Rules */}
-              <div className="flex items-center gap-1">
-                <CheckBox
-                  label=""
-                  defaultChecked={registerForm.watch('acceptRules')}
+                            {/* Accept Rules */}
+                            <div className="flex items-center gap-1">
+                                <CheckBox
+                                    label=""
+                                    defaultChecked={registerForm.watch('acceptRules')}
                                     onChange={(_, checked) =>
                                         registerForm.setValue('acceptRules', checked)
                                     }
-                />
-                <Typography className="text-gray-300 !font-peyda" fontSize={12}>
+                                />
+                                <Typography className="text-gray-300 !font-peyda" fontSize={12}>
                                     <Link
                                         href="/rules"
                                         className="text-primary-blue hover:underline"
@@ -513,24 +531,34 @@ const AuthPage: React.FC = () => {
                 />
               </div>
 
-              {/* Password */}
-              <div>
-                <Typography className="text-text-color light:text-light-text-color !font-peyda mb-2" fontSize={12}>
-                  رمز عبور *
-                </Typography>
-                <TextField
-                  mobileIcon={<RiLockPasswordLine />}
-                  placeholder="رمز عبور"
-                  type="password"
-                  {...passwordForm.register('password')}
-                  className="w-full"
-                />
-                {passwordForm.formState.errors.password && (
-                  <Typography className="text-red-400 !font-peyda mt-1" fontSize={11}>
-                    {passwordForm.formState.errors.password.message}
-                  </Typography>
-                )}
-              </div>
+                            {/* Password */}
+                            <div>
+                                <Typography
+                                    className="text-text-color light:text-light-text-color !font-peyda mb-2"
+                                    fontSize={12}
+                                >
+                                    رمز عبور *
+                                </Typography>
+
+                                <PasswordInput
+                                    mobileIcon={<RiLockPasswordLine />}
+                                    {...passwordForm.register('password')}
+                                />
+
+                                {passwordForm.formState.errors.password && (
+                                    <Typography
+                                        className="text-red-400 !font-peyda mt-1"
+                                        fontSize={11}
+                                    >
+                                        {passwordForm.formState.errors.password.message}
+                                    </Typography>
+                                )}
+                                <span className="text-sm !font-peyda text-green-400 light:text-green-600">
+                                    رمز عبور موقت شما برای ورود
+                                    <span> TempPassword123! </span>
+                                    است .
+                                </span>
+                            </div>
 
               {error && (
                 <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg">

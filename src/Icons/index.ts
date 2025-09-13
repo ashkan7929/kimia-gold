@@ -52,3 +52,7 @@ export { GiBodyHeight } from "react-icons/gi";
 export { FaUserAlt } from "react-icons/fa";
 export { MdOutlinePhoneAndroid } from "react-icons/md";
 export { GiWallet } from "react-icons/gi";
+export { LuEye } from "react-icons/lu";
+export { LuEyeClosed } from "react-icons/lu";
+
+
