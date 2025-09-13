@@ -96,10 +96,10 @@ const AuthPage: React.FC = () => {
     setIsLoading(true);
     setError(null);
 
-    try {
-      const response = await authService.checkMobile(data.mobileNumber);
-      setMobileNumber(data.mobileNumber);
-      setUserStatus(response);
+        try {
+            const response = await authService.checkMobile(data.mobileNumber);
+            setMobileNumber(data.mobileNumber);
+            setUserStatus(response);
 
       if (!response.userExists) {
         // کاربر جدید - نمایش فرم ثبت‌نام
@@ -181,7 +181,7 @@ const AuthPage: React.FC = () => {
             const erroMsg = err.response?.status;
             const msg =
                 erroMsg === 401
-                    ? 'رمز عبور اشتباه وارد شده است& لطفا دوباره تلاش کنید'
+                    ? 'رمز عبور اشتباه وارد شده است، لطفا دوباره تلاش کنید'
                     : erroMsg === 403
                       ? 'دسترسی غیرمجاز است'
                       : erroMsg === 429
@@ -504,17 +504,24 @@ const AuthPage: React.FC = () => {
           </div>
         )}
 
-        {/* Password Step */}
-        {currentStep === 'password' && (
-          <div className="w-full max-w-md mx-auto">
-            <div className="text-center mb-8">
-              <Typography className="text-text-color light:text-light-text-color !font-alibaba mb-2" fontSize={20} fontWeight="bold">
-                ورود با رمز عبور
-              </Typography>
-              <Typography className="text-gray-300 light:text-gray-700 !font-peyda" fontSize={14}>
-                رمز عبور خود را وارد کنید
-              </Typography>
-            </div>
+                {/* Password Step */}
+                {currentStep === 'password' && (
+                    <div className="w-full max-w-md mx-auto">
+                        <div className="text-center mb-8">
+                            <Typography
+                                className="text-text-color light:text-light-text-color !font-alibaba mb-2"
+                                fontSize={20}
+                                fontWeight="bold"
+                            >
+                                ورود با رمز عبور
+                            </Typography>
+                            <Typography
+                                className="text-gray-300 light:text-gray-700 !font-peyda"
+                                fontSize={14}
+                            >
+                                رمز عبور خود را وارد کنید
+                            </Typography>
+                        </div>
 
             <form onSubmit={passwordForm.handleSubmit(handlePasswordSubmit)} className="space-y-4">
               {/* Mobile Number (Read-only) */}
@@ -539,9 +546,16 @@ const AuthPage: React.FC = () => {
                                 >
                                     رمز عبور *
                                 </Typography>
-
+                                {/* <TextField
+                                    mobileIcon={<RiLockPasswordLine />}
+                                    placeholder="رمز عبور"
+                                    type="password"
+                                    {...passwordForm.register('password')}
+                                    className="w-full"
+                                /> */}
                                 <PasswordInput
                                     mobileIcon={<RiLockPasswordLine />}
+                                    className="w-full"
                                     {...passwordForm.register('password')}
                                 />
 
@@ -560,120 +574,125 @@ const AuthPage: React.FC = () => {
                                 </span>
                             </div>
 
-              {error && (
-                <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
-                  <Typography className="text-red-400 !font-peyda" fontSize={12}>
-                    {error}
-                  </Typography>
-                </div>
-              )}
+                            {error && (
+                                <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
+                                    <Typography className="text-red-400 !font-peyda" fontSize={12}>
+                                        {error}
+                                    </Typography>
+                                </div>
+                            )}
 
-              <Button
-                type="submit"
-                disabled={isLoading}
-                className="w-full bg-primary-blue hover:bg-primary-light text-white font-peyda"
-              >
-                ورود
-              </Button>
+                            <Button
+                                type="submit"
+                                disabled={isLoading}
+                                className="w-full bg-primary-blue hover:bg-primary-light text-white font-peyda"
+                            >
+                                ورود
+                            </Button>
 
-              {/* Switch to OTP */}
-              <button
-                type="button"
-                onClick={handleSwitchToOtp}
-                disabled={isLoading}
-                className="w-full py-3 rounded-lg border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white transition-colors font-peyda"
-              >
-                ورود با کد یکبار مصرف
-              </button>
+                            {/* Switch to OTP */}
+                            <button
+                                type="button"
+                                onClick={handleSwitchToOtp}
+                                disabled={isLoading}
+                                className="w-full py-3 rounded-lg border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white transition-colors font-peyda"
+                            >
+                                ورود با کد یکبار مصرف
+                            </button>
 
-              <button
-                type="button"
-                onClick={handleBack}
-                className="w-full py-3 rounded-lg border border-primary-blue hover:border-none hover:bg-[#0F3DFB] hover:text-white text-primary-blue transition-colors font-peyda"
-              >
-                بازگشت
-              </button>
-            </form>
-          </div>
-        )}
+                            <button
+                                type="button"
+                                onClick={handleBack}
+                                className="w-full py-3 rounded-lg border border-primary-blue hover:border-none hover:bg-[#0F3DFB] hover:text-white text-primary-blue transition-colors font-peyda"
+                            >
+                                بازگشت
+                            </button>
+                        </form>
+                    </div>
+                )}
 
-        {/* OTP Step */}
-        {currentStep === 'otp' && (
-          <div className="w-full max-w-md mx-auto text-center flex flex-col gap-2">
-          {loginMethod === 'otp' && (
-            <div className="mb-8">
-              <img
-                alt="OTP Verification"
-                src="/images/otp.png"
-                height={174}
-                width={232}
-                className="mx-auto"
-              />
-            </div>
-          )}
+                {/* OTP Step */}
+                {currentStep === 'otp' && (
+                    <div className="w-full max-w-md mx-auto text-center flex flex-col gap-2">
+                        {loginMethod === 'otp' && (
+                            <div className="mb-8">
+                                <img
+                                    alt="OTP Verification"
+                                    src="/images/otp.png"
+                                    height={174}
+                                    width={232}
+                                    className="mx-auto"
+                                />
+                            </div>
+                        )}
 
-            <Typography className="text-white light:text-gray-700 !font-alibaba mb-2" fontSize={20} fontWeight="bold">
-              {userStatus?.userExists ? 'ورود با کد تایید' : 'تایید شماره موبایل'}
-            </Typography>
+                        <Typography
+                            className="text-white light:text-gray-700 !font-alibaba mb-2"
+                            fontSize={20}
+                            fontWeight="bold"
+                        >
+                            {userStatus?.userExists ? 'ورود با کد تایید' : 'تایید شماره موبایل'}
+                        </Typography>
 
-            <Typography className="text-gray-300 light:text-gray-700 !font-peyda mb-8" fontSize={14}>
-              کد تایید ارسال شده به شماره {mobileNumber} را وارد کنید
-            </Typography>
+                        <Typography
+                            className="text-gray-300 light:text-gray-700 !font-peyda mb-8"
+                            fontSize={14}
+                        >
+                            کد تایید ارسال شده به شماره {mobileNumber} را وارد کنید
+                        </Typography>
 
-            <div className="mb-6">
-              <OTPInput
-                length={6}
-                onChange={setOtpCode}
-                className="mb-4"
-              />
-            </div>
+                        <div className="mb-6">
+                            <OTPInput length={6} onChange={setOtpCode} className="mb-4" />
+                        </div>
 
-            {error && (
-              <div className="mb-4 p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
-                <Typography className="text-red-400 !font-peyda" fontSize={12}>
-                  {error}
-                </Typography>
-              </div>
-            )}
+                        {error && (
+                            <div className="mb-4 p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
+                                <Typography className="text-red-400 !font-peyda" fontSize={12}>
+                                    {error}
+                                </Typography>
+                            </div>
+                        )}
 
-            <Button
-              onClick={handleOtpSubmit}
-              disabled={isLoading || otpCode.length !== 6}
-              className="w-full mb-4 text-white bg-primary-blue hover:bg-blue-600"
-            >
-              {userStatus?.userExists ? 'ورود' : 'تایید و ادامه'}
-            </Button>
+                        <Button
+                            onClick={handleOtpSubmit}
+                            disabled={isLoading || otpCode.length !== 6}
+                            className="w-full mb-4 text-white bg-primary-blue hover:bg-blue-600"
+                        >
+                            {userStatus?.userExists ? 'ورود' : 'تایید و ادامه'}
+                        </Button>
 
-            <div className="text-center space-y-2 mb-4">
-              <Typography className="text-gray-400 light:text-gray-700 !font-peyda" fontSize={12}>
-                کد تایید را دریافت نکردید؟
-              </Typography>
-              {canResend ? (
-                <button
-                  onClick={handleResendOtp}
-                  disabled={isLoading}
-                  className="text-primary-blue !font-peyda text-sm underline hover:text-primary-light transition-colors"
-                >
-                  ارسال مجدد کد
-                </button>
-              ) : (
-                <Typography className="text-gray-500 !font-peyda" fontSize={12}>
-                  ارسال مجدد در {formatTimer(resendTimer)}
-                </Typography>
-              )}
-            </div>
+                        <div className="text-center space-y-2 mb-4">
+                            <Typography
+                                className="text-gray-400 light:text-gray-700 !font-peyda"
+                                fontSize={12}
+                            >
+                                کد تایید را دریافت نکردید؟
+                            </Typography>
+                            {canResend ? (
+                                <button
+                                    onClick={handleResendOtp}
+                                    disabled={isLoading}
+                                    className="text-primary-blue !font-peyda text-sm underline hover:text-primary-light transition-colors"
+                                >
+                                    ارسال مجدد کد
+                                </button>
+                            ) : (
+                                <Typography className="text-gray-500 !font-peyda" fontSize={12}>
+                                    ارسال مجدد در {formatTimer(resendTimer)}
+                                </Typography>
+                            )}
+                        </div>
 
-            <button
-              onClick={handleBack}
-              className="w-full py-3 rounded-lg border hover:border-none text-gray-300 light:text-gray-700 light:hover:text-text-color hover:bg-primary-light transition-colors font-peyda"
-            >
-              بازگشت
-            </button>
-          </div>
-        )}
-      </main>
-    </div>
-  );
+                        <button
+                            onClick={handleBack}
+                            className="w-full py-3 rounded-lg border hover:border-none text-gray-300 light:text-gray-700 light:hover:text-text-color hover:bg-primary-light transition-colors font-peyda"
+                        >
+                            بازگشت
+                        </button>
+                    </div>
+                )}
+            </main>
+        </div>
+    );
 };
-
 export default AuthPage;

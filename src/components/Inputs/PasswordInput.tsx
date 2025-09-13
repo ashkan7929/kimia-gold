@@ -28,7 +28,7 @@ const PasswordInput = forwardRef<HTMLInputElement, TextFieldProps>(
                         className="absolute h-full left-3 flex items-center cursor-pointer text-gray-400"
                         onClick={() => setVisible(prev => !prev)}
                     >
-                        {visible ? <LuEyeClosed /> : <LuEye />}
+                        {visible ? <LuEye /> : <LuEyeClosed /> }
                     </div>
                 </div>
             </div>
