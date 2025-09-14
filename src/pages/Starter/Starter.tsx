@@ -5,6 +5,7 @@ import { FaArrowLeftLong, LuMoveRight } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
 
 import packageJson from '../../../package.json';
+type StarterProps = { onFinish: () => void };
 
 const StepsEnum = {
     one: 0,
@@ -12,7 +13,7 @@ const StepsEnum = {
     login: 2,
 };
 
-const Starter = () => {
+const Starter = ({ onFinish }: StarterProps) => {
     const { t } = useTranslation();
     const [step, setStep] = useState(StepsEnum.one);
     const { theme } = useTheme();
@@ -109,7 +110,10 @@ const Starter = () => {
                         </div>
                         <div className="flex gap-3">
                             <button
-                                onClick={() => setStep(StepsEnum.login)}
+                                onClick={() => {
+                                    setStep(StepsEnum.login);
+                                    onFinish?.();
+                                }}
                                 className={`rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl 
                                     ${
                                         step === StepsEnum.login

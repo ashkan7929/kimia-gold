@@ -7,8 +7,14 @@ import { useTheme } from '../../contexts/ThemeContext';
 
 import goldProduct from '/src/assets/images/gold.svg';
 import analizImg from '/src/assets/images/analiz.svg';
+import walletLogo from '../../assets/images/wallet.png';
+import lightwallet from '../../assets/images/lightwallet.gif';
 import CampaignImg from '/src/assets/images/campagin.svg';
+import newsLight from '../../assets/images/newsLight.png';
+import campainLight from '../../assets/images/campaginLight.png';
+import analizLight from "../../assets/images/analizLight.png"
 import newsImg from '/src/assets/images/news.svg';
+import { useEffect, useState } from 'react';
 
 // import insuranceIcon from "../../assets/images/gold-insurance-icon.jpg";
 const rows = [
@@ -39,7 +45,15 @@ const Home = () => {
     const { user } = useAuth();
     const { theme } = useTheme();
     const isDark = theme === 'dark';
-
+    const [showWelcome, setShowWelcome] = useState(false);
+    useEffect(() => {
+        const hasLogedInBefore = localStorage.getItem('new-user');
+        if (hasLogedInBefore !== 'false') {
+            setShowWelcome(true);
+            // یک بار نمایش داده شد → برای دفعات بعد false بشه
+            localStorage.setItem('new-user', 'false');
+        }
+    }, []);
     // Fallback to localStorage if user is not in store (for backward compatibility)
     const userData =
         user ||
@@ -56,30 +70,68 @@ const Home = () => {
             <div className="">
                 <div className="flex flex-col gap-3 items-center pb-25">
                     <div className="bg-primary-darker light:bg-white flex gap-1 w-full p-3 rounded-lg">
-                        <div className="flex flex-col gap-1">
-                            <Typography
-                                className="!font-alibaba text-text-color light:text-light-text-color"
-                                fontSize={13}
-                            >
-                                <strong>
-                                    {userData?.firstName && userData?.lastName
-                                        ? userData.firstName + ' ' + userData.lastName
-                                        : 'کاربر گرامی'}
-                                </strong>{' '}
-                                خوش امدید
-                            </Typography>
-                            <Typography
-                                className="!font-alibaba text-neutral-300 light:text-neutral-700"
-                                fontSize={11}
-                            >
-                                {
-                                    'به باشگاه وِم خوش آمدید، از این صفحه می‌توانید خدمات خود را انتخاب کنید'
-                                }
-                            </Typography>
-                        </div>
-                        <div>
-                            <img alt="" src="/images/welcome-home.svg" width={79} height={63} />
-                        </div>
+                        {showWelcome ? (
+                            <div>
+                                <div className="flex flex-col gap-1">
+                                    <Typography
+                                        className="!font-alibaba text-text-color light:text-light-text-color"
+                                        fontSize={13}
+                                    >
+                                        <strong>
+                                            {userData?.firstName && userData?.lastName
+                                                ? userData.firstName + ' ' + userData.lastName
+                                                : 'کاربر گرامی'}
+                                        </strong>{' '}
+                                        خوش امدید
+                                    </Typography>
+                                    <Typography
+                                        className="!font-alibaba text-neutral-300 light:text-neutral-700"
+                                        fontSize={11}
+                                    >
+                                        {
+                                            'به باشگاه وِم خوش آمدید، از این صفحه می‌توانید خدمات خود را انتخاب کنید'
+                                        }
+                                    </Typography>
+                                </div>
+                                <div>
+                                    <img
+                                        alt=""
+                                        src="/images/welcome-home.svg"
+                                        width={79}
+                                        height={63}
+                                    />
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="bg-primary-darker light:bg-light-primary-darker w-full font-peyda text-text-color light:text-light-text-color flex items-center justify-between p-2 rounded-lg">
+                                <div className="flex items-center gap-2">
+                                    <img
+                                        alt=""
+                                        src={isDark ? lightwallet : walletLogo}
+                                        width={50}
+                                        height={50}
+                                    />
+                                    <div className="flex flex-col">
+                                        <Typography
+                                            className="!font-alibaba text-text-color light:text-light-text-color"
+                                            fontSize={12}
+                                        >
+                                            مانده اعتبار
+                                        </Typography>
+                                        <Typography
+                                            className="!font-alibaba text-text-color light:text-light-text-color"
+                                            fontSize={12}
+                                        >
+                                            ۵۰۰,۰۰۰ ریال
+                                        </Typography>
+                                    </div>
+                                </div>
+
+                                <button className="bg-accent-orange light:bg-primary-blue text-white text-[9px] font-kalameh px-7 py-2 rounded-xl">
+                                    افزایش اعتبار
+                                </button>
+                            </div>
+                        )}
                     </div>
                     <div className="bg-primary-dark light:bg-light-primary-darker flex w-full p-3 rounded-lg">
                         <main className="px-4 flex-grow py-5 flex gap-3 flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
@@ -164,9 +216,9 @@ const Home = () => {
 
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src="/images/coins-document-chart.svg" />
+                                <img alt="" src="/src/assets/images/shoppingDark.png" />
                             ) : (
-                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                <img alt="" src="/src/assets/images/shopping.png" />
                             )}
 
                             <Typography
@@ -181,7 +233,7 @@ const Home = () => {
                             {isDark ? (
                                 <img alt="" src="/images/coins-document-chart.svg" />
                             ) : (
-                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                <img alt="" src="/src/assets/images/shopping.png" />
                             )}
 
                             <Typography
@@ -194,7 +246,11 @@ const Home = () => {
 
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
-                                <img src={CampaignImg} alt="کمپین" />
+                                {isDark ? (
+                                    <img src={CampaignImg} alt="کمپین" />
+                                ) : (
+                                    <img src={campainLight} alt="کمپین" />
+                                )}
                             </div>
 
                             <Typography
@@ -206,7 +262,11 @@ const Home = () => {
                         </div>
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full">
-                                <img src={analizImg} alt="تحلیل بازار" />
+                                {isDark ? (
+                                    <img src={analizImg} alt="تحلیل بازار" />
+                                ) : (
+                                    <img src={analizLight} alt=" تحلیل" />
+                                )}
                             </div>
                             <Typography
                                 fontSize={10}
@@ -217,7 +277,11 @@ const Home = () => {
                         </div>
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
-                                <img src={newsImg} alt="اخبار" />
+                                {isDark ? (
+                                    <img src={newsImg} alt="اخبار" />
+                                ) : (
+                                    <img src={newsLight} alt="اخبار" />
+                                )}
                             </div>
                             <Typography
                                 fontSize={10}

@@ -1,18 +1,33 @@
 {
-  "id": "/?source=pwa",
-  "name": "VEMClub",
-  "short_name": "VEM Club",
-  "lang": "fa-IR",
-  "dir": "rtl",
-  "description": "ابزاری منحصربه‌فرد برای ارتقای ارزش دارایی شما",
-  "start_url": "/?source=pwa",
-  "scope": "/",
-  "display": "standalone",
-  "background_color": "#0D2778",
-  "theme_color": "#030047",
-  "icons": [
-    { "src": "/images/vemLogo192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/images/vemLogo512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "/images/vem-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable any" }
-  ]
+    "id": "/?source=pwa",
+    "name": "VEMClub",
+    "short_name": "VEM Club",
+    "lang": "fa-IR",
+    "dir": "rtl",
+    "description": "ابزاری منحصربه‌فرد برای ارتقای ارزش دارایی شما",
+    "start_url": "/?source=pwa",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#0D2778",
+    "theme_color": "#030047",
+    "icons": [
+        {
+            "src": "/images/vemLogo192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/vemLogo512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/vem-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ]
 }
