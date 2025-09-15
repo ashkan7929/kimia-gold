@@ -8,9 +8,39 @@
     "start_url": "/?source=pwa",
     "scope": "/",
     "display": "standalone",
-    "background_color": "#0D2778",
-    "theme_color": "#030047",
+    "background_color": "ffffff",
+    "theme_color": "#0D2778",
     "icons": [
+        {
+            "src": "/images/vemLogo72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/vemLogo96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/vemLogo128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/vemLogo144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/vemLogo152.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
         {
             "src": "/images/vemLogo192.png",
             "sizes": "192x192",

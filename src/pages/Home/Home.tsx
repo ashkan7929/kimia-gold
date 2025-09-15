@@ -50,7 +50,6 @@ const Home = () => {
         const hasLogedInBefore = localStorage.getItem('new-user');
         if (hasLogedInBefore !== 'false') {
             setShowWelcome(true);
-            // یک بار نمایش داده شد → برای دفعات بعد false بشه
             localStorage.setItem('new-user', 'false');
         }
     }, []);
