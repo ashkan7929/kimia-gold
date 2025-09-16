@@ -29,8 +29,8 @@ import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
 // import ChooseMethodPage from './pages/Auth/ChooseMethodPage';
-import alborzImg from '../src/assets/images/alborzImg.png';
-import alborLightzImg from '../src/assets/images/bimeAlborz.png';
+import alborzImg from '/images/alborzImg.png';
+import alborLightzImg from '/images/bimeAlborz.png';
 import { useTheme } from '@emotion/react';
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {

@@ -567,11 +567,6 @@ const AuthPage: React.FC = () => {
                                         {passwordForm.formState.errors.password.message}
                                     </Typography>
                                 )}
-                                <span className="text-sm !font-peyda text-green-400 light:text-green-600">
-                                    رمز عبور موقت شما برای ورود
-                                    <span> TempPassword123! </span>
-                                    است .
-                                </span>
                             </div>
 
                             {error && (
