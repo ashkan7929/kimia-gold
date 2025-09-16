@@ -107,7 +107,7 @@ const Home = () => {
                             {isDark ? (
                                 <img alt="coin" src="/images/Hand, Arm, Coins.svg" />
                             ) : (
-                                <img src="/src/assets/images/coin-in-hand.jpg" alt="coin" />
+                                <img src="/images/coin-in-hand.jpg" alt="coin" />
                             )}{' '}
                             <Typography
                                 className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
@@ -179,7 +179,7 @@ const Home = () => {
 
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src="/images/coins-document-chart.svg" />
+                                <img alt="" src="/images/shopping" />
                             ) : (
                                 <img alt="" src="/images/coins-chart.jpg" />
                             )}
