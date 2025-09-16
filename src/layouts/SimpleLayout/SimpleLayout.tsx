@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong, FaChevronLeft, FaRegUser, TbLayoutGrid } from '../../Icons';
 
-import logoDarkMode from "/images/vemLogo1.png"
-import logoLightMode from "/images/vemLogoSite.png"
+import logoDarkMode from '/images/vemLogo1.png';
+import logoLightMode from '/images/vemLogoSite.png';
 
 import { useTheme } from '../../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
@@ -175,14 +175,16 @@ const SimpleLayout = ({
                                     <TbLayoutGrid fontSize={19} className="text-white" />
                                 </div>
                             </div>
-                            <div className="flex justify-center cursor-pointer">
-                                <img
-                                    alt=""
-                                    src={isDark ? logoDarkMode : logoLightMode}
-                                    width={34}
-                                    height={34}
-                                />
-                            </div>
+                            <Link to="/">
+                                <div className="flex justify-center cursor-pointer">
+                                    <img
+                                        alt=""
+                                        src={isDark ? logoDarkMode : logoLightMode}
+                                        width={34}
+                                        height={34}
+                                    />
+                                </div>
+                            </Link>
                             <div className="flex justify-end">
                                 <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer">
                                     <FaArrowLeftLong fontSize={14} className="text-white" />
@@ -213,9 +215,8 @@ const SimpleLayout = ({
                                             {item.subtitle}
                                         </Typography>
                                     </div>
-                                    <Link to='/'>
-                                          <FaChevronLeft className="text-text-color light:text-light-text-color" />
-
+                                    <Link to="/">
+                                        <FaChevronLeft className="text-text-color light:text-light-text-color" />
                                     </Link>
                                 </div>
                             ))}

@@ -199,9 +199,9 @@ const Home = () => {
                         <Link to="/products">
                             <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                                 {isDark ? (
-                                    <img alt="" src="/images/coins-document-chart.svg" />
+                                    <img alt="" src="/src/assets/images/insuranceGold.png" />
                                 ) : (
-                                    <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                    <img alt="" src="/src/assets/images/insuranceGoldLight.png" />
                                 )}
 
                                 <Typography
