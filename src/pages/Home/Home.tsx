@@ -121,7 +121,7 @@ const Home = () => {
                                 {isDark ? (
                                     <img alt="" src="/images/moneybag-modern-coins.svg" />
                                 ) : (
-                                    <img alt="" src="/src/assets/images/moneybag.jpg" />
+                                    <img alt="" src="/images/moneybag.jpg" />
                                 )}
                                 <Typography
                                     className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
@@ -135,7 +135,7 @@ const Home = () => {
                             {isDark ? (
                                 <img alt="" src="/images/coins-document-chart.svg" />
                             ) : (
-                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                <img alt="" src="/images/coins-chart.jpg" />
                             )}
 
                             <Typography
@@ -150,7 +150,7 @@ const Home = () => {
                                 {isDark ? (
                                     <img alt="" src="/images/coins-document-chart.svg" />
                                 ) : (
-                                    <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                    <img alt="" src="/images/coins-chart.jpg" />
                                 )}
 
                                 <Typography
@@ -166,7 +166,7 @@ const Home = () => {
                             {isDark ? (
                                 <img alt="" src="/images/coins-document-chart.svg" />
                             ) : (
-                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                <img alt="" src="/images/coins-chart.jpg" />
                             )}
 
                             <Typography
@@ -181,7 +181,7 @@ const Home = () => {
                             {isDark ? (
                                 <img alt="" src="/images/coins-document-chart.svg" />
                             ) : (
-                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                <img alt="" src="/images/coins-chart.jpg" />
                             )}
 
                             <Typography

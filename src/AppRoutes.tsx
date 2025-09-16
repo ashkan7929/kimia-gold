@@ -29,7 +29,9 @@ import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
 // import ChooseMethodPage from './pages/Auth/ChooseMethodPage';
-import alborzImg from "../src/assets/images/alborzImg.png"
+import alborzImg from '../src/assets/images/alborzImg.png';
+import alborLightzImg from '../src/assets/images/bimeAlborz.png';
+import { useTheme } from '@emotion/react';
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
@@ -43,6 +45,8 @@ const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 // App Routes Component
 const AppRoutes: React.FC = () => {
+    const theme = useTheme();
+    const isDark = theme === 'dark';
     return (
         <Routes>
             {/* Auth Routes */}
@@ -125,19 +129,18 @@ const AppRoutes: React.FC = () => {
                 }
             />
 
-            
             <Route
                 path="/products"
                 element={
-                    <SimpleLayout headerImg={alborzImg} >
+                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
                         <Products />
                     </SimpleLayout>
                 }
             />
-             <Route
+            <Route
                 path="/products/:id"
                 element={
-                    <SimpleLayout headerImg={alborzImg}>
+                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
                         <ProductDetailCard />
                     </SimpleLayout>
                 }
@@ -145,16 +148,16 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products/:id/card"
                 element={
-                    <SimpleLayout headerImg={alborzImg}>
+                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
                         <ProductDetail />
                     </SimpleLayout>
                 }
             />
-           
+
             <Route
                 path="/paymentInsurance"
                 element={
-                    <SimpleLayout headerImg={alborzImg}>
+                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
                         <PaymentInsurance />
                     </SimpleLayout>
                 }
@@ -162,12 +165,12 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/productTransaction"
                 element={
-                    <SimpleLayout headerImg={alborzImg}>
+                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
                         <ProductTransaction />
                     </SimpleLayout>
                 }
             />
-            
+
             <Route
                 path="/buy"
                 element={
