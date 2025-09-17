@@ -214,6 +214,7 @@ export default {
                 peyda: ['Peyda', 'sans-serif'],
                 kalameh: ['Kalameh', 'sans-serif'],
                 alibaba: ['Alibaba', 'sans-serif'],
+                roboto: ['Roboto', 'sans-serif']
             },
             animation: {
                 'fade-in': 'fadeIn 0.5s ease-in-out',

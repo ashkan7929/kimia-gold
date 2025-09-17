@@ -29,9 +29,9 @@ const Starter = () => {
         >
             {step == StepsEnum.one && (
                 <>
-                    <div className="flex flex-col items-center justify-center h-full">
+                    <div className="flex flex-col items-center justify-center h-full !pt-0">
                         <div className="pb-8">
-                            <img alt="" src="/images/welcome1.svg" width={326} height={326} />
+                            <img alt="" src="/images/welcome1.svg" />
                         </div>
                         <div className="flex flex-col gap-2">
                             <Typography
@@ -55,7 +55,7 @@ const Starter = () => {
                         </div>
                     </div>
                     <div className="flex flex-col gap-8 justify-end mr-auto">
-                        <div className="grid grid-cols-3 gap-1">
+                        <div className="grid grid-cols-3 gap-1 mt-3">
                             <div className="bg-neutral-400 h-1 rounded-lg"></div>
                             <div className="bg-accent-orange h-1 rounded-lg col-span-2"></div>
                         </div>
@@ -72,7 +72,7 @@ const Starter = () => {
                         </div>
                     </div>
                     <div className="w-full flex justify-center items-center mt-2">
-                        <span className="block mx-auto text-primary-blue text-center ">
+                        <span className="block mx-auto text-primary-blue text-center font-roboto">
                             VEM Club{' '}
                             <span className="text-text-color light:text-light-text-color">
                                 {packageJson.version}
