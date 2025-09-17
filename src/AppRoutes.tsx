@@ -29,9 +29,7 @@ import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
 // import ChooseMethodPage from './pages/Auth/ChooseMethodPage';
-import alborzImg from '../src/assets/images/alborzImg.png';
-import alborLightzImg from '../src/assets/images/bimeAlborz.png';
-import { useTheme } from '@emotion/react';
+import alborzImg from "../src/assets/images/alborzImg.png"
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
@@ -129,7 +127,6 @@ const AppRoutes: React.FC = () => {
                 }
             />
 
-            
             <Route
                 path="/products"
                 element={
@@ -138,7 +135,7 @@ const AppRoutes: React.FC = () => {
                     </SimpleLayout>
                 }
             />
-             <Route
+            <Route
                 path="/products/:id"
                 element={
                     <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
@@ -154,7 +151,7 @@ const AppRoutes: React.FC = () => {
                     </SimpleLayout>
                 }
             />
-           
+
             <Route
                 path="/paymentInsurance"
                 element={
@@ -171,7 +168,7 @@ const AppRoutes: React.FC = () => {
                     </SimpleLayout>
                 }
             />
-            
+
             <Route
                 path="/buy"
                 element={

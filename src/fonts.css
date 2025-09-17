@@ -227,6 +227,25 @@
     font-weight: 900;
     /* SemiBold */
     font-stretch: normal;
-    src: url('/fonts/Alibaba/woff2/Alibaba-Black.woff2') format('woff2'),
-        url('/fonts/Alibaba/woff/Alibaba-Black.woff') format('woff')
+    src:
+        url('/fonts/Alibaba/woff2/Alibaba-Black.woff2') format('woff2'),
+        url('/fonts/Alibaba/woff/Alibaba-Black.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: light;
+    font-weight: 300;
+    /* SemiBold */
+    font-stretch: normal;
+    src: url('/fonts/Roboto/Roboto_Condensed-Black.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: bold;
+    font-weight: 500;
+    /* SemiBold */
+    font-stretch: normal;
+    src: url('/fonts/Roboto/Roboto_Condensed-Bold.ttf') format('ttf');
 }

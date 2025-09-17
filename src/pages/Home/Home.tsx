@@ -14,7 +14,6 @@ import newsLight from '../../assets/images/newsLight.png';
 import campainLight from '../../assets/images/campaginLight.png';
 import analizLight from "../../assets/images/analizLight.png"
 import newsImg from '/src/assets/images/news.svg';
-import { useEffect, useState } from 'react';
 
 // import insuranceIcon from "../../assets/images/gold-insurance-icon.jpg";
 const rows = [
@@ -158,10 +157,10 @@ const Home = () => {
                             {isDark ? (
                                 <img alt="coin" src="/images/Hand, Arm, Coins.svg" />
                             ) : (
-                                <img src="/src/assets/images/coin-in-hand.jpg" alt="coin" />
+                                <img src="/images/coin-in-hand.jpg" alt="coin" />
                             )}{' '}
                             <Typography
-                                className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                className="!font-alibaba text-neutral-300 light:text-neutral-700 text-center"
                                 fontSize={10}
                             >
                                 {'خدمات بیمه'}
@@ -172,10 +171,10 @@ const Home = () => {
                                 {isDark ? (
                                     <img alt="" src="/images/moneybag-modern-coins.svg" />
                                 ) : (
-                                    <img alt="" src="/src/assets/images/moneybag.jpg" />
+                                    <img alt="" src="/images/moneybag.jpg" />
                                 )}
                                 <Typography
-                                    className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                    className="!font-alibaba text-neutral-300 light:text-neutral-700 text-center"
                                     fontSize={10}
                                 >
                                     {'مدیریت ثروت'}
@@ -186,11 +185,11 @@ const Home = () => {
                             {isDark ? (
                                 <img alt="" src="/images/coins-document-chart.svg" />
                             ) : (
-                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
+                                <img alt="" src="/images/coins-chart.jpg" />
                             )}
 
                             <Typography
-                                className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                className="!font-alibaba text-neutral-300 light:text-neutral-700 text-center"
                                 fontSize={10}
                             >
                                 {' خدمات اعتباری'}
@@ -199,13 +198,13 @@ const Home = () => {
                         <Link to="/products">
                             <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                                 {isDark ? (
-                                    <img alt="" src="/src/assets/images/insuranceGold.png" />
+                                    <img alt="" src="/images/coins-document-chart.svg" />
                                 ) : (
-                                    <img alt="" src="/src/assets/images/insuranceGoldLight.png" />
+                                    <img alt="" src="/src/assets/images/coins-chart.jpg" />
                                 )}
 
                                 <Typography
-                                    className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                    className="!font-alibaba text-neutral-300 light:text-neutral-700 text-center"
                                     fontSize={10}
                                 >
                                     {'کیمیا'}
@@ -215,28 +214,27 @@ const Home = () => {
 
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src="/src/assets/images/shoppingDark.png" />
+                                <img alt="" src="/images/coins-document-chart.svg" />
                             ) : (
-                                <img alt="" src="/src/assets/images/shopping.png" />
+                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
                             )}
 
                             <Typography
-                                className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                className="!font-alibaba text-neutral-300 light:text-neutral-700 text-center"
                                 fontSize={10}
                             >
                                 {'فروشگاه'}
                             </Typography>
                         </div>
-
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
                                 <img alt="" src="/images/coins-document-chart.svg" />
                             ) : (
-                                <img alt="" src="/src/assets/images/shopping.png" />
+                                <img alt="" src="/src/assets/images/coins-chart.jpg" />
                             )}
 
                             <Typography
-                                className="!font-alibaba text-neutral-300 light:text-neutral-700 light:font-bold text-center"
+                                className="!font-alibaba text-neutral-300 light:text-neutral-700  text-center"
                                 fontSize={10}
                             >
                                 {'سایر'}
@@ -245,11 +243,7 @@ const Home = () => {
 
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
-                                {isDark ? (
-                                    <img src={CampaignImg} alt="کمپین" />
-                                ) : (
-                                    <img src={campainLight} alt="کمپین" />
-                                )}
+                                <img src={CampaignImg} alt="کمپین" />
                             </div>
 
                             <Typography
@@ -261,11 +255,7 @@ const Home = () => {
                         </div>
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full">
-                                {isDark ? (
-                                    <img src={analizImg} alt="تحلیل بازار" />
-                                ) : (
-                                    <img src={analizLight} alt=" تحلیل" />
-                                )}
+                                <img src={analizImg} alt="تحلیل بازار" />
                             </div>
                             <Typography
                                 fontSize={10}
@@ -276,11 +266,7 @@ const Home = () => {
                         </div>
                         <div className="bg-primary-darker light:!bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
-                                {isDark ? (
-                                    <img src={newsImg} alt="اخبار" />
-                                ) : (
-                                    <img src={newsLight} alt="اخبار" />
-                                )}
+                                <img src={newsImg} alt="اخبار" />
                             </div>
                             <Typography
                                 fontSize={10}
