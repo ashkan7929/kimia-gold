@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ['class', 'html[data-theme="dark"]'],
+    darkMode: 'class',
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
@@ -214,7 +214,7 @@ export default {
                 peyda: ['Peyda', 'sans-serif'],
                 kalameh: ['Kalameh', 'sans-serif'],
                 alibaba: ['Alibaba', 'sans-serif'],
-                roboto: ['Roboto', 'sans-serif']
+                roboto: ['Roboto', 'sans-serif'],
             },
             animation: {
                 'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -241,7 +241,7 @@ export default {
     plugins: [
         require('tailwind-scrollbar-hide'),
         function ({ addVariant }) {
-            addVariant('light', 'html[data-theme="light"] &');
+             addVariant('light', 'html[data-theme="light"] &');
         },
     ],
 };

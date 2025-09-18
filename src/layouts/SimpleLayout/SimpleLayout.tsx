@@ -103,7 +103,7 @@ const SimpleLayout = ({
     headerImg?: string;
 }) => {
     const { theme } = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = theme === 'light';
     const [showMenu, setShowMenu] = useState(false);
 
     const navigate = useNavigate();
@@ -117,14 +117,14 @@ const SimpleLayout = ({
 
     return (
         <>
-            <div className="bg-black light:bg-primary-whiteSpecial min-h-screen p-4.5">
-                <header className="bg-primary-darker light:bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
+            <div className="dark:bg-black bg-primary-whiteSpecial min-h-screen p-4.5">
+                <header className="dark:bg-primary-darker bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
                     <div className="flex gap-1">
                         <div
                             onClick={handleShowMenu}
-                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer"
+                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer"
                         >
-                            <TbLayoutGrid fontSize={19} className="text-white light:text-black" />
+                            <TbLayoutGrid fontSize={19} className="dark:text-white text-black" />
                         </div>
                     </div>
                     <div className="flex justify-center items-center">
@@ -132,7 +132,7 @@ const SimpleLayout = ({
                             <img src={headerImg} alt="" className="h-6 object-contain" />
                         ) : (
                             <Typography
-                                className="!font-alibaba text-white light:text-black"
+                                className="!font-alibaba dark:text-white text-black"
                                 fontWeight="bold"
                                 fontSize={11}
                             >
@@ -143,11 +143,11 @@ const SimpleLayout = ({
                     <div className="flex justify-end">
                         <div
                             onClick={() => navigate(-1)}
-                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer"
+                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer"
                         >
                             <FaArrowLeftLong
                                 fontSize={13}
-                                className="text-white light:text-black"
+                                className="dark:text-white text-black"
                             />
                         </div>
                     </div>
@@ -194,27 +194,27 @@ const SimpleLayout = ({
                                 <div
                                     key={item.id}
                                     onClick={() => handleNavigate(item.link)}
-                                    className="bg-primary-darker light:bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
+                                    className="dark:bg-primary-darker bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
                                 >
-                                    <div className="bg-accent-orange light:bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
+                                    <div className="dark:bg-accent-orange bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
                                         <item.icon className="text-white" />
                                     </div>
                                     <div className="grow">
                                         <Typography
-                                            className="!font-alibaba text-text-color light:text-light-text-color"
+                                            className="!font-alibaba dark:text-text-color text-light-text-color"
                                             fontSize={13}
                                         >
                                             {item.title}
                                         </Typography>
                                         <Typography
-                                            className="!font-alibaba text-neutral-300 light:text-neutral-700 line-clamp-1"
+                                            className="!font-alibaba dark:text-neutral-300 text-neutral-700 line-clamp-1"
                                             fontSize={11}
                                         >
                                             {item.subtitle}
                                         </Typography>
                                     </div>
                                     <Link to='/'>
-                                          <FaChevronLeft className="text-text-color light:text-light-text-color" />
+                                          <FaChevronLeft className="dark:text-text-color text-light-text-color" />
 
                                     </Link>
                                 </div>

@@ -3,11 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-   --text-color: white; 
+    --text-color: white;
+    --text-color: black;
 }
 
-.light {
- --text-color: black; 
+.dark {
+    --text-color: white;
 }

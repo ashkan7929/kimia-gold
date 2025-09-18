@@ -4,7 +4,7 @@ import logoLightMode from "/images/vemLogoSite.png"
 
 const Loading = () => {
       const { theme } = useTheme();
-      const isDark = theme === 'dark';
+      const isDark = theme === 'light';
     return (
         <>
             <div className="w-full max-w-[375px] mx-auto bg-primary-purple min-h-screen flex flex-col">

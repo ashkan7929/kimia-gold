@@ -107,20 +107,20 @@ const Layout = ({ children }: { children: any }) => {
 
     return (
         <>
-            <div className="bg-black light:bg-primary-whiteSpecial min-h-screen p-4.5">
-                <header className="bg-primary-darker light:bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
+            <div className="dark:bg-gray-900 bg-primary-whiteSpecial min-h-screen p-4.5">
+                <header className="dark:bg-black bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
                     <div className="flex gap-1">
                         <div
                             onClick={handleShowMenu}
-                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer"
+                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer"
                         >
-                            <TbLayoutGrid fontSize={19} className="text-white light:text-black" />
+                            <TbLayoutGrid fontSize={19} className="dark:text-white text-black" />
                         </div>
                         <Link to={'/message-box'}>
-                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer">
+                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer">
                                 <IoNotificationsOutline
                                     fontSize={19}
-                                    className="text-white light:text-black"
+                                    className="dark:text-white text-black"
                                 />
                             </div>
                         </Link>
@@ -134,12 +134,12 @@ const Layout = ({ children }: { children: any }) => {
                     </div>
                     <div className="flex justify-end items-center gap-2">
                         <button onClick={toggleTheme} className="-ml-2 p-2 bg-secondary rounded">
-                            {isDark ? <FiSun className='text-white light:text-black' size={18} /> : <BiSolidMoon className='text-white light:text-black' size={18} />  }
+                            {isDark ? <FiSun className='dark:text-white text-black' size={18} /> : <BiSolidMoon className='dark:text-white text-black' size={18} />  }
                         </button>
 
                         <Link to={'/profile'}>
-                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer">
-                                <PiUsersThreeBold fontSize={19} className="text-white light:text-black" />
+                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer">
+                                <PiUsersThreeBold fontSize={19} className="dark:text-white text-black" />
                             </div>
                         </Link>
                     </div>
@@ -196,27 +196,27 @@ const Layout = ({ children }: { children: any }) => {
                                             handleNavigate(item.link);
                                         }
                                     }}
-                                    className="bg-primary-darker light:bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
+                                    className="dark:bg-primary-darker bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
                                 >
-                                    <div className="bg-accent-orange light:bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
+                                    <div className="dark:bg-accent-orange bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
                                         <item.icon className="text-text-color " />
                                     </div>
                                     <div className="grow">
                                         <Typography
-                                            className="!font-alibaba text-text-color light:text-light-text-color"
+                                            className="!font-alibaba dark:text-text-color text-light-text-color"
                                             fontSize={12}
                                         >
                                             {item.title}
                                         </Typography>
                                         <Typography
-                                            className="!font-alibaba text-neutral-300 light:text-neutral-700 line-clamp-1"
+                                            className="!font-alibaba dark:text-neutral-300 text-neutral-700 line-clamp-1"
                                             fontSize={10}
                                         >
                                             {item.subtitle}
                                         </Typography>
                                     </div>
                                     <Link to="/">
-                                        <FaChevronLeft className="text-text-color light:text-light-text-color" />
+                                        <FaChevronLeft className="dark:text-text-color text-light-text-color" />
                                     </Link>
                                 </div>
                             ))}

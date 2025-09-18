@@ -26,7 +26,7 @@ const Buy = () => {
   const [weight, setWeight] = useState<number | ''>('');
   const [goldPrice] = useState<number>(7496400);
   const { theme } = useTheme();
-  const isDark = theme === 'dark';
+  const isDark = theme === 'light';
   const gramOptions = Array.from({ length: 10 }, (_, i) => ({
     value: i + 1,
     label: `مقدار ${i + 1} گرم`,

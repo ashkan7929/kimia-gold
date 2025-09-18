@@ -17,7 +17,10 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((names) =>
-      Promise.all(names.map((n) => n !== CACHE_NAME && caches.delete(n)))
+      Promise.all(
+        names.filter((name) => name !== CACHE_NAME)
+             .map((name) => caches.delete(name))
+      )
     )
   );
   self.clients.claim();
@@ -30,9 +33,9 @@ self.addEventListener("fetch", (event) => {
 
   if (req.mode === "navigate") {
     event.respondWith(
-      caches.match("/index.html")
-        .then((cached) => cached || fetch(req))
-        .catch(() => caches.match("/index.html"))
+      caches.match("/index.html").then((cached) => {
+        return cached || fetch(req).catch(() => caches.match("/index.html"));
+      })
     );
     return;
   }
@@ -42,10 +45,18 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
 
   event.respondWith(
-    caches.match(req)
-      .then((cached) => cached || fetch(req))
-      .catch(() => {
-        return new Response("Offline", { status: 503, statusText: "Offline" });
-      })
+    caches.match(req).then((cached) => {
+      if (cached) {
+        return cached;
+      }
+      return fetch(req).then((response) => {
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(req, response.clone());
+          return response;
+        });
+      });
+    }).catch(() => {
+      return new Response("Offline", { status: 503, statusText: "Offline" });
+    })
   );
 });

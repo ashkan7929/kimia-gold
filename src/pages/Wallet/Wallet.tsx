@@ -32,7 +32,7 @@ const tabInfo = [
 
 const Wallet = () => {
     const { theme } = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = theme === 'light';
     const { user, isAuthenticated } = useAuth();
     const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
     const [showWithdrawModal, setShowWithdrawModal] = useState<boolean>(false);
@@ -222,8 +222,8 @@ const Wallet = () => {
                                             key={wallet.id || index} 
                                             className={`min-w-[300px] max-w-[300px] cursor-pointer transition-all duration-300 ${
                                                 isSelected 
-                                                    ? 'bg-primary-blue light:bg-light-primary-darker scale-105 shadow-lg' 
-                                                    : 'bg-primary-darker light:bg-light-primary-light hover:bg-primary-blue light:hover:bg-light-primary-darker'
+                                                    ? 'dark:bg-primary-blue bg-light-primary-darker scale-105 shadow-lg' 
+                                                    : 'dark:bg-primary-darker bg-light-primary-light dark:hover:bg-primary-blue hover:bg-light-primary-darker'
                                             } flex p-4 rounded-lg`}
                                             style={{ scrollSnapAlign: 'center' }}
                                             onClick={() => {
@@ -242,7 +242,7 @@ const Wallet = () => {
                                                                 height={34}
                                                             />
                                                             <Typography
-                                                                className="!font-peyda text-text-color light:text-light-text-color"
+                                                                className="!font-peyda dark:text-text-color text-light-text-color"
                                                                 fontWeight={600}
                                                                 fontSize={11}
                                                             >
@@ -251,7 +251,7 @@ const Wallet = () => {
                                                         </div>
                                                         <div className="flex gap-1 items-center">
                                                             <Typography
-                                                                className="!font-peyda text-text-color light:text-light-text-color"
+                                                                className="!font-peyda dark:text-text-color text-light-text-color"
                                                                 fontWeight="bold"
                                                                 fontSize={24}
                                                             >
@@ -281,11 +281,11 @@ const Wallet = () => {
                                                             e.stopPropagation();
                                                             handleShowDepositModal();
                                                         }}
-                                                        className="bg-accent-orange group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
+                                                        className="dark:bg-accent-orange group bg-primary-whiteSpecial dark:text-text-color text-light-text-color hover:bg-primary-blue hover:dark:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
                                                     >
                                                         {'افزایش موجودی'}
                                                         <GoArrowUpRight
-                                                            className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
+                                                            className="dark:text-text-color text-light-text-color group-hover:text-text-color"
                                                             fontSize={15}
                                                         />
                                                     </button>
@@ -294,11 +294,11 @@ const Wallet = () => {
                                                             e.stopPropagation();
                                                             handleShowWithdrawModal();
                                                         }}
-                                                        className="bg-primary-dark group light:bg-primary-whiteSpecial text-text-color light:text-light-text-color light:hover:bg-primary-blue hover:light:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
+                                                        className="dark:bg-primary-dark group bg-primary-whiteSpecial dark:text-text-color text-light-text-color hover:bg-primary-blue hover:dark:text-text-color text-[10px] font-peyda px-2 py-1.5 rounded-md flex items-center justify-center gap-0.5"
                                                     >
                                                         {'برداشت موجودی'}
                                                         <GoArrowDownLeft
-                                                            className="text-text-color light:text-light-text-color light:group-hover:text-text-color"
+                                                            className="dark:text-text-color text-light-text-color group-hover:text-text-color"
                                                             fontSize={15}
                                                         />
                                                     </button>
@@ -314,7 +314,7 @@ const Wallet = () => {
                         {selectedWallet && (
                             <div className="mt-4 text-center">
                                 <Typography
-                                    className="!font-peyda text-text-color light:text-light-text-color"
+                                    className="!font-peyda dark:text-text-color text-light-text-color"
                                     fontSize={12}
                                     fontWeight={500}
                                 >
@@ -327,7 +327,7 @@ const Wallet = () => {
 
                 {/* Transactions Section - Only show when wallet is selected */}
                 {selectedWallet && (
-                    <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg">
+                    <div className="dark:bg-primary-darker bg-light-primary-darker rounded-lg">
                         <div className="p-2">
                             <nav className="w-full">
                                 <div className="grid grid-cols-3 gap-12 w-full">
@@ -348,7 +348,7 @@ const Wallet = () => {
                                                     className={`!font-kalameh text-nowrap font-semibold ${
                                                         isSelected
                                                             ? '!text-white'
-                                                            : ' text-text-color light:text-light-text-color'
+                                                            : ' dark:text-text-color text-light-text-color'
                                                     }`}
                                                     fontSize={9}
                                                 >
@@ -390,12 +390,12 @@ const Wallet = () => {
                                     .map((transaction, index) => (
                                         <div
                                             key={index}
-                                            className="bg-primary-light light:bg-light-primary-light p-3 rounded-lg"
+                                            className="dark:bg-primary-light bg-light-primary-light p-3 rounded-lg"
                                         >
                                             <div className="flex justify-between items-start">
                                                 <div>
                                                     <Typography
-                                                         className="!font-peyda text-text-color light:text-light-text-color"
+                                                         className="!font-peyda dark:text-text-color text-light-text-color"
                                                          fontWeight={600}
                                                          fontSize={12}
                                                      >
@@ -478,11 +478,11 @@ const Wallet = () => {
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
-                        <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
+                        <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-primary-blue text-text-color font-peyda text-center rounded-md">
                             1
                         </div>
                         <Typography
-                            className="!font-peyda text-text-color light:text-light-text-color"
+                            className="!font-peyda dark:text-text-color text-light-text-color"
                             fontWeight={600}
                             fontSize={13}
                         >
@@ -498,7 +498,7 @@ const Wallet = () => {
                             value={depositAmount}
                             onChange={e => setDepositAmount(e.target.value)}
                             pattern="[0-9۰-۹٠-٩,٬]*"
-                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default light:border-custom-gray rounded-lg text-white light:text-black font-kalameh text-xs placeholder-custom-gray  focus:outline-none focus:border-primary-blue"
+                            className="w-full p-3 pl-12 bg-transparent border dark:border-custom-border-default border-custom-gray rounded-lg dark:text-white text-black font-kalameh text-xs placeholder-custom-gray  focus:outline-none dark:focus:border-primary-blue"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
@@ -508,7 +508,7 @@ const Wallet = () => {
                                 key={v}
                                 type="button"
                                 onClick={() => setDepositAmount(v)}
-                                className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
+                                className="p-1 dark:bg-primary-lighter/50 bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:dark:border-primary-blue"
                             >
                                 {v}
                             </button>
@@ -516,11 +516,11 @@ const Wallet = () => {
                     </div>
                     <div className="flex justify-between items-center">
                         <div className="flex gap-1 items-center">
-                            <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
+                            <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-primary-blue text-text-color font-peyda text-center rounded-md">
                                 2
                             </div>
                             <Typography
-                                className="!font-peyda text-text-color light:text-light-text-color "
+                                className="!font-peyda dark:text-text-color text-light-text-color "
                                 fontWeight={600}
                                 fontSize={13}
                             >
@@ -529,7 +529,7 @@ const Wallet = () => {
                         </div>
                         <div
                             onClick={handleShowNewCardModal}
-                            className="flex gap-1 text-white bg-primary-light light:bg-primary-blue rounded-md px-3 py-1.5"
+                            className="flex gap-1 text-white dark:bg-primary-light bg-primary-blue rounded-md px-3 py-1.5"
                         >
                             <MdAddCard fontSize={12} />
                             <Typography className="!font-peyda text-white" fontSize={9}>
@@ -662,11 +662,11 @@ const Wallet = () => {
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
-                        <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
+                        <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-primary-blue text-text-color dark:text-light-text-color font-peyda text-center rounded-md">
                             1
                         </div>
                         <Typography
-                            className="!font-peyda text-text-color light:text-light-text-color"
+                            className="!font-peyda dark:text-text-color text-light-text-color"
                             fontWeight={600}
                             fontSize={13}
                         >
@@ -681,7 +681,7 @@ const Wallet = () => {
                             type="text"
                             value={withdrawAmount}
                             onChange={e => setWithdrawAmount(e.target.value)}
-                            className="w-full p-3 pl-12 bg-transparent  border border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:outline-none focus:border-primary-blue light:border-custom-gray"
+                            className="w-full p-3 pl-12 bg-transparent  border dark:border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:outline-none focus:dark:border-primary-blue border-custom-gray"
                             placeholder="مبلغ برداشتی را به تومان وارد نمایید"
                         />
                     </div>
@@ -691,7 +691,7 @@ const Wallet = () => {
                                 key={v}
                                 type="button"
                                 onClick={() => setWithdrawAmount(v)}
-                                className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
+                                className="p-1 dark:bg-primary-lighter/50 bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:dark:border-primary-blue"
                             >
                                 {v}
                             </button>
@@ -699,11 +699,11 @@ const Wallet = () => {
                     </div>
                     <div className="flex justify-between items-center">
                         <div className="flex gap-1 items-center">
-                            <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
+                            <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-primary-blue text-text-color font-peyda text-center rounded-md">
                                 2
                             </div>
                             <Typography
-                                className="!font-peyda text-text-color light:text-light-text-color"
+                                className="!font-peyda dark:text-text-color text-light-text-color"
                                 fontWeight={600}
                                 fontSize={13}
                             >
@@ -712,17 +712,17 @@ const Wallet = () => {
                         </div>
                         <div
                             onClick={handleShowNewCardModal}
-                            className="flex gap-1 text-white bg-primary-light light:bg-primary-blue rounded-md px-3 py-1.5"
+                            className="flex gap-1 dark:text-white dark:bg-primary-light bg-primary-blue rounded-md px-3 py-1.5"
                         >
                             <MdAddCard fontSize={12} />
-                            <Typography className="!font-peyda text-white" fontSize={9}>
+                            <Typography className="!font-peyda dark:text-white light:text-light-text-color" fontSize={9}>
                                 {'افزودن کارت'}
                             </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
+                    <select className="!font-peyda w-full bg-transparent bg-white border dark:border-custom-border-light border-custom-gray text-xs rounded-lg px-4 py-3 dark:text-white text-light-text-color focus:outline-none focus:ring-2 dark:focus:ring-primary-darker + focus:ring-primary-whiteSpecial focus:border-transparent">
                         <option value={1}>
-                            <div className="w-7.5 h-7.5 flex-shrink-0 !font-peyda light:text-black">
+                            <div className="w-7.5 h-7.5 flex-shrink-0 !font-peyda text-black dark:text-light-text-color">
                                 <img
                                     src="/images/banks/ansar bank.png"
                                     alt=""
@@ -754,11 +754,11 @@ const Wallet = () => {
             >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-1 items-center">
-                        <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
+                        <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-primary-blue text-text-color font-peyda text-center rounded-md">
                             1
                         </div>
                         <Typography
-                            className="!font-peyda text-text-color light:text-light-text-color"
+                            className="!font-peyda text-text-color dark:text-light-text-color"
                             fontWeight={600}
                             fontSize={13}
                         >
@@ -773,7 +773,7 @@ const Wallet = () => {
                             type="text"
                             value={transferAmount}
                             onChange={e => setTransferAmount(e.target.value)}
-                            className="w-full p-3 pl-12 bg-transparent border border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:border-primary-blue light:border-custom-gray px-4 py-3 light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial"
+                            className="w-full p-3 pl-12 bg-transparent border dark:border-custom-border-default rounded-lg text-white font-kalameh text-xs placeholder-custom-gray focus:border-primary-blue light:border-custom-gray px-4 py-3 light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial"
                             placeholder="مبلغ انتقالی به تومان را وارد نمایید"
                         />
                     </div>
@@ -783,7 +783,7 @@ const Wallet = () => {
                                 key={v}
                                 type="button"
                                 onClick={() => setTransferAmount(v)}
-                                className="p-1 bg-primary-lighter/50 light:bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
+                                className="p-1 dark:bg-primary-lighter/50 bg-primary-lighter/10 rounded-xl text-custom-gray font-peyda text-xs hover:border-primary-blue"
                             >
                                 {v}
                             </button>
@@ -791,11 +791,11 @@ const Wallet = () => {
                     </div>
                     <div className="flex justify-between items-center">
                         <div className="flex gap-1 items-center">
-                            <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
+                            <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-primary-blue text-text-color font-peyda text-center rounded-md">
                                 2
                             </div>
                             <Typography
-                                className="!font-peyda text-text-color light:text-light-text-color"
+                                className="!font-peyda dark:text-text-color text-light-text-color"
                                 fontWeight={600}
                                 fontSize={13}
                             >
@@ -804,15 +804,15 @@ const Wallet = () => {
                         </div>
                         <div
                             onClick={handleShowNewCardModal}
-                            className="flex gap-1 text-white bg-primary-light light:bg-primary-blue rounded-md px-3 py-1.5"
+                            className="flex gap-1 text-white dark:bg-primary-light bg-primary-blue rounded-md px-3 py-1.5"
                         >
                             <MdAddCard fontSize={12} />
-                            <Typography className="!font-peyda text-white" fontSize={9}>
+                            <Typography className="!font-peyda dark:text-white text-light-text-color" fontSize={9}>
                                 {'افزودن کارت'}
                             </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
+                    <select className="!font-peyda w-full bg-transparent bg-white border dark:border-custom-border-light border-custom-gray text-xs rounded-lg px-4 py-3 dark:text-white text-light-text-color focus:outline-none focus:ring-2 focus:dark:ring-primary-darker + focus:ring-primary-whiteSpecial focus:border-transparent">
                         <option value={1}>
                             <div className="w-7.5 h-7.5 flex-shrink-0">
                                 <img
@@ -831,18 +831,18 @@ const Wallet = () => {
                                     className="w-full h-full object-contain"
                                 />
                             </div>
-                            <p className="font-peyda text-text-color light:text-light-text-color">
+                            <p className="font-peyda dark:text-text-color text-light-text-color">
                                 6219-8619-0943-6789
                             </p>
                         </option>
                     </select>
                     <div className="flex justify-between items-center">
                         <div className="flex gap-1 items-center">
-                            <div className="w-5 h-5 bg-primary-lighter/50 light:bg-primary-blue light:text-text-color font-peyda text-center rounded-md">
+                            <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-primary-blue text-text-color font-peyda text-center rounded-md">
                                 3
                             </div>
                             <Typography
-                                className="!font-peyda text-text-color light:text-light-text-color"
+                                className="!font-peyda dark:text-text-color text-light-text-color"
                                 fontWeight={600}
                                 fontSize={13}
                             >
@@ -850,9 +850,9 @@ const Wallet = () => {
                             </Typography>
                         </div>
                     </div>
-                    <select className="!font-peyda w-full bg-transparent light:bg-white border border-custom-border-light light:border-custom-gray text-xs rounded-lg px-4 py-3 text-white light:text-light-text-color focus:outline-none focus:ring-2 focus:ring-primary-darker + light:focus:ring-primary-whiteSpecial focus:border-transparent">
+                    <select className="!font-peyda w-full bg-transparent bg-white border dark:border-custom-border-light border-custom-gray text-xs rounded-lg px-4 py-3 dark:text-white text-light-text-color focus:outline-none focus:ring-2 dark:focus:ring-primary-darker +focus:ring-primary-whiteSpecial focus:border-transparent">
                         <option value={1}>
-                            <div className="w-7.5 h-7.5 flex-shrink-0 !font-peyda light:text-black">
+                            <div className="w-7.5 h-7.5 flex-shrink-0 !font-peyda dark:text-black text-white">
                                 <img
                                     src="/images/banks/ansar bank.png"
                                     alt=""

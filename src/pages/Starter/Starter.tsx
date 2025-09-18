@@ -16,7 +16,7 @@ const Starter = () => {
     const { t } = useTranslation();
     const [step, setStep] = useState(StepsEnum.one);
     const { theme } = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = theme === 'light';
     if (step == StepsEnum.login) {
         localStorage.setItem('new-user', 'false');
     }

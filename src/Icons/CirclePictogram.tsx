@@ -2,10 +2,10 @@ import clsx from 'clsx';
 
 type CirclePictogramProps = {
     isDark: boolean;
-    srcDark: string; // تصویر دارک (مثلاً svg)
-    srcLight: string; // تصویر لایت
-    size?: number; // اندازه‌ی خود آیکن (px)
-    className?: string; // کلاس‌های اضافه برای دایره
+    srcDark: string; 
+    srcLight: string;
+    size?: number; 
+    className?: string; 
 };
 
 export function CirclePictogram({
@@ -20,7 +20,7 @@ export function CirclePictogram({
         <div
             className={clsx(
                 'w-8.5 h-8.5 grid place-items-center rounded-full',
-                'bg-accent-orange light:bg-primary-blue',
+                'dark:bg-accent-orange bg-primary-blue',
                 className,
             )}
             aria-hidden

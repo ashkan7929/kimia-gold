@@ -5,7 +5,7 @@ import { useTheme } from "../contexts/ThemeContext";
 
 const MessageBox = () => {
       const { theme } = useTheme();
-      const isDark = theme === 'dark';
+      const isDark = theme === 'light';
     const toggleMenu = () => {
         // Menu toggle logic here
     };
@@ -68,7 +68,7 @@ const MessageBox = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="text-white text-lg font-semibold">صندوق پیام ها</div>
+                            <div className="dark:text-white text-light-text-color  text-lg font-semibold">صندوق پیام‌ها</div>
                         </div>
                         <div>
                             <div>
@@ -97,7 +97,7 @@ const MessageBox = () => {
                     <div className="container mx-auto px-4 flex flex-col gap-3 mb-3">
                         <div className="bg-blue-900 rounded-lg shadow-lg border border-blue-800">
                             <div className="p-6 flex flex-col gap-4">
-                                <div className="text-white text-xl font-bold">مدیریت پیام ها</div>
+                                <div className="text-white text-xl font-bold">مدیریت پیام‌ها</div>
                                 <ul className="space-y-0">
                                     <li className="flex items-center gap-3 py-3 border-b border-blue-800 last:border-b-0">
                                         <div className="w-3 h-3 rounded-full bg-green-400" />

@@ -1,12 +1,13 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from './stores/auth.store';
 import AppRoutes from './AppRoutes';
 import Starter from './pages/Starter/Starter';
 
 function App() {
-    const hasLogedInBefore = localStorage.getItem('new-user');
+    // const hasLogedInBefore = localStorage.getItem('new-user');
     const { setToken, setUser } = useAuth();
+    const [newUser, setNewUser] = useState<boolean | null>(null);
     useEffect(() => {
         const isFirstVisit = localStorage.getItem('first-visit');
         if (!isFirstVisit) {
@@ -39,11 +40,23 @@ function App() {
                 localStorage.removeItem('user_data');
             }
         }
+        const hasLogedInBefore = localStorage.getItem('new-user');
+        if (hasLogedInBefore === 'done') {
+            setNewUser(false);
+        } else {
+            setNewUser(true);
+        }
     }, [setToken, setUser]);
 
+    const onFinish = () => {
+        localStorage.setItem('new-user', 'done');
+        setNewUser(false);
+    };
+
+    if (newUser === null) return null;
     return (
         <Router>
-            {!hasLogedInBefore && <Starter />}
+            {!newUser && <Starter onFinish={onFinish} />}
             <div className="App">
                 <AppRoutes />
             </div>

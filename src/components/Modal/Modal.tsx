@@ -27,7 +27,7 @@ export default function Modal({
     confirmText,
 }: IModal) {
     const { theme } = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = theme === 'light';
     return (
         <>
             {/* <ThemeProvider theme={createTheme({ colorSchemes: { dark: true } })} defaultMode={"dark"}> */}
@@ -87,7 +87,7 @@ export default function Modal({
                 {confirmText && (
                     <DialogActions sx={{ px: 3, pb: 3 }}>
                         <Button
-                            className="px-4 w-full text-xs text-white bg-accent-orange light:bg-primary-blue"
+                            className="px-4 w-full text-xs text-white dark:bg-accent-orange bg-primary-blue"
                             onClick={handleSubmit}
                         >
                             {confirmText}

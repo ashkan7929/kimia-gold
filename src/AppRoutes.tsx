@@ -46,7 +46,7 @@ const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 // App Routes Component
 const AppRoutes: React.FC = () => {
     const theme = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = theme === 'light';
     return (
         <Routes>
             {/* Auth Routes */}
@@ -132,7 +132,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <Products />
                     </SimpleLayout>
                 }
@@ -140,7 +140,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products/:id"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <ProductDetailCard />
                     </SimpleLayout>
                 }
@@ -148,7 +148,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products/:id/card"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <ProductDetail />
                     </SimpleLayout>
                 }
@@ -157,7 +157,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/paymentInsurance"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <PaymentInsurance />
                     </SimpleLayout>
                 }
@@ -165,7 +165,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/productTransaction"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <ProductTransaction />
                     </SimpleLayout>
                 }
