@@ -3,34 +3,30 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaArrowLeftLong, LuMoveRight } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
-// اگر TS ارور می‌دهد، در tsconfig گزینه resolveJsonModule را true کن
 import packageJson from '../../../package.json';
 
-const StepsEnum = {
-  one: 0,
-  two: 1,
-  login: 2,
-} as const;
+const StepsEnum = { one: 0, two: 1, login: 2 } as const;
 
-const Starter = () => {
+type StarterProps = {
+  onFinish?: () => void;
+};
+
+const Starter: React.FC<StarterProps> = ({ onFinish }) => {
   const { t } = useTranslation();
   const [step, setStep] = useState<number>(StepsEnum.one);
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
-  // ✅ Side-effect را از رندر خارج کردیم
   useEffect(() => {
     if (step === StepsEnum.login) {
-      localStorage.setItem('new-user', 'false');
+      onFinish?.(); // فقط به والد خبر بده
     }
-  }, [step]);
+  }, [step, onFinish]);
 
-  const hidden = step === StepsEnum.login;
+  const hidden = step === StepsEnum.login; // والد به‌زودی آن‌مونت می‌کند، ولی داشتنش ضرر ندارد.
 
   return (
-    <div
-      className={`${hidden ? 'hidden' : 'flex'} absolute z-10 bg-primary-darker light:bg-light-primary-darker h-screen flex-col justify-center items-center p-6 pt-0`}
-    >
+    <div className={`${hidden ? 'hidden' : 'flex'} absolute z-10 bg-primary-darker light:bg-light-primary-darker h-screen flex-col justify-center items-center p-6 pt-0`}>
       {step === StepsEnum.one && (
         <>
           <div className="flex flex-col items-center justify-center h-full !pt-0">
@@ -68,7 +64,6 @@ const Starter = () => {
               <button
                 type="button"
                 className="border-2 border-primary-lighter rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
-                // این دکمه در Step one منطقی نیست کاری انجام بده، اگر لازم نیست بگذار disabled یا حذفش کن
                 disabled
               >
                 <FaArrowLeftLong className="text-white" />
@@ -109,7 +104,7 @@ const Starter = () => {
               <div className="bg-neutral-400 h-1 rounded-lg"></div>
             </div>
 
-            <div className="flex gap-3">
+          <div className="flex gap-3">
               <button
                 type="button"
                 onClick={() => setStep(StepsEnum.login)}

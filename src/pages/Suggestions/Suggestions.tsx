@@ -37,7 +37,6 @@ const Suggestions = () => {
               </label>
               <div className="relative">
                 <TextField
-                  id="fullName"
                   mobileIcon={<IoMdPerson />}
                   className="w-full"
                   placeholder="نام و نام خانوادگی خود را وارد کنید"
