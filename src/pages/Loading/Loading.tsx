@@ -1,12 +1,12 @@
 import { useTheme } from "../../contexts/ThemeContext";
-import logoDarkMode from "/images/vemLogo1.png"
+import logoDarkMode from "/images/logo/vemLogoDark.png"
 import logoLightMode from "/images/vemLogoSite.png"
 const Loading = () => {
         const { theme } = useTheme();
         const isDark = theme === 'light';
     return (
         <>
-            <div className="w-full mx-auto bg-primary-purple light:bg-white min-h-screen flex flex-col h-full">
+            <div className="w-full mx-auto bg-black light:bg-white min-h-screen flex flex-col h-full">
                 <main
                     className="flex-grow flex items-center justify-center h-full"
                     style={{

@@ -117,8 +117,8 @@ const SimpleLayout = ({
 
     return (
         <>
-            <div className="dark:bg-black bg-primary-whiteSpecial min-h-screen p-4.5">
-                <header className="dark:bg-primary-darker bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
+            <div className="dark:bg-gray-900 bg-primary-whiteSpecial min-h-screen p-4.5">
+                <header className="dark:bg-black bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
                     <div className="flex gap-1">
                         <div
                             onClick={handleShowMenu}

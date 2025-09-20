@@ -7,7 +7,7 @@ const BottomNav = () => {
 	
   return (
 	    <div className='fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[410px] z-50'>
-                <div className='grid grid-cols-3 dark:bg-gray-900 bg-white rounded-3xl'>
+                <div className='grid grid-cols-3 dark:bg-gray-800 bg-white rounded-3xl'>
                     <div className='w-full flex justify-center items-center'>
                         <div onClick={() => navigate('/home')} className='flex flex-col justify-center items-center w-fit cursor-pointer p-2 gap-1.5'>
                             <HiOutlineHome className='dark:text-white text-black' fontSize={20} />

@@ -19,7 +19,7 @@ const PasswordInput = forwardRef<HTMLInputElement, TextFieldProps>(
                         disabled={disabled}
                         onChange={onChange}
                         type={visible ? 'text' : 'password'}
-                        className="text-sm w-full h-10 pr-10 pl-10 dark:bg-custom-bg-input dark:text-text-color  bg-gray-100 border-custom-gray rounded-lg text-light-text-color font-peyda placeholder-custom-text-secondary  dark:focus:outline-none dark:focus:border-primary-blue focus:border-light-text-color"
+                        className="text-sm w-full h-10 pr-10 pl-10 dark:bg-gray-900 dark:text-text-color  bg-gray-100 border-custom-gray rounded-lg text-light-text-color font-peyda placeholder-custom-text-secondary  dark:focus:outline-none dark:focus:border-primary-blue focus:border-light-text-color"
                         placeholder={placeholder}
                         {...rest}
                     />

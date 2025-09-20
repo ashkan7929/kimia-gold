@@ -7,7 +7,7 @@ const Invite = () => {
             <main className="flex-1 bg-[url('../images/main-lines-pattern.png')] bg-cover bg-center">
                 <div className="flex flex-col gap-3 mb-3">
                     <section className="invite">
-                        <div className="bg-custom-bg-card light:bg-light-primary-darker rounded-lg">
+                        <div className="dark:bg-black bg-light-primary-darker rounded-lg">
                             <div className="p-4 flex flex-col items-center gap-2">
                                 <div className="text-center">
                                     <svg
@@ -1269,7 +1269,7 @@ const Invite = () => {
                                     دعوت از دوستان
                                 </Typography>
                                 <Typography
-                                    className="!font-peyda text-neutral-400 light:text-neutral-600 pb-2 text-right"
+                                    className="!font-peyda dark:text-neutral-400 text-neutral-600 pb-2 text-right"
                                     fontSize={12}
                                 >
                                     با دعوت از دوستانتان می‌توانید در خرید بعدی طلا خود را بدون کارمزد
@@ -1277,30 +1277,30 @@ const Invite = () => {
                                 </Typography>
                                 <div className="pb-3 w-full">
                                     <Typography
-                                        className="!font-peyda text-white light:text-light-text-color pb-2"
+                                        className="!font-peyda dark:text-white text-light-text-color pb-2"
                                         fontWeight="bold"
                                         fontSize={10}
                                     >
                                         کد دعوت
                                     </Typography>
-                                    <div className="flex gap-2 relative border border-custom-border-light light:border-custom-gray rounded-xsm">
+                                    <div className="flex gap-2 relative border dark:border-custom-border-light border-custom-gray rounded-xsm">
                                         <input
                                             type="text"
                                             className="form-control flex-1 ps-5 bg-transparent focus:outline-0 text-white font-peyda text-xs"
                                             placeholder="کد دعوت را وارد نمایید"
                                         />
-                                        <button className="px-2 py-2.5 font-semibold text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-[#010048] light:bg-primary-blue border-[#010048] text-white flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
-                                            <MdOutlineCopyAll fontSize={22} />
+                                        <button className="px-2 py-2.5 font-semibold text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg dark:bg-black bg-primary-blue border-[#010048] text-white flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
+                                            <MdOutlineCopyAll fontSize={22}  />
                                         </button>
                                     </div>
                                 </div>
-                                <Typography className="!font-peyda text-white  light:text-neutral-600 w-full" fontSize={12}>
+                                <Typography className="!font-peyda dark:text-white  text-neutral-600 w-full" fontSize={12}>
                                     با استقاده از کد زیر یا به اشتراک گذاری آن با دوستانتان می‌توانید
                                     با ثبت نام آن ها تخفیف دریافت کنید
                                 </Typography>
                                 <div className="social-label"></div>
                                 <Typography
-                                    className="!font-peyda text-neutral-300 light:text-neutral-700 w-full"
+                                    className="!font-peyda dark:text-neutral-300 text-neutral-700 w-full"
                                     fontWeight="medium"
                                     fontSize={14}
                                 >
@@ -1309,33 +1309,33 @@ const Invite = () => {
                                 <div className="flex gap-3 w-full">
                                     <div className="item">
                                         <a href="#">
-                                            <PiTelegramLogo className='h-5 w-5 text-text-color light:text-neutral-600 '/>
+                                            <PiTelegramLogo className='h-5 w-5 dark:dark:text-text-color text-neutral-600 '/>
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <FaWhatsapp className="h-5 w-5 text-text-color light:text-neutral-600 " />
+                                            <FaWhatsapp className="h-5 w-5 dark:text-text-color text-neutral-600 " />
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <TbBrandLinkedin className="h-5 w-5 text-text-color light:text-neutral-600 " />
+                                            <TbBrandLinkedin className="h-5 w-5 dark:text-text-color text-neutral-600 " />
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <FaInstagram className="h-5 w-5 text-text-color light:text-neutral-600 " />
+                                            <FaInstagram className="h-5 w-5 dark:text-text-color text-neutral-600 " />
                                         </a>
                                     </div>
                                     <div className="item">
                                         <a href="#">
-                                            <FaTwitter className="h-5 w-5 text-text-color light:text-neutral-600 " />
+                                            <FaTwitter className="h-5 w-5 dark:text-text-color text-neutral-600 " />
                                         </a>
                                     </div>
-                                    <div className="border border-primary-lighter light:border-custom-gray"></div>
+                                    <div className="border dark:border-primary-lighter border-custom-gray"></div>
                                     <div className="item">
                                         <a href="#">
-                                            <IoIosLink className="h-5 w-5 text-text-color light:text-neutral-600 "/>
+                                            <IoIosLink className="h-5 w-5 dark:text-text-color text-neutral-600 "/>
                                         </a>
                                     </div>
                                 </div>
