@@ -46,18 +46,19 @@ const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 // App Routes Component
 const AppRoutes: React.FC = () => {
     const theme = useTheme();
-    const isDark = theme === 'light';
+    const isDark = theme === 'dark';
     return (
         <Routes>
+            <Route path="/auth" element={<Navigate to="/auth/unified" replace />} />
             {/* Auth Routes */}
-            <Route
-                path="/auth"
+            {/* <Route
+                path=""
                 element={
                     <PublicRoute>
                         <MobilePage />
                     </PublicRoute>
                 }
-            />
+            /> */}
             {/* <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} /> */}
             <Route
                 path="/auth/otp"

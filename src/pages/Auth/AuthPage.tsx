@@ -102,7 +102,6 @@ const AuthPage: React.FC = () => {
 
     const { mobileNumber: m } = mobileForm.getValues();
 
-    // جایگزینی فوری UI
     setMobileNumber(m);
     setCurrentStep(method === 'password' ? 'password' : 'otp');
 
@@ -120,10 +119,8 @@ const AuthPage: React.FC = () => {
 
       if (method === 'password') {
         if (status.hasPassword) {
-          // همان password باقی بماند
           return;
         }
-        // پسورد ندارد → OTP
         await sendOtp(m, 'login');
         setCurrentStep('otp');
         setLoginMethod('otp');
@@ -135,7 +132,6 @@ const AuthPage: React.FC = () => {
       }
     } catch (err: any) {
       setError(err?.message || 'خطایی رخ داده است. لطفاً دوباره تلاش کنید.');
-      // برگشت به موبایل در صورت خطا
       setCurrentStep('mobile');
       setLoginMethod(null);
     } finally {

@@ -219,8 +219,8 @@ const Transactions = () => {
                                             }
                                             className={`w-full text-right px-4 py-3 rounded-xl border text-xs ${
                                                 filter.status === item
-                                                    ? 'bg-primary-blue border-transparent text-light-text-color light:!text-text-color'
-                                                    : 'dark:bg-white/5 dark:border-white/10 bg-primary-blue border-custom-gray text-text-color'
+                                                    ? 'bg-primary-blue border-transparent dark:text-light-text-color !text-text-color'
+                                                    : ' dark:border-white/10 bg-none border-custom-gray dark:text-text-color text-light-text-color '
                                             }`}
                                         >
                                             {item === 'all'
@@ -265,7 +265,7 @@ const Transactions = () => {
                     }))
                   }
                   placeholder="انتخاب تاریخ"
-                  className="w-full light:placeholder:text-light-text-color 
+                  className="w-full placeholder:text-light-text-color 
                   "
                 />
               </section>

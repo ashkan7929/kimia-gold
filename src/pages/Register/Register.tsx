@@ -48,7 +48,7 @@ const Register: React.FC = () => {
   // Redirect if not verified
   useEffect(() => {
     if (!state?.mobileNumber || !state?.verified) {
-      navigate('/auth', { replace: true });
+      navigate('/auth/unified', { replace: true });
     }
   }, [state, navigate]);
 

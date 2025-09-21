@@ -7,8 +7,12 @@ import {
     FaRegUser,
     IoNotificationsOutline,
     PiUsersThreeBold,
+    TbCircleDottedLetterR,
     HiOutlineHome,
     TbLayoutGrid,
+    MdOutlineMessage,
+    GoSignOut,
+    AiOutlineUserAdd
 } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
 import { BiSolidMoon } from 'react-icons/bi';
@@ -20,38 +24,39 @@ import logoDarkMode from "/images/vemLogo1.png"
 const menu = [
     {   
         id: 1,
+        icon: HiOutlineHome,
+        title: 'صفحه اصلی',
+        subtitle: 'برای بازگشت به صفحه اصلی کلیک کنید.',
+        link: '/',
+    },
+    {
+        id: 2,
         icon: FaRegUser,
         title: 'اطلاعات کاربری',
         subtitle: 'در این بخش می‌توانید اطلاعات کاربری را مشاهده و ویرایش کنید.',
         link: '/profile',
     },
+
     {
-         id: 2,
-        icon: FaRegUser,
-        title: 'قوانین و مقررات',
-        subtitle: 'در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.',
-        link: '/rules',
-    },
-    { 
-         id: 3,
-        icon: FaRegUser,
+        id: 3,
+        icon: MdOutlineMessage,
         title: 'صندوق پیام‌ها',
         subtitle: 'در این بخش می‌توانید آخرین پیام‌ها را مشاهده کنید.',
         link: '/message-box',
     },
-    {  
-         id: 4,
-        icon: FaRegUser,
+    {
+        id: 4,
+        icon: AiOutlineUserAdd,
         title: 'دعوت از دوستان',
         subtitle: 'از این بخش می‌توانید لینک دعوت دوستان را دریافت کنید.',
         link: '/invite',
     },
     {
-      id: 5,
-        icon: HiOutlineHome,
-        title: 'صفحه اصلی',
-        subtitle: 'برای بازگشت به صفحه اصلی کلیک کنید.',
-        link: '/',
+        id: 5,
+        icon: TbCircleDottedLetterR,
+        title: 'قوانین و مقررات',
+        subtitle: 'در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.',
+        link: '/rules',
     },
     {   
         id: 6,
@@ -83,10 +88,10 @@ const menu = [
     },
     { 
         id: 10,
-        icon: FaRegUser,
+        icon: GoSignOut,
         title: 'خروج از حساب کاربری',
         subtitle: 'برای خروج از حساب کاربری کلیک کنید',
-        link: '/starter',
+        link: '/auth/unified',
     },
 ];
 
@@ -127,9 +132,11 @@ const Layout = ({ children }: { children: any }) => {
                     </div>
                     <div className="flex justify-center">
                         <Link to={'/home'}>
-                            {isDark ? <img alt="" src={logoDarkMode} width={34} height={34} /> : <img alt="" src={logoLightMode} width={34} height={34} />  }
-
-                            
+                            {isDark ? (
+                                <img alt="" src={logoDarkMode} width={34} height={34} />
+                            ) : (
+                                <img alt="" src={logoLightMode} width={34} height={34} />
+                            )}
                         </Link>
                     </div>
                     <div className="flex justify-end items-center gap-2">
@@ -191,7 +198,7 @@ const Layout = ({ children }: { children: any }) => {
                                             if (theme) localStorage.setItem('theme', theme);
                                             setShowMenu(false);
                                             window.location.reload();
-                                            navigate('/auth', { replace: true });
+                                            navigate('/auth/unified', { replace: true });
                                         } else {
                                             handleNavigate(item.link);
                                         }

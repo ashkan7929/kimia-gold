@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaArrowLeftLong, FaChevronLeft, FaRegUser, TbLayoutGrid } from '../../Icons';
+import { FaArrowLeftLong, GoSignOut, TbCircleDottedLetterR, MdOutlineMessage, AiOutlineUserAdd, FaChevronLeft, FaRegUser, HiOutlineHome, TbLayoutGrid } from '../../Icons';
 
 import logoDarkMode from "/images/vemLogo1.png"
 import logoLightMode from "/images/vemLogoSite.png"
@@ -11,83 +11,75 @@ import { Link } from 'react-router-dom';
 const menu = [
     {
         id: 1,
-        icon: FaRegUser,
-        title: 'اطلاعات کاربری',
-        subtitle: 'در این بخش می‌توانید اطلاعات کاربری را مشاهده و ویرایش کنید.',
-        link: '/profile',
-        img: FaRegUser,
+        icon: HiOutlineHome,
+        title: 'صفحه اصلی',
+        subtitle: 'برای بازگشت به صفحه اصلی کلیک کنید.',
+        link: '/',
     },
     {
         id: 2,
         icon: FaRegUser,
-        title: 'قوانین و مقررات',
-        subtitle: 'در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.',
-        link: '/rules',
-        img: FaRegUser,
+        title: 'اطلاعات کاربری',
+        subtitle: 'در این بخش می‌توانید اطلاعات کاربری را مشاهده و ویرایش کنید.',
+        link: '/profile',
     },
+
     {
         id: 3,
-        icon: FaRegUser,
+        icon: MdOutlineMessage,
         title: 'صندوق پیام‌ها',
         subtitle: 'در این بخش می‌توانید آخرین پیام‌ها را مشاهده کنید.',
         link: '/message-box',
-        img: FaRegUser,
     },
     {
         id: 4,
-        icon: FaRegUser,
+        icon: AiOutlineUserAdd,
         title: 'دعوت از دوستان',
-        subtitle: 'از این بخش می‌توانید دوستان خود را به باشگاه وِم دعوت کنید.',
+        subtitle: 'از این بخش می‌توانید لینک دعوت دوستان را دریافت کنید.',
         link: '/invite',
-        img: FaRegUser,
     },
     {
         id: 5,
+        icon: TbCircleDottedLetterR,
+        title: 'قوانین و مقررات',
+        subtitle: 'در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.',
+        link: '/rules',
+    },
+
+    {
+        id: 6,
         icon: FaRegUser,
         title: 'نظرات و پیشنهادات',
         subtitle: '.برای بهبود کیفیت خدمات، نظراتتان را با ما درمیان بگذارید',
         link: '/suggestions',
-        img: FaRegUser,
-    },
-    {
-        id: 6,
-        icon: FaRegUser,
-        title: 'گزارشات ریز تراکنش‌ها',
-        subtitle: 'در این بخش می‌توانید کلیه تراکنش‌های خود را مشاهده کنید.',
-        link: '/transaction-details',
-        img: FaRegUser,
     },
     {
         id: 7,
         icon: FaRegUser,
-        title: 'تنظیمات',
-        subtitle: 'برای تغییر تنظیمات، کلیک کنید.',
-        link: '/settings',
-        img: FaRegUser,
+        title: 'گزارشات ریز تراکنش‌ها',
+        subtitle: 'در این بخش می‌توانید تراکنشات اخیر را همراه با جزئیات مشاهده کنید.',
+        link: '/transaction-details',
     },
     {
         id: 8,
         icon: FaRegUser,
-        title: 'صفحه اصلی',
-        subtitle: 'برای بازگشت به صفحه اصلی کلیک کنید.',
-        link: '/',
-        img: FaRegUser,
+        title: 'تنظیمات',
+        subtitle: 'برای تغییر تنظیمات وب‌اپلیکیشن کلیک کنید',
+        link: '/settings',
     },
     {
         id: 9,
         icon: FaRegUser,
         title: 'درباره باشگاه وِم',
-        subtitle: 'برای شناخت بیشتر باشگاه وِم کلیک کنید.',
+        subtitle: 'در این بخش می‌توانید بیشتر ما را بشناسید',
         link: '/about',
-        img: FaRegUser,
     },
     {
         id: 10,
-        icon: FaRegUser,
+        icon: GoSignOut,
         title: 'خروج از حساب کاربری',
-        subtitle: 'برای خروج از حساب کاربری کلیک کنید.',
-        link: '/',
-        img: FaRegUser,
+        subtitle: 'برای خروج از حساب کاربری کلیک کنید',
+        link: '/autoPage',
     },
 ];
 
