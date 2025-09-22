@@ -626,7 +626,7 @@ const AuthPage: React.FC = () => {
                 کد تایید را دریافت نکردید؟
               </Typography>
               {canResend ? (
-                <button onClick={handleResendOtp} disabled={isLoading} className="text-primary-blue !font-peyda text-sm underline hover:text-primary-light transition-colors">
+                <button onClick={handleResendOtp} disabled={isLoading} className="text-primary-blue !font-peyda text-sm underline hover:text-primary-light dark:text-white dark:hover:text-accent-orange transition-colors">
                   ارسال مجدد کد
                 </button>
               ) : (
@@ -638,7 +638,7 @@ const AuthPage: React.FC = () => {
 
             <button
               onClick={handleBack}
-              className="w-full py-3 rounded-lg border hover:border-none dark:text-gray-300 text-gray-700 hover:text-text-color dark:hover:bg-primary-light transition-colors font-peyda"
+              className="w-full py-3 rounded-lg border hover:border-none dark:text-gray-300 text-gray-700 hover:text-text-color bg-black  transition-colors font-peyda"
             >
               بازگشت
             </button>

@@ -56,7 +56,7 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
               <button
                 type="button"
                 onClick={() => setStep(StepsEnum.two)}
-                className="bg-primary-blue rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
+                className="bg-primary-blue dark:bg-accent-orange rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
               >
                 <LuMoveRight className="text-white" />
               </button>
@@ -108,9 +108,9 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
               <button
                 type="button"
                 onClick={() => setStep(StepsEnum.login)}
-                className="rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl bg-primary-blue"
+                className="rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl bg-primary-blue dark:bg-accent-orange"
               >
-                <LuMoveRight className="text-white" />
+                <LuMoveRight className="text-white dark:text-black" />
               </button>
 
               <button

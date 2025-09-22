@@ -23,7 +23,6 @@ const Buy = () => {
   const [goldPrice] = useState<number>(7496400);
   const { theme } = useTheme();
 
-  // زمانی true که تم dark است
   const isDark = theme === 'dark';
 
   const gramOptions = Array.from({ length: 10 }, (_, i) => ({
@@ -42,12 +41,10 @@ const Buy = () => {
 
   return (
     <>
-      {/* پس‌زمینه کلی صفحه */}
       <div className="min-h-screen !font-peyda text-light-text-color dark:text-white bg-white dark:bg-gray-900">
         <main className="flex-1">
           <div className="container mx-auto mb-3 flex flex-col gap-3">
 
-            {/* کارت قیمت هر گرم */}
             <section>
               <Disclosure as="div">
                 {({ open }: { open: boolean }) => (
@@ -124,7 +121,6 @@ const Buy = () => {
               </Disclosure>
             </section>
 
-            {/* تب‌ها + فرم خرید */}
             <section>
               <div className="rounded-lg bg-white dark:bg-black p-4">
                 <div className="rounded-3xl bg-gray-200 dark:bg-gray-800">
@@ -187,7 +183,6 @@ const Buy = () => {
                     </div>
 
                     <div>
-                      {/* دکمه اصلی نارنجی (پالت gold پروژه) */}
                       <Button className="w-full hover:bg-gold-200 dark:bg-accent-orange text-sm text-white">
                         {t('buy')}
                       </Button>

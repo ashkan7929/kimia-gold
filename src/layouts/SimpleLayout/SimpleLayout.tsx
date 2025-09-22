@@ -1,7 +1,17 @@
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaArrowLeftLong, GoSignOut, TbCircleDottedLetterR, MdOutlineMessage, AiOutlineUserAdd, FaChevronLeft, FaRegUser, HiOutlineHome, TbLayoutGrid } from '../../Icons';
+import {
+    FaArrowLeftLong,
+    GoSignOut,
+    TbCircleDottedLetterR,
+    MdOutlineMessage,
+    AiOutlineUserAdd,
+    FaChevronLeft,
+    FaRegUser,
+    HiOutlineHome,
+    TbLayoutGrid,
+} from '../../Icons';
 
 import logoDarkMode from "/images/vemLogo1.png"
 import logoLightMode from "/images/vemLogoSite.png"
@@ -107,6 +117,14 @@ const SimpleLayout = ({
         handleShowMenu();
     };
 
+    const handleLogout = () => {
+        const savedTheme = localStorage.getItem('theme');
+        localStorage.clear();
+        if (savedTheme) localStorage.setItem('theme', savedTheme);
+        setShowMenu(false);
+        navigate('/auth/unified', { replace: true });
+    };
+
     return (
         <>
             <div className="dark:bg-gray-900 bg-primary-whiteSpecial min-h-screen p-4.5">
@@ -137,10 +155,7 @@ const SimpleLayout = ({
                             onClick={() => navigate(-1)}
                             className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer"
                         >
-                            <FaArrowLeftLong
-                                fontSize={13}
-                                className="dark:text-white text-black"
-                            />
+                            <FaArrowLeftLong fontSize={13} className="dark:text-white text-black" />
                         </div>
                     </div>
                 </header>
@@ -155,8 +170,9 @@ const SimpleLayout = ({
             {showMenu && (
                 <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[420px] bg-primary-dark/90 z-20">
                     {/* // <div className='overflow-y-auto fixed top-0 right-0 h-screen w-full max-w- bg-primary-dark/90 z-20'> */}
-                    <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
-                    <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] blur-[30px]"></div>
+                    <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] dark:bg-primary-darker blur-[30px]" />
+                    <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] dark:bg-primary-darker blur-[30px]" />
+
                     <div className="flex flex-col p-4.5">
                         <div className="grid grid-cols-3 w-full z-20">
                             <div className="flex gap-1">
@@ -182,11 +198,11 @@ const SimpleLayout = ({
                             </div>
                         </div>
                         <div className="flex flex-col gap-3 py-5 z-20">
-                            {menu.map(item => (
+                            {/* {menu.map(item => (
                                 <div
                                     key={item.id}
                                     onClick={() => handleNavigate(item.link)}
-                                    className="dark:bg-primary-darker bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 cursor-pointer"
+                                    className="dark:bg-gray-700 bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 text-start"
                                 >
                                     <div className="dark:bg-accent-orange bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
                                         <item.icon className="text-white" />
@@ -205,12 +221,43 @@ const SimpleLayout = ({
                                             {item.subtitle}
                                         </Typography>
                                     </div>
-                                    <Link to='/'>
-                                          <FaChevronLeft className="dark:text-text-color text-light-text-color" />
-
+                                    <Link to="/">
+                                        <FaChevronLeft className="dark:text-text-color text-light-text-color" />
                                     </Link>
                                 </div>
-                            ))}
+                            ))} */}
+                            {menu.map(item => {
+                                const onClick =
+                                    item.id === 10 ? handleLogout : () => handleNavigate(item.link);
+                                return (
+                                    <button
+                                        key={item.id}
+                                        onClick={onClick}
+                                        className="dark:bg-gray-700 bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 text-start"
+                                    >
+                                        <div className="dark:bg-accent-orange bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
+                                            <item.icon className="text-text-color" />
+                                        </div>
+
+                                        <div className="grow">
+                                            <Typography
+                                                className="!font-alibaba dark:text-text-color text-light-text-color"
+                                                fontSize={12}
+                                            >
+                                                {item.title}
+                                            </Typography>
+                                            <Typography
+                                                className="!font-alibaba dark:text-neutral-300 text-neutral-700 line-clamp-1"
+                                                fontSize={10}
+                                            >
+                                                {item.subtitle}
+                                            </Typography>
+                                        </div>
+
+                                        <FaChevronLeft className="dark:text-text-color text-light-text-color" />
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
