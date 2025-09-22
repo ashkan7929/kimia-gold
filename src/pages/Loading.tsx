@@ -1,11 +1,11 @@
-import logoDarkMode from "../../assets/images/logoSite.jpg"; // نسخه سفید (برای دارک)
-import logoLightMode from "/images/vemLogoSite.png";         // نسخه سرمه‌ای (برای لایت)
+import logoDarkMode from "../../assets/images/logoSite.jpg";
+import logoLightMode from "/images/vemLogoSite.png";       
 import { useTheme } from "../contexts/ThemeContext";
 
 const Loading = () => {
   const { theme } = useTheme();
-  const isDark = theme === "dark"; // ✅ اصلاح: تشخیص درست حالت دارک
-
+  const isDark = theme === "dark"; 
+  
   return (
     <div className="w-full max-w-[375px] mx-auto min-h-screen flex flex-col bg-white dark:bg-black">
       <main
@@ -15,13 +15,11 @@ const Loading = () => {
           {/* لوگو */}
           <div className="w-24 h-24 mx-auto">
             <img
-              src={isDark ? logoDarkMode : logoLightMode} // دارک=سفید، لایت=سرمه‌ای
+              src={isDark ? logoDarkMode : logoLightMode} 
               alt="لوگوی وِم"
               className="w-full h-full object-contain"
             />
           </div>
-
-          {/* اسپینر */}
           <div className="absolute bottom-8 right-0 left-0 flex items-center justify-center">
             <span
               className="

@@ -22,7 +22,7 @@ const Loading = () => {
                         </div>
                         <div className="fixed bottom-10 right-0 left-0 flex items-center justify-center">
                             <div
-                                className="w-12.5 h-12.5 border border-white border-b-primary-blue light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
+                                className="w-12.5 h-12.5 border border-white border-b-primary-blue dark:border-accent-orange light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
                                 style={{
                                     animation: 'rotation 1s linear infinite'
                                 }}

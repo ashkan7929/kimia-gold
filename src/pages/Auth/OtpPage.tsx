@@ -64,32 +64,33 @@ const OtpPage: React.FC = () => {
         setToken(response.token);
         setUser(response.user);
 
-        // Redirect based on purpose
-        if (purpose === 'register') {
-          navigate('/auth/register', {
-            state: {
-              mobileNumber: mobileNumber,
-              verified: true
+                // Redirect based on purpose
+                if (purpose === 'register') {
+                    navigate('/auth/register', {
+                        state: {
+                            mobileNumber: mobileNumber,
+                            verified: true,
+                        },
+                    });
+                } else {
+                    navigate('/dashboard', { replace: true });
+                }
+            } else {
+                setError('کد تایید نامعتبر است');
             }
-          });
-        } else {
-          navigate('/dashboard', { replace: true });
+        } catch (err: any) {
+            setError(errorHandler(err));
+            //   if (err.response?.status === 400) {
+            //     setError('کد تایید نامعتبر یا منقضی شده است');
+            //   } else if (err.response?.status === 429) {
+            //     setError('تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید');
+            //   } else {
+            //     setError('خطا در ارتباط با سرور');
+            //   }
+        } finally {
+            setIsLoading(false);
         }
-      } else {
-        setError('کد تایید نامعتبر است');
-      }
-    } catch (err: any) {
-      if (err.response?.status === 400) {
-        setError('کد تایید نامعتبر یا منقضی شده است');
-      } else if (err.response?.status === 429) {
-        setError('تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید');
-      } else {
-        setError('خطا در ارتباط با سرور');
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    };
 
   const handleResendOtp = async () => {
     if (!canResend || !mobileNumber) return;
@@ -107,19 +108,19 @@ const OtpPage: React.FC = () => {
         purpose === 'register' ? 2 : 1
       );
 
-      if (response.ok) {
-        setResendTimer(response.ttlSec || 120);
-        setCanResend(false);
-        setOtpCode('');
-      } else {
-        setError('خطا در ارسال مجدد کد');
-      }
-    } catch (err) {
-      setError('خطا در ارتباط با سرور');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+            if (response.ok) {
+                setResendTimer(response.ttlSec || 120);
+                setCanResend(false);
+                setOtpCode('');
+            } else {
+                setError('خطا در ارسال مجدد کد');
+            }
+        } catch (err) {
+            setError(errorHandler(err));
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
   const formatTimer = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
