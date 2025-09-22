@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 
 const TransactionDetails = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full mx-auto flex flex-col">
@@ -84,7 +87,7 @@ const TransactionDetails = () => {
                   {'دانلود فاکتور'}
                 </Button>
 
-                <Button className="bg-primary-blue text-white text-sm">
+                <Button  onClick={() => navigate('/')} className="bg-primary-blue dark:bg-none dark:border-gray-300 text-white text-sm">
                   {'بازگشت به صفحه اصلی'}
                 </Button>
               </div>

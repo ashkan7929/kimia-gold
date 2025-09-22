@@ -22,10 +22,10 @@ const Product = () => {
             >
                 <div className="flex flex-col gap-3 mb-3">
                     <section className="">
-                        <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg shadow-[0px_0px_91.921px_0px_rgba(0,0,0,0.08)]">
+                        <div className="dark:bg-black bg-light-primary-darker rounded-lg shadow-[0px_0px_91.921px_0px_rgba(0,0,0,0.08)]">
                             <div className="p-4 flex flex-col gap-2 justify-center items-center">
-                                <div className="bg-primary-darker light:bg-light-primary-darker flex flex-col gap-4 rounded-lg shadow-[0_0_92px_rgba(0,0,0,0.08)]">
-                                    <div className="w-full rounded-lg border border-custom-gray bg-white p-4">
+                                <div className="dark:bg-black bg-light-primary-darker flex flex-col gap-4 rounded-lg shadow-[0_0_92px_rgba(0,0,0,0.08)]">
+                                    <div className="w-full rounded-lg border border-custom-gray bg-white dark:dark:bg-gray-800 p-4">
                                         <div className="flex items-center gap-2">
                                             <div className="w-5 h-5 rounded-full border border-custom-gray flex items-center justify-center overflow-hidden">
                                                 <img
@@ -34,17 +34,17 @@ const Product = () => {
                                                     className="w-4 h-4 object-contain"
                                                 />
                                             </div>
-                                            <h2 className="font-peyda text-sm text-slate-900 text-nowrap">
+                                            <h2 className="font-peyda text-sm text-slate-900 dark:text-white text-nowrap">
                                                 طرح کیمیا ۱ - بیمه البرز
                                             </h2>
                                             {OpenMenu ? (
-                                                <IoIosArrowDown onClick={handleMenu} />
+                                                <IoIosArrowDown onClick={handleMenu} className="text-black dark:text-white" />
                                             ) : (
-                                                <IoIosArrowUp onClick={handleMenu} />
+                                                <IoIosArrowUp onClick={handleMenu} className="text-black dark:text-white" />
                                             )}
                                         </div>
 
-                                        <div className="mt-3 space-y-1 text-right text-xs text-slate-700 font-alibaba">
+                                        <div className="mt-3 space-y-1 text-right text-xs text-slate-700 dark:text-slate-300 font-alibaba">
                                             <Typography className="!font-peyda" fontSize={10}>
                                                 سرمایه اولیه: ۱۰,۰۰۰ تومان
                                             </Typography>
@@ -69,12 +69,12 @@ const Product = () => {
                                             )}
                                         </div>
                                         <Link to="/products/:id">
-                                            <Button className="mt-4 w-full rounded-md bg-primary-blue  text-white text-sm font-peyda">
+                                            <Button className="mt-4 w-full rounded-md bg-primary-blue dark:bg-accent-orange text-white text-sm font-peyda">
                                                 انتخاب
                                             </Button>
                                         </Link>
                                     </div>
-                                    <div className="w-full rounded-lg border border-custom-gray bg-white p-4">
+                                    <div className="w-full rounded-lg border border-custom-gray bg-white dark:dark:bg-gray-800 p-4">
                                         <div className="flex items-center gap-2">
                                             <div className="w-5 h-5 rounded-full border border-custom-gray flex items-center justify-center overflow-hidden">
                                                 <img
@@ -83,17 +83,17 @@ const Product = () => {
                                                     className="w-4 h-4 object-contain"
                                                 />
                                             </div>
-                                            <h2 className="font-peyda text-sm text-slate-900 text-nowrap">
+                                            <h2 className="font-peyda text-sm text-slate-900 dark:text-white  text-nowrap">
                                                 طرح کیمیا ۲ - بیمه البرز
                                             </h2>
                                             {open ? (
-                                                <IoIosArrowDown onClick={handleMenu} />
+                                                <IoIosArrowDown onClick={handleMenu}  className="text-black dark:text-white" />
                                             ) : (
-                                                <IoIosArrowUp onClick={handleMenu} />
-                                            )}
+                                                <IoIosArrowUp onClick={handleMenu}  className="text-black dark:text-white" />
+                                            )} 
                                         </div>
 
-                                        <div className="mt-3 space-y-1 text-right text-xs text-slate-700 font-alibaba">
+                                        <div className="mt-3 space-y-1 text-right text-xs text-slate-700 dark:text-slate-300 font-alibaba">
                                             <Typography className="!font-peyda" fontSize={10}>
                                                 سرمایه اولیه: ۱۰,۰۰۰ تومان
                                             </Typography>
@@ -119,7 +119,7 @@ const Product = () => {
                                         </div>
 
                                         <Link to="/products/:id">
-                                            <Button className="mt-4 w-full rounded-md bg-primary-blue text-white text-sm font-peyda">
+                                            <Button className="mt-4 w-full rounded-md bg-primary-blue dark:bg-accent-orange text-white text-sm font-peyda">
                                                 انتخاب
                                             </Button>
                                         </Link>

@@ -19,14 +19,14 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
 
   useEffect(() => {
     if (step === StepsEnum.login) {
-      onFinish?.(); // فقط به والد خبر بده
+      onFinish?.(); 
     }
   }, [step, onFinish]);
 
-  const hidden = step === StepsEnum.login; // والد به‌زودی آن‌مونت می‌کند، ولی داشتنش ضرر ندارد.
+  const hidden = step === StepsEnum.login; 
 
   return (
-    <div className={`${hidden ? 'hidden' : 'flex'} absolute z-10 bg-primary-darker light:bg-light-primary-darker h-screen flex-col justify-center items-center p-6 pt-0`}>
+    <div className={`${hidden ? 'hidden' : 'flex'} absolute z-10 dark:bg-black bg-light-primary-darker h-screen flex-col justify-center items-center p-6 pt-0`}>
       {step === StepsEnum.one && (
         <>
           <div className="flex flex-col items-center justify-center h-full !pt-0">

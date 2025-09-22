@@ -27,7 +27,7 @@ export default function Modal({
     confirmText,
 }: IModal) {
     const { theme } = useTheme();
-    const isDark = theme === 'light';
+    const isDark = theme === 'dark';
     return (
         <>
             {/* <ThemeProvider theme={createTheme({ colorSchemes: { dark: true } })} defaultMode={"dark"}> */}
@@ -42,7 +42,7 @@ export default function Modal({
                         padding: 0,
                         width: 600,
                         borderRadius: 4,
-                        bgcolor: isDark ? '#02006C' : '#ffffff',
+                        bgcolor: isDark ? '#212121' : '#ffffff',
                         [theme.breakpoints.down('sm')]: {
                             position: 'absolute',
                             bottom: 0,
