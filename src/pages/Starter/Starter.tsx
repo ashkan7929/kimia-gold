@@ -72,9 +72,9 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
           </div>
 
           <div className="w-full flex justify-center items-center mt-2">
-            <span className="block mx-auto text-primary-blue text-center font-roboto">
+            <span className="block mx-auto text-primary-blue dark:text-accent-orange text-center font-roboto text-xs">
               VEM Club{' '}
-              <span className="text-text-color light:text-light-text-color">
+              <span className="text-text-color light:text-light-text-color dark:text-text-color">
                 {packageJson.version}
               </span>
             </span>

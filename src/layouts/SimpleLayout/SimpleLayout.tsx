@@ -13,8 +13,8 @@ import {
     TbLayoutGrid,
 } from '../../Icons';
 
-import logoDarkMode from "/images/vemLogo1.png"
-import logoLightMode from "/images/vemLogoSite.png"
+import logoDarkMode from '/images/vemLogo1.png';
+import logoLightMode from '/images/vemLogoSite.png';
 
 import { useTheme } from '../../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
@@ -123,6 +123,7 @@ const SimpleLayout = ({
         if (savedTheme) localStorage.setItem('theme', savedTheme);
         setShowMenu(false);
         navigate('/auth/unified', { replace: true });
+        window.location.reload();
     };
 
     return (

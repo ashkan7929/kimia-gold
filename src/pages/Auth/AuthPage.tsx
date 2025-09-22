@@ -564,7 +564,7 @@ const AuthPage: React.FC = () => {
                 </div>
               )}
 
-              <Button type="submit" disabled={isLoading} className="w-full bg-primary-blue hover:bg-primary-light text-white font-peyda">
+              <Button type="submit" disabled={isLoading} className="w-full bg-primary-blue hover:bg-primary-light dark:bg-accent-orange dark:hover:bg-orange-400 text-white font-peyda">
                 ورود
               </Button>
 
@@ -572,7 +572,7 @@ const AuthPage: React.FC = () => {
                 type="button"
                 onClick={handleSwitchToOtp}
                 disabled={isLoading}
-                className="w-full py-3 rounded-lg border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white transition-colors font-peyda"
+                className="w-full py-3 rounded-lg border border-primary-blue dark:border-gray-600 text-primary-blue dark:text-white hover:bg-primary-blue dark:hover:bg-accent-orange hover:text-white transition-colors font-peyda"
               >
                 ورود با کد یکبار مصرف
               </button>
@@ -580,7 +580,7 @@ const AuthPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleBack}
-                className="w-full py-3 rounded-lg border border-primary-blue hover:border-none hover:bg-[#0F3DFB] hover:text-white text-primary-blue transition-colors font-peyda"
+                className="w-full py-3 rounded-lg border border-primary-blue dark:border-gray-600 hover:border-none dark:text-white hover:bg-[#0F3DFB] dark:hover:bg-black hover:text-white text-primary-blue transition-colors font-peyda"
               >
                 بازگشت
               </button>

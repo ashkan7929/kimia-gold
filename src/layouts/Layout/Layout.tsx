@@ -12,7 +12,7 @@ import {
     TbLayoutGrid,
     MdOutlineMessage,
     GoSignOut,
-    AiOutlineUserAdd
+    AiOutlineUserAdd,
 } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
 import { BiSolidMoon } from 'react-icons/bi';
@@ -21,7 +21,7 @@ import logoLightMode from '/images/vemLogoSite.png';
 import logoDarkMode from '/images/vemLogo1.png';
 
 const menu = [
-    {   
+    {
         id: 1,
         icon: HiOutlineHome,
         title: 'صفحه اصلی',
@@ -57,35 +57,35 @@ const menu = [
         subtitle: 'در این بخش می‌توانید قوانین و مقررات را مشاهده کنید.',
         link: '/rules',
     },
-    {   
+    {
         id: 6,
         icon: FaRegUser,
         title: 'نظرات و پیشنهادات',
         subtitle: 'برای بهبود کیفیت خدمات، نظراتتان را با ما درمیان بگذارید.',
         link: '/suggestions',
     },
-    {   
+    {
         id: 7,
         icon: FaRegUser,
         title: 'گزارشات ریز تراکنش‌ها',
         subtitle: 'در این بخش می‌توانید تراکنشات اخیر را همراه با جزئیات مشاهده کنید.',
         link: '/transaction-details',
     },
-    { 
+    {
         id: 8,
         icon: FaRegUser,
         title: 'تنظیمات',
         subtitle: 'برای تغییر تنظیمات وب‌اپلیکیشن کلیک کنید',
         link: '/settings',
     },
-    { 
+    {
         id: 9,
         icon: FaRegUser,
         title: 'درباره باشگاه وِم',
         subtitle: 'در این بخش می‌توانید بیشتر ما را بشناسید',
         link: '/about',
     },
-    { 
+    {
         id: 10,
         icon: GoSignOut,
         title: 'خروج از حساب کاربری',
@@ -100,7 +100,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
     const [showMenu, setShowMenu] = useState(false);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleShowMenu = () => setShowMenu(s => !s);
 
@@ -129,6 +129,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         if (savedTheme) localStorage.setItem('theme', savedTheme);
         setShowMenu(false);
         navigate('/auth/unified', { replace: true });
+        window.location.reload();
     };
 
     return (
