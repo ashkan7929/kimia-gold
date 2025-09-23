@@ -132,7 +132,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <Products />
                     </SimpleLayout>
                 }

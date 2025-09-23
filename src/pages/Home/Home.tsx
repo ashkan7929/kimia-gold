@@ -58,7 +58,7 @@ const Home = () => {
     console.log(userData);
     return (
         <>
-            <div className="">
+            <div>
                 <div className="flex flex-col gap-3 items-center pb-25">
                     <div className="bg-primary-darker light:bg-white flex gap-1 w-full p-3 rounded-lg">
                         <div className="flex flex-col gap-1">
@@ -70,7 +70,7 @@ const Home = () => {
                                     {userData?.firstName && userData?.lastName
                                         ? userData.firstName + ' ' + userData.lastName
                                         : 'کاربر گرامی'}
-                                </strong>{' '}
+                                </strong>
                                 خوش امدید
                             </Typography>
                             <Typography
