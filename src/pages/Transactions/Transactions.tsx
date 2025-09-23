@@ -112,7 +112,7 @@ const Transactions = () => {
                             onClick={() => setSelectedTab(tab)}
                             className={`${
                                 selectedTab === tab
-                                    ? 'bg-primary-blue dark:bg-gray-900 text-white dark:text-black'
+                                    ? 'bg-primary-blue dark:bg-gray-700 text-white dark:text-black'
                                     : 'bg-transparent'
                             } flex-1 cursor-pointer text-light-text-color dark:text-neutral-200 px-3 py-2 rounded-md`}
                         >
@@ -206,10 +206,10 @@ const Transactions = () => {
                 <div
                     role="dialog"
                     aria-modal="true"
-                    className="fixed bottom-12 left-1/2 rounded-lg -translate-x-1/2 w-full max-w-[410px] z-50"
+                    className="fixed bottom-2 left-1/2 rounded-lg -translate-x-1/2 w-full max-w-[410px] z-50"
                 >
                     <div
-                        className="absolute inset-0 dark:bg-black/60 bg-light-primary-darker"
+                        className="absolute inset-0 dark:bg-black/60 dark:border-gray-500 bg-light-primary-darker"
                         onClick={() => setOpen(false)}
                     />
 
@@ -221,7 +221,7 @@ const Transactions = () => {
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={handleClearFilter}
-                                    className="px-3 py-1.5 rounded-md dark:bg-white/10 bg-primary-blue hover:bg-white/15 text-text-color text-xs font-peyda"
+                                    className="px-3 py-1.5 rounded-md dark:bg-accent-orange bg-primary-blue hover:bg-white/15 text-text-color text-xs font-peyda"
                                 >
                                     {t('transaction.deleteFilter')}
                                 </button>
@@ -249,7 +249,7 @@ const Transactions = () => {
                                             }
                                             className={`w-full text-right px-4 py-3 rounded-xl border text-xs ${
                                                 filter.status === item
-                                                    ? 'bg-primary-blue border-transparent dark:text-light-text-color !text-text-color'
+                                                    ? 'bg-primary-blue dark:bg-accent-orange border-transparent dark:text-light-text-color !text-text-color'
                                                     : ' dark:border-white/10 bg-none border-custom-gray dark:text-text-color text-light-text-color '
                                             }`}
                                         >
@@ -275,7 +275,13 @@ const Transactions = () => {
                                             productType: e.target.value || null,
                                         }))
                                     }
-                                    className="w-full dark:bg-black border border-white/10 rounded-lg px-4 py-2 text-sm outline-none bg-light-primary-darker light:border-custom-gray light:text-light-text-color"
+                                    className="
+                                            w-full rounded-lg px-4 py-2 text-sm outline-none
+                                            bg-light-primary-darker text-light-text-color
+                                            border border-custom-gray
+                                            dark:bg-black dark:text-text-color dark:border-white/10
+                                            appearance-none
+                                        "
                                 >
                                     <option value=""> {t('transaction.typeProduct')}</option>
                                     <option value="طلای 18 عیار">

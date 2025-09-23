@@ -59,3 +59,7 @@ export { MdOutlineMessage } from "react-icons/md";
 export { AiOutlineUserAdd } from "react-icons/ai";
 export { GoSignOut } from "react-icons/go";
 export { TbCircleDottedLetterR } from "react-icons/tb";
+export { IoSettingsOutline } from "react-icons/io5";
+export { GrTransaction } from "react-icons/gr";
+export { FaRegComments } from "react-icons/fa";
+export { FaUsers } from "react-icons/fa";

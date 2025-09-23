@@ -1,9 +1,9 @@
-import { useTheme } from "../../contexts/ThemeContext";
-import logoDarkMode from "/images/logo/vemLogoDark.png"
-import logoLightMode from "/images/vemLogoSite.png"
+import { useTheme } from '../../contexts/ThemeContext';
+import logoDarkMode from '/logoVem/vemLogoLoadingDark.png';
+import logoLightMode from '/logoVem/vemLogoLoadingLight.png';
 const Loading = () => {
-        const { theme } = useTheme();
-        const isDark = theme === 'light';
+    const { theme } = useTheme();
+    const isDark = theme === 'dark' || theme === undefined;
     return (
         <>
             <div className="w-full mx-auto bg-black light:bg-white min-h-screen flex flex-col h-full">
@@ -12,19 +12,18 @@ const Loading = () => {
                     style={{
                         backgroundImage: "url('/images/Lines-pattern-starters.png')",
                         backgroundSize: 'cover',
-                        backgroundPosition: 'center'
+                        backgroundPosition: 'center',
                     }}
                 >
                     <div className="text-center relative h-full">
                         <div className="w-24 h-24">
-                         <img alt="" src={isDark ? logoDarkMode : logoLightMode} width={34} height={34} />
-
+                            <img alt="" src={isDark ? logoDarkMode : logoLightMode} />
                         </div>
                         <div className="fixed bottom-10 right-0 left-0 flex items-center justify-center">
                             <div
-                                className="w-12.5 h-12.5 border border-white border-b-primary-blue dark:border-accent-orange light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
+                                className="w-12.5 h-12.5 border border-white border-b-primary-blue dark:border-b-accent-orange light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
                                 style={{
-                                    animation: 'rotation 1s linear infinite'
+                                    animation: 'rotation 1s linear infinite',
                                 }}
                             />
                         </div>
@@ -42,7 +41,7 @@ const Loading = () => {
         }
       `}</style>
         </>
-    )
-}
+    );
+};
 
-export default Loading
+export default Loading;

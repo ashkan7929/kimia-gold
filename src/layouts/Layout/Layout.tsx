@@ -4,9 +4,6 @@ import {
     IoNotificationsOutline,
     PiUsersThreeBold,
     TbLayoutGrid,
-    MdOutlineMessage,
-    GoSignOut,
-    AiOutlineUserAdd,
 } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
 import { BiSolidMoon } from 'react-icons/bi';
@@ -28,10 +25,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
     const handleShowMenu = () => setShowMenu(!showMenu);
 
-    // const handleNavigate = (link: string) => {
-    //     navigate(link);
-    //     handleShowMenu();
-    // };
 
     return (
         <>

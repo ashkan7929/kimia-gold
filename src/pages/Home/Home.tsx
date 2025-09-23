@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 import { FaRegStar, FiEye, PiCaretUpDownBold } from '../../Icons';
 import { useAuth } from '../../stores/auth.store';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BottomNav from '../../layouts/BottomNav';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useEffect, useState } from 'react';
@@ -65,7 +65,7 @@ const Home = () => {
     const { theme } = useTheme();
     const isDark = theme === 'light';
     const [showWelcome, setShowWelcome] = useState(false);
-
+    const navigate = useNavigate()
     const userData =
         user ||
         (() => {
@@ -92,32 +92,6 @@ const Home = () => {
         <>
             <div>
                 <div className="flex flex-col gap-3 items-center pb-25">
-                    {/* <div className="bg-primary-darker light:bg-white flex gap-1 w-full p-3 rounded-lg">
-                        <div className="flex flex-col gap-1">
-                            <Typography
-                                className="!font-alibaba text-text-color light:text-light-text-color"
-                                fontSize={13}
-                            >
-                                <strong>
-                                    {userData?.firstName && userData?.lastName
-                                        ? userData.firstName + ' ' + userData.lastName
-                                        : 'کاربر گرامی'}
-                                </strong>
-                                خوش امدید
-                            </Typography>
-                            <Typography
-                                className="!font-alibaba text-neutral-300 light:text-neutral-700"
-                                fontSize={11}
-                            >
-                                {
-                                    'به باشگاه وِم خوش آمدید، از این صفحه می‌توانید خدمات خود را انتخاب کنید'
-                                }
-                            </Typography>
-                        </div>
-                        <div>
-                            <img alt="" src="/images/welcome-home.svg" width={79} height={63} />
-                        </div>
-                    </div>  */}
                     {showWelcome ? (
                         <div>
                             <div className="flex flex-col gap-1">
@@ -170,7 +144,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <button className="dark:bg-accent-orange bg-primary-blue text-white text-[9px] font-kalameh px-7 py-2 rounded-xl">
+                            <button onClick={() => navigate("/wallet")} className="dark:bg-accent-orange bg-primary-blue text-white text-[9px] font-kalameh px-7 py-2 rounded-xl">
                                 افزایش اعتبار
                             </button>
                         </div>

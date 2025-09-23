@@ -1,4 +1,3 @@
-// CSS imports removed - using Tailwind CSS instead
 const MessageBox = () => {
     // const toggleMenu = () => {
     // Menu toggle logic here

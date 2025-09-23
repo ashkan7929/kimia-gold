@@ -22,9 +22,9 @@ const Product = () => {
             >
                 <div className="flex flex-col gap-3 mb-3">
                     <section className="">
-                        <div className="dark:bg-black bg-light-primary-darker rounded-lg shadow-[0px_0px_91.921px_0px_rgba(0,0,0,0.08)]">
+                        <div className=" rounded-lg shadow-[0px_0px_91.921px_0px_rgba(0,0,0,0.08)]">
                             <div className="p-4 flex flex-col gap-2 justify-center items-center">
-                                <div className="dark:bg-black bg-light-primary-darker flex flex-col gap-4 rounded-lg shadow-[0_0_92px_rgba(0,0,0,0.08)]">
+                                <div className="flex flex-col gap-4 rounded-lg shadow-[0_0_92px_rgba(0,0,0,0.08)]">
                                     <div className="w-full rounded-lg border border-custom-gray bg-white dark:dark:bg-gray-800 p-4">
                                         <div className="flex items-center gap-2">
                                             <div className="w-5 h-5 rounded-full border border-custom-gray flex items-center justify-center overflow-hidden">

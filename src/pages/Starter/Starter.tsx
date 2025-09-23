@@ -63,7 +63,7 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
 
               <button
                 type="button"
-                className="border-2 border-primary-lighter rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
+                className="border-2 dark:border-primary-lighter border-primary-blue rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
                 disabled
               >
                 <FaArrowLeftLong className="text-white" />
@@ -116,7 +116,7 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
               <button
                 type="button"
                 onClick={() => setStep(StepsEnum.one)}
-                className="rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl border-2 border-primary-lighter"
+                className="rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl border-2 dark:border-primary-lighter border-primary-blue"
               >
                 <FaArrowLeftLong className="text-text-color light:text-light-text-color" />
               </button>

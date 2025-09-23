@@ -42,7 +42,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) =>
         {/* Footer */}
         <div className="text-center mt-6">
           <p className="text-gray-500 text-xs">
-            با ورود به سیستم، شرایط و قوانین را می‌پذیرید
+            با ورود به سیستم، شرایط و قوانین را می‌پذیرم
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { HiOutlineHome, HiOutlinePresentationChartBar, GiWallet } from '../Icons/index';
+import { HiOutlineHome, GiWallet, GrTransaction } from '../Icons/index';
 import Typography from '@mui/material/Typography';
 
 const BottomNav = () => {
@@ -24,7 +24,7 @@ const BottomNav = () => {
                     </div>
                     <div className='w-full flex justify-center items-center'>
                         <div onClick={() => navigate('/transactions')} className='flex flex-col justify-center items-center w-fit cursor-pointer p-2 gap-1.5'>
-                            <HiOutlinePresentationChartBar className='dark:text-white text-black' fontSize={20} />
+                            <GrTransaction  className='dark:text-white text-black' fontSize={20} />
                             <Typography fontSize={10} className='dark:text-white !font-peyda text-black'>همه تراکنش‌ها</Typography>
                         </div>
                     </div>

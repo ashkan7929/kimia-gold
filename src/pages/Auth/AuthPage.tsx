@@ -11,19 +11,19 @@ import CheckBox from '../../components/Inputs/Checkbox';
 import DateField from '../../components/Inputs/Datepiker';
 import OTPInput from '../../components/Inputs/Otp';
 import {
-  CiMobile3,
-  MdOutlineBadge,
-  FaRegUser,
-  CiCalendarDate,
-  RiLockPasswordLine,
+    CiMobile3,
+    MdOutlineBadge,
+    FaRegUser,
+    CiCalendarDate,
+    RiLockPasswordLine,
 } from '../../Icons';
 import {
-  mobileSchema,
-  registerSchema,
-  type MobileFormData,
-  type RegisterFormData,
-  type PasswordFormData,
-  passwordLoginSchema,
+    mobileSchema,
+    registerSchema,
+    type MobileFormData,
+    type RegisterFormData,
+    type PasswordFormData,
+    passwordLoginSchema,
 } from '../../lib/validations';
 import { authService } from '../../services/authService';
 import { useAuth } from '../../stores/auth.store';
@@ -35,39 +35,41 @@ import { errorHandler } from '../../utils/errorHandler';
 type AuthStep = 'mobile' | 'register' | 'otp' | 'password';
 
 interface UserStatus {
-  userExists: boolean;
-  hasPassword: boolean;
+    userExists: boolean;
+    hasPassword: boolean;
 }
 
 const AuthPage: React.FC = () => {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
-  const { setToken, setUser } = useAuth();
+    const { t } = useTranslation();
+    const navigate = useNavigate();
+    const { setToken, setUser } = useAuth();
+    const [notice, setNotice] = useState<string | null>(null);
+    const [noticeType, setNoticeType] = useState<'success' | 'error' | 'info' | null>(null);
 
-  // --- UI/Flow State
-  const [currentStep, setCurrentStep] = useState<AuthStep>('mobile');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [mobileNumber, setMobileNumber] = useState('');
-  const [userStatus, setUserStatus] = useState<UserStatus | null>(null);
-  const [otpCode, setOtpCode] = useState('');
-  const [resendTimer, setResendTimer] = useState(0);
-  const [canResend, setCanResend] = useState(true);
-  const [loginMethod, setLoginMethod] = useState<'password' | 'otp' | null>(null);
+    // --- UI/Flow State
+    const [currentStep, setCurrentStep] = useState<AuthStep>('mobile');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [mobileNumber, setMobileNumber] = useState('');
+    const [userStatus, setUserStatus] = useState<UserStatus | null>(null);
+    const [otpCode, setOtpCode] = useState('');
+    const [resendTimer, setResendTimer] = useState(0);
+    const [canResend, setCanResend] = useState(true);
+    const [loginMethod, setLoginMethod] = useState<'password' | 'otp' | null>(null);
 
-  // --- Forms
-  const mobileForm = useForm<MobileFormData>({ resolver: zodResolver(mobileSchema) });
-  const registerForm = useForm<RegisterFormData>({
-    resolver: zodResolver(registerSchema),
-    defaultValues: {
-      mobileNumber: '',
-      nationalCode: '',
-      birthDate: '',
-      referralCode: '',
-      acceptRules: false,
-    },
-  });
-  const passwordForm = useForm<PasswordFormData>({ resolver: zodResolver(passwordLoginSchema) });
+    // --- Forms
+    const mobileForm = useForm<MobileFormData>({ resolver: zodResolver(mobileSchema) });
+    const registerForm = useForm<RegisterFormData>({
+        resolver: zodResolver(registerSchema),
+        defaultValues: {
+            mobileNumber: '',
+            nationalCode: '',
+            birthDate: '',
+            referralCode: '',
+            acceptRules: false,
+        },
+    });
+    const passwordForm = useForm<PasswordFormData>({ resolver: zodResolver(passwordLoginSchema) });
 
     // --- OTP resend timer
     useEffect(() => {
@@ -79,44 +81,53 @@ const AuthPage: React.FC = () => {
         }
     }, [resendTimer]);
 
-  const formatTimer = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
+    const formatTimer = (seconds: number) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        if (mins === 0) {
+            return `${secs}`;
+        }
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    };
 
-  // --- Helpers
-  const sendOtp = async (mobile: string, purpose: 'login' | 'register') => {
-    const response = await authService.sendOtp(mobile, purpose === 'register' ? 2 : 1);
-    if (response?.ttlSec) {
-      setResendTimer(response.ttlSec);
-      setCanResend(false);
-    }
-  };
+    // --- Helpers
+    const sendOtp = async (mobile: string, purpose: 'login' | 'register') => {
+        const response = await authService.sendOtp(mobile, purpose === 'register' ? 2 : 1);
+        const ttl = response?.ttlSec ?? 120;
 
-  const proceedFromMobile = async (method: 'password' | 'otp') => {
-    setError(null);
-    setLoginMethod(method);
+        setResendTimer(ttl);
+        setCanResend(false);
 
-    const isValid = await mobileForm.trigger();
-    if (!isValid) return;
+        setNotice('کد یک‌بار مصرف ارسال شد');
+        setNoticeType('success');
+        if (response?.ttlSec) {
+            setResendTimer(response.ttlSec);
+            setCanResend(false);
+        }
+    };
 
-    const { mobileNumber: m } = mobileForm.getValues();
+    const proceedFromMobile = async (method: 'password' | 'otp') => {
+        setError(null);
+        setLoginMethod(method);
 
-    setMobileNumber(m);
-    setCurrentStep(method === 'password' ? 'password' : 'otp');
+        const isValid = await mobileForm.trigger();
+        if (!isValid) return;
 
-    setIsLoading(true);
-    try {
-      const status = await authService.checkMobile(m);
-      setUserStatus(status);
+        const { mobileNumber: m } = mobileForm.getValues();
 
-      if (!status.userExists) {
-        // کاربر جدید → ثبت‌نام
-        registerForm.setValue('mobileNumber', m);
-        setCurrentStep('register');
-        return;
-      }
+        setMobileNumber(m);
+        setCurrentStep(method === 'password' ? 'password' : 'otp');
+
+        setIsLoading(true);
+        try {
+            const status = await authService.checkMobile(m);
+            setUserStatus(status);
+
+            if (!status.userExists) {
+                registerForm.setValue('mobileNumber', m);
+                setCurrentStep('register');
+                return;
+            }
 
             if (method === 'password') {
                 if (status.hasPassword) {
@@ -126,14 +137,12 @@ const AuthPage: React.FC = () => {
                 setCurrentStep('otp');
                 setLoginMethod('otp');
             } else {
-                // method === 'otp'
                 await sendOtp(m, 'login');
                 setCurrentStep('otp');
                 setLoginMethod('otp');
             }
         } catch (err: any) {
             setError(errorHandler(err));
-            // setError(err?.message || 'خطایی رخ داده است. لطفاً دوباره تلاش کنید.');
             setCurrentStep('mobile');
             setLoginMethod(null);
         } finally {
@@ -141,20 +150,18 @@ const AuthPage: React.FC = () => {
         }
     };
 
-  // --- Submit handlers
-  const handleRegisterSubmit = async (data: RegisterFormData) => {
-    setIsLoading(true);
-    setError(null);
+    const handleRegisterSubmit = async (data: RegisterFormData) => {
+        setIsLoading(true);
+        setError(null);
 
-    try {
-      await authService.register({
-        nationalCode: data.nationalCode,
-        mobileNumber: data.mobileNumber,
-        birthDate: data.birthDate,
-        referralCode: data.referralCode,
-      });
+        try {
+            await authService.register({
+                nationalCode: data.nationalCode,
+                mobileNumber: data.mobileNumber,
+                birthDate: data.birthDate,
+                referralCode: data.referralCode,
+            });
 
-            // پس از ثبت‌نام موفق، OTP
             await sendOtp(data.mobileNumber, 'register');
             setLoginMethod('otp');
             setCurrentStep('otp');
@@ -165,9 +172,9 @@ const AuthPage: React.FC = () => {
         }
     };
 
-  const handlePasswordSubmit = async (data: PasswordFormData) => {
-    setIsLoading(true);
-    setError(null);
+    const handlePasswordSubmit = async (data: PasswordFormData) => {
+        setIsLoading(true);
+        setError(null);
 
         try {
             const response = await authService.loginWithPassword(mobileNumber, data.password);
@@ -178,34 +185,19 @@ const AuthPage: React.FC = () => {
             }
         } catch (err: any) {
             setError(errorHandler(err));
-
-            //     const status = err?.response?.status;
-            //     const msg =
-            //         status === 401
-            //             ? 'رمز عبور اشتباه وارد شده است، لطفا دوباره تلاش کنید.'
-            //             : status === 403
-            //               ? 'دسترسی غیرمجاز است.'
-            //               : status === 429
-            //                 ? 'تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید.'
-            //                 : !err?.response
-            //                   ? 'اتصال به سرور برقرار نشد.'
-            //                   : status && status >= 500
-            //                     ? 'مشکل سمت سرور پیش‌آمده است.'
-            //                     : 'در حال حاضر مشکلی پیش آمده، لطفاً مجدداً تلاش کنید.';
-            //     setError(msg);
         } finally {
             setIsLoading(false);
         }
     };
 
-  const handleOtpSubmit = async () => {
-    if (!otpCode || otpCode.length !== 6) {
-      setError('لطفاً کد ۶ رقمی را کامل وارد کنید.');
-      return;
-    }
+    const handleOtpSubmit = async () => {
+        if (!otpCode || otpCode.length !== 6) {
+            setError('لطفاً کد ۶ رقمی را وارد کنید.');
+            return;
+        }
 
-    setIsLoading(true);
-    setError(null);
+        setIsLoading(true);
+        setError(null);
 
         try {
             const purpose = userStatus?.userExists ? 'login' : 'register';
@@ -221,41 +213,39 @@ const AuthPage: React.FC = () => {
             }
         } catch (err: any) {
             setError(errorHandler(err));
-            //   if (err.response?.status === 400) {
-            //     setError('کد تایید نامعتبر یا منقضی شده است.');
-            //   } else if (err.response?.status === 429) {
-            //     setError('تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید.');
-            //   } else {
-            //     setError('خطا در ارتباط با سرور.');
-            //   }
         } finally {
             setIsLoading(false);
         }
     };
 
-  const handleResendOtp = async () => {
-    if (!canResend) return;
+    const handleResendOtp = async () => {
+        if (!canResend) return;
 
-    setIsLoading(true);
-    setError(null);
+        setIsLoading(true);
+        setError(null);
 
-    try {
-      const purpose = userStatus?.userExists ? 'login' : 'register';
-      const response = await authService.resendOtp(mobileNumber, purpose === 'register' ? 2 : 1);
+        try {
+            const purpose = userStatus?.userExists ? 'login' : 'register';
+            const response = await authService.resendOtp(
+                mobileNumber,
+                purpose === 'register' ? 2 : 1,
+            );
 
-      if (response?.ok) {
-        setResendTimer(response.ttlSec || 120);
-        setCanResend(false);
-        setOtpCode('');
-      } else {
-        setError('خطا در ارسال مجدد کد.');
-      }
-    } catch (err) {
-      setError('خطا در ارتباط با سرور.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+            if (response?.ok) {
+                setResendTimer(response.ttlSec || 120);
+                setCanResend(false);
+                setOtpCode('');
+                setNotice('کد یکبار مصرف دوباره برای شما ارسال شد');
+                setNoticeType('success');
+            } else {
+                setError('خطا در ارسال مجدد کد.');
+            }
+        } catch (err) {
+            setError('خطا در ارتباط با سرور.');
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     const handleSwitchToOtp = async () => {
         setIsLoading(true);
@@ -271,29 +261,29 @@ const AuthPage: React.FC = () => {
         }
     };
 
-  const handleBack = () => {
-    setError(null);
-    if (currentStep === 'register' || currentStep === 'password' || currentStep === 'otp') {
-      setCurrentStep('mobile');
-      setUserStatus(null);
-      setMobileNumber('');
-      setOtpCode('');
-      setLoginMethod(null);
-      mobileForm.reset();
-      passwordForm.reset();
-    }
-  };
+    const handleBack = () => {
+        setError(null);
+        if (currentStep === 'register' || currentStep === 'password' || currentStep === 'otp') {
+            setCurrentStep('mobile');
+            setUserStatus(null);
+            setMobileNumber('');
+            setOtpCode('');
+            setLoginMethod(null);
+            mobileForm.reset();
+            passwordForm.reset();
+        }
+    };
 
-  if (isLoading) return <Loading />;
+    if (isLoading) return <Loading />;
 
-  return (
-    <div className="flex flex-col mx-auto w-full min-h-screen dark:bg-black bg-light-primary-darker">
-      <main className="px-4 flex-grow py-5 flex flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
-        {currentStep === 'mobile' && (
-          <div className="dark:text-text-color text-light-text-color py-17">
-            <img alt="login user" src="/images/login.svg" width={193} height={193} />
-          </div>
-        )}
+    return (
+        <div className="flex flex-col mx-auto w-full min-h-screen dark:bg-black bg-light-primary-darker">
+            <main className="px-4 flex-grow py-5 flex flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
+                {currentStep === 'mobile' && (
+                    <div className="dark:text-text-color text-light-text-color py-17">
+                        <img alt="login user" src="/images/login.png" width={193} height={193} />
+                    </div>
+                )}
 
                 {/* Step: MOBILE */}
                 {currentStep === 'mobile' && (
@@ -352,12 +342,10 @@ const AuthPage: React.FC = () => {
                             </Typography>
                         )}
 
-                        {/* دو دکمه روش ورود */}
                         <div className="grid grid-cols-1 gap-3">
-                            {/* اصلی: ورود با کد یکبار مصرف (آبی) */}
                             <Button
                                 type="submit"
-                                onClick={() => proceedFromMobile('otp')}
+                                // onClick={() => proceedFromMobile('otp')}
                                 className="w-full text-white bg-primary-blue dark:bg-accent-orange hover:bg-blue-600 dark:hover:bg-accent-orange"
                             >
                                 ورود با کد یکبار مصرف
@@ -365,7 +353,10 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={() => proceedFromMobile('password')}
-                                className="w-full py-3 rounded-lg border border-primary-blue dark:border-none dark:bg-primary-gray-200 text-primary-blue dark:text-white hover:bg-primary-blue/10 transition-colors font-peyda"
+                                className="w-full py-3 rounded-lg
+                                 hover:bg-primary-blue/10 dark:hover:bg-accent-orange/10
+                                 dark:border-none dark:bg-primary-gray-200 text-primary-blue
+                                  dark:text-white  font-peyda"
                             >
                                 ورود با رمز عبور
                             </button>
@@ -392,23 +383,26 @@ const AuthPage: React.FC = () => {
                             </Typography>
                         </div>
 
-            <form onSubmit={registerForm.handleSubmit(handleRegisterSubmit)} className="space-y-4">
-              {/* Mobile Number (Read-only) */}
-              <div className="flex flex-col gap-1">
-                <Typography
-                  className="text-color dark:text-text-color text-light-text-color !font-peyda mb-2"
-                  fontSize={12}
-                >
-                  شماره موبایل
-                </Typography>
-                <TextField
-                  mobileIcon={<CiMobile3 />}
-                  placeholder="شماره موبایل"
-                  defaultValue={mobileNumber}
-                  disabled
-                  className="dark:bg-gray-700 placeholder:text-light-text-color bg-transparent"
-                />
-              </div>
+                        <form
+                            onSubmit={registerForm.handleSubmit(handleRegisterSubmit)}
+                            className="space-y-4"
+                        >
+                            {/* Mobile Number (Read-only) */}
+                            <div className="flex flex-col gap-1">
+                                <Typography
+                                    className="text-color dark:text-text-color text-light-text-color !font-peyda mb-2"
+                                    fontSize={12}
+                                >
+                                    شماره موبایل
+                                </Typography>
+                                <TextField
+                                    mobileIcon={<CiMobile3 />}
+                                    placeholder="شماره موبایل"
+                                    defaultValue={mobileNumber}
+                                    disabled
+                                    className="dark:bg-gray-700 placeholder:text-light-text-color bg-transparent"
+                                />
+                            </div>
 
                             {/* National Code */}
                             <div className="flex flex-col gap-1">
@@ -535,7 +529,7 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={handleBack}
-                                className="w-full py-3 rounded-lg border text-gray-300 hover:bg-primary-light dark:hover:bg-black dark:border-gray-700 dark:hover:border-none transition-colors font-peyda"
+                                className="w-full py-3 rounded-lg  text-gray-300 hover:bg-white hover:border-gray-500 dark:hover:bg-black dark:border-gray-700 dark:hover:border-none transition-colors font-peyda"
                             >
                                 بازگشت
                             </button>
@@ -575,7 +569,7 @@ const AuthPage: React.FC = () => {
                                 </Typography>
                                 <PasswordInput
                                     mobileIcon={<RiLockPasswordLine />}
-                                    className="w-full"
+                                    className="w-full mt-2"
                                     {...passwordForm.register('password')}
                                 />
                                 {passwordForm.formState.errors.password && (
@@ -588,17 +582,21 @@ const AuthPage: React.FC = () => {
                                 )}
                             </div>
 
-              {error && (
-                <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
-                  <Typography className="text-red-400 !font-peyda" fontSize={12}>
-                    {error}
-                  </Typography>
-                </div>
-              )}
+                            {error && (
+                                <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
+                                    <Typography className="text-red-400 !font-peyda" fontSize={12}>
+                                        {error}
+                                    </Typography>
+                                </div>
+                            )}
 
-              <Button type="submit" disabled={isLoading} className="w-full bg-primary-blue hover:bg-primary-light dark:bg-accent-orange dark:hover:bg-orange-400 text-white font-peyda">
-                ورود
-              </Button>
+                            <Button
+                                type="submit"
+                                disabled={isLoading}
+                                className="w-full bg-primary-blue hover:bg-primary-light dark:bg-accent-orange dark:hover:bg-orange-400 text-white font-peyda"
+                            >
+                                ورود
+                            </Button>
 
                             <button
                                 type="button"
@@ -612,7 +610,7 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={handleBack}
-                                className="w-full py-3 rounded-lg border border-primary-blue dark:border-gray-600 hover:border-none dark:text-white hover:bg-[#0F3DFB] dark:hover:bg-black hover:text-white text-primary-blue transition-colors font-peyda"
+                                className="w-full py-3 rounded-lg border border-primary-blue dark:border-gray-600 hover:border-none dark:text-white hover:bg-white hover:border-primary-blue dark:hover:bg-black hover:text-primary-blue text-primary-blue transition-colors font-peyda"
                             >
                                 بازگشت
                             </button>
@@ -661,6 +659,16 @@ const AuthPage: React.FC = () => {
                                 </Typography>
                             </div>
                         )}
+                        {notice && (
+                            <div className="mb-4 p-3 rounded-lg border border-green-500/30 bg-green-500/10">
+                                <Typography
+                                    className="dark:text-green-500 text-green-800 !font-peyda"
+                                    fontSize={12}
+                                >
+                                    {notice}
+                                </Typography>
+                            </div>
+                        )}
 
                         <Button
                             onClick={handleOtpSubmit}
@@ -687,14 +695,14 @@ const AuthPage: React.FC = () => {
                                 </button>
                             ) : (
                                 <Typography className="text-gray-500 !font-peyda" fontSize={12}>
-                                    ارسال مجدد در {formatTimer(resendTimer)}
+                                    دریافت مجد کد: {formatTimer(resendTimer)} ثانیه
                                 </Typography>
                             )}
                         </div>
 
                         <button
                             onClick={handleBack}
-                            className="w-full py-3 rounded-lg border hover:border-none dark:text-gray-300 text-gray-700 hover:text-text-color bg-black  transition-colors font-peyda"
+                            className="w-full py-3 rounded-lg hover:border hover:border-gray-500 hover:text-gray-700 dark:text-gray-300 text-gray-700  transition-colors font-peyda"
                         >
                             بازگشت
                         </button>

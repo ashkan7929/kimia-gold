@@ -30,10 +30,10 @@ const Buy = () => {
     label: `مقدار ${i + 1} گرم`,
   }));
 
-  const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const number = e.currentTarget.value;
-    setWeight(number === 'انتخاب کنید' ? '' : Number(number));
-  };
+    const handleWeight: React.ChangeEventHandler<HTMLSelectElement> = e => {
+        const number = e.currentTarget.value;
+        setWeight(number === 'انتخاب کنید' ? '' : Number(number));
+    };
 
   const price = typeof weight === 'number' ? weight * goldPrice : 0;
   const priceItem = price ? price.toLocaleString('fa-IR') : '—';
@@ -71,37 +71,56 @@ const Buy = () => {
                               </div>
                             </div>
 
-                            <div className="flex items-center gap-2">
-                              <div className="flex flex-col items-end gap-1">
-                                <Typography
-                                  className="!font-peyda text-neutral-700 dark:text-neutral-300"
-                                  fontWeight="bold"
-                                  fontSize={12}
-                                >
-                                  قیمت هر گرم
-                                </Typography>
-                                <div className="flex items-center gap-1">
-                                  <Typography
-                                    className="!font-peyda text-light-text-color dark:text-text-color"
-                                    fontWeight="bold"
-                                    fontSize={12}
-                                  >
-                                    ۷,۴۹۶,۴۰۰
-                                  </Typography>
-                                  {isDark
-                                    ? <img alt="toman" src="/images/toman.svg" width={10} height={10} />
-                                    : <img alt="toman" src={tomanBlack} width={10} height={10} />
-                                  }
-                                </div>
-                              </div>
+                                                        <div className="flex items-center gap-2">
+                                                            <div className="flex flex-col items-end gap-1">
+                                                                <Typography
+                                                                    className="!font-peyda text-neutral-700 dark:text-neutral-300"
+                                                                    fontWeight="bold"
+                                                                    fontSize={12}
+                                                                >
+                                                                    قیمت هر گرم
+                                                                </Typography>
+                                                                <div className="flex items-center gap-1">
+                                                                    <Typography
+                                                                        className="!font-peyda text-light-text-color dark:text-text-color"
+                                                                        fontWeight="bold"
+                                                                        fontSize={12}
+                                                                    >
+                                                                        ۷,۴۹۶,۴۰۰
+                                                                    </Typography>
+                                                                    {isDark ? (
+                                                                        <img
+                                                                            alt="toman"
+                                                                            src="/images/toman.svg"
+                                                                            width={10}
+                                                                            height={10}
+                                                                        />
+                                                                    ) : (
+                                                                        <img
+                                                                            alt="toman"
+                                                                            src={tomanBlack}
+                                                                            width={10}
+                                                                            height={10}
+                                                                        />
+                                                                    )}
+                                                                </div>
+                                                            </div>
 
-                              {open
-                                ? <FaChevronUp className="text-light-text-color dark:text-text-color" fontSize={12} />
-                                : <FaChevronDown className="text-light-text-color dark:text-text-color" fontSize={12} />}
-                            </div>
-                          </div>
-                        </Disclosure.Button>
-                      </div>
+                                                            {open ? (
+                                                                <FaChevronUp
+                                                                    className="text-light-text-color dark:text-text-color"
+                                                                    fontSize={12}
+                                                                />
+                                                            ) : (
+                                                                <FaChevronDown
+                                                                    className="text-light-text-color dark:text-text-color"
+                                                                    fontSize={12}
+                                                                />
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </Disclosure.Button>
+                                            </div>
 
                       <Transition
                         enter="transition transition-[max-height] duration-500 ease-in"
@@ -121,30 +140,30 @@ const Buy = () => {
               </Disclosure>
             </section>
 
-            <section>
-              <div className="rounded-lg bg-white dark:bg-black p-4">
-                <div className="rounded-3xl bg-gray-200 dark:bg-gray-800">
-                  <div className="p-1">
-                    <nav className="flex w-full" id="nav-pills" role="tablist">
-                      {tabInfo.map((tab) => (
-                        <button
-                          key={tab.title}
-                          disabled={tab.title === 'فروش'}
-                          onClick={() => setSelectedTab(tab)}
-                          className={`${tab === selectedTab ? 'bg-primary-blue dark:bg-gray-900 text-text-color' : ''} flex-1 rounded-3xl py-2 text-white`}
-                          type="button"
-                        >
-                          <Typography
-                            className={`!font-peyda ${tab === selectedTab ? 'text-white' : 'text-black dark:text-white'}`}
-                            fontSize={10}
-                          >
-                            {tab.title}
-                          </Typography>
-                        </button>
-                      ))}
-                    </nav>
-                  </div>
-                </div>
+                        <section>
+                            <div className="rounded-lg bg-white dark:bg-black p-4">
+                                <div className="rounded-3xl bg-gray-200 dark:bg-gray-800">
+                                    <div className="p-1">
+                                        <nav className="flex w-full" id="nav-pills" role="tablist">
+                                            {tabInfo.map(tab => (
+                                                <button
+                                                    key={tab.title}
+                                                    disabled={tab.title === 'فروش'}
+                                                    onClick={() => setSelectedTab(tab)}
+                                                    className={`${tab === selectedTab ? 'bg-primary-blue dark:bg-gray-900 text-text-color' : ''} flex-1 rounded-3xl py-2 text-white`}
+                                                    type="button"
+                                                >
+                                                    <Typography
+                                                        className={`!font-peyda ${tab === selectedTab ? 'text-white' : 'text-black dark:text-white'}`}
+                                                        fontSize={10}
+                                                    >
+                                                        {tab.title}
+                                                    </Typography>
+                                                </button>
+                                            ))}
+                                        </nav>
+                                    </div>
+                                </div>
 
                 <div className="block" tabIndex={0}>
                   <div className="mt-3 flex flex-col gap-3">
@@ -182,123 +201,43 @@ const Buy = () => {
                       </div>
                     </div>
 
-                    <div>
-                      <Button className="w-full hover:bg-gold-200 dark:bg-accent-orange text-sm text-white">
-                        {t('buy')}
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* FAQ */}
-            <section>
-              <div className="flex flex-col gap-2.5 rounded-lg bg-white dark:bg-black p-4">
-                <Typography
-                  className="!font-peyda py-1 text-start text-light-text-color dark:text-text-color"
-                  fontWeight={600}
-                  fontSize={12}
-                >
-                  {t('listRequestGold')}
-                </Typography>
-
-                {/* FAQ 1 */}
-                <Disclosure as="div">
-                  {({ open }: { open: boolean }) => (
-                    <div className="w-full transition-all duration-700 ease-out">
-                      <div className="rounded-lg border border-custom-gray dark:border-custom-border-default">
-                        <div className="rounded-md py-4 transition-background-color duration-300 ease-in-out">
-                          <Disclosure.Button className="flex w-full cursor-pointer items-center justify-between px-2">
-                            <div className="flex w-full items-center justify-between gap-5">
-                              <div className="flex items-center gap-2">
-                                <Typography
-                                  className="!font-peyda text-start text-light-text-color dark:text-text-color"
-                                  fontSize={11}
-                                >
-                                  {t('faqQuestion')}
-                                </Typography>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                {open
-                                  ? <FaChevronUp className="text-light-text-color dark:text-text-color" fontSize={12} />
-                                  : <FaChevronDown className="text-light-text-color dark:text-text-color" fontSize={12} />
-                                }
-                              </div>
+                                        <div>
+                                            <Button className="w-full hover:bg-gold-200 dark:bg-accent-orange text-sm text-white">
+                                                {t('buy')}
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                          </Disclosure.Button>
-                        </div>
-                        <Transition
-                          enter="transition transition-[max-height] duration-500 ease-in"
-                          enterFrom="transform max-h-0"
-                          enterTo="transform max-h-[200vh]"
-                          leave="transition transition-[max-height] duration-500 ease-out"
-                          leaveFrom="transform max-h-screen"
-                          leaveTo="transform max-h-0"
-                        >
-                          <Disclosure.Panel as="div" className="overflow-hidden px-2 pb-4">
-                            <Typography className="!font-peyda text-neutral-700 dark:text-neutral-300" fontSize={10}>
-                              {t('faqAnswer')}
-                            </Typography>
-                          </Disclosure.Panel>
-                        </Transition>
-                      </div>
-                    </div>
-                  )}
-                </Disclosure>
+                        </section>
 
-                {/* FAQ 2 */}
-                <Disclosure as="div">
-                  {({ open }: { open: boolean }) => (
-                    <div className="w-full transition-all duration-700 ease-out">
-                      <div className="rounded-lg border border-custom-gray dark:border-custom-border-default">
-                        <div className="rounded-md py-4 transition-background-color duration-300 ease-in-out">
-                          <Disclosure.Button className="flex w-full cursor-pointer items-center justify-between px-2">
-                            <div className="flex w-full items-center justify-between gap-5">
-                              <div className="flex items-center gap-2">
+                        {/* FAQ */}
+                        <section>
+                            <div className="flex flex-col gap-2.5 rounded-lg bg-white dark:bg-black p-4">
                                 <Typography
-                                  className="!font-peyda text-start text-light-text-color dark:text-text-color"
-                                  fontSize={11}
+                                    className="!font-peyda py-1 text-start text-light-text-color dark:text-text-color"
+                                    fontWeight={600}
+                                    fontSize={12}
                                 >
-                                  {t('faqQuestion')}
+                                    {t('listRequestGold')}
                                 </Typography>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                {open
-                                  ? <FaChevronUp className="text-light-text-color dark:text-text-color" fontSize={12} />
-                                  : <FaChevronDown className="text-light-text-color dark:text-text-color" fontSize={12} />
-                                }
-                              </div>
-                            </div>
-                          </Disclosure.Button>
-                        </div>
-                        <Transition
-                          enter="transition transition-[max-height] duration-500 ease-in"
-                          enterFrom="transform max-h-0"
-                          enterTo="transform max-h-[200vh]"
-                          leave="transition transition-[max-height] duration-500 ease-out"
-                          leaveFrom="transform max-h-screen"
-                          leaveTo="transform max-h-0"
-                        >
-                          <Disclosure.Panel as="div" className="overflow-hidden px-2 pb-4">
-                            <Typography className="!font-peyda text-neutral-700 dark:text-neutral-300" fontSize={10}>
-                              {t('faqAnswer')}
-                            </Typography>
-                          </Disclosure.Panel>
-                        </Transition>
-                      </div>
-                    </div>
-                  )}
-                </Disclosure>
-              </div>
-            </section>
-          </div>
-        </main>
 
-        <BottomNav />
-      </div>
-    </>
-  );
+
+                                <Typography
+                                    className="!font-peyda text-start text-light-text-color dark:text-text-color"
+                                    fontSize={11}
+                                >
+                                  به زودی سوالات جدید به این قسمت اضافه می‌شود
+                                </Typography>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+
+                <BottomNav />
+            </div>
+        </>
+    );
 };
 
 export default Buy;
