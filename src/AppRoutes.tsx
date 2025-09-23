@@ -49,15 +49,16 @@ const AppRoutes: React.FC = () => {
     const isDark = theme === 'dark';
     return (
         <Routes>
+            <Route path="/auth" element={<Navigate to="/auth/unified" replace />} />
             {/* Auth Routes */}
-            <Route
-                path="/auth"
+            {/* <Route
+                path=""
                 element={
                     <PublicRoute>
                         <MobilePage />
                     </PublicRoute>
                 }
-            />
+            /> */}
             {/* <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} /> */}
             <Route
                 path="/auth/otp"
@@ -140,7 +141,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products/:id"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <ProductDetailCard />
                     </SimpleLayout>
                 }
@@ -148,7 +149,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products/:id/card"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <ProductDetail />
                     </SimpleLayout>
                 }
@@ -157,7 +158,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/paymentInsurance"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <PaymentInsurance />
                     </SimpleLayout>
                 }
@@ -165,7 +166,7 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/productTransaction"
                 element={
-                    <SimpleLayout headerImg={isDark ? alborzImg : alborLightzImg}>
+                    <SimpleLayout headerImg={isDark ? alborLightzImg : alborzImg}>
                         <ProductTransaction />
                     </SimpleLayout>
                 }

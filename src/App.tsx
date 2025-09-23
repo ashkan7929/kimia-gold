@@ -1,54 +1,46 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from './stores/auth.store';
 import AppRoutes from './AppRoutes';
 import Starter from './pages/Starter/Starter';
 
 function App() {
-    const hasLogedInBefore = localStorage.getItem('new-user');
-    const { setToken, setUser } = useAuth();
-    useEffect(() => {
-        const isFirstVisit = localStorage.getItem('first-visit');
-        if (!isFirstVisit) {
-            if ('caches' in window) {
-                caches.keys().then(names => {
-                    names.forEach(name => {
-                        caches.delete(name);
-                    });
-                });
-            }
+  const { setToken, setUser } = useAuth();
+  const [newUser, setNewUser] = useState<boolean | null>(null);
 
-            localStorage.setItem('first-visit', 'true');
-        }
-    }, []);
+  useEffect(() => {
+    const token = localStorage.getItem('auth_token');
+    const userData = localStorage.getItem('user_data');
 
-    useEffect(() => {
-        const token = localStorage.getItem('auth_token');
-        const userData = localStorage.getItem('user_data');
+    if (token) setToken(token);
 
-        if (token) {
-            setToken(token);
-        }
+    if (userData) {
+      try {
+        setUser(JSON.parse(userData));
+      } catch {
+        localStorage.removeItem('user_data');
+      }
+    }
 
-        if (userData) {
-            try {
-                const user = JSON.parse(userData);
-                setUser(user);
-            } catch (error) {
-                console.error(error);
-                localStorage.removeItem('user_data');
-            }
-        }
-    }, [setToken, setUser]);
+    const seenStarter = localStorage.getItem('new-user') === 'done';
+    setNewUser(!seenStarter); // اگر دیده نشده، newUser = true
+  }, [setToken, setUser]);
 
-    return (
-        <Router>
-            {!hasLogedInBefore && <Starter />}
-            <div className="App">
-                <AppRoutes />
-            </div>
-        </Router>
-    );
+  const onFinish = () => {
+    localStorage.setItem('new-user', 'done'); 
+    setNewUser(false);
+  };
+
+  if (newUser === null) return null;
+
+  return (
+    <Router>
+      {newUser && <Starter onFinish={onFinish} />} {/* ✅ نمایش فقط برای یوزر جدید */}
+      <div className="App">
+        <AppRoutes />
+      </div>
+    </Router>
+  );
 }
 
 export default App;

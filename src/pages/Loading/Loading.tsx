@@ -1,12 +1,12 @@
 import { useTheme } from "../../contexts/ThemeContext";
-import logoDarkMode from "/images/vemLogo1.png"
+import logoDarkMode from "/images/logo/vemLogoDark.png"
 import logoLightMode from "/images/vemLogoSite.png"
 const Loading = () => {
         const { theme } = useTheme();
-        const isDark = theme === 'dark';
+        const isDark = theme === 'light';
     return (
         <>
-            <div className="w-full mx-auto bg-primary-purple light:bg-white min-h-screen flex flex-col h-full">
+            <div className="w-full mx-auto bg-black light:bg-white min-h-screen flex flex-col h-full">
                 <main
                     className="flex-grow flex items-center justify-center h-full"
                     style={{
@@ -22,7 +22,7 @@ const Loading = () => {
                         </div>
                         <div className="fixed bottom-10 right-0 left-0 flex items-center justify-center">
                             <div
-                                className="w-12.5 h-12.5 border border-white border-b-primary-blue light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
+                                className="w-12.5 h-12.5 border border-white border-b-primary-blue dark:border-accent-orange light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
                                 style={{
                                     animation: 'rotation 1s linear infinite'
                                 }}

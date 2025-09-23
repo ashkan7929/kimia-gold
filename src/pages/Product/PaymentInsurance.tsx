@@ -115,56 +115,56 @@ const PaymentInsurance = () => {
     };
 
     return (
-        <div className="bg-primary-darker light:bg-white">
+        <div className="dark:bg-gray-800 bg-white">
             <section>
-                <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
+                <div className="dark:bg-black bg-light-primary-darker rounded-lg shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
                     <div className="p-4 flex flex-col gap-2">
-                        <div className="text-white light:text-light-text-color font-semibold text-sm mb-2">
+                        <div className="dark:text-white text-light-text-color font-semibold text-sm mb-2">
                             اطلاعات نهایی برای پرداخت بیمه عمر
                         </div>
                         <ul className="space-y-3">
-                            <li className="flex justify-between items-center py-2 border-b border-dashed border-gray-600 light:border-custom-gray">
-                                <div className="text-gray-300 light:text-gray-700 text-xs">
+                            <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs">
                                     تاریخ و زمان :
                                 </div>
                                 <div className="text-white light:text-light-text-color text-xs font-medium">
                                     {getCurrentDateTime()}
                                 </div>
                             </li>
-                            <li className="flex justify-between items-center py-2 border-b border-dashed border-gray-600 light:border-custom-gray">
-                                <div className="text-gray-300 light:text-gray-700 text-xs">
+                            <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs">
                                     عنوان
                                 </div>
                                 <div className="text-white light:text-light-text-color text-xs font-sm">
                                     کیمیا
                                 </div>
                             </li>
-                            <li className="flex justify-between items-center py-2 border-b border-dashed border-gray-600 light:border-custom-gray">
-                                <div className="text-gray-300 light:text-gray-700 text-xs">
+                            <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs">
                                     طلا <small>(به گرم)</small>
                                 </div>
                                 <div className="text-white light:text-light-text-color text-xs font-sm">
                                     ۱
                                 </div>
                             </li>
-                            <li className="flex justify-between items-center py-2 border-b border-dashed border-gray-600 light:border-custom-gray">
-                                <div className="text-gray-300 light:text-gray-700 text-xs">
+                            <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs">
                                     قیمت طلا 18 عیار
                                 </div>
                                 <div className="text-white light:text-light-text-color text-xs font-medium">
                                     {goldPrice.toLocaleString('fa-IR')}
                                 </div>
                             </li>
-                            <li className="flex justify-between items-center py-2 border-b border-dashed border-gray-600 light:border-custom-gray">
-                                <div className="text-gray-300 light:text-gray-700 text-xs">
+                            <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs">
                                     هزینه بیمه
                                 </div>
                                 <div className="text-white light:text-light-text-color text-xs font-medium">
                                     {insuranceCost.toLocaleString('fa-IR')}
                                 </div>
                             </li>
-                            <li className="flex justify-between items-center py-2 border-b border-dashed border-gray-600 light:border-custom-gray">
-                                <div className="text-gray-300 light:text-gray-700 text-xs">
+                            <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs">
                                     کل مبلغ پرداختی
                                 </div>
                                 <div className="text-white light:text-light-text-color text-xs font-medium">
@@ -178,14 +178,14 @@ const PaymentInsurance = () => {
                     <Button
                         onClick={handlePayment}
                         disabled={loading || isProcessing || walletsLoading || !usdWallet}
-                        className="bg-accent-orange light:bg-primary-darker text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="dark:bg-accent-orange bg-primary-blue text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         پرداخت از طریق درگاه
                     </Button>
                     <Button
                         onClick={handlePayment}
                         disabled={loading || isProcessing || walletsLoading || !usdWallet}
-                        className="bg-accent-orange light:bg-primary-darker text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="dark:bg-black dark:border-gray-500 bg-primary-blue text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {isProcessing ? 'در حال پردازش...' :
                             walletsLoading ? 'در حال بارگذاری کیف پول...' :

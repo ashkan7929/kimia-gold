@@ -7,15 +7,15 @@ const CheckBox = ({ label, onChange, defaultChecked }: { label: string, onChange
         <div className="flex items-center gap-sm">
             <Checkbox
                 onChange={onChange}
-                icon={<span className="block w-5 h-5 rounded border border-gray-100" />}
+                icon={<span className="block w-5 h-5 rounded border dark:border-gray-400 border-gray-800" />}
                 checkedIcon={
-                    <div className="flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox light:bg-primary-blue">
+                    <div className="flex items-center justify-center w-5 h-5 rounded dark:bg-accent-orange bg-primary-blue">
                         <CheckIcon sx={{ fontSize: 14, color: 'white' }} className='"flex items-center justify-center w-5 h-5 rounded bg-custom-bg-checkbox"' />
                     </div>
                 }
                 defaultChecked={defaultChecked}
             />
-            <label className="font-peyda font-medium text-xl-custom text-text-color light:text-light-text-color">{label}</label>
+            <label className="font-peyda font-medium text-xl-custom dark:text-text-color text-light-text-color">{label}</label>
         </div>
     );
 };

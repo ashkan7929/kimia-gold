@@ -42,7 +42,7 @@ export default function Modal({
                         padding: 0,
                         width: 600,
                         borderRadius: 4,
-                        bgcolor: isDark ? '#02006C' : '#ffffff',
+                        bgcolor: isDark ? '#212121' : '#ffffff',
                         [theme.breakpoints.down('sm')]: {
                             position: 'absolute',
                             bottom: 0,
@@ -87,7 +87,7 @@ export default function Modal({
                 {confirmText && (
                     <DialogActions sx={{ px: 3, pb: 3 }}>
                         <Button
-                            className="px-4 w-full text-xs text-white bg-accent-orange light:bg-primary-blue"
+                            className="px-4 w-full text-xs text-white dark:bg-accent-orange bg-primary-blue"
                             onClick={handleSubmit}
                         >
                             {confirmText}

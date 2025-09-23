@@ -4,6 +4,9 @@ import {
     IoNotificationsOutline,
     PiUsersThreeBold,
     TbLayoutGrid,
+    MdOutlineMessage,
+    GoSignOut,
+    AiOutlineUserAdd,
 } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
 import { BiSolidMoon } from 'react-icons/bi';
@@ -12,7 +15,7 @@ import logoLightMode from '/images/vemLogoSite.png';
 import logoDarkMode from '/images/vemLogo1.png';
 import Menu from '../../components/menu/Menu';
 
-const Layout = ({ children }: { children: any }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
     const { theme, toggleTheme } = useTheme();
     const isDark = theme === 'dark';
 
@@ -32,20 +35,21 @@ const Layout = ({ children }: { children: any }) => {
 
     return (
         <>
-            <div className="bg-black light:bg-primary-whiteSpecial min-h-screen p-4.5">
-                <header className="bg-primary-darker light:bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
+            <div className="dark:bg-gray-900 bg-primary-whiteSpecial min-h-screen p-4.5">
+                <header className="dark:bg-black bg-white grid grid-cols-3 w-full rounded-lg py-2.5 px-4 mb-3">
                     <div className="flex gap-1">
-                        <div
+                        <button
                             onClick={handleShowMenu}
-                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer"
+                            className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer"
                         >
-                            <TbLayoutGrid fontSize={19} className="text-white light:text-black" />
-                        </div>
-                        <Link to={'/message-box'}>
-                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 border-primary-lighter/70 light:border-primary-gray-50 cursor-pointer">
+                            <TbLayoutGrid fontSize={19} className="dark:text-white text-black" />
+                        </button>
+
+                        <Link to="/message-box">
+                            <div className="w-8.5 h-8.5 flex justify-center items-center rounded-full border-2 dark:border-primary-lighter/70 border-primary-gray-50 cursor-pointer">
                                 <IoNotificationsOutline
                                     fontSize={19}
-                                    className="text-white light:text-black"
+                                    className="dark:text-white text-black"
                                 />
                             </div>
                         </Link>

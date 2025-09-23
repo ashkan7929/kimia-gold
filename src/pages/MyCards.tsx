@@ -6,7 +6,7 @@ import { useTheme } from "../contexts/ThemeContext";
 
 const MyCards = () => {
     const { theme } = useTheme();
-    const isDark = theme === 'dark';
+    const isDark = theme === 'light';
     return (
         <>
             <div className="w-full mx-auto bg-[#040320] min-h-screen flex flex-col" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>

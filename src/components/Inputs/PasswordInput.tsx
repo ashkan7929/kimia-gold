@@ -8,7 +8,7 @@ const PasswordInput = forwardRef<HTMLInputElement, TextFieldProps>(
 
         return (
             <div className={`${className} relative`}>
-                <div className="flex items-center text-text-color light:text-light-text-color light:border-custom-gray rounded-xsm border-custom-border-light border relative">
+                <div className="flex items-center dark:text-text-color text-light-text-color border-custom-gray rounded-xsm dark:border-custom-border-light border relative">
                     <div className="absolute h-full right-4 flex items-center justify-center">
                         {rest.mobileIcon}
                     </div>
@@ -19,13 +19,13 @@ const PasswordInput = forwardRef<HTMLInputElement, TextFieldProps>(
                         disabled={disabled}
                         onChange={onChange}
                         type={visible ? 'text' : 'password'}
-                        className="text-sm w-full h-10 pr-10 pl-10 bg-custom-bg-input light:bg-gray-100 light:border-custom-gray rounded-lg text-text-color light:text-light-text-color font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue light:focus:border-light-text-color"
+                        className="text-sm w-full h-10 pr-10 pl-10 dark:bg-gray-900 dark:text-text-color  bg-gray-100 border-custom-gray rounded-lg text-light-text-color font-peyda placeholder-custom-text-secondary  dark:focus:outline-none dark:focus:border-primary-blue focus:border-light-text-color"
                         placeholder={placeholder}
                         {...rest}
                     />
 
                     <div
-                        className="absolute h-full left-3 flex items-center cursor-pointer text-gray-400"
+                        className="absolute h-full left-3 flex items-center cursor-pointer dark:text-gray-400 text-black"
                         onClick={() => setVisible(prev => !prev)}
                     >
                         {visible ? <LuEye /> : <LuEyeClosed /> }

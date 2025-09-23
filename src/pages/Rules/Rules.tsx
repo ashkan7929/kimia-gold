@@ -23,7 +23,7 @@ const Rules = () => {
                 <main className="flex-grow bg-[url('/images/main-lines-pattern.png')] bg-cover bg-center">
                     <div className="container flex flex-col gap-3 mb-3">
                         <section className="rules">
-                            <div className="bg-primary-darker light:bg-white rounded-lg mb-3">
+                            <div className="dark:bg-black bg-white rounded-lg mb-3">
                                 <div className="p-2">
                                     <nav className="w-full">
                                         <div className="flex justify-between overflow-x-auto scrollbar-hide !font-peyda text-white">
@@ -33,12 +33,12 @@ const Rules = () => {
                                                     onClick={() => setSelectedTab(tab)}
                                                     className={` ${
                                                         selectedTab === tab
-                                                            ? 'bg-primary-blue text-white'
+                                                            ? 'bg-primary-blue dark:bg-gray-800 text-white'
                                                             : 'bg-transparent'
-                                                    } cursor-pointer group text-neutral-200 light:text-light-text-color px-6 py-2 rounded-md !font-peyda`}
+                                                    } cursor-pointer group dark:text-neutral-200 text-light-text-color px-6 py-2 rounded-md !font-peyda`}
                                                 >
                                                     <Typography
-                                                        className="!font-peyda text-nowrap light:group-focus:text-white"
+                                                        className="!font-peyda text-nowrap group-focus:text-white"
                                                         fontWeight="semibold"
                                                         fontSize={10}
                                                     >
@@ -53,22 +53,22 @@ const Rules = () => {
 
                             <div className="fade show active" tabIndex={0}>
                                 <div className="flex flex-col gap-2">
-                                    <div className="bg-primary-darker light:bg-light-primary-darker rounded-lg">
+                                    <div className="dark:bg-black bg-light-primary-darker rounded-lg">
                                         <div className="p-[14px_12px]">
-                                            <div className="text-text-color light:text-light-text-color font-alibaba text-[15.36px] font-normal leading-normal mb-4">
+                                            <div className="dark:text-text-color text-light-text-color font-alibaba text-[15.36px] font-normal leading-normal mb-4">
                                                  {t('rulePage.title')}
                                             </div>
                                             <div className="text-white">
                                                 <section className="mb-6">
-                                                    <div className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-normal leading-normal mb-3">
+                                                    <div className="dark:text-neutral-100 text-neutral-900 text-[10.8px] font-normal leading-normal mb-3">
                                                         {t('rulePage.des1')}
 
                                                     </div>
-                                                    <h3 className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
+                                                    <h3 className="dark:text-neutral-100 text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         {t('rulePage.des2')}
 
                                                     </h3>
-                                                    <ul className="list-disc pr-4 text-neutral-100 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-100 text-neutral-900 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>{t('rulePage.desList2.1')}</li>
 
                                                         <li>
@@ -98,13 +98,13 @@ const Rules = () => {
                                                 </section>
 
                                                 <section className="mb-6">
-                                                    <h3 className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
+                                                    <h3 className="dark:text-neutral-100 text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         2. مقررات اختصاصی طلا و نقره
                                                     </h3>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2">
                                                         قانون نظام صنفی کشور:
                                                     </p>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             نیاز به پروانه کسب معتبر برای فروش طلا و
                                                             نقره
@@ -115,10 +115,10 @@ const Rules = () => {
                                                         </li>
                                                         <li>نصب برچسب اصالت اتحادیه طلا و جواهر</li>
                                                     </ul>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2 mt-3">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2 mt-3">
                                                         مقررات بانک مرکزی و اتحادیه صنف طلا و جواهر:
                                                     </p>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             اعلام روزانه قیمت براساس نرخ جهانی و
                                                             مالیات ارزش افزوده
@@ -134,13 +134,13 @@ const Rules = () => {
                                                 </section>
 
                                                 <section className="mb-6">
-                                                    <h3 className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
+                                                    <h3 className="dark:text-neutral-100 text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         3. مالیات و عوارض
                                                     </h3>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2">
                                                         مالیات بر ارزش افزوده (9%):
                                                     </p>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             اعمال مالیات بر قیمت طلا و نقره (به جز
                                                             سکه بهار آزادی)
@@ -150,23 +150,23 @@ const Rules = () => {
                                                             تومان (در برخی شرایط)
                                                         </li>
                                                     </ul>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2 mt-3">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2 mt-3">
                                                         عوارض شهرداری و صنفی:
                                                     </p>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>پرداخت عوارض بر اساس ارزش معامله</li>
                                                     </ul>
                                                 </section>
 
                                                 <section className="mb-6">
-                                                    <div className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
+                                                    <div className="dark:text-neutral-100 text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         4. رعایت محرمانگی و حریم خصوصی و پرداخت
                                                         الکترونیک
                                                     </div>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2">
                                                         قانون جرایم رایانه‌ای:
                                                     </p>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             محافظت از اطلاعات کاربران و ممنوعیت
                                                             سوءاستفاده از داده‌ها
@@ -176,10 +176,10 @@ const Rules = () => {
                                                             بانکی دارای مجوز
                                                         </li>
                                                     </ul>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2 mt-3">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-2 mt-3">
                                                         مقررات بانکی:
                                                     </p>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             تطابق حساب فروشنده با هویت ثبت‌شده در
                                                             سامانه‌های مالیاتی
@@ -191,7 +191,7 @@ const Rules = () => {
                                                     <h3 className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         5. تحریم‌ها و ممنوعیت‌ها
                                                     </h3>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             ممنوعیت خرید و فروش طلا و نقره با ارزهای
                                                             دیجیتال
@@ -204,10 +204,10 @@ const Rules = () => {
                                                 </section>
 
                                                 <section className="mb-6">
-                                                    <h3 className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
+                                                    <h3 className="dark:text-neutral-100 text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         6. ضمانت اجرا و جرایم
                                                     </h3>
-                                                    <ul className="list-disc pr-4 text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             تخلفات صنفی: پلمپ مغازه یا مسدودسازی
                                                             اپلیکیشن
@@ -227,14 +227,14 @@ const Rules = () => {
                                                     <h2 className="text-neutral-100 light:text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         نتیجه‌گیری
                                                     </h2>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-3">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] mb-3">
                                                         اپلیکیشن‌های فروش طلا و نقره باید مجوزهای
                                                         لازم از اتحادیه صنف طلا و جواهر، وزارت صنعت،
                                                         معدن و تجارت و سامانه‌های مالیاتی را دریافت
                                                         کنند و تمام معاملات را شفاف و مطابق قانون
                                                         انجام دهند.
                                                     </p>
-                                                    <p className="text-neutral-200 light:text-neutral-800 text-[9px] font-normal leading-[14.4px]">
+                                                    <p className="dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px]">
                                                         در صورت نیاز به جزئیات بیشتر، می‌توانید به
                                                         قانون تجارت الکترونیک، قانون مالیات بر ارزش
                                                         افزوده و آیین‌نامه اتحادیه صنف طلا و جواهر و

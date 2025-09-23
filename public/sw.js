@@ -7,7 +7,15 @@ const APP_SHELL = [
   "/photo512.jpeg"
 ];
 
-self.addEventListener("install", (event) => {
+const BYPASS_PATHS = [
+  /^\/@vite/,         
+  /^\/__vite_ping/,   
+  /^\/node_modules\//,  
+  /^\/src\//,           
+  /^\/vite\//,         
+];
+
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL))
   );
@@ -17,7 +25,9 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((names) =>
-      Promise.all(names.map((n) => n !== CACHE_NAME && caches.delete(n)))
+      Promise.all(
+        names.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n))
+      )
     )
   );
   self.clients.claim();
@@ -28,24 +38,46 @@ self.addEventListener("fetch", (event) => {
 
   if (req.method !== "GET") return;
 
-  if (req.mode === "navigate") {
+  try {
+    const url = new URL(req.url);
+
+    if (url.origin !== self.location.origin) return;
+
+    if (BYPASS_PATHS.some((re) => re.test(url.pathname))) {
+      return; 
+    }
+
+    if (req.mode === 'navigate' || req.destination === 'document') {
+      event.respondWith(
+        fetch(req)
+          .then((res) => {
+            const resClone = res.clone();
+            caches.open(CACHE_NAME).then((c) => c.put('/index.html', resClone));
+            return res;
+          })
+          .catch(() =>
+            caches.match('/index.html').then((cached) => cached || new Response('Offline', { status: 503 }))
+          )
+      );
+      return;
+    }
+
     event.respondWith(
-      caches.match("/index.html")
-        .then((cached) => cached || fetch(req))
-        .catch(() => caches.match("/index.html"))
+      caches.match(req).then((cached) => {
+        const fetchPromise = fetch(req)
+          .then((networkRes) => {
+            if (networkRes && networkRes.status === 200) {
+              const clone = networkRes.clone();
+              caches.open(CACHE_NAME).then((cache) => cache.put(req, clone));
+            }
+            return networkRes;
+          })
+          .catch(() => cached || new Response('Offline', { status: 503 }));
+
+        return cached || fetchPromise;
+      })
     );
+  } catch {
     return;
   }
-
-  const url = new URL(req.url);
-
-  if (url.origin !== self.location.origin) return;
-
-  event.respondWith(
-    caches.match(req)
-      .then((cached) => cached || fetch(req))
-      .catch(() => {
-        return new Response("Offline", { status: 503, statusText: "Offline" });
-      })
-  );
 });

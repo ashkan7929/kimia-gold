@@ -13,6 +13,7 @@ import { registerSchema, type RegisterFormData } from '../../lib/validations';
 import { authService } from '../../services/authService';
 import { useAuth } from '../../stores/auth.store';
 import Loading from '../Loading/Loading';
+import { errorHandler } from '../../utils/errorHandler';
 
 interface LocationState {
   mobileNumber: string;
@@ -48,7 +49,7 @@ const Register: React.FC = () => {
   // Redirect if not verified
   useEffect(() => {
     if (!state?.mobileNumber || !state?.verified) {
-      navigate('/auth', { replace: true });
+      navigate('/auth/unified', { replace: true });
     }
   }, [state, navigate]);
 
@@ -69,24 +70,26 @@ const Register: React.FC = () => {
         navigate('/dashboard', { replace: true });
       }
     } catch (err: any) {
-      if (err.response?.status === 400) {
-        const errorData = err.response.data;
-        if (errorData.code === 'DUPLICATE_NATIONAL_CODE') {
-          setError('این کد ملی قبلاً ثبت شده است');
-        } else if (errorData.code === 'INVALID_NATIONAL_CODE') {
-          setError('کد ملی نامعتبر است');
-        } else if (errorData.code === 'INVALID_BIRTH_DATE') {
-          setError('تاریخ تولد نامعتبر است');
-        } else if (errorData.code === 'INVALID_REFERRAL_CODE') {
-          setError('کد معرف نامعتبر است');
-        } else {
-          setError('اطلاعات وارد شده نامعتبر است');
-        }
-      } else if (err.response?.status === 429) {
-        setError('تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید');
-      } else {
-        setError('خطا در ارتباط با سرور');
-      }
+      // if (err.response?.status === 400) {
+      //   const errorData = err.response.data;
+      //   if (errorData.code === 'DUPLICATE_NATIONAL_CODE') {
+      //     setError('این کد ملی قبلاً ثبت شده است');
+      //   } else if (errorData.code === 'INVALID_NATIONAL_CODE') {
+      //     setError('کد ملی نامعتبر است');
+      //   } else if (errorData.code === 'INVALID_BIRTH_DATE') {
+      //     setError('تاریخ تولد نامعتبر است');
+      //   } else if (errorData.code === 'INVALID_REFERRAL_CODE') {
+      //     setError('کد معرف نامعتبر است');
+      //   } else {
+      //     setError('اطلاعات وارد شده نامعتبر است');
+      //   }
+      // } else if (err.response?.status === 429) {
+      //   setError('تعداد تلاش‌های شما بیش از حد مجاز است. لطفاً بعداً تلاش کنید');
+      // } else {
+      //   setError('خطا در ارتباط با سرور');
+      // }
+        setError(errorHandler(err));
+      
     } finally {
       setIsLoading(false);
     }

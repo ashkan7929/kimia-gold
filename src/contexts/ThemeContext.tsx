@@ -6,10 +6,10 @@ type ThemeContextType = { theme: Theme; toggleTheme: () => void };
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<Theme>(() => {
-        const saved = localStorage.getItem('theme') as Theme | null;
-        return saved ?? 'dark';
-    });
+  const [theme, setTheme] = useState<Theme>(() => {
+    const saved = localStorage.getItem("theme") as Theme | null;
+    return saved ?? "light";
+	   });
 
     useEffect(() => {
         const root = document.documentElement;

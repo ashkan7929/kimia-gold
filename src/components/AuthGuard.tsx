@@ -22,7 +22,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
 
   if (!isAuthenticated || !token) {
     // Redirect to auth page, preserving the attempted location
-    return <Navigate to="/auth" state={{ from: location }} replace />;
+    return <Navigate to="/auth/unified" state={{ from: location }} replace />;
   }
 
   return <>{children}</>;

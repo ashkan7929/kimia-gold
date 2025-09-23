@@ -55,4 +55,7 @@ export { GiWallet } from "react-icons/gi";
 export { LuEye } from "react-icons/lu";
 export { LuEyeClosed } from "react-icons/lu";
 
-
+export { MdOutlineMessage } from "react-icons/md";
+export { AiOutlineUserAdd } from "react-icons/ai";
+export { GoSignOut } from "react-icons/go";
+export { TbCircleDottedLetterR } from "react-icons/tb";
