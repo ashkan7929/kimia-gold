@@ -64,6 +64,7 @@ const SimpleLayout = ({
                 {children}
             </div>
             {showMenu && <Menu handleShowMenu={handleShowMenu} setShowMenu={setShowMenu} />}
+            
         </>
     );
 };

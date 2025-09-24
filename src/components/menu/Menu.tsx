@@ -17,7 +17,8 @@ import {
     IoSettingsOutline,
     GrTransaction,
     FaRegComments,
-    
+    AiFillInfoCircle,
+    CgProfile,
 } from '../../Icons';
 import { FaUsers } from 'react-icons/fa6';
 const menu = [
@@ -30,7 +31,7 @@ const menu = [
     },
     {
         id: 2,
-        icon: FaRegUser,
+        icon: CgProfile,
         title: 'اطلاعات کاربری',
         subtitle: 'در این بخش می‌توانید اطلاعات کاربری را مشاهده و ویرایش کنید.',
         link: '/profile',
@@ -80,7 +81,7 @@ const menu = [
     },
     {
         id: 9,
-        icon: FaRegUser,
+        icon: AiFillInfoCircle,
         title: 'درباره باشگاه وِم',
         subtitle: 'در این بخش می‌توانید بیشتر ما را بشناسید',
         link: '/about',
@@ -137,7 +138,7 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
     };
 
     return (
-        <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[420px] bg-gray-200 dark:bg-gray-800 z-20">
+        <div className="overflow-y-auto fixed top-0 left-1/2 pb-[calc(env(safe-area-inset-bottom)+40px)] -translate-x-1/2 h-screen w-full max-w-[420px] bg-gray-200 dark:bg-gray-800 z-20">
             <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-white/90 dark:bg-black blur-[30px]" />
             <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-white/90 dark:bg-black blur-[30px]" />
 

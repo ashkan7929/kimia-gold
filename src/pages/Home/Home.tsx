@@ -63,7 +63,7 @@ const Home = () => {
     // const { t } = useTranslation();
     const { user } = useAuth();
     const { theme } = useTheme();
-    const isDark = theme === 'light';
+    const isDark = theme === 'dark';
     const [showWelcome, setShowWelcome] = useState(false);
     const navigate = useNavigate();
     const userData =
@@ -124,7 +124,7 @@ const Home = () => {
                             <div className="flex items-center gap-2">
                                 <img
                                     alt=""
-                                    src={isDark ? lightwallet : walletLogo}
+                                    src={isDark ? walletLogo : lightwallet}
                                     width={50}
                                     height={50}
                                 />
@@ -176,9 +176,9 @@ const Home = () => {
                     <div className="grid gap-2 light:gap-4 grid-cols-3 w-full">
                         <div className="dark:bg-black bg-light-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img src={insuranceServicelight} alt="coin" />
-                            ) : (
                                 <img alt="coin" src={insuranceServices} />
+                            ) : (
+                                <img src={insuranceServicelight} alt="coin" />
                             )}{' '}
                             <Typography
                                 className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
@@ -190,11 +190,11 @@ const Home = () => {
                         <Link to="/buy">
                             <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                                 {isDark ? (
+                                    <img alt="" src={wealthManagementDark} />
+                                ) : (
                                     <div className="w-10 h-10">
                                         <img alt="" src={wealthManagementLight} />
                                     </div>
-                                ) : (
-                                    <img alt="" src={wealthManagementDark} />
                                 )}
                                 <Typography
                                     className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
@@ -206,9 +206,9 @@ const Home = () => {
                         </Link>
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src={creditServicesLight} />
-                            ) : (
                                 <img alt="" src={creditServicesDark} />
+                            ) : (
+                                <img alt="" src={creditServicesLight} />
                             )}
 
                             <Typography
@@ -221,9 +221,9 @@ const Home = () => {
                         <Link to="/products">
                             <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                                 {isDark ? (
-                                    <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIconLight} />
-                                ) : (
                                     <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIcon} />
+                                ) : (
+                                    <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIconLight} />
                                 )}
 
                                 <Typography
@@ -237,9 +237,9 @@ const Home = () => {
 
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src={shoppingIconLight} />
-                            ) : (
                                 <img alt="" src={shoppingIcon} />
+                            ) : (
+                                <img alt="" src={shoppingIconLight} />
                             )}
 
                             <Typography
@@ -251,9 +251,9 @@ const Home = () => {
                         </div>
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src={moreLight} />
-                            ) : (
                                 <img alt="" src={moreDark} />
+                            ) : (
+                                <img alt="" src={moreLight} />
                             )}
 
                             <Typography
@@ -267,9 +267,9 @@ const Home = () => {
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
                                 {isDark ? (
-                                    <img alt="" src={CampaignImgLight} />
-                                ) : (
                                     <img alt="" src={CampaignImg} />
+                                ) : (
+                                    <img alt="" src={CampaignImgLight} />
                                 )}
                             </div>
 
@@ -283,9 +283,9 @@ const Home = () => {
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full">
                                 {isDark ? (
-                                    <img src={analizImgLight} alt="تحلیل بازار" />
-                                ) : (
                                     <img src={analizImg} alt="تحلیل بازار" />
+                                ) : (
+                                    <img src={analizImgLight} alt="تحلیل بازار" />
                                 )}
                             </div>
                             <Typography
@@ -298,9 +298,9 @@ const Home = () => {
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
                                 {isDark ? (
-                                    <img src={newsImgLight} alt="اخبار" />
-                                ) : (
                                     <img src={newsImg} alt="اخبار" />
+                                ) : (
+                                    <img src={newsImgLight} alt="اخبار" />
                                 )}
                             </div>
                             <Typography
@@ -404,6 +404,7 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
+
                 <BottomNav />
             </div>
         </>

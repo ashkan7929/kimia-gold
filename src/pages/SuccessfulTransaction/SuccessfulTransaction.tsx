@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import { GrGallery, IoMdShare } from '../../Icons';
+import { GrGallery } from '../../Icons';
 import DetaList from '../../components/List/DetaList';
 import ShareBtn from '../../components/ShareBtn/ShareBtn';
 
@@ -92,9 +92,9 @@ const SuccessfulTransaction = () => {
                 </main>
 
                 <footer>
-                    <div className=" bg-primary border-custom-border p-4 w-full max-w-[410px] mx-auto">
+                    <div className=" bg-primary border-custom-border p-4 mx-auto w-full ">
                         <Button
-                            className="bg-accent-orange text-white  text-sm"
+                            className="dark:bg-accent-orange bg-primary-blue text-white w-full max-w-[410px] text-sm"
                             onClick={() => navigate('/')}
                         >
                             بازگشت

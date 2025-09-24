@@ -94,9 +94,9 @@ export default function FailedTransaction() {
                 </main>
 
                 <footer>
-                    <div className=" bg-primary border-custom-border p-4 mx-auto">
+                    <div className=" bg-primary border-custom-border p-4 mx-auto w-full ">
                         <Button
-                            className="bg-accent-orange text-white w-full max-w-[410px] text-sm"
+                            className="dark:bg-accent-orange bg-primary-blue text-white w-full max-w-[410px] text-sm"
                             onClick={() => navigate('/')}
                         >
                             بازگشت

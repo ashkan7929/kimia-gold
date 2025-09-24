@@ -28,6 +28,7 @@ import Transactions from './pages/Transactions/Transactions';
 import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
+import NotFound from './pages/NotFound/NotFound';
 // import AuthLayout from './layouts/AuthLayout/AuthLayout';
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
@@ -46,24 +47,6 @@ const AppRoutes: React.FC = () => {
     return (
         <Routes>
             <Route path="/auth" element={<Navigate to="/auth/unified" replace />} />
-            {/* Auth Routes */}
-            {/* <Route
-                path=""
-                element={
-                    <PublicRoute>
-                        <MobilePage />
-                    </PublicRoute>
-                }
-            /> */}
-            {/* <Route path="/auth/choose" element={<PublicRoute><ChooseMethodPage /></PublicRoute>} /> */}
-            {/* <Route
-                path="/auth/otp"
-                element={
-                    <PublicRoute>
-                        <OtpPage />
-                    </PublicRoute>
-                }
-            /> */}
             <Route
                 path="/auth/unified"
                 element={
@@ -312,8 +295,9 @@ const AppRoutes: React.FC = () => {
                 }
             />
 
-            {/* Catch all route */}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+            <Route path="*" element={<NotFound />} />
+
         </Routes>
     );
 };

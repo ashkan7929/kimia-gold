@@ -66,3 +66,5 @@ export { FaUsers } from "react-icons/fa";
 export { FaArrowRightLong } from "react-icons/fa6";
 export { GrGallery } from "react-icons/gr";
 export { IoMdShare } from "react-icons/io";
+export { AiFillInfoCircle } from "react-icons/ai";
+export { CgProfile } from "react-icons/cg";

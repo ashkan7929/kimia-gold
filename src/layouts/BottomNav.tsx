@@ -6,10 +6,10 @@ const BottomNav = () => {
 		const navigate = useNavigate();
 	
   return (
-	    <div className='fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[410px] z-50'>
+	    <div className='fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[400px] z-50'>
                 <div className='grid grid-cols-3 dark:bg-gray-800 bg-white rounded-3xl'>
                     <div className='w-full flex justify-center items-center'>
-                        <div onClick={() => navigate('/home')} className='flex flex-col justify-center items-center w-fit cursor-pointer p-2 gap-1.5'>
+                        <div onClick={() => navigate('/app')} className='flex flex-col justify-center items-center w-fit cursor-pointer p-2 gap-1.5'>
                             <HiOutlineHome className='dark:text-white text-black' fontSize={20} />
                             <Typography fontSize={10} className='dark:text-white !font-peyda text-black'>صفحه اصلی</Typography>
                         </div>
