@@ -67,12 +67,12 @@ const MobilePage: React.FC = () => {
             <Typography className="text-neutral-300" fontFamily={'Peyda, sans-serif'} fontSize={13}>{t('enterMobileForLogin')}</Typography>
           </div>
           <div className="relative">
-            <div className="flex items-center text-white rounded-xsm border-custom-border-light border">
+            <div className="flex items-center text-white rounded-xsm  dark:border-gray-500 border">
               <div className="absolute h-full right-4 flex items-center justify-center"><CiMobile3 /></div>
               <input
                 {...register('mobileNumber')}
                 type="text"
-                className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input border border-custom-border-light rounded-lg text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
+                className="text-sm w-full h-10 pr-10 pl-5 bg-custom-bg-input border border-custom-border-light dark:border-gray-500 rounded-lg text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
                 placeholder={t('enterMobile')}
               />
             </div>

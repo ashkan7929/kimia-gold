@@ -31,7 +31,7 @@ const Profile = () => {
                             <div className="dark:bg-black bg-white rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
                                 <div className="p-4 flex items-center gap-2">
                                     <div className="relative">
-                                        <button className="rounded-[20.53569rem] bg-primary-blue shadow-[0px_-2.629px_46.657px_0px_rgba(0,0,0,0.06)] flex p-[0.24644rem_0.2875rem] justify-center items-center w-[1.375rem] h-[1.375rem] absolute bottom-[-0.15rem] right-0 z-10">
+                                        <button className="rounded-[20.53569rem] bg-primary-blue dark:bg-accent-orange shadow-[0px_-2.629px_46.657px_0px_rgba(0,0,0,0.06)] flex p-[0.24644rem_0.2875rem] justify-center items-center w-[1.375rem] h-[1.375rem] absolute bottom-[-0.15rem] right-0 z-10">
                                             <TbPencilMinus className="text-text-color" />
                                         </button>
                                         <div className="relative dark:bg-primary-darker bg-white w-[2.875rem] h-[2.875rem] rounded-full overflow-hidden">
@@ -250,7 +250,7 @@ const Profile = () => {
                                                                             />
                                                                         </svg>
                                                                     </span>
-                                                                    <span className="text-text-color text-sm font-peyda">
+                                                                    <span className="dark:text-text-color text-light-text-color text-sm font-peyda">
                                                                         زن
                                                                     </span>
                                                                 </label>

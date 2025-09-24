@@ -55,9 +55,9 @@ const Suggestions = () => {
                   w-full text-sm !font-peyda rounded-lg px-4 py-3
                   bg-white text-neutral-900
                   border border-custom-gray
-                  focus:outline-none focus:ring-2 focus:ring-primary-blue
-                  dark:bg-gray-800 dark:text-neutral-100
-                  dark:border-custom-border-light
+                  focus:outline-none focus:ring-2 focus:ring-gray-500
+                  dark:bg-black dark:text-neutral-100
+                  dark:border-gray-500
                   dark:focus:ring-2
                 "
                 defaultValue="feedback"
@@ -82,9 +82,8 @@ const Suggestions = () => {
                   placeholder:text-neutral-500
                   border border-custom-gray
                   focus:outline-none focus:ring-2 focus:ring-primary-blue
-                  dark:bg-gray-800 dark:text-neutral-100
+                  dark:bg-black dark:border-gray-500 dark:text-neutral-100
                   dark:placeholder:text-neutral-400
-                  dark:border-custom-border-light
                   dark:focus:ring-2 
                   resize-none
                 "

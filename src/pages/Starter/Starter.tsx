@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaArrowLeftLong, LuMoveRight } from '../../Icons';
+import { FaArrowLeftLong, FaArrowRightLong } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
 import packageJson from '../../../package.json';
 
@@ -58,15 +58,15 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
                 onClick={() => setStep(StepsEnum.two)}
                 className="bg-primary-blue dark:bg-accent-orange rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
               >
-                <LuMoveRight className="text-white" />
+                <FaArrowRightLong className="text-white" />
               </button>
 
               <button
                 type="button"
-                className="border-2 dark:border-primary-lighter border-primary-blue rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
+                className="border-2 dark:border-accent-orange border-primary-blue rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl"
                 disabled
               >
-                <FaArrowLeftLong className="text-white" />
+                <FaArrowLeftLong className="text-white dark:text-black" />
               </button>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
           <div className="w-full flex justify-center items-center mt-2">
             <span className="block mx-auto text-primary-blue dark:text-accent-orange text-center font-roboto text-xs">
               VEM Club{' '}
-              <span className="text-text-color light:text-light-text-color dark:text-text-color">
+              <span className=" light:text-light-text-color dark:text-text-color">
                 {packageJson.version}
               </span>
             </span>
@@ -110,7 +110,7 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
                 onClick={() => setStep(StepsEnum.login)}
                 className="rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl bg-primary-blue dark:bg-accent-orange"
               >
-                <LuMoveRight className="text-white dark:text-black" />
+                <FaArrowRightLong className="text-white" />
               </button>
 
               <button
@@ -118,7 +118,7 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
                 onClick={() => setStep(StepsEnum.one)}
                 className="rounded-full p-3 w-15.5 h-15.5 flex justify-center items-center text-2xl border-2 dark:border-primary-lighter border-primary-blue"
               >
-                <FaArrowLeftLong className="text-text-color light:text-light-text-color" />
+                <FaArrowLeftLong className="dark:text-text-color text-light-text-color" />
               </button>
             </div>
           </div>

@@ -313,7 +313,7 @@ const AuthPage: React.FC = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="flex items-center text-text-color rounded-xsm dark:border-custom-border-light border-custom-gray border">
+                            <div className="flex items-center text-text-color rounded-xsm dark:border-gray-500 border-custom-gray border">
                                 <div className="absolute h-full right-4 flex items-center justify-center">
                                     <CiMobile3 className="dark:text-text-color text-light-text-color" />
                                 </div>

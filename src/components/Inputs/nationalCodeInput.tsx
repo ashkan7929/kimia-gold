@@ -25,7 +25,7 @@ const NationalCodeInput = ({ MdOutlineBadge, placeholder }: NationalCodeProps) =
       <label className="text-custom-text-primary text-xl-custom font-bold mb-2 block">
         {placeholder}
       </label>
-      <div style={{ gap: "0.578125rem" }} className="flex items-center dark:bg-custom-bg-input bg-custom-gray border border-custom-border-light rounded-xsm px-3.5 py-2.5">
+      <div style={{ gap: "0.578125rem" }} className="flex items-center dark:bg-custom-bg-input bg-custom-gray border border-gray-500 rounded-xsm px-3.5 py-2.5">
        <div className="text-custom-text-gray">
          <MdOutlineBadge className="" />
         </div>

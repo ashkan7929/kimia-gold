@@ -8,7 +8,7 @@ const PasswordInput = forwardRef<HTMLInputElement, TextFieldProps>(
 
         return (
             <div className={`${className} relative`}>
-                <div className="flex items-center dark:text-text-color text-light-text-color border-custom-gray rounded-xsm dark:border-custom-border-light border relative">
+                <div className="flex items-center dark:text-text-color text-light-text-color border-custom-gray rounded-xsm dark:border-gray-500 border relative">
                     <div className="absolute h-full right-4 flex items-center justify-center">
                         {rest.mobileIcon}
                     </div>

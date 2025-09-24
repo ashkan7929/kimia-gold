@@ -28,7 +28,7 @@ import creditServicesDark from '/images/pic/creditServicesDark.png';
 import creditServicesLight from '/images/pic/creditServicesLight.png';
 
 import wealthManagementDark from '/images/pic/wealthManagementDark.png';
-import wealthManagementLight from '/images/pic/wealthManagementLight.png';
+import wealthManagementLight from '/images/pic/wealthManagementLight.svg';
 
 import insuranceServices from '/images/pic/insuranceServices.png';
 import insuranceServicelight from '/images/pic/InsuranceServicesLight.png';
@@ -65,7 +65,7 @@ const Home = () => {
     const { theme } = useTheme();
     const isDark = theme === 'light';
     const [showWelcome, setShowWelcome] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const userData =
         user ||
         (() => {
@@ -144,7 +144,10 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <button onClick={() => navigate("/wallet")} className="dark:bg-accent-orange bg-primary-blue text-white text-[9px] font-kalameh px-7 py-2 rounded-xl">
+                            <button
+                                onClick={() => navigate('/wallet')}
+                                className="dark:bg-accent-orange bg-primary-blue text-white text-[9px] font-kalameh px-7 py-2 rounded-xl"
+                            >
                                 افزایش اعتبار
                             </button>
                         </div>
@@ -187,7 +190,9 @@ const Home = () => {
                         <Link to="/buy">
                             <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                                 {isDark ? (
-                                    <img alt="" src={wealthManagementLight} />
+                                    <div className="w-10 h-10">
+                                        <img alt="" src={wealthManagementLight} />
+                                    </div>
                                 ) : (
                                     <img alt="" src={wealthManagementDark} />
                                 )}

@@ -63,3 +63,6 @@ export { IoSettingsOutline } from "react-icons/io5";
 export { GrTransaction } from "react-icons/gr";
 export { FaRegComments } from "react-icons/fa";
 export { FaUsers } from "react-icons/fa";
+export { FaArrowRightLong } from "react-icons/fa6";
+export { GrGallery } from "react-icons/gr";
+export { IoMdShare } from "react-icons/io";

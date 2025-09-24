@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 // import { useState } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import type { Dispatch, SetStateAction } from 'react';
 import logoLightMode from '/images/vemLogoSite.png';
 import logoDarkMode from '/images/vemLogo1.png';
@@ -14,7 +14,6 @@ import {
     TbLayoutGrid,
     MdOutlineMessage,
     GoSignOut,
-    AiOutlineUserAdd,
     IoSettingsOutline,
     GrTransaction,
     FaRegComments,
@@ -102,10 +101,14 @@ type MenuProps = {
 const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
-
+    const { pathname } = useLocation();
     const navigate = useNavigate();
     const backHandler = () => {
         try {
+            if (pathname === '/app') {
+                setShowMenu(false);
+                return;
+            }
             if (window.history.length > 1) {
                 navigate(-1);
             } else {
@@ -134,17 +137,17 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
     };
 
     return (
-        <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[420px] bg-primary-dark/90 dark:bg-gray-800 z-20">
-            <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] dark:bg-black blur-[30px]" />
-            <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-[#2256FE] dark:bg-black blur-[30px]" />
+        <div className="overflow-y-auto fixed top-0 left-1/2 -translate-x-1/2 h-screen w-full max-w-[420px] bg-gray-200 dark:bg-gray-800 z-20">
+            <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-white/90 dark:bg-black blur-[30px]" />
+            <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-white/90 dark:bg-black blur-[30px]" />
 
             <div className="flex flex-col p-4.5">
                 <div className="grid grid-cols-3 w-full z-20">
                     <button
                         onClick={handleShowMenu}
-                        className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer"
+                        className="w-8.5 h-8.5 flex justify-center items-center rounded-full border dark:border-white/50 border-blak/50 cursor-pointer"
                     >
-                        <TbLayoutGrid fontSize={19} className="text-white" />
+                        <TbLayoutGrid fontSize={19} className="dark:text-white text-black" />
                     </button>
 
                     <button
@@ -162,10 +165,11 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
                     </button>
 
                     <button
+                        // onClick={() => window.history.back()}
                         onClick={backHandler}
-                        className="w-8.5 h-8.5 flex justify-center items-center rounded-full border border-white/50 cursor-pointer justify-self-end"
+                        className="w-8.5 h-8.5 flex justify-center items-center rounded-full border  dark:border-white/50 cursor-pointer justify-self-end"
                     >
-                        <FaArrowLeftLong fontSize={14} className="text-white" />
+                        <FaArrowLeftLong fontSize={14} className="dark:text-white text-black" />
                     </button>
                 </div>
 
@@ -177,7 +181,7 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
                             <button
                                 key={item.id}
                                 onClick={onClick}
-                                className="dark:bg-[#040929] bg-light-primary-darker flex items-center rounded-lg gap-3 p-3 text-start"
+                                className="dark:bg-[#040929] bg-white flex items-center rounded-lg gap-3 p-3 text-start"
                             >
                                 <div className="dark:bg-accent-orange bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
                                     <item.icon className="text-text-color" />

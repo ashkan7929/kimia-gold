@@ -14,7 +14,7 @@ const SubjectSelect: React.FC<SubjectSelectProps> = ({
       <select
         value={selectedValue}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border dark:border-custom-border-light border-custom-gray rounded-xsm p-3.5 text-custom-text-primary text-xl-custom font-medium bg-transparent outline-none"
+        className="w-full border dark:border-gray-500 border-custom-gray rounded-xsm p-3.5 text-custom-text-primary text-xl-custom font-medium bg-transparent outline-none"
       >
         {options.map((opt) => (
           <option

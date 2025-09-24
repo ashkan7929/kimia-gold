@@ -194,7 +194,7 @@ const Buy = () => {
                         <input
                           value={priceItem}
                           type="text"
-                          className="w-full rounded-lg border border-custom-gray dark:border-custom-border-default bg-transparent p-3 pl-12 !font-peyda text-xs text-light-text-color dark:text-text-color placeholder-custom-gray focus:outline-none focus:border-primary-blue"
+                          className="w-full rounded-lg border border-custom-gray dark:border-gray-500 bg-transparent p-3 pl-12 !font-peyda text-xs text-light-text-color dark:text-text-color placeholder-custom-gray focus:outline-none focus:border-primary-blue"
                           placeholder="مبلغ خرید طلا را وارد نمایید"
                           readOnly
                         />
@@ -202,7 +202,7 @@ const Buy = () => {
                     </div>
 
                                         <div>
-                                            <Button className="w-full hover:bg-gold-200 dark:bg-accent-orange text-sm text-white">
+                                            <Button className="w-full dark:hover:bg-accent-orange dark: bg-primary-blue hover:bg-primary-blue text-sm text-white">
                                                 {t('buy')}
                                             </Button>
                                         </div>

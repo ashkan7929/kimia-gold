@@ -28,7 +28,7 @@ import Transactions from './pages/Transactions/Transactions';
 import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
-import AuthLayout from './layouts/AuthLayout/AuthLayout';
+// import AuthLayout from './layouts/AuthLayout/AuthLayout';
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
 };
@@ -129,52 +129,62 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/products"
                 element={
-                    <SimpleLayout
-                        headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
-                    >
-                        <Products />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout
+                            headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
+                        >
+                            <Products />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/products/:id"
                 element={
-                    <SimpleLayout
-                        headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
-                    >
-                        <ProductDetailCard />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout
+                            headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
+                        >
+                            <ProductDetailCard />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/products/:id/card"
                 element={
-                    <SimpleLayout
-                        headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
-                    >
-                        <ProductDetail />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout
+                            headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
+                        >
+                            <ProductDetail />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
 
             <Route
                 path="/paymentInsurance"
                 element={
-                    <SimpleLayout
-                        headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
-                    >
-                        <PaymentInsurance />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout
+                            headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
+                        >
+                            <PaymentInsurance />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
                 path="/productTransaction"
                 element={
-                    <SimpleLayout
-                        headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
-                    >
-                        <ProductTransaction />
-                    </SimpleLayout>
+                    <ProtectedRoute>
+                        <SimpleLayout
+                            headerImg={isDark ? '/images/alborzImg.png' : '/images/bimeAlborz.png'}
+                        >
+                            <ProductTransaction />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
 
@@ -188,15 +198,28 @@ const AppRoutes: React.FC = () => {
                     </ProtectedRoute>
                 }
             />
-            <Route path="/successful-transaction" element={<SuccessfulTransaction />} />
-            <Route path="/failed-transaction" element={<FailedTransaction />} />
+            <Route
+                path="/successful-transaction"
+                element={
+                    <ProtectedRoute>
+                        <SuccessfulTransaction />
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/failed-transaction"
+                element={
+                    <ProtectedRoute>
+                        <FailedTransaction />
+                    </ProtectedRoute>
+                }
+            />
+
             <Route
                 path="/payment-information"
                 element={
                     <ProtectedRoute>
-                        <SimpleLayout title="اطلاعات پرداخت">
-                            <PaymentInformation />
-                        </SimpleLayout>
+                        <PaymentInformation />
                     </ProtectedRoute>
                 }
             />
@@ -223,11 +246,11 @@ const AppRoutes: React.FC = () => {
             <Route
                 path="/rules"
                 element={
-                    // <ProtectedRoute>
-                    <SimpleLayout title="قوانین و مقررات">
-                        <Rules />
-                    </SimpleLayout>
-                    // </ProtectedRoute>
+                    <ProtectedRoute>
+                        <SimpleLayout title="قوانین و مقررات">
+                            <Rules />
+                        </SimpleLayout>
+                    </ProtectedRoute>
                 }
             />
             <Route
