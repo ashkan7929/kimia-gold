@@ -5,36 +5,36 @@ import { Link, useNavigate } from 'react-router-dom';
 import BottomNav from '../../layouts/BottomNav';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useEffect, useState } from 'react';
-import lightwallet from '/src/assets/images/lightwallet.gif';
-import walletLogo from '/src/assets/images/wallet.png';
+import lightwallet from '/images/pic/lightwallet.png';
+import walletLogo from '/images/pic/wallet.png';
 
 import goldProduct from '/src/assets/images/gold.svg';
-import analizImg from '/images/pic/analyseDark.png';
-import analizImgLight from '/images/pic/analyseLight.png';
+import analizImg from '/images/pic/analyseDark.svg';
+import analizImgLight from '/images/pic/analyseLight.svg';
 
-import CampaignImg from '/images/pic/CampaignDark.png';
-import CampaignImgLight from '/images/pic/Campaignlight.png';
+import CampaignImg from '/images/pic/CampaignDark.svg';
+import CampaignImgLight from '/images/pic/Campaignlight.svg';
 
-import newsImg from '/images/pic/newsDark.png';
-import newsImgLight from '/images/pic/newsLight.png';
+import newsImg from '/images/pic/newsDark.svg';
+import newsImgLight from '/images/pic/newsLight.svg';
 
-import insuranceIcon from '/images/pic/insurance.png';
-import insuranceIconLight from '/images/pic/insuranceLight.png';
+import insuranceIcon from '/images/pic/insuranceDark.svg';
+import insuranceIconLight from '/images/pic/insuranceLight.svg';
 
-import shoppingIcon from '/images/pic/shoppingDark.png';
-import shoppingIconLight from '/images/pic/shoppingLight.png';
+import shoppingIcon from '/images/pic/shoppingDark.svg';
+import shoppingIconLight from '/images/pic/shoppingLight.svg';
 
-import creditServicesDark from '/images/pic/creditServicesDark.png';
+import creditServicesDark from '/images/pic/creditServicesDark.svg';
 import creditServicesLight from '/images/pic/creditServicesLight.png';
 
-import wealthManagementDark from '/images/pic/wealthManagementDark.png';
+import wealthManagementDark from '/images/pic/wealthManagementDark.svg';
 import wealthManagementLight from '/images/pic/wealthManagementLight.svg';
 
-import insuranceServices from '/images/pic/insuranceServices.png';
-import insuranceServicelight from '/images/pic/InsuranceServicesLight.png';
+import insuranceServices from '/images/pic/InsuranceServicesDark.svg';
+import insuranceServicelight from '/images/pic/InsuranceServicesLight.svg';
 
-import moreDark from '/images/pic/moreDark.png';
-import moreLight from '/images/pic/moreLight.png';
+import moreDark from '/images/pic/moreDark.svg';
+import moreLight from '/images/pic/moreLight.svg';
 
 const rows = [
     {
@@ -125,8 +125,8 @@ const Home = () => {
                                 <img
                                     alt=""
                                     src={isDark ? walletLogo : lightwallet}
-                                    width={50}
-                                    height={50}
+                                    width={30}
+                                    height={30}
                                 />
                                 <div className="flex flex-col">
                                     <Typography
@@ -176,9 +176,13 @@ const Home = () => {
                     <div className="grid gap-2 light:gap-4 grid-cols-3 w-full">
                         <div className="dark:bg-black bg-light-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="coin" src={insuranceServices} />
+                                <div className="w-10 h-10">
+                                    <img alt="coin" src={insuranceServices} />
+                                </div>
                             ) : (
-                                <img src={insuranceServicelight} alt="coin" />
+                                <div className="w-10 h-10">
+                                    <img src={insuranceServicelight} alt="coin" />
+                                </div>
                             )}{' '}
                             <Typography
                                 className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
@@ -190,7 +194,9 @@ const Home = () => {
                         <Link to="/buy">
                             <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                                 {isDark ? (
-                                    <img alt="" src={wealthManagementDark} />
+                                    <div className="w-10 h-10">
+                                        <img alt="" src={wealthManagementDark} />
+                                    </div>
                                 ) : (
                                     <div className="w-10 h-10">
                                         <img alt="" src={wealthManagementLight} />
@@ -206,9 +212,13 @@ const Home = () => {
                         </Link>
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src={creditServicesDark} />
+                                <div className="w-10 h-10">
+                                    <img alt="" src={creditServicesDark} />
+                                </div>
                             ) : (
-                                <img alt="" src={creditServicesLight} />
+                                <div className="w-10 h-10">
+                                    <img alt="" src={creditServicesLight} />
+                                </div>
                             )}
 
                             <Typography
@@ -221,9 +231,13 @@ const Home = () => {
                         <Link to="/products">
                             <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                                 {isDark ? (
-                                    <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIcon} />
+                                    <div className="w-10 h-10">
+                                        <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIcon} />
+                                    </div>
                                 ) : (
-                                    <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIconLight} />
+                                    <div className="w-10 h-10">
+                                        <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIconLight} />
+                                    </div>
                                 )}
 
                                 <Typography
@@ -237,9 +251,13 @@ const Home = () => {
 
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             {isDark ? (
-                                <img alt="" src={shoppingIcon} />
+                                <div className="w-10 h-10">
+                                    <img alt="" src={shoppingIcon} />
+                                </div>
                             ) : (
-                                <img alt="" src={shoppingIconLight} />
+                                <div className="w-10 h-10">
+                                    <img alt="" src={shoppingIconLight} />
+                                </div>
                             )}
 
                             <Typography
@@ -249,27 +267,17 @@ const Home = () => {
                                 {'فروشگاه'}
                             </Typography>
                         </div>
-                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            {isDark ? (
-                                <img alt="" src={moreDark} />
-                            ) : (
-                                <img alt="" src={moreLight} />
-                            )}
-
-                            <Typography
-                                className="!font-alibaba dark:text-neutral-300 text-neutral-700  text-center"
-                                fontSize={10}
-                            >
-                                {'سایر'}
-                            </Typography>
-                        </div>
 
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
                                 {isDark ? (
-                                    <img alt="" src={CampaignImg} />
+                                    <div className="w-10 h-10">
+                                        <img alt="" src={CampaignImg} />
+                                    </div>
                                 ) : (
-                                    <img alt="" src={CampaignImgLight} />
+                                    <div className="w-10 h-10">
+                                        <img alt="" src={CampaignImgLight} />
+                                    </div>
                                 )}
                             </div>
 
@@ -283,9 +291,13 @@ const Home = () => {
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full">
                                 {isDark ? (
-                                    <img src={analizImg} alt="تحلیل بازار" />
+                                    <div className="w-10 h-10">
+                                        <img src={analizImg} alt="تحلیل بازار" />
+                                    </div>
                                 ) : (
-                                    <img src={analizImgLight} alt="تحلیل بازار" />
+                                    <div className="w-10 h-10">
+                                        <img src={analizImgLight} alt="تحلیل بازار" />
+                                    </div>
                                 )}
                             </div>
                             <Typography
@@ -298,9 +310,13 @@ const Home = () => {
                         <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
                             <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
                                 {isDark ? (
-                                    <img src={newsImg} alt="اخبار" />
+                                    <div className="w-10 h-10">
+                                        <img src={newsImg} alt="اخبار" />
+                                    </div>
                                 ) : (
-                                    <img src={newsImgLight} alt="اخبار" />
+                                    <div className="w-10 h-10">
+                                        <img src={newsImgLight} alt="اخبار" />
+                                    </div>
                                 )}
                             </div>
                             <Typography
@@ -308,6 +324,24 @@ const Home = () => {
                                 className="dark:text-text-color text-light-text-color !font-peyda"
                             >
                                 اخبار
+                            </Typography>
+                        </div>
+                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
+                            {isDark ? (
+                                <div className="w-10 h-10">
+                                    <img alt="" src={moreDark} />
+                                </div>
+                            ) : (
+                                <div className="w-10 h-10">
+                                    <img alt="" src={moreLight} />
+                                </div>
+                            )}
+
+                            <Typography
+                                className="!font-alibaba dark:text-neutral-300 text-neutral-700  text-center"
+                                fontSize={10}
+                            >
+                                {'سایر'}
                             </Typography>
                         </div>
                     </div>

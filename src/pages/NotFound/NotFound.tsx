@@ -33,7 +33,7 @@ export default function NotFound404() {
             <div className="relative z-10 w-full max-w-sm text-center">
                 <img
                     src={isDark ? notFoundImgDark : notFoundImgLight}
-                    alt="آیکون جست‌وجو، شمش طلا و سکه"
+                    alt="404-پیدا نشد"
                     className="mx-auto h-50 w-auto select-none"
                     draggable={false}
                 />

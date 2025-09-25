@@ -9,6 +9,7 @@ import { Datepiker } from '../../components/Inputs/Index';
 import DateObject from 'react-date-object';
 import persian from 'react-date-object/calendars/persian';
 import persian_fa from 'react-date-object/locales/persian_fa';
+import { useNavigate } from 'react-router-dom';
 
 type StatusFilter = 'all' | 'success' | 'failed';
 
@@ -17,12 +18,6 @@ type Filters = {
     date?: string | null;
     productType?: string | null;
 };
-
-const tabInfo = [
-    { id: 1, title: 'برداشت موجودی' },
-    { id: 2, title: 'افزایش موجودی' },
-    { id: 3, title: 'انتقال موجودی' },
-];
 
 const data = [
     { id: 1, title: 'افزایش موجودی', amount: 2566890, date: '۱۴۰۳/۰۶/۱۰ ۱۵:۲۵', status: 'success' },
@@ -70,7 +65,7 @@ const filterDayToStartMs = (pickerValue: string) => {
 };
 
 const Transactions = () => {
-    const [selectedTab, setSelectedTab] = useState(tabInfo[0]);
+    const navigate = useNavigate();
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);
     const [filter, setFilter] = useState<Filters>({
@@ -78,6 +73,10 @@ const Transactions = () => {
         date: null,
         productType: null,
     });
+
+    const handleTransactionClick = (id: number) => {
+        navigate(`/detail/${id}`);
+    };
 
     const handleClearFilter = () => {
         const clearData: Filters = { status: 'all', date: null, productType: null };
@@ -104,30 +103,6 @@ const Transactions = () => {
 
     return (
         <div className="flex flex-col gap-3 items-center pb-25">
-            <div className="w-full px-4 py-3 rounded-lg dark:bg-black bg-light-primary-darker">
-                <div className="flex w-full gap-x-4">
-                    {tabInfo.map(tab => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setSelectedTab(tab)}
-                            className={`${
-                                selectedTab === tab
-                                    ? 'bg-primary-blue dark:bg-gray-700 text-white dark:text-black'
-                                    : 'bg-transparent'
-                            } flex-1 cursor-pointer text-light-text-color dark:text-neutral-200 px-3 py-2 rounded-md`}
-                        >
-                            <Typography
-                                className="!font-kalameh  text-nowrap"
-                                fontWeight="semibold"
-                                fontSize={9}
-                            >
-                                {tab.title}
-                            </Typography>
-                        </button>
-                    ))}
-                </div>
-            </div>
-
             <div className="flex justify-between p-4 w-full rounded-lg dark:bg-black bg-light-primary-darker">
                 <Typography
                     className="!font-kalameh text-white light:text-light-text-color text-nowrap"
@@ -152,6 +127,7 @@ const Transactions = () => {
                 {filterItem.map(tx => (
                     <div
                         key={tx.id}
+                        onClick={() => handleTransactionClick(tx.id)}
                         className="flex justify-between w-full p-2.5 dark:bg-black bg-light-primary-darker rounded-lg"
                     >
                         <div className="flex gap-2 items-center">
@@ -214,7 +190,11 @@ const Transactions = () => {
                     />
 
                     <div className="relative z-10 flex h-full w-full flex-col dark:text-white rounded-xl dark:bg-black bg-light-primary-darker text-light-text-color">
-                        <div className="flex items-center justify-between px-4 py-3 border-b dark:border-white/10 border-white/90">
+                        <div
+                            className="flex items-center justify-between px-4 py-3 border-b dark:border-white/10 border-white/90 rounded-lg
+  transition-colors duration-200 ease-in-out
+  hover:border-white/60 dark:hover:border-white/30"
+                        >
                             <Typography className="!font-kalameh" fontWeight="bold" fontSize={12}>
                                 {t('transaction.TransactionsFilter')}
                             </Typography>

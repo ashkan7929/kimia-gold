@@ -70,7 +70,7 @@ const menu = [
         icon: GrTransaction,
         title: 'گزارشات ریز تراکنش‌ها',
         subtitle: 'در این بخش می‌توانید تراکنشات اخیر را همراه با جزئیات مشاهده کنید.',
-        link: '/transaction-details',
+        link: '/transactions',
     },
     {
         id: 8,
@@ -138,10 +138,8 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
     };
 
     return (
-        <div className="overflow-y-auto fixed top-0 left-1/2 pb-[calc(env(safe-area-inset-bottom)+40px)] -translate-x-1/2 h-screen w-full max-w-[420px] bg-gray-200 dark:bg-gray-800 z-20">
-            <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] bg-white/90 dark:bg-black blur-[30px]" />
-            <div className="absolute bottom-0 right-0 left-0 w-full h-[8.5rem] bg-white/90 dark:bg-black blur-[30px]" />
-
+        <div className="overflow-y-auto fixed top-0 left-1/2 pb-[calc(env(safe-area-inset-bottom)+40px)] -translate-x-1/2 h-screen w-full max-w-[420px] bg-gray-200 dark:bg-black z-20">
+            <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] dark:bg-black " />
             <div className="flex flex-col p-4.5">
                 <div className="grid grid-cols-3 w-full z-20">
                     <button
@@ -166,7 +164,6 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
                     </button>
 
                     <button
-                        // onClick={() => window.history.back()}
                         onClick={backHandler}
                         className="w-8.5 h-8.5 flex justify-center items-center rounded-full border  dark:border-white/50 cursor-pointer justify-self-end"
                     >

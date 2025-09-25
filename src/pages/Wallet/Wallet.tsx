@@ -164,7 +164,6 @@ const Wallet: React.FC = () => {
     const handleShowTransferModal = () => setShowTransferModal(v => !v);
     const handleShowNewCardModal = () => setShowNewCardModal(v => !v);
 
-    // Card options (mock)
     const options: CardOption[] = [
         {
             value: '6219861909436779',
@@ -216,8 +215,8 @@ const Wallet: React.FC = () => {
                                                 key={wallet.id || index}
                                                 className={`min-w-[300px] max-w-[300px] cursor-pointer transition-all duration-300 ${
                                                     isSelected
-                                                        ? 'dark:bg-black bg-blue-50 border-primary-blue scale-105 shadow-md'
-                                                        : 'dark:bg-dark-900 bg-light-primary-darker shadow-md dark:hover:bg-primary-darker/70 hover:bg-light-primary-darker'
+                                                        ? 'dark:bg-gray-800 bg-blue-50 border-primary-blue scale-105 shadow-md'
+                                                        : 'dark:bg-dark-900 bg-light-primary-darker shadow-md  hover:bg-light-primary-darker'
                                                 } flex p-4 rounded-lg`}
                                                 style={{ scrollSnapAlign: 'center' }}
                                                 onClick={() => {
@@ -298,13 +297,13 @@ const Wallet: React.FC = () => {
                                                                 e.stopPropagation();
                                                                 handleShowWithdrawModal();
                                                             }}
-                                                            className={`text-black dark:text-white 
+                                                            className={`
                                                               hover:opacity-90 transition-colors text-[10px] font-peyda 
                                                               px-3 py-2 rounded-md flex items-center justify-center gap-1
                                                               ${
                                                                   isSelected
-                                                                      ? 'dark:border-accent-orange border-primary-blue border bg-white dark:bg-black'
-                                                                      : 'dark:bg-accent-orange bg-primary-blue'
+                                                                      ? 'dark:border-accent-orange border-primary-blue border text-black dark:text-white  bg-white dark:bg-black'
+                                                                      : 'dark:bg-accent-orange border-primary-blue text-black dark:text-white'
                                                               }`}
                                                         >
                                                             برداشت موجودی
@@ -534,7 +533,7 @@ const Wallet: React.FC = () => {
 
                         <div className="flex justify-between items-center">
                             <div className="flex gap-1 items-center">
-                                <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-accent-orange text-text-color font-peyda text-center rounded-md">
+                                <div className="w-5 h-5 dark:bg-accent-orange bg-primary-blue text-text-color font-peyda text-center rounded-md">
                                     2
                                 </div>
                                 <Typography
@@ -548,7 +547,7 @@ const Wallet: React.FC = () => {
 
                             <div
                                 onClick={handleShowNewCardModal}
-                                className="flex gap-1 text-white bg-accent-orange rounded-md px-3 py-1.5 cursor-pointer hover:opacity-90"
+                                className="flex gap-1 text-white dark:bg-accent-orange bg-primary-blue rounded-md px-3 py-1.5 cursor-pointer hover:opacity-90"
                             >
                                 <MdAddCard fontSize={12} />
                                 <Typography className="!font-peyda text-white" fontSize={9}>
@@ -740,7 +739,7 @@ const Wallet: React.FC = () => {
 
                             <div
                                 onClick={handleShowNewCardModal}
-                                className="flex gap-1 text-white bg-accent-orange rounded-md px-3 py-1.5 cursor-pointer hover:opacity-90"
+                                className="flex gap-1 text-white dark:bg-accent-orange bg-primary-blue rounded-md px-3 py-1.5 cursor-pointer hover:opacity-90"
                             >
                                 <MdAddCard fontSize={12} />
                                 <Typography className="!font-peyda text-white" fontSize={9}>
@@ -820,7 +819,7 @@ const Wallet: React.FC = () => {
 
                             <div
                                 onClick={handleShowNewCardModal}
-                                className="flex gap-1 text-white bg-accent-orange rounded-md px-3 py-1.5 cursor-pointer hover:opacity-90"
+                                className="flex gap-1 text-white dark:bg-accent-orange bg-primary-blue rounded-md px-3 py-1.5 cursor-pointer hover:opacity-90"
                             >
                                 <MdAddCard fontSize={12} />
                                 <Typography className="!font-peyda text-white" fontSize={9}>

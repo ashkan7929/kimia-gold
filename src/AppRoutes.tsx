@@ -217,7 +217,7 @@ const AppRoutes: React.FC = () => {
                 }
             />
             <Route
-                path="/transaction-details"
+                path="/detail/:id"
                 element={
                     <ProtectedRoute>
                         <SimpleLayout title="جزئیات پرداخت">

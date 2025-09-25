@@ -10,7 +10,7 @@ const TransactionDetails = () => {
         <main className="flex-grow bg-[url('../images/main-lines-pattern.png')] bg-cover bg-center">
           <div className="flex flex-col gap-3 mb-3">
             <section>
-              <div className="bg-light-primary-darker dark:bg-primary-darker rounded-lg shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
+              <div className="bg-light-primary-darker dark:bg-black rounded-lg shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
                 <div className="p-4 flex flex-col gap-2">
                   <div className="text-light-text-color dark:text-white font-semibold text-sm mb-2">
                     اطلاعات نهایی برای پرداخت
@@ -73,7 +73,7 @@ const TransactionDetails = () => {
                     <li className="flex justify-between items-center py-2">
                       <div className="text-gray-700 dark:text-gray-300 text-xs">وضعیت</div>
                       <div className="text-light-text-color dark:text-white text-xs font-medium">
-                        <span className="inline-flex justify-center items-center px-2 py-1 rounded-[0.24569rem] bg-red-100 text-red-600 text-[0.49138rem] font-semibold dark:bg-red-900/20 dark:text-red-400">
+                        <span className="inline-flex justify-center items-center px-2 py-1 rounded-[0.24569rem] bg-red-100 text-red-600 text-[0.49138rem] font-semibold dark:bg-red-600/20 dark:text-red-400">
                           ناموفق
                         </span>
                       </div>
@@ -83,11 +83,11 @@ const TransactionDetails = () => {
               </div>
 
               <div className="flex flex-col gap-2 mt-3">
-                <Button className="text-white text-sm bg-primary-darker dark:bg-accent-orange">
+                <Button className="text-white text-sm bg-primary-blue dark:bg-accent-orange">
                   {'دانلود فاکتور'}
                 </Button>
 
-                <Button  onClick={() => navigate('/')} className="bg-primary-blue dark:bg-none dark:border-gray-300 text-white text-sm">
+                <Button  onClick={() => navigate('/')} className="border-primary-blue dark:border-accent-orange dark:hover:text-accent-orange dark:text-white text-black hover:text-primary-blue text-sm">
                   {'بازگشت به صفحه اصلی'}
                 </Button>
               </div>

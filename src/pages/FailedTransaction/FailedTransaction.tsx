@@ -77,11 +77,7 @@ export default function FailedTransaction() {
                             <DetaList items={items} />
 
                             <div className="flex gap-[0.875rem]">
-                                {/* <button onClick={toggleModal} className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold leading-[150%] text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-primary-darker border-primbg-primary-darker text-white w-full flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
-                                    <IoMdShare />
-                                    اشتراک رسید
-                                </button> */}
-                                <div className='w-full max-w-1/2'>
+                                <div className="w-full max-w-1/2">
                                     <ShareBtn />
                                 </div>
                                 <button className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold leading-[150%] text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-primary-darker border-primary-bg-primary-darker text-white w-full flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
