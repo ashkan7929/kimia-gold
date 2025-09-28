@@ -10,7 +10,6 @@ const Suggestions = () => {
         <section className="min-h-screen rounded-lg p-4 flex flex-col justify-center items-center py-8">
           <div className="w-full max-w-md mx-auto text-right">
 
-            {/* Illustration */}
             <div className="mb-6 text-center">
               <img
                 alt="ارسال نظر"
@@ -32,13 +31,12 @@ const Suggestions = () => {
 
             {/* Fullname */}
             <div className="mb-4">
-              <label htmlFor="fullName" className="block pb-2 text-xs !font-alibaba dark:text-text-color text-light-text-color">
+              <label htmlFor="fullName" className="block pb-2 mt-3 text-xs !font-alibaba dark:text-text-color text-light-text-color">
                 نام و نام خانوادگی
               </label>
               <div className="relative">
                 <TextField
                   mobileIcon={<IoMdPerson />}
-                  className="w-full"
                   placeholder="نام و نام خانوادگی خود را وارد کنید"
                 />
               </div>

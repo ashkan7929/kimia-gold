@@ -72,7 +72,7 @@ const DateField = forwardRef<HTMLInputElement, DateFieldProps>(({ value, onChang
           locale={persian_fa}
           calendarPosition="bottom-right"
           disabled={disabled}
-          inputClass="text-sm !w-full h-10 pr-10 pl-5 rounded-lg bg-transparent text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
+          inputClass="text-sm !w-full h-10 pr-10 pl-5 rounded-lg bg-transparent text-black dark:text-white font-peyda placeholder-custom-text-secondary focus:outline-none focus:border-primary-blue"
         />
       </div>
       {/* Hidden input for react-hook-form */}

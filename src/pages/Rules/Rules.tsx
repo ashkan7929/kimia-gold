@@ -33,7 +33,7 @@ const Rules = () => {
                                                     onClick={() => setSelectedTab(tab)}
                                                     className={` ${
                                                         selectedTab === tab
-                                                            ? 'bg-primary-blue dark:bg-gray-800 text-white'
+                                                            ? 'bg-primary-blue dark:bg-accent-orange text-white'
                                                             : 'bg-transparent'
                                                     } cursor-pointer group dark:text-neutral-200 text-light-text-color px-6 py-2 rounded-md !font-peyda`}
                                                 >
@@ -207,7 +207,7 @@ const Rules = () => {
                                                     <h3 className="dark:text-neutral-100 text-neutral-900 text-[10.8px] font-semibold leading-normal mb-3">
                                                         6. ضمانت اجرا و جرایم
                                                     </h3>
-                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800text-[9px] font-normal leading-[14.4px] space-y-1">
+                                                    <ul className="list-disc pr-4 dark:text-neutral-200 text-neutral-800 text-[9px] font-normal leading-[14.4px] space-y-1">
                                                         <li>
                                                             تخلفات صنفی: پلمپ مغازه یا مسدودسازی
                                                             اپلیکیشن

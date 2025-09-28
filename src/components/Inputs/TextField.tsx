@@ -29,7 +29,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                         type={type}
                         className="
               text-sm w-full h-10 pr-10 pl-5
-              dark:bg-black bg-gray-100
+              dark:bg-black bg-white shadow-md
               border-custom-gray rounded-lg
               dark:placeholder:text-gray-600
               text-text-color light:text-light-text-color

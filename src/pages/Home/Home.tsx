@@ -25,7 +25,7 @@ import shoppingIcon from '/images/pic/shoppingDark.svg';
 import shoppingIconLight from '/images/pic/shoppingLight.svg';
 
 import creditServicesDark from '/images/pic/creditServicesDark.svg';
-import creditServicesLight from '/images/pic/creditServicesLight.png';
+import creditServicesLight from '/images/pic/creditServicesLight.svg';
 
 import wealthManagementDark from '/images/pic/wealthManagementDark.svg';
 import wealthManagementLight from '/images/pic/wealthManagementLight.svg';
@@ -35,6 +35,43 @@ import insuranceServicelight from '/images/pic/InsuranceServicesLight.svg';
 
 import moreDark from '/images/pic/moreDark.svg';
 import moreLight from '/images/pic/moreLight.svg';
+import ServiceBtn from '../../components/ServiceBtn/ServiceBtn';
+
+const services = [
+    {
+        key: 1,
+        label: 'خدمات بیمه',
+        darkSrc: insuranceServices,
+        lightSrc: insuranceServicelight,
+        to: '/insurance',
+    },
+    {
+        key: 2,
+        label: 'مدیریت ثروت',
+        darkSrc: wealthManagementDark,
+        lightSrc: wealthManagementLight,
+        to: '/buy',
+    },
+    {
+        key: 3,
+        label: 'خدمات اعتباری',
+        darkSrc: creditServicesDark,
+        lightSrc: creditServicesLight,
+        to: '/credit',
+    },
+    {
+        key: 4,
+        label: 'کیمیا',
+        darkSrc: insuranceIcon,
+        lightSrc: insuranceIconLight,
+        to: '/products',
+    },
+    { key: 5, label: 'فروشگاه', darkSrc: shoppingIcon, lightSrc: shoppingIconLight, to: '/store' },
+    { key: 6, label: 'کمپین', darkSrc: CampaignImg, lightSrc: CampaignImgLight, to: '/campaigns' },
+    { key: 7, label: 'تحلیل‌گر', darkSrc: analizImg, lightSrc: analizImgLight, to: '/analytics' },
+    { key: 8, label: 'اخبار', darkSrc: newsImg, lightSrc: newsImgLight, to: '/news' },
+    { key: 9, label: 'سایر', darkSrc: moreDark, lightSrc: moreLight, to: '/more' },
+];
 
 const rows = [
     {
@@ -139,7 +176,7 @@ const Home = () => {
                                         className="!font-alibaba dark:text-text-color text-light-text-color"
                                         fontSize={12}
                                     >
-                                        ۵۰۰,۰۰۰ ریال
+                                        ۰ ریال
                                     </Typography>
                                 </div>
                             </div>
@@ -173,178 +210,20 @@ const Home = () => {
                             </button>
                         </main>
                     </div>
-                    <div className="grid gap-2 light:gap-4 grid-cols-3 w-full">
-                        <div className="dark:bg-black bg-light-primary-darker flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            {isDark ? (
-                                <div className="w-10 h-10">
-                                    <img alt="coin" src={insuranceServices} />
-                                </div>
-                            ) : (
-                                <div className="w-10 h-10">
-                                    <img src={insuranceServicelight} alt="coin" />
-                                </div>
-                            )}{' '}
-                            <Typography
-                                className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
-                                fontSize={10}
-                            >
-                                {'خدمات بیمه'}
-                            </Typography>
-                        </div>
-                        <Link to="/buy">
-                            <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                                {isDark ? (
-                                    <div className="w-10 h-10">
-                                        <img alt="" src={wealthManagementDark} />
-                                    </div>
-                                ) : (
-                                    <div className="w-10 h-10">
-                                        <img alt="" src={wealthManagementLight} />
-                                    </div>
-                                )}
-                                <Typography
-                                    className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
-                                    fontSize={10}
-                                >
-                                    {'مدیریت ثروت'}
-                                </Typography>
-                            </div>
-                        </Link>
-                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            {isDark ? (
-                                <div className="w-10 h-10">
-                                    <img alt="" src={creditServicesDark} />
-                                </div>
-                            ) : (
-                                <div className="w-10 h-10">
-                                    <img alt="" src={creditServicesLight} />
-                                </div>
-                            )}
-
-                            <Typography
-                                className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
-                                fontSize={10}
-                            >
-                                {' خدمات اعتباری'}
-                            </Typography>
-                        </div>
-                        <Link to="/products">
-                            <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                                {isDark ? (
-                                    <div className="w-10 h-10">
-                                        <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIcon} />
-                                    </div>
-                                ) : (
-                                    <div className="w-10 h-10">
-                                        <img alt="بیمه عمر مبتنی بر طلا" src={insuranceIconLight} />
-                                    </div>
-                                )}
-
-                                <Typography
-                                    className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
-                                    fontSize={10}
-                                >
-                                    {'کیمیا'}
-                                </Typography>
-                            </div>
-                        </Link>
-
-                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            {isDark ? (
-                                <div className="w-10 h-10">
-                                    <img alt="" src={shoppingIcon} />
-                                </div>
-                            ) : (
-                                <div className="w-10 h-10">
-                                    <img alt="" src={shoppingIconLight} />
-                                </div>
-                            )}
-
-                            <Typography
-                                className="!font-alibaba dark:text-neutral-300 text-neutral-700 text-center"
-                                fontSize={10}
-                            >
-                                {'فروشگاه'}
-                            </Typography>
-                        </div>
-
-                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
-                                {isDark ? (
-                                    <div className="w-10 h-10">
-                                        <img alt="" src={CampaignImg} />
-                                    </div>
-                                ) : (
-                                    <div className="w-10 h-10">
-                                        <img alt="" src={CampaignImgLight} />
-                                    </div>
-                                )}
-                            </div>
-
-                            <Typography
-                                fontSize={10}
-                                className="dark:text-text-color text-light-text-color !font-peyda"
-                            >
-                                کمپین
-                            </Typography>
-                        </div>
-                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full">
-                                {isDark ? (
-                                    <div className="w-10 h-10">
-                                        <img src={analizImg} alt="تحلیل بازار" />
-                                    </div>
-                                ) : (
-                                    <div className="w-10 h-10">
-                                        <img src={analizImgLight} alt="تحلیل بازار" />
-                                    </div>
-                                )}
-                            </div>
-                            <Typography
-                                fontSize={10}
-                                className="dark:text-text-color text-light-text-color !font-peyda"
-                            >
-                                تحلیل‌گر
-                            </Typography>
-                        </div>
-                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            <div className="w-9.5 h-9.5 flex justify-center items-center rounded-full ">
-                                {isDark ? (
-                                    <div className="w-10 h-10">
-                                        <img src={newsImg} alt="اخبار" />
-                                    </div>
-                                ) : (
-                                    <div className="w-10 h-10">
-                                        <img src={newsImgLight} alt="اخبار" />
-                                    </div>
-                                )}
-                            </div>
-                            <Typography
-                                fontSize={10}
-                                className="dark:text-text-color text-light-text-color !font-peyda"
-                            >
-                                اخبار
-                            </Typography>
-                        </div>
-                        <div className="dark:bg-black bg-white flex flex-col gap-2 justify-center items-center p-3 rounded-lg">
-                            {isDark ? (
-                                <div className="w-10 h-10">
-                                    <img alt="" src={moreDark} />
-                                </div>
-                            ) : (
-                                <div className="w-10 h-10">
-                                    <img alt="" src={moreLight} />
-                                </div>
-                            )}
-
-                            <Typography
-                                className="!font-alibaba dark:text-neutral-300 text-neutral-700  text-center"
-                                fontSize={10}
-                            >
-                                {'سایر'}
-                            </Typography>
-                        </div>
+                    <div className="grid gap-4 grid-cols-3 w-full">
+                    {/* <div className="grid gap-2 light:gap-4 grid-cols-3 w-full"> */}
+                        {services.map(card => (
+                            <ServiceBtn
+                                key={card.key}
+                                label={card.label}
+                                darkSrc={card.darkSrc}
+                                lightSrc={card.lightSrc}
+                                to={card.to}
+                                isDark={isDark}
+                            />
+                        ))}
                     </div>
+
                     <div className="dark:bg-black bg-primary-gray-100 w-full rounded-lg py-2.5 px-3">
                         <div className="dark:odd:bg-black odd:bg-white grid grid-cols-9 w-full">
                             <div className="flex gap-1 items-center col-span-3 py-2">

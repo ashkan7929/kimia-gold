@@ -1,52 +1,82 @@
-// Transactions.tsx
 import Typography from '@mui/material/Typography';
 import { useEffect, useMemo, useState } from 'react';
-import { FaArrowDownLong } from '../../Icons';
-import { useTranslation } from 'react-i18next';
-import { VscListFilter } from 'react-icons/vsc';
+import { FaArrowDownLong  } from '../../Icons';
+// import { useTranslation } from 'react-i18next';
 
 import { walletService } from '../../services/walletService';
 import { useAuth } from '../../stores/auth.store';
 import type { UserWallet, TransactionWallet as Tx } from '../../types/wallet';
 import { useParams } from 'react-router-dom';
+import FilterBar, { type CatKey } from '../../components/FilterBar/FilterBar';
 
-type StatusFilter = 'all' | 'success' | 'failed';
-type Filters = {
-  status: StatusFilter;
-  productType?: string | null;
-  recentCount: 5 | 10 | 20;
-};
-const FILTERS_KEY = 'TxFilters';
+const CATEGORIES: { key: CatKey; label: string }[] = [
+  { key: 'all',               label: 'همه' },
+  { key: 'PaymentSuccessful', label: 'پرداخت موفق' },
+  { key: 'PaymentFailed',     label: 'پرداخت ناموفق' },
+  { key: 'Gold',              label: 'طلای ۱۸ عیار' },
+];
+
+const toLatinDigits = (s: unknown) =>
+  String(s ?? '').replace(/[۰-۹]/g, (d) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)));
+
+const normalize = (s: unknown) => toLatinDigits(s).trim().toLowerCase();
+
+function matchQuery(tx: Tx, q: string) {
+  const query = normalize(q);
+  if (!query) return true;
+
+  const hay = [
+    tx.transactionTypeName,
+    (tx as any).description, 
+  ].map(normalize).join(' ');
+
+  if (hay.includes(query)) return true;
+
+  const digits = query.replace(/[^\d]/g, '');
+  if (digits && String(tx.amount ?? '').includes(digits)) return true;
+
+  return false;
+}
+
+function matchCategories(tx: Tx, selected: Set<CatKey>) {
+  if (selected.size === 0) return true; 
+
+  const tags = new Set<CatKey>(['all']);
+  if (tx.status === 1) tags.add('PaymentSuccessful'); else tags.add('PaymentFailed');
+
+  const typeNorm = normalize(tx.transactionTypeName);
+  if (typeNorm.includes('طلا') || typeNorm.includes('طلای 18') || typeNorm.includes('طلای ۱۸')) tags.add('Gold');
+
+  for (const k of selected) if (tags.has(k)) return true;
+  return false;
+}
 
 const Transactions = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { walletId: walletIdFromUrl } = useParams<{ walletId: string }>();
   const { user, isAuthenticated } = useAuth();
 
-  // Wallets
   const [wallets, setWallets] = useState<UserWallet[]>([]);
   const [walletsLoading, setWalletsLoading] = useState(false);
   const [walletsError, setWalletsError] = useState<string | null>(null);
   const [selectedWallet, setSelectedWallet] = useState<UserWallet | null>(null);
 
-  // Transactions
   const [txs, setTxs] = useState<Tx[]>([]);
   const [txLoading, setTxLoading] = useState(false);
   const [txError, setTxError] = useState<string | null>(null);
 
-  // Filters (panel + state)
-  const [panelOpen, setPanelOpen] = useState(false);
-  const [filter, setFilter] = useState<Filters>(() => {
-    try {
-      const raw = sessionStorage.getItem(FILTERS_KEY);
-      return raw ? (JSON.parse(raw) as Filters) : { status: 'all', productType: null, recentCount: 10 };
-    } catch {
-      return { status: 'all', productType: null, recentCount: 10 };
-    }
-  });
-  useEffect(() => {
-    sessionStorage.setItem(FILTERS_KEY, JSON.stringify(filter));
-  }, [filter]);
+  const [query, setQuery] = useState<string>('');
+  const [selected, setSelected] = useState<Set<CatKey>>(new Set());
+
+  const onToggle = (key: CatKey) => {
+    if (key === 'all') return setSelected(new Set());
+    setSelected(prev => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
 
   useEffect(() => {
     const loadWallets = async () => {
@@ -71,6 +101,7 @@ const Transactions = () => {
     loadWallets();
   }, [user?.id, isAuthenticated, walletIdFromUrl]);
 
+  
   const fetchTxs = async (wid: string) => {
     setTxLoading(true);
     setTxError(null);
@@ -84,29 +115,14 @@ const Transactions = () => {
       setTxLoading(false);
     }
   };
+
   useEffect(() => {
     if (selectedWallet?.id) fetchTxs(selectedWallet.id);
   }, [selectedWallet?.id]);
 
-  /* Options & filtered list */
-  const transactionTypeOptions = useMemo(() => {
-    const names = new Set<string>();
-    txs.forEach(tx => { if (tx.transactionTypeName) names.add(tx.transactionTypeName); });
-    return Array.from(names);
-  }, [txs]);
-
-  const filteredItems = useMemo(() => {
-    const out = txs.filter(tx => {
-      if (filter.status !== 'all') {
-        const isSuccess = tx.status === 1;
-        if (filter.status === 'success' && !isSuccess) return false;
-        if (filter.status === 'failed' && isSuccess) return false;
-      }
-      if (filter.productType && tx.transactionTypeName !== filter.productType) return false;
-      return true;
-    });
-    return out.slice(0, filter.recentCount);
-  }, [txs, filter]);
+  const filteredTxs = useMemo(() => {
+    return txs.filter(tx => matchCategories(tx, selected) && matchQuery(tx, query));
+  }, [txs, selected, query]);
 
   if (walletsLoading) {
     return (
@@ -138,110 +154,14 @@ const Transactions = () => {
 
   return (
     <div className="flex flex-col gap-3 items-center pb-25">
-      <div className="flex justify-between p-4 w-full rounded-lg dark:bg-black bg-light-primary-darker">
-        <Typography
-          className="!font-kalameh text-white text-nowrap"
-          fontWeight="semibold"
-          fontSize={11}
-        >
-          {t('transaction.TransactionsHeader')}
-        </Typography>
+      <FilterBar
+        query={query}
+        onQueryChange={setQuery}
+        categories={CATEGORIES}
+        selected={selected}
+        onToggle={onToggle}
+      />
 
-        <button
-          type="button"
-          aria-controls="tx-filter-panel"
-          aria-expanded={panelOpen}
-          onClick={() => setPanelOpen(p => !p)}
-          className="flex gap-2 items-center text-white"
-        >
-          <Typography
-            className="!font-kalameh text-white text-nowrap"
-            fontWeight="semibold"
-            fontSize={11}
-          >
-            {t('transaction.TransactionsFilter')}
-          </Typography>
-          <VscListFilter className="mt-1" />
-        </button>
-      </div>
-
-      <div
-        id="tx-filter-panel"
-        className={`
-          w-full overflow-hidden rounded-lg border
-          dark:bg-black bg-light-primary-darker
-          dark:border-white/10 border-black/10
-          transition-all duration-300 ease-in-out
-          ${panelOpen ? 'mt-2 max-h-[360px] opacity-100' : 'max-h-0 opacity-0 mt-0'}
-        `}
-      >
-        {panelOpen && (
-          <div className="p-4 space-y-6">
-           
-{/* تعداد نمایش */}
-<section>
-  <h3 className="!font-kalameh text-sm mb-2 opacity-80 text-black dark:text-white">تعداد نمایش</h3>
-  <div className="flex items-center justify-between rounded-lg overflow-hidden border dark:border-white/10 border-black/10">
-    {[5, 10, 20].map(n => (
-      <button
-        key={n}
-        onClick={() => setFilter(prev => ({ ...prev, recentCount: n as 5 | 10 | 20 }))}
-        className={`flex-1 px-4 py-2 text-sm transition-colors
-          ${filter.recentCount === n
-            ? 'bg-primary-blue dark:bg-accent-orange text-white font-bold'
-            : 'bg-transparent dark:text-text-color text-light-text-color hover:bg-white/10'}
-        `}
-      >
-        {n} تراکنش آخر
-      </button>
-    ))}
-  </div>
-</section>
-
-            {/* نوع محصول */}
-            <section>
-              <h3 className="!font-kalameh text-sm mb-2 opacity-80 text-black dark:text-white">{t('transaction.typeTransaction')}</h3>
-              <select
-                value={filter.productType ?? ''}
-                onChange={e => setFilter(prev => ({ ...prev, productType: e.target.value || null }))}
-                className="w-full rounded-lg px-4 py-2 text-sm outline-none bg-light-primary-darker text-light-text-color border border-custom-gray dark:bg-black dark:text-text-color dark:border-white/10 appearance-none"
-              >
-                <option value="">{t('transaction.typeProduct')}</option>
-                {transactionTypeOptions.map(name => (
-                  <option key={name} value={name}>{name}</option>
-                  
-                ))}
-                <option value="طلای 18 عیار">{t('transaction.typeProduct1')}</option>
-                <option value="طلای 24 عیار">{t('transaction.typeProduct2')}</option>
-                <option value="کارت اعتباری">{t('transaction.typeProduct3')}</option>
-
-              </select>
-            </section>
-
-            {/* وضعیت  */}
-            <section>
-              <h3 className="!font-kalameh text-sm mb-2 opacity-80 text-black dark:text-white">{t('transaction.status')}</h3>
-              <div className="flex items-center gap-2">
-                {(['all', 'success', 'failed'] as const).map(item => (
-                  <button
-                    key={item}
-                    onClick={() => setFilter(prev => ({ ...prev, status: item }))}
-                    className={`px-3 py-2 rounded-lg text-xs border
-                      ${filter.status === item
-                        ? 'bg-primary-blue dark:bg-accent-orange text-white border-transparent'
-                        : 'dark:border-white/10 border-custom-gray dark:text-text-color text-light-text-color'
-                      }`}
-                  >
-                    {item === 'all' ? 'همه' : item === 'success' ? 'موفق' : 'ناموفق'}
-                  </button>
-                ))}
-              </div>
-            </section>
-          </div>
-        )}
-      </div>
-
-      {/* List */}
       {txLoading ? (
         <div className="text-center py-8 w-full">
           <Typography className="!font-peyda text-custom-gray" fontSize={12}>
@@ -256,7 +176,7 @@ const Transactions = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-2 w-full">
-          {filteredItems.map(tx => (
+          {filteredTxs.map(tx => (
             <div
               key={tx.id}
               className="flex justify-between w-full p-2.5 dark:bg-black bg-light-primary-darker rounded-lg"
@@ -304,7 +224,7 @@ const Transactions = () => {
             </div>
           ))}
 
-          {filteredItems.length === 0 && (
+          {filteredTxs.length === 0 && (
             <div className="text-center py-8 w-full">
               <Typography className="!font-peyda text-custom-gray" fontSize={12}>
                 تراکنشی یافت نشد

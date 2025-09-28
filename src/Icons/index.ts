@@ -68,3 +68,6 @@ export { GrGallery } from "react-icons/gr";
 export { IoMdShare } from "react-icons/io";
 export { AiFillInfoCircle } from "react-icons/ai";
 export { CgProfile } from "react-icons/cg";
+export { MdFilterAlt } from "react-icons/md";
+export { MdFilterAltOff } from "react-icons/md";
+export { CiSearch } from "react-icons/ci";
