@@ -270,9 +270,9 @@ const ProductDetailCard = () => {
                             </p>
 
                             <button
-                                className="w-full max-w-xs bg-accent-orange text-white font-peyda text-sm 
+                                className="w-full max-w-xs dark:bg-accent-orange bg-primary-blue text-white font-peyda text-sm 
                     flex items-center justify-center gap-1 py-3 px-4 rounded-xl 
-                    shadow-md transition-all hover:bg-accent-orange/90 active:scale-95"
+                    shadow-md transition-all hover:bg-primary-blue/90 dark:hover:bg-accent-orange/90 active:scale-95"
                             >
                                 <span>تایید عامل فروش</span>
                             </button>

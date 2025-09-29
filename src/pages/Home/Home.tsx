@@ -43,7 +43,7 @@ const services = [
         label: 'خدمات بیمه',
         darkSrc: insuranceServices,
         lightSrc: insuranceServicelight,
-        to: '/insurance',
+        to: '',
     },
     {
         key: 2,
@@ -57,7 +57,7 @@ const services = [
         label: 'خدمات اعتباری',
         darkSrc: creditServicesDark,
         lightSrc: creditServicesLight,
-        to: '/credit',
+        to: '',
     },
     {
         key: 4,
@@ -66,11 +66,11 @@ const services = [
         lightSrc: insuranceIconLight,
         to: '/products',
     },
-    { key: 5, label: 'فروشگاه', darkSrc: shoppingIcon, lightSrc: shoppingIconLight, to: '/store' },
-    { key: 6, label: 'کمپین', darkSrc: CampaignImg, lightSrc: CampaignImgLight, to: '/campaigns' },
-    { key: 7, label: 'تحلیل‌گر', darkSrc: analizImg, lightSrc: analizImgLight, to: '/analytics' },
-    { key: 8, label: 'اخبار', darkSrc: newsImg, lightSrc: newsImgLight, to: '/news' },
-    { key: 9, label: 'سایر', darkSrc: moreDark, lightSrc: moreLight, to: '/more' },
+    { key: 5, label: 'فروشگاه', darkSrc: shoppingIcon, lightSrc: shoppingIconLight, to: '' },
+    { key: 6, label: 'کمپین', darkSrc: CampaignImg, lightSrc: CampaignImgLight, to: '' },
+    { key: 7, label: 'تحلیل‌گر', darkSrc: analizImg, lightSrc: analizImgLight, to: '' },
+    { key: 8, label: 'اخبار', darkSrc: newsImg, lightSrc: newsImgLight, to: '' },
+    { key: 9, label: 'سایر', darkSrc: moreDark, lightSrc: moreLight, to: '' },
 ];
 
 const rows = [

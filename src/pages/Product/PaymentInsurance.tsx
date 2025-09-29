@@ -119,28 +119,28 @@ const PaymentInsurance = () => {
             <section>
                 <div className="dark:bg-black bg-light-primary-darker rounded-lg shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
                     <div className="p-4 flex flex-col gap-2">
-                        <div className="dark:text-white text-light-text-color font-semibold text-sm mb-2">
+                        <div className="dark:text-white text-light-text-color font-semibold text-sm mb-2 font-peyda">
                             اطلاعات نهایی برای پرداخت بیمه عمر
                         </div>
                         <ul className="space-y-3">
                             <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
-                                <div className="dark:text-gray-300 text-gray-700 text-xs">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs font-peyda">
                                     تاریخ و زمان :
                                 </div>
-                                <div className="text-white light:text-light-text-color text-xs font-medium">
+                                <div className="text-white light:text-light-text-color text-xs font-medium font-peyda">
                                     {getCurrentDateTime()}
                                 </div>
                             </li>
                             <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
-                                <div className="dark:text-gray-300 text-gray-700 text-xs">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs font-peyda">
                                     عنوان
                                 </div>
-                                <div className="text-white light:text-light-text-color text-xs font-sm">
+                                <div className="text-white light:text-light-text-color text-xs font-sm font-peyda">
                                     کیمیا
                                 </div>
                             </li>
                             <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
-                                <div className="dark:text-gray-300 text-gray-700 text-xs">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs font-peyda">
                                     طلا <small>(به گرم)</small>
                                 </div>
                                 <div className="text-white light:text-light-text-color text-xs font-sm">
@@ -148,26 +148,26 @@ const PaymentInsurance = () => {
                                 </div>
                             </li>
                             <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
-                                <div className="dark:text-gray-300 text-gray-700 text-xs">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs font-peyda">
                                     قیمت طلا 18 عیار
                                 </div>
-                                <div className="text-white light:text-light-text-color text-xs font-medium">
+                                <div className="text-white light:text-light-text-color text-xs font-medium font-peyda">
                                     {goldPrice.toLocaleString('fa-IR')}
                                 </div>
                             </li>
                             <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
-                                <div className="dark:text-gray-300 text-gray-700 text-xs">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs font-peyda">
                                     هزینه بیمه
                                 </div>
-                                <div className="text-white light:text-light-text-color text-xs font-medium">
+                                <div className="text-white light:text-light-text-color text-xs font-medium font-peyda">
                                     {insuranceCost.toLocaleString('fa-IR')}
                                 </div>
                             </li>
                             <li className="flex justify-between items-center py-2 border-b border-dashed dark:border-gray-600 border-custom-gray">
-                                <div className="dark:text-gray-300 text-gray-700 text-xs">
+                                <div className="dark:text-gray-300 text-gray-700 text-xs font-peyda">
                                     کل مبلغ پرداختی
                                 </div>
-                                <div className="text-white light:text-light-text-color text-xs font-medium">
+                                <div className="text-white light:text-light-text-color text-xs font-medium font-peyda">
                                     {totalAmount.toLocaleString('fa-IR')}
                                 </div>
                             </li>
@@ -178,14 +178,14 @@ const PaymentInsurance = () => {
                     <Button
                         onClick={handlePayment}
                         disabled={loading || isProcessing || walletsLoading || !usdWallet}
-                        className="dark:bg-accent-orange bg-primary-blue text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="dark:bg-accent-orange bg-primary-blue font-peyda text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         پرداخت از طریق درگاه
                     </Button>
                     <Button
                         onClick={handlePayment}
                         disabled={loading || isProcessing || walletsLoading || !usdWallet}
-                        className="dark:bg-black dark:border-gray-500 bg-primary-blue text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="dark:bg-black dark:border-gray-500 font-peyda bg-primary-blue text-white text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {isProcessing ? 'در حال پردازش...' :
                             walletsLoading ? 'در حال بارگذاری کیف پول...' :

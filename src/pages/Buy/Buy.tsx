@@ -158,6 +158,8 @@ const Buy = () => {
                                                     value={weight === 0 ? '' : weight}
                                                     onChange={handleWeight}
                                                     options={gramOptions}
+                                                    placeholder="مثال: ۵ گرم"
+
                                                 />
                                             
                                         </div>
@@ -186,7 +188,6 @@ const Buy = () => {
                                         </div>
                                     </div>
 
-                                    {/* دکمه خرید */}
                                     <div>
                                         <Button
                                             sx={{
@@ -203,7 +204,6 @@ const Buy = () => {
                         </div>
                     </section>
 
-                    {/* Section: FAQ */}
                     <section>
                         <div className="flex flex-col gap-2.5 rounded-lg bg-white dark:bg-black p-4">
                             <Typography
