@@ -82,9 +82,9 @@ const AppRoutes: React.FC = () => {
                 path="/profile"
                 element={
                     <ProtectedRoute>
-                        <Layout>
+                        <SimpleLayout title="پروفایل">
                             <Profile />
-                        </Layout>
+                        </SimpleLayout>
                     </ProtectedRoute>
                 }
             />

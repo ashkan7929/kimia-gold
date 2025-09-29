@@ -1,5 +1,5 @@
-import logoDarkMode from "../../assets/images/logoSite.jpg";
-import logoLightMode from "/images/vemLogoSite.png";       
+import logoDarkMode from "/images/logo/darkLogo.png";
+import logoLightMode from "/images/logo/lightLogo.png";       
 import { useTheme } from "../contexts/ThemeContext";
 
 const Loading = () => {
@@ -12,7 +12,6 @@ const Loading = () => {
         className="flex-grow flex items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center"
       >
         <div className="text-center relative">
-          {/* لوگو */}
           <div className="w-24 h-24 mx-auto">
             <img
               src={isDark ? logoDarkMode : logoLightMode} 

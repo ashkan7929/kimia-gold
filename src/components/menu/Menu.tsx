@@ -8,6 +8,7 @@ import logoDarkMode from '/images/vemLogo1.png';
 import {
     FaArrowLeftLong,
     FaChevronLeft,
+    FaUsers,
     TbCircleDottedLetterR,
     HiOutlineHome,
     TbLayoutGrid,
@@ -19,7 +20,6 @@ import {
     AiFillInfoCircle,
     CgProfile,
 } from '../../Icons';
-import { FaUsers } from 'react-icons/fa6';
 const menu = [
     {
         id: 1,

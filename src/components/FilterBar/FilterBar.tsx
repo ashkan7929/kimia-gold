@@ -24,7 +24,7 @@ export default function FilterBar({
 
     return (
         <div
-            className={`sticky top-0 z-10 mx-auto bg-light-primary-darker/90 dark:bg-black/90 flex flex-col gap-3 px-7 py-2 rounded-xl ${className}`}
+            className={`sticky top-0 z-10 mx-auto w-full bg-light-primary-darker/90 dark:bg-black/90 flex flex-col gap-3 px-7 py-2 rounded-xl ${className}`}
         >
             <div className="relative w-full">
                 <CiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
