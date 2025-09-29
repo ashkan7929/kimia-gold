@@ -10,11 +10,11 @@
     "background_color": "#0D2778",
     "theme_color": "#030047",
     "icons": [
-        { "src": "/images/icons/vemLogo192.png", "sizes": "192x192", "type": "image/png" },
-        { "src": "/images/icons/vemLogo144.png", "sizes": "144x144", "type": "image/png" },
-        { "src": "/images/icons/vemLogo512.png", "sizes": "512x512", "type": "image/png" },
+        { "src": "/icons/icon-192X192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "/icons/icon-144x144.png", "sizes": "144x144", "type": "image/png" },
+        { "src": "/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png" },
         {
-            "src": "/images/vem-maskable-512.png",
+            "src": "/icons/icon-512x512.png.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable any"
