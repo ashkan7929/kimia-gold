@@ -15,6 +15,7 @@ import {
 import { Disclosure, Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 import TextField from '../../components/Inputs/TextField';
+import LogoutButton from '../../components/LogOut';
 
 // import DateField from '../../components/Inputs/Datepiker';
 
@@ -24,8 +25,8 @@ const Profile = () => {
 
     return (
         <>
-            <div className="w-full flex flex-col">
-                <main className="flex-1 bg-[url('../statics/assets/images/main-lines-pattern.png')] bg-cover bg-center">
+            <div className="w-full flex flex-col ">
+                <main className="flex-1 min-h-screen pb-[calc(80px+env(safe-area-inset-bottom))] bg-[url('../statics/assets/images/main-lines-pattern.png')] bg-cover bg-center">
                     <div className="flex flex-col gap-3 mb-3">
                         <section className="">
                             <div className="dark:bg-black bg-white rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
@@ -364,6 +365,7 @@ const Profile = () => {
                         </Disclosure>
                     </div>
                 </main>
+                <LogoutButton  />
             </div>
         </>
     );

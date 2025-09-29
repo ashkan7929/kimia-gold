@@ -151,7 +151,7 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
                     <button
                         onClick={() => {
                             setShowMenu(false);
-                            navigate('/home');
+                            navigate('/app');
                         }}
                         className="flex justify-center cursor-pointer"
                     >

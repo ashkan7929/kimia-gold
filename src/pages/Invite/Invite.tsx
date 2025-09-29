@@ -1286,7 +1286,7 @@ const Invite = () => {
                                     <div className="flex gap-2 relative border dark:border-custom-border-light border-custom-gray rounded-xsm">
                                         <input
                                             type="text"
-                                            className="form-control flex-1 ps-5 bg-transparent focus:outline-0 text-white font-peyda text-xs"
+                                            className="form-control flex-1 ps-5 bg-transparent focus:outline-0 text-black dark:text-white font-peyda text-xs"
                                             placeholder="کد دعوت را وارد نمایید"
                                         />
                                         <button className="px-2 py-2.5 font-semibold text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg dark:bg-black bg-primary-blue border-[#010048] text-white flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
