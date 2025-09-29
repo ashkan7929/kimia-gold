@@ -42,7 +42,7 @@ const Wallet: React.FC = () => {
     const [showWithdrawModal, setShowWithdrawModal] = useState(false);
     const [showDepositModal, setShowDepositModal] = useState(false);
     const [showTransferModal, setShowTransferModal] = useState(false);
-    const [showNewCardModal, setShowNewCardModal] = useState(false);
+    const [_, setShowNewCardModal] = useState(false);
 
     const [depositAmount, setDepositAmount] = useState('');
     const [withdrawAmount, setWithdrawAmount] = useState('');

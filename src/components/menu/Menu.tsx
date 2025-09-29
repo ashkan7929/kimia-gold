@@ -8,7 +8,6 @@ import logoDarkMode from '/images/vemLogo1.png';
 import {
     FaArrowLeftLong,
     FaChevronLeft,
-    FaRegUser,
     TbCircleDottedLetterR,
     HiOutlineHome,
     TbLayoutGrid,

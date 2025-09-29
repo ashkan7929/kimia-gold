@@ -44,7 +44,7 @@ const AuthPage: React.FC = () => {
     const navigate = useNavigate();
     const { setToken, setUser } = useAuth();
     const [notice, setNotice] = useState<string | null>(null);
-    const [noticeType, setNoticeType] = useState<'success' | 'error' | 'info' | null>(null);
+    const [_, setNoticeType] = useState<'success' | 'error' | 'info' | null>(null);
 
     // --- UI/Flow State
     const [currentStep, setCurrentStep] = useState<AuthStep>('mobile');

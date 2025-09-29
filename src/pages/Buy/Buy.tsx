@@ -3,7 +3,6 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 // import Button from '../../components/Button/Button';
 import '../../fonts.css';
-import { FaChevronDown, FaChevronUp } from '../../Icons';
 import '../../assets/lib/Swiper/swiper-bundle.min.css';
 import OptionSelect from '../../components/Inputs/OptionSelect';
 import { useTranslation } from 'react-i18next';
