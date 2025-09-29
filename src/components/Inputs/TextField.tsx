@@ -28,22 +28,23 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                         onChange={onChange}
                         type={type}
                         className="
+             
               text-sm w-full h-10 pr-10 pl-5
               dark:bg-black bg-white shadow-md
               border-custom-gray rounded-lg
+              dark:text-text-color text-gray-500
               dark:placeholder:text-gray-600
-              text-text-color light:text-light-text-color
               placeholder:text-black placeholder:opacity-100
               focus:outline-none dark:focus:border-primary-blue focus:border-light-text-color
             "
-            placeholder={placeholder}
-            {...rest}
-          />
-        </div>
-      </div>
-    );
-  }
+                        placeholder={placeholder}
+                        {...rest}
+                    />
+                </div>
+            </div>
+        );
+    },
 );
 
-TextField.displayName = "TextField";
+TextField.displayName = 'TextField';
 export default TextField;

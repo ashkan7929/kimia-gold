@@ -290,7 +290,7 @@ const AuthPage: React.FC = () => {
                     <form
                         onSubmit={e => {
                             e.preventDefault();
-                            proceedFromMobile('otp'); 
+                            proceedFromMobile('otp');
                         }}
                         className="flex flex-col gap-4 w-full"
                     >
@@ -416,7 +416,7 @@ const AuthPage: React.FC = () => {
                                     mobileIcon={<MdOutlineBadge />}
                                     placeholder="کد ملی ۱۰ رقمی"
                                     {...registerForm.register('nationalCode')}
-                                    className="w-full"
+                                    className="dark:bg-gray-700 placeholder:text-gray-500 bg-transparent"
                                 />
                                 {registerForm.formState.errors.nationalCode && (
                                     <Typography
@@ -463,7 +463,10 @@ const AuthPage: React.FC = () => {
 
                             {/* Referral Code */}
                             <div className="flex flex-col gap-1">
-                                <Typography className="text-white !font-peyda mb-2" fontSize={12}>
+                                <Typography
+                                    className="dark:text-white text-light-text-color !font-peyda mb-2"
+                                    fontSize={12}
+                                >
                                     کد معرف (اختیاری)
                                 </Typography>
                                 <TextField
@@ -481,8 +484,6 @@ const AuthPage: React.FC = () => {
                                     </Typography>
                                 )}
                             </div>
-
-                            {/* Accept Rules */}
                             <div className="flex items-center gap-1">
                                 <CheckBox
                                     label=""
@@ -500,7 +501,7 @@ const AuthPage: React.FC = () => {
                                         className="text-primary-blue dark:text-accent-orange hover:underline"
                                     >
                                         قوانین و مقررات *
-                                    </Link>{' '}
+                                    </Link>
                                     را مطالعه کرده و می‌پذیرم
                                 </Typography>
                             </div>
@@ -529,7 +530,7 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={handleBack}
-                                className="w-full py-3 rounded-lg  text-gray-300 hover:bg-white hover:border-gray-500 dark:hover:bg-black dark:border-gray-700 dark:hover:border-none transition-colors font-peyda"
+                                className="w-full py-3 rounded-lg hover:border dark:hover:border-gray-600  dark:text-white hover:bg-white hover:border-primary-blue dark:hover:bg-black hover:text-primary-blue text-gray-400 transition-colors font-peyda"
                             >
                                 بازگشت
                             </button>
@@ -610,7 +611,7 @@ const AuthPage: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={handleBack}
-                                className="w-full py-3 rounded-lg border border-primary-blue dark:border-gray-600 hover:border-none dark:text-white hover:bg-white hover:border-primary-blue dark:hover:bg-black hover:text-primary-blue text-primary-blue transition-colors font-peyda"
+                                className="w-full py-3 rounded-lg hover:border dark:hover:border-gray-600  dark:text-white hover:bg-white hover:border-primary-blue dark:hover:bg-black hover:text-primary-blue text-gray-400 transition-colors font-peyda"
                             >
                                 بازگشت
                             </button>
@@ -702,7 +703,7 @@ const AuthPage: React.FC = () => {
 
                         <button
                             onClick={handleBack}
-                            className="w-full py-3 rounded-lg hover:border hover:border-gray-500 hover:text-gray-700 dark:text-gray-300 text-gray-700  transition-colors font-peyda"
+                            className="w-full py-3 rounded-lg hover:border dark:hover:border-gray-600  dark:text-white hover:bg-white hover:border-primary-blue dark:hover:bg-black hover:text-primary-blue text-gray-400 transition-colors font-peyda"
                         >
                             بازگشت
                         </button>
