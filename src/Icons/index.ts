@@ -72,3 +72,4 @@ export { MdFilterAltOff } from "react-icons/md";
 export { CiSearch } from "react-icons/ci";
 export { FaUsers } from 'react-icons/fa6';
 export { LuLogOut } from 'react-icons/lu';
+export { FaXTwitter } from "react-icons/fa6";

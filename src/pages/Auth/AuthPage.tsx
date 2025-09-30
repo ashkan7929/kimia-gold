@@ -46,7 +46,6 @@ const AuthPage: React.FC = () => {
     const [notice, setNotice] = useState<string | null>(null);
     const [_, setNoticeType] = useState<'success' | 'error' | 'info' | null>(null);
 
-    // --- UI/Flow State
     const [currentStep, setCurrentStep] = useState<AuthStep>('mobile');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -57,7 +56,6 @@ const AuthPage: React.FC = () => {
     const [canResend, setCanResend] = useState(true);
     const [loginMethod, setLoginMethod] = useState<'password' | 'otp' | null>(null);
 
-    // --- Forms
     const mobileForm = useForm<MobileFormData>({ resolver: zodResolver(mobileSchema) });
     const registerForm = useForm<RegisterFormData>({
         resolver: zodResolver(registerSchema),
@@ -71,7 +69,6 @@ const AuthPage: React.FC = () => {
     });
     const passwordForm = useForm<PasswordFormData>({ resolver: zodResolver(passwordLoginSchema) });
 
-    // --- OTP resend timer
     useEffect(() => {
         if (resendTimer > 0) {
             const timer = setTimeout(() => setResendTimer(prev => prev - 1), 1000);
@@ -90,7 +87,6 @@ const AuthPage: React.FC = () => {
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     };
 
-    // --- Helpers
     const sendOtp = async (mobile: string, purpose: 'login' | 'register') => {
         const response = await authService.sendOtp(mobile, purpose === 'register' ? 2 : 1);
         const ttl = response?.ttlSec ?? 120;
@@ -241,6 +237,7 @@ const AuthPage: React.FC = () => {
                 setError('خطا در ارسال مجدد کد.');
             }
         } catch (err) {
+            console.log(err);
             setError('خطا در ارتباط با سرور.');
         } finally {
             setIsLoading(false);

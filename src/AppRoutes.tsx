@@ -29,18 +29,15 @@ import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
 import NotFound from './pages/NotFound/NotFound';
-// import AuthLayout from './layouts/AuthLayout/AuthLayout';
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
 };
 
-// Public Route Component (redirect to app if authenticated)
 const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const { isAuthenticated } = useAuth();
     return !isAuthenticated ? <>{children}</> : <Navigate to="/app" replace />;
 };
 
-// App Routes Component
 const AppRoutes: React.FC = () => {
     const { theme } = useTheme();
     const isDark = theme === 'dark';

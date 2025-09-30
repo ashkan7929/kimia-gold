@@ -234,3 +234,5 @@ export type TabelProps = {
   className?: string;
   children?: React.ReactNode;
 };
+
+

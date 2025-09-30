@@ -37,9 +37,8 @@ const SegmentedButtons = ({
                         backgroundColor: t => (t.palette.mode === 'dark' ? '#0B1220' : '#F3F4F6'),
                     },
                     '&.Mui-selected': {
-                        backgroundColor: '#ea8a2a',
+                        backgroundColor: t => (t.palette.mode === 'dark' ? '#ea8a2a' : '#2256ff'),
                         color: '#fff',
-                        '&:hover': { backgroundColor: '#ea8a2a' },
                     },
                     '&:first-of-type': { borderTopRightRadius: 12 },
                     '&:last-of-type': {

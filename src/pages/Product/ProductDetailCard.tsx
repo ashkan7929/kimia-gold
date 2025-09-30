@@ -30,7 +30,7 @@ const ProductDetailCard = () => {
 
     return (
         <div className="dark:bg-black bg-white">
-            <h1 className="font-peyda text-md m-4 text-center dark:text-text-color text-light-text-color">
+            <h1 className="font-peyda text-md pt-2 m-4 text-center dark:text-text-color text-light-text-color">
                 فرم پیشنهاد
             </h1>
             <SegmentedButtons

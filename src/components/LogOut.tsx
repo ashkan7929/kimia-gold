@@ -23,9 +23,9 @@ const LogoutButton = () => {
                 className="
       flex flex-row items-center justify-center gap-2
       w-full max-w-[420px] px-5 py-3
-      rounded-lg border border-red-400
-      text-red-600 font-bold text-sm
-      transition hover:bg-red-600 hover:text-white
+      rounded-lg 
+      text-red-900 shadow font-bold text-sm
+      transition bg-red-500/60
     "
             >
                 <LuLogOut className="w-5 h-5" />
