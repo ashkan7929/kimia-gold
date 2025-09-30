@@ -133,7 +133,7 @@ const Home = () => {
                         <div>
                             <div className="flex flex-col gap-1">
                                 <Typography
-                                    className="!font-alibaba text-text-color light:text-light-text-color"
+                                    className="!font-peyda text-text-color light:text-light-text-color"
                                     fontSize={13}
                                 >
                                     <strong>
@@ -141,10 +141,10 @@ const Home = () => {
                                             ? userData.firstName + ' ' + userData.lastName
                                             : 'کاربر گرامی'}
                                     </strong>{' '}
-                                    خوش امدید
+                                    خوش آمدید
                                 </Typography>
                                 <Typography
-                                    className="!font-alibaba text-neutral-300 light:text-neutral-700"
+                                    className="!font-peyda text-neutral-300 light:text-neutral-700"
                                     fontSize={11}
                                 >
                                     {
@@ -167,13 +167,13 @@ const Home = () => {
                                 />
                                 <div className="flex flex-col">
                                     <Typography
-                                        className="!font-alibaba dark:text-text-color text-light-text-color"
+                                        className="!font-peyda dark:text-text-color text-light-text-color"
                                         fontSize={12}
                                     >
                                         مانده اعتبار
                                     </Typography>
                                     <Typography
-                                        className="!font-alibaba dark:text-text-color text-light-text-color"
+                                        className="!font-peyda dark:text-text-color text-light-text-color"
                                         fontSize={12}
                                     >
                                         ۰ ریال
@@ -183,7 +183,7 @@ const Home = () => {
 
                             <button
                                 onClick={() => navigate('/wallet')}
-                                className="dark:bg-accent-orange bg-primary-blue text-white text-[9px] font-kalameh px-7 py-2 rounded-xl"
+                                className="dark:bg-accent-orange bg-primary-blue font-bold text-white text-[10px] font-peyda px-7 py-2 rounded-xl"
                             >
                                 افزایش اعتبار
                             </button>
@@ -193,13 +193,14 @@ const Home = () => {
                         <main className="px-4 flex-grow py-5 flex gap-3 flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
                             <div className="flex flex-col items-center gap-1.5">
                                 <Typography
-                                    className="!font-alibaba dark:text-text-color text-light-text-color"
+                                    variant='h1'
+                                    className="!font-peyda dark:text-text-color text-light-text-color"
                                     fontSize={16}
                                 >
                                     صفحه <strong>باشگاه وِم</strong>
                                 </Typography>
                                 <Typography
-                                    className="!font-alibaba text-neutral-300 light:text-neutral-700"
+                                    className="!font-peyda text-neutral-300 light:text-neutral-700"
                                     fontSize={11}
                                 >
                                     {'محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر'}

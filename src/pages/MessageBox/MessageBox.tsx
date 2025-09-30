@@ -18,7 +18,8 @@ const MessageBox = () => {
                                         <div className="w-3 h-3 bg-green-400 rounded-full" />
                                         <div className="flex flex-col gap-2">
                                             <div className="dark:text-gray-300 text-gray-700 text-[10px] font-peyda">
-                                                1404/09/08 12:20
+                                                <span className="pr-1">12:20</span>
+                                                1404/09/08
                                             </div>
                                             <div className="text-sm font-medium dark:text-text-color text-light-text-color font-peyda">
                                                 قیمت طلا 24 درصد افزایش پیدا کرد
@@ -29,7 +30,8 @@ const MessageBox = () => {
                                         <div className="w-3 h-3 rounded-full dark:bg-accent-orange bg-primary-blue" />
                                         <div className="flex flex-col gap-2">
                                             <div className="dark:text-gray-300 text-gray-700 text-[10px] font-peyda">
-                                                1404/09/08 12:20
+                                                <span className="pr-1">12:20</span>
+                                                1404/09/08
                                             </div>
                                             <div className="text-sm font-medium dark:text-text-color text-light-text-color font-peyda">
                                                 قیمت طلا 5 درصد افزایش پیدا کرد
@@ -40,7 +42,8 @@ const MessageBox = () => {
                                         <div className="w-3 h-3 bg-red-400 rounded-full" />
                                         <div className="flex flex-col gap-2">
                                             <div className="dark:text-gray-300 text-gray-700 text-[10px] font-peyda">
-                                                1404/09/08 12:20
+                                                <span className="pr-1">12:20</span>
+                                                1404/09/08
                                             </div>
                                             <div className="text-sm font-medium dark:text-text-color text-light-text-color font-peyda">
                                                 قیمت طلا 24 درصد افزایش پیدا کرد
@@ -54,8 +57,7 @@ const MessageBox = () => {
                 </main>
             </div>
         </>
+    );
+};
 
-    )
-}
-
-export default MessageBox
+export default MessageBox;

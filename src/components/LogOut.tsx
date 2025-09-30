@@ -25,7 +25,8 @@ const LogoutButton = () => {
       w-full max-w-[420px] px-5 py-3
       rounded-lg 
       text-red-900 shadow font-bold text-sm
-      transition bg-red-500/60
+      transition bg-red-500/60 dark:bg-black
+      dark:border-red-500
     "
             >
                 <LuLogOut className="w-5 h-5" />

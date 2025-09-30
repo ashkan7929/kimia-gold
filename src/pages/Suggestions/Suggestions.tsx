@@ -21,17 +21,17 @@ const Suggestions = () => {
             </div>
 
             {/* Title */}
-            <Typography className="!font-alibaba mb-1" fontSize={17}>
+            <Typography className="!font-peyda mb-1" fontSize={17}>
               نظرات و پیشنهادات
             </Typography>
 
-            <Typography className="!font-alibaba mb-4 text-sm dark:text-neutral-300 text-neutral-600" fontSize={12}>
+            <Typography className="!font-peyda mb-4 text-sm dark:text-neutral-300 text-neutral-600" fontSize={12}>
               شما می‌توانید پیشنهادات و انتقادات خود را با ما به اشتراک بگذارید
             </Typography>
 
             {/* Fullname */}
             <div className="mb-4">
-              <label htmlFor="fullName" className="block pb-2 mt-3 text-xs !font-alibaba dark:text-text-color text-light-text-color">
+              <label htmlFor="fullName" className="block pb-2 mt-3 text-xs !font-peyda dark:text-text-color text-light-text-color">
                 نام و نام خانوادگی
               </label>
               <div className="relative">
@@ -44,7 +44,7 @@ const Suggestions = () => {
 
             {/* Topic */}
             <div className="mb-4">
-              <label htmlFor="topic" className="block pb-2 text-xs !font-alibaba dark:text-text-color text-light-text-color">
+              <label htmlFor="topic" className="block pb-2 font-peyda text-xs dark:text-text-color text-light-text-color">
                 موضوع
               </label>
               <select
@@ -90,7 +90,7 @@ const Suggestions = () => {
             </div>
 
             {/* Submit */}
-            <Button className="w-full text-sm text-text-color bg-primary-blue hover:bg-primary-light dark:bg-accent-orange dark:hover:brightness-110">
+            <Button className="w-full text-sm font-peyda text-text-color bg-primary-blue hover:bg-primary-light dark:bg-accent-orange dark:hover:brightness-110">
               ثبت نظر
             </Button>
           </div>

@@ -44,7 +44,7 @@ const Profile = () => {
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <Typography className="dark:text-text-color text-light-text-color !font-alibaba !font-bold !text-4xl-custom">
+                                        <Typography className="dark:text-text-color text-light-text-color !font-peyda !font-bold !text-4xl-custom">
                                             {userData?.firstName + ' ' + userData?.lastName}
                                         </Typography>
                                         <div className="flex items-center gap-1 ">
