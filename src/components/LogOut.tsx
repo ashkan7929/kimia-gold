@@ -25,7 +25,7 @@ const LogoutButton = () => {
       w-full max-w-[420px] px-5 py-3
       rounded-lg 
       text-red-900 shadow font-bold text-sm
-      transition bg-red-500/60 dark:bg-black
+      transition bg-white dark:bg-black
       dark:border-red-500
     "
             >

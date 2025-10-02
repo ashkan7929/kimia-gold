@@ -73,3 +73,5 @@ export { CiSearch } from "react-icons/ci";
 export { FaUsers } from 'react-icons/fa6';
 export { LuLogOut } from 'react-icons/lu';
 export { FaXTwitter } from "react-icons/fa6";
+export { IoWomanSharp } from "react-icons/io5";
+export { MdMan } from "react-icons/md";

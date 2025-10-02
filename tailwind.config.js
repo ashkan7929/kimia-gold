@@ -41,7 +41,6 @@ export default {
                     gray: '#CACACA',
                     lightgray: '#D4D4D4',
                     lightergray: '#A7A7A7',
-                    border: '#213163',
                     backdrop: '#02006C',
                     text: {
                         primary: '#FFF',

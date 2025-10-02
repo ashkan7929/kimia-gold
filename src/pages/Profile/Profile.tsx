@@ -11,13 +11,13 @@ import {
     IoMailOutline,
     RiRoadMapLine,
     BiSolidMapPin,
+    IoWomanSharp,
+    MdMan,
 } from '../../Icons';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 import TextField from '../../components/Inputs/TextField';
 import LogoutButton from '../../components/LogOut';
-
-// import DateField from '../../components/Inputs/Datepiker';
 
 const Profile = () => {
     const { t } = useTranslation();
@@ -26,7 +26,7 @@ const Profile = () => {
     return (
         <>
             <div className="w-full flex flex-col ">
-                <main className="flex-1 min-h-screen pb-[calc(80px+env(safe-area-inset-bottom))] bg-[url('../statics/assets/images/main-lines-pattern.png')] bg-cover bg-center">
+                <main className="flex-1 h-[80vh] pb-[calc(80px+env(safe-area-inset-bottom))] bg-[url('../statics/assets/images/main-lines-pattern.png')] bg-cover bg-center">
                     <div className="flex flex-col gap-3 mb-3">
                         <section className="">
                             <div className="dark:bg-black bg-white rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
@@ -123,16 +123,9 @@ const Profile = () => {
                                                                 mobileIcon={<CiCalendarDate />}
                                                                 placeholder={t('enterBirthday')}
                                                             />
-                                                            {/* <DateField
-                                                                disabled
-                                                                mobileIcon={<CiCalendarDate />}
-                                                                placeholder={t('enterBirthday')}
-                                                            /> */}
                                                         </div>
                                                     </div>
-                                                    {/* <div>
-                                                        <Button className='bg-primary-blue text-text-color light:text-light-text-color rounded-md hover:bg-blue-600 w-full'>{t('searchRegistryOffice')}</Button>
-                                                    </div> */}
+
                                                     <div>
                                                         <label className="block text-micro font-semibold leading-normal dark:text-text-color text-light-text-color mb-2 font-peyda">
                                                             {' '}
@@ -180,32 +173,7 @@ const Profile = () => {
                                                                     className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] dark:bg-black bg-primary-blue cursor-pointer"
                                                                 >
                                                                     <span className="text-text-color ">
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width={16}
-                                                                            height={16}
-                                                                            viewBox="0 0 16 16"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M10 6C11.1046 6 12 5.10457 12 4C12 2.89543 11.1046 2 10 2C8.89543 2 8 2.89543 8 4C8 5.10457 8.89543 6 10 6Z"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M10 6V14"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M7 9H13"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                        </svg>
+                                                                        <MdMan />
                                                                     </span>
                                                                     <span className="text-text-color text-sm font-peyda">
                                                                         مرد
@@ -224,32 +192,7 @@ const Profile = () => {
                                                                     className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] cursor-pointer"
                                                                 >
                                                                     <span className="dark:text-text-color text-light-text-color">
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width={16}
-                                                                            height={16}
-                                                                            viewBox="0 0 16 16"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M8 9C9.65685 9 11 7.65685 11 6C11 4.34315 9.65685 3 8 3C6.34315 3 5 4.34315 5 6C5 7.65685 6.34315 9 8 9Z"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M8 9V13"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                            <path
-                                                                                d="M6 11H10"
-                                                                                stroke="white"
-                                                                                strokeLinecap="round"
-                                                                                strokeLinejoin="round"
-                                                                            />
-                                                                        </svg>
+                                                                        <IoWomanSharp />
                                                                     </span>
                                                                     <span className="dark:text-text-color text-light-text-color text-sm font-peyda">
                                                                         زن
@@ -365,7 +308,7 @@ const Profile = () => {
                         </Disclosure>
                     </div>
                 </main>
-                <LogoutButton  />
+                <LogoutButton />
             </div>
         </>
     );
