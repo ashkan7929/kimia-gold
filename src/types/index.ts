@@ -236,3 +236,22 @@ export type TabelProps = {
 };
 
 
+export type RoutePath = '' | '/buy' | '/products';
+export type ServiceItem = {
+  key: number;
+  label: string;
+  darkSrc: string;
+  lightSrc: string;
+  to: RoutePath;
+};
+export type MarketRow = {
+  id: number;
+  name: string;
+  enName: string;
+  price: string;
+  dollar: string;
+  change: string;
+  changeColor: 'success' | 'danger' | 'neutral';
+  img: string;
+};
+
