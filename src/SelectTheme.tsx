@@ -1,4 +1,3 @@
-// src/contexts/ThemeContext.jsx
     import { createContext, useState, useEffect, useContext, type ReactNode } from 'react';
 
     const ThemeContext = createContext<any>(null);

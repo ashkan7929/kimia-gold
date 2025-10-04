@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import notFoundImgDark from '/images/404_dark.png';
-import notFoundImgLight from '/images/404-Light.png';
+import darkLogo from '/images/404_dark.png';
+import lightLogo from '/images/404-Light.png';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useMemo } from 'react';
 
 export default function NotFound404() {
-    const { theme } = useTheme();
-    const isDark = theme === 'dark';
+     const { theme } = useTheme();
+    const notFoundLogo = useMemo(() => (theme === 'dark' ? darkLogo : lightLogo), [theme]);
+
     const navigate = useNavigate();
 
     return (
@@ -32,7 +34,7 @@ export default function NotFound404() {
             />
             <div className="relative z-10 w-full max-w-sm text-center">
                 <img
-                    src={isDark ? notFoundImgDark : notFoundImgLight}
+                    src={notFoundLogo}
                     alt="404-پیدا نشد"
                     className="mx-auto h-50 w-auto select-none"
                     draggable={false}

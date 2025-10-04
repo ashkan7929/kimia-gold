@@ -12,57 +12,14 @@ import {
 import { useTheme } from '../../contexts/ThemeContext';
 import { useTranslation } from 'react-i18next';
 
-import inviteLight from '/images/pic/invite.svg';
-import inviteDark from '/images/pic/inviteDark.svg';
+import {inviteLight, inviteDark} from "../../asset/index"
 
-/* =================== Constants =================== */
+
+ import {openCentered, copyToClipboard, buildInviteUrl} from "../../utils/invite"
+
 const BG_URL = "url('/images/main-lines-pattern.png')";
 
-/* =================== Utils =================== */
-function buildInviteUrl(code: string) {
-  const base = typeof window !== 'undefined' ? window.location.origin : 'https://vem.example';
-  const clean = (code || '').trim();
-  const url = new URL('/invite', base);
-  if (clean) url.searchParams.set('code', clean);
-  return url.toString();
-}
 
-async function copyToClipboard(text: string) {
-  try {
-    if (navigator?.clipboard?.writeText) {
-      await navigator.clipboard.writeText(text);
-      return true;
-    }
-  } catch {
-    console.log("")
-  }
-  try {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'absolute';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.select();
-    const ok = document.execCommand('copy');
-    document.body.removeChild(ta);
-    return ok;
-  } catch {
-    return false;
-  }
-}
-
-function openCentered(url: string, w = 600, h = 600) {
-  const dualScreenLeft = window.screenLeft ?? window.screenX ?? 0;
-  const dualScreenTop = window.screenTop ?? window.screenY ?? 0;
-  const width = window.innerWidth ?? document.documentElement.clientWidth ?? screen.width;
-  const height = window.innerHeight ?? document.documentElement.clientHeight ?? screen.height;
-  const left = width / 2 - w / 2 + dualScreenLeft;
-  const top = height / 2 - h / 2 + dualScreenTop;
-  window.open(url, '_blank', `width=${w},height=${h},top=${top},left=${left},noopener`);
-}
-
-/* =================== Component =================== */
 const Invite = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
@@ -102,11 +59,12 @@ const Invite = () => {
 //     handleCopyLink();
 //   };
 
+
   const shareTo = (network: 'telegram' | 'whatsapp' | 'linkedin' | 'x' | 'instagram') => {
     const text = t('Invite.des', { defaultValue: 'با این لینک به وِم بپیوندید.' });
     const encodedInviteUrl  = encodeURIComponent(inviteUrl);
     const textencodedInviteUrl  = encodeURIComponent(text);
-
+    //  const phoneNumber = "9809912885231";
     switch (network) {
       case 'telegram':
         openCentered(`https://t.me/share/url?url=${encodedInviteUrl }&text=${textencodedInviteUrl}`);
@@ -136,7 +94,6 @@ const Invite = () => {
           <section className="invite">
             <div className="dark:bg-black bg-light-primary-darker rounded-lg">
               <div className="p-4 flex flex-col items-center gap-3">
-                {/* Hero Illustration */}
                 <div className="text-center">
                   <img src={heroImg} alt={t('Invite.heroAlt', { defaultValue: 'تصویر دعوت' })} />
                 </div>
@@ -185,7 +142,6 @@ const Invite = () => {
                   )}
                 </div>
 
-                {/* Share label */}
                 <Typography
                   className="!font-peyda dark:text-neutral-300 text-neutral-700 w-full"
                   fontWeight="medium"
@@ -194,7 +150,6 @@ const Invite = () => {
                   {t('Invite.share', { defaultValue: 'اشتراک‌گذاری' })}
                 </Typography>
 
-                {/* Social row */}
                 <div className="flex items-center gap-3 w-full">
                   <button
                     type="button"
@@ -230,7 +185,7 @@ const Invite = () => {
                     type="button"
                     onClick={() => shareTo('instagram')}
                     className="group inline-flex items-center p-1"
-                    aria-label={t('Invite.shareInstagram', { defaultValue: 'اشتراک‌گذاری در اینستاگرام (کپی لینک)' })}
+                    aria-label={t('Invite.shareInstagram', { defaultValue: 'اشتراک‌گذاری در اینستاگرام' })}
                     title={t('Invite.shareInstagram', { defaultValue: 'اینستاگرام' })}
                   >
                     <span className="inline-grid place-items-center h-5 w-5 rounded-lg transition bg-transparent group-hover:[background:radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)]">

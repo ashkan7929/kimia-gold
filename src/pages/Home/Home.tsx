@@ -18,7 +18,6 @@ import {
 
 import type { MarketRow, ServiceItem } from "../../types/index";
 
-// ============ Data ============
 const SERVICES: ServiceItem[] = [
   { key: 1, label: 'خدمات بیمه',    darkSrc: insuranceServices,     lightSrc: insuranceServicelight, to: '' },
   { key: 2, label: 'مدیریت ثروت',   darkSrc: wealthManagementDark,  lightSrc: wealthManagementLight, to: '/buy' },
@@ -36,10 +35,8 @@ const MARKET_ROWS: MarketRow[] = [
   { id: 2, name: 'انس طلا', enName: 'Anas gold', price: '۶۲,۴۰۷ ت', dollar: '۸,۰۸۲ $', change: '+۰.۸۳٪', changeColor: 'success', img: goldProduct },
 ];
 
-// ============ Helpers ============
 const themedSrc = (isDark: boolean, darkSrc: string, lightSrc: string) => (isDark ? darkSrc : lightSrc);
 
-// ============ Small UI Pieces ============
 const NameCellHeader = () => {
   const { t } = useTranslation('');
   return (
@@ -229,7 +226,6 @@ const MarketRowItem = ({ row }: { row: MarketRow }) => {
   );
 };
 
-// ============ Page ============
 const Home = () => {
   const { user } = useAuth();
   const { theme } = useTheme();

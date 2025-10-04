@@ -28,3 +28,10 @@ export { default as insuranceServicelight } from '/images/pic/InsuranceServicesL
 
 export { default as moreDark } from '/images/pic/moreDark.svg';
 export { default as moreLight } from '/images/pic/moreLight.svg';
+export { default as inviteLight } from '/images/pic/invite.svg';
+export { default as inviteDark } from '/images/pic/inviteDark.svg';
+
+
+export { default as logoDarkMode }  from '/logoVem/vemLogoLoadingDark.png';
+export  { default as logoLightMode }  from '/logoVem/vemLogoLoadingLight.png';
+
