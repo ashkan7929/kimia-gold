@@ -3,13 +3,17 @@ import userEvent from '@testing-library/user-event';
 import Button from './Button';
 import '@testing-library/jest-dom';
 
+
+
+// دکمه رندر میشه؟
+
 describe('Button', () => {
-    test('رندر می‌شود و متن درست را نشان می‌دهد', () => {
-        render(<Button>سلام</Button>);
-        expect(screen.getByRole('button', { name: 'سلام' })).toBeInTheDocument();
+    test('متن در هنگام رندر درست نمایش داده می‌شود', () => {
+        render(<Button>ورود به اپلیکیشن</Button>);
+        expect(screen.getByRole('button', { name: 'ورود به اپلیکیشن' })).toBeInTheDocument();
     });
 
-    test('روی کلیک، onClick یک‌بار صدا زده می‌شود', async () => {
+    test('کلیک اتفاق می‌افتد', async () => {
         const user = userEvent.setup();
         const onClick = jest.fn();
 
