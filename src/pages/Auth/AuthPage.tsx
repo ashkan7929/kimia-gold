@@ -219,7 +219,12 @@ const AuthPage: React.FC = () => {
 
     try {
       const purpose = otpPurposeFor(Boolean(userStatus?.userExists));
+          console.log( { mobileNumber, otpCode, purpose });
+
       const res = await authService.loginWithOtp(mobileNumber, otpCode, purpose);
+      // T
+    console.log('[OTP] user.isActive?', res?.user?.isActive, 'user.is_active?', res?.user);
+
       if (res?.token) {
         setToken(res.token);
         setUser(res.user);
@@ -272,10 +277,8 @@ const AuthPage: React.FC = () => {
 
   const handleBack = () => resetFlow();
 
-  /* ------------------- Loading ------------------- */
   if (isLoading) return <Loading />;
 
-  /* ------------------- Render ------------------- */
   return (
     <div className="flex flex-col mx-auto w-full min-h-screen dark:bg-black bg-light-primary-darker">
       <main className="px-4 flex-grow py-5 flex flex-col items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center">
