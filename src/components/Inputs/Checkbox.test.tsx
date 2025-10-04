@@ -16,9 +16,9 @@ describe('Checkbox', () => {
         // not select
         expect(checkbox).not.toBeChecked();
 
-        // test('با defaultChecked تیک خورده است', () => {
-        //     render(<Checkbox label="قوانین را می‌پذیرم" defaultChecked />);
-        //     expect(screen.getByRole('checkbox')).toBeChecked();
-        // });
     });
+	 test('با defaultChecked تیک خورده است', () => {
+            render(<Checkbox label="قوانین را می‌پذیرم" defaultChecked />);
+            expect(screen.getByRole('checkbox')).toBeChecked();
+        });
 });
