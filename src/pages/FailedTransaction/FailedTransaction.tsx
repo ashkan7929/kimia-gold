@@ -35,7 +35,7 @@ export default function FailedTransaction() {
             <div className="w-full mx-auto bg-[#040320] min-h-screen flex flex-col">
                 <header>
                     <div
-                        className="font-['Alibaba'] h-[11.5rem] w-full text-white text-[1.08331rem] font-bold leading-normal text-center flex items-center justify-center flex-col gap-[1.125rem] bg-[#993F3F]"
+                        className="font-peyda h-[11.5rem] w-full text-white text-[1.08331rem] font-bold leading-normal text-center flex items-center justify-center flex-col gap-[1.125rem] bg-[#993F3F]"
                         style={{
                             textShadow: '0px 0px 46.222px rgba(245, 245, 245, 0.06)',
                             boxShadow: 'inset 0px 0px 60px 0px rgb(0, 0, 0)',

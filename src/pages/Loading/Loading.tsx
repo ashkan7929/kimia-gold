@@ -1,45 +1,46 @@
 import { useTheme } from '../../contexts/ThemeContext';
-import logoDarkMode from '/logoVem/vemLogoLoadingDark.png';
-import logoLightMode from '/logoVem/vemLogoLoadingLight.png';
+import { logoDarkMode, logoLightMode } from '../../asset/index';
+import { useMemo } from 'react';
+
 const Loading = () => {
     const { theme } = useTheme();
-    const isDark = theme === 'dark' || theme === undefined;
+    const logo = useMemo(() => (theme === 'dark' ? logoDarkMode : logoLightMode), [theme]);
+
     return (
         <>
-            <div className="w-full mx-auto bg-black light:bg-white min-h-screen flex flex-col h-full">
+            <div className="mx-auto flex min-h-screen w-full flex-col bg-white text-black dark:bg-black dark:text-white">
                 <main
-                    className="flex-grow flex items-center justify-center h-full"
-                    style={{
-                        backgroundImage: "url('/images/Lines-pattern-starters.png')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
+                    className="flex h-full flex-grow items-center justify-center bg-[url('/images/Lines-pattern-starters.png')] bg-cover bg-center"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
                 >
-                    <div className="text-center relative h-full">
-                        <div className="w-24 h-24">
-                            <img alt="" src={isDark ? logoDarkMode : logoLightMode} />
-                        </div>
-                        <div className="fixed bottom-10 right-0 left-0 flex items-center justify-center">
-                            <div
-                                className="w-12.5 h-12.5 border border-white border-b-primary-blue dark:border-b-accent-orange light:border-b-primary-gray-200 rounded-full inline-block animate-spin"
-                                style={{
-                                    animation: 'rotation 1s linear infinite',
-                                }}
+                    <div className="relative text-center">
+                        <div className="mx-auto h-24 w-24">
+                            <img
+                                src={logo}
+                                width={96}
+                                height={96}
+                                alt="VEM Club logo"
+                                decoding="async"
+                                fetchPriority="high"
+                                draggable={false}
+                                className="h-full w-full object-contain"
                             />
+                        </div>
+                        <div className="fixed inset-x-0 bottom-10 flex items-center justify-center">
+                            <span className="sr-only">در حال بارگذاری…</span>
+                            <span
+                                className="
+                                inline-block h-12 w-12 animate-spin rounded-full
+                                border-2 border-white                      
+                                border-b-primary-blue dark:border-b-accent-orange  
+                                drop-shadow-sm "
+                                />
                         </div>
                     </div>
                 </main>
             </div>
-            <style>{`
-        @keyframes rotation {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
         </>
     );
 };

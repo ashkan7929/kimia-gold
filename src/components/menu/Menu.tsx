@@ -137,8 +137,8 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
     };
 
     return (
-        <div className="overflow-y-auto fixed top-0 left-1/2 pb-[calc(env(safe-area-inset-bottom)+40px)] -translate-x-1/2 h-screen w-full max-w-[420px] bg-gray-200 dark:bg-black z-20">
-            <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] dark:bg-black " />
+        <div className="overflow-y-auto fixed top-0 left-1/2 pb-[calc(env(safe-area-inset-bottom)+40px)] -translate-x-1/2 h-screen w-full max-w-[420px] bg-gray-200 dark:bg-gray-900 z-20">
+            <div className="absolute top-0 right-0 left-0 w-full h-[8.5rem] dark:bg-gray-900 " />
             <div className="flex flex-col p-4.5">
                 <div className="grid grid-cols-3 w-full z-20">
                     <button
@@ -178,7 +178,7 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
                             <button
                                 key={item.id}
                                 onClick={onClick}
-                                className="dark:bg-[#040929] bg-white flex items-center rounded-lg gap-3 p-3 text-start"
+                                className="dark:bg-black bg-white flex items-center rounded-lg gap-3 p-3 text-start"
                             >
                                 <div className="dark:bg-accent-orange bg-primary-blue w-8 h-8 flex justify-center items-center rounded-lg">
                                     <item.icon className="text-text-color" />

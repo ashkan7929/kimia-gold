@@ -54,10 +54,6 @@
     "updatePrice": "آپدیت قیمت",
     "faqQuestion": "آیا خرید طلا از باشگاه وِم مطمئن است؟ و چگونگی خرید از این صرافی",
     "faqAnswer": "ثبت سف محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر در ثبت سفارش",
-    "buy": "خرید",
-    "valueGold": "مقدار طلا",
-    "payValue": "مبلغ پرداختی",
-    "listRequestGold": "لیست درخواست‌های سرمایه‌گذاری طلا",
     "transaction": {
         "TransactionsHeader": "لیست تراکنش‌ها",
         "TransactionsFilter": "فیلتر تراکنش‌ها",
@@ -89,5 +85,34 @@
         "inviteCode": "کد دعوت دوستان",
         "share": " اشتراک‌گذاری :"
 
-    }
+    },
+
+  "welcomeTitle": "خوش آمدید",
+  "welcomeBody": "به باشگاه وِم خوش آمدید، از این صفحه می‌توانید خدمات خود را انتخاب کنید",
+  "balanceLabel": "مانده اعتبار",
+  "increaseCredit": "افزایش اعتبار",
+  "heroTitlePrefix": "صفحه",
+  "heroTitleStrong": "باشگاه وِم",
+  "heroSubtitle": "محیط کاربری ساده، امنیت بالا، و سرعت بی‌نظیر",
+  "heroCta": "مشاهده خدمت",
+  "tableHeadName": "نام",
+  "tableHeadPrice": "قیمت",
+  "tableHead24h": "24H",
+  "tableHeadView": "مشاهده",
+
+  "gramOption": "مقدار {{g}} گرم",
+  "gold18": "طلای 18 عیار",
+  "productName": "Anas gold",
+  "pricePerGram": "قیمت هر گرم",
+  "valueGold": "مقدار طلا (گرم)",
+  "weightPlaceholder": "مثال: ۵ گرم",
+  "payValue": "مبلغ پرداختی",
+  "payPlaceholder": "مبلغ خرید طلا را وارد نمایید",
+  "buy": "خرید",
+  "listRequestGold": "لیست درخواست‌های طلا",
+  "comingSoon": "به زودی سوالات جدید به این قسمت اضافه می‌شود",
+  "tabsAria": "ناوبری تب‌ها"
+
+
+
 }
