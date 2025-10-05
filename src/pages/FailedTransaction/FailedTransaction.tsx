@@ -3,8 +3,18 @@ import Button from '../../components/Button/Button';
 import { GrGallery } from '../../Icons';
 import DetaList from '../../components/List/DetaList';
 import ShareBtn from '../../components/ShareBtn/ShareBtn';
+import { useRef } from 'react';
+import { downloadElementAsPng } from '../../utils/saveReceipt';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function FailedTransaction() {
+    const receiptRef = useRef<HTMLDivElement>(null);
+    const { theme } = useTheme();
+    //// const trackingCode = 'WLX-zd4Ak4xEM';
+    //   // const fileName = `${isSuccess ? 'تراکنش_موفق' : 'تراکنش_ناموفق'}-${trackingCode}.png`;
+    const isSuccess = false;
+    const fileName = `${isSuccess ? 'تراکنش_موفق' : 'تراکنش_ناموفق'}.png`;
+
     const items = [
         { label: 'تاریخ و زمان :', value: '15:25 1403/08/15' },
         {
@@ -30,9 +40,28 @@ export default function FailedTransaction() {
         },
     ];
     const navigate = useNavigate();
+
+    const handleSaveReceipt = async () => {
+        if (!receiptRef.current) return;
+        try {
+            const isDark = theme === 'dark';
+
+            await downloadElementAsPng(receiptRef.current, {
+                fileName,
+                backgroundColor: isDark ? '#000' : '#ffffff',
+                pixelRatio: 2, //وضوح
+            });
+           
+        } catch (e) {
+            console.error('خطا در ذخیره رسید:', e);
+        }
+    };
     return (
         <div className="w-full mx-auto" dir="rtl" lang="fa">
-            <div className="w-full mx-auto dark:bg-black bg-white min-h-screen flex flex-col">
+            <div
+                className="w-full mx-auto dark:bg-black bg-white min-h-screen flex flex-col"
+                ref={receiptRef}
+            >
                 <header>
                     <div
                         className="font-peyda h-[11.5rem] w-full text-white  text-[1.08331rem] font-bold leading-normal text-center flex items-center justify-center flex-col gap-[1.125rem] bg-[#993F3F]"
@@ -44,7 +73,7 @@ export default function FailedTransaction() {
                         <div>
                             <img src="/images/failed.png" alt="تراکنش ناموفق بود" />
                         </div>
-                        تراکنش ناموفق
+                        تراکنش با موفقیت انجام شد
                     </div>
                 </header>
 
@@ -77,10 +106,14 @@ export default function FailedTransaction() {
                             <DetaList items={items} />
 
                             <div className="flex gap-3">
-                                <div className="w-full max-w-1/2">
+                                <div className="w-full max-w-1/2" data-hide-when-capture>
                                     <ShareBtn />
                                 </div>
-                                <button className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold leading-[150%] text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-primary-blue dark:bg-accent-orange border-primary-bg-primary-darker text-white w-full flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
+                                <button
+                                    onClick={handleSaveReceipt}
+                                    data-hide-when-capture
+                                    className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold leading-[150%] text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-primary-blue dark:bg-accent-orange border-primary-bg-primary-darker text-white w-full flex items-center justify-center gap-2 transition-all duration-150 ease-in-out"
+                                >
                                     <GrGallery />
                                     ذخیره در گالری
                                 </button>
@@ -90,7 +123,10 @@ export default function FailedTransaction() {
                 </main>
 
                 <footer>
-                    <div className=" bg-primary border-custom-border p-4 mx-auto w-full ">
+                    <div
+                        className=" bg-primary border-custom-border p-4 mx-auto w-full"
+                        data-hide-when-capture
+                    >
                         <Button
                             className=" dark:text-white text-black w-full max-w-[410px] text-sm"
                             onClick={() => navigate('/')}
