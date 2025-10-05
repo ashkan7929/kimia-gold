@@ -33,9 +33,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               dark:bg-black bg-white shadow-md
               border-custom-gray rounded-lg
               dark:text-text-color text-gray-500
-              dark:placeholder:text-gray-600
+              dark:placeholder:text-gray-200
               placeholder:text-black placeholder:opacity-20 dark:placeholder:opacity-40
-              focus:outline-none dark:focus:border-primary-blue focus:border-light-text-color
+              focus:outline-none dark:focus:border-accent-orange focus:border-primary-blue
             "
                         placeholder={placeholder}
                         {...rest}

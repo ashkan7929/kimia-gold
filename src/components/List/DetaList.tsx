@@ -20,10 +20,10 @@ const DetaList: React.FC<DetailListProps> = ({ items }) => {
                             item.border !== false ? 'border-b border-dashed border-[#303030]' : ''
                         }`}
                     >
-                        <div className="text-neutral-300 text-sm font-medium leading-[140%]">
+                        <div className="dark:text-neutral-300 text-neutral-700 text-sm font-medium leading-[140%]">
                             {item.label}
                         </div>
-                        <div className="text-neutral-300 text-md font-bold leading-[140%]">
+                        <div className="dark:text-neutral-300 text-neutral-700 text-sm font-bold leading-[140%]">
                             {item.value}
                         </div>
                     </li>

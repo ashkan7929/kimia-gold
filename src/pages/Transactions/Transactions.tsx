@@ -8,7 +8,6 @@ import {
   matchesQuery,
   matchesSelectedCategories,
 } from '../../utils/transactions';
-// import { useTranslation } from 'react-i18next';
 
 import { walletService } from '../../services/walletService';
 import { useAuth } from '../../stores/auth.store';
@@ -16,7 +15,6 @@ import type { UserWallet, TransactionWallet as Tx } from '../../types/wallet';
 import { useParams } from 'react-router-dom';
 import FilterBar, { type CatKey } from '../../components/FilterBar/FilterBar';
 
-// =================== Constants & Types ===================
 const CATEGORIES: { key: CatKey; label: string }[] = [
   { key: 'all',                label: 'همه' },
   { key: 'PaymentSuccessful',  label: 'پرداخت موفق' },

@@ -21,7 +21,17 @@ import LogoutButton from '../../components/LogOut';
 
 const Profile = () => {
     const { t } = useTranslation();
-    const userData = JSON.parse(localStorage.getItem('user-data') || '');
+    // const userData = JSON.parse(localStorage.getItem('user-data') || '');
+    
+    let userData = null;
+    try {
+        const storUser = localStorage.getItem('user-data');
+        if (storUser) {
+            userData = JSON.parse(storUser);
+        }
+    } catch (error) {
+        console.error('Invalid JSON in user-data:', error);
+    }
 
     return (
         <>
@@ -154,8 +164,8 @@ const Profile = () => {
                                                             />
                                                         </div>
                                                     </div>
-                                                    <div className="flex justify-between items-center gap-6">
-                                                        <label className="block text-micro font-semibold leading-normal dark:text-text-color mb-2 font-peyda">
+                                                    <div className="flex justify-between items-center gap-2">
+                                                        <label className="block text-micro font-semibold leading-normal dark:text-text-color mb-2 mt-2 font-peyda">
                                                             جنسیت
                                                         </label>
                                                         <div className="w-full dark:bg-gray-900 py-1 px-1.5 flex justify-center items-center gap-2 rounded-md bg-custom-bg-menu shadow">
@@ -170,7 +180,7 @@ const Profile = () => {
                                                                 />
                                                                 <label
                                                                     htmlFor="gender_man"
-                                                                    className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] dark:bg-black bg-primary-blue cursor-pointer"
+                                                                    className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] dark:bg-accent-orange bg-primary-blue cursor-pointer"
                                                                 >
                                                                     <span className="text-text-color ">
                                                                         <MdMan />

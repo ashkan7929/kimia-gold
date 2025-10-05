@@ -80,7 +80,7 @@ const ShareBtn = () => {
         <div>
             <button
                 onClick={handleNativeShare}
-                className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold rounded-lg bg-primary-darker text-white w-full flex items-center justify-center gap-2"
+                className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold rounded-lg bg-primary-blue dark:bg-accent-orange text-white w-full flex items-center justify-center gap-2"
             >
                 <IoMdShare />
                 اشتراک رسید

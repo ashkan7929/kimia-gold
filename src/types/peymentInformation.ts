@@ -1,7 +1,7 @@
 export type PaymentInformationProps = {
   amountToman: number;
-  dateTime: string;          
-  transactionType: string;   
+  dateTime?: string;          
+  transactionType?: string;   
   onApplyCoupon?: (code: string) => void;
   onPayGateway?: () => void;
   onPayWallet?: () => void;

@@ -1,7 +1,9 @@
 import type { ChangeEvent } from 'react';
 
 export interface MobileInputProps {
-    label: string;
+    id?: string;
+    htmlFor?: string;
+    label?: string;
     placeholder?: string;
     mobileIcon?: React.ReactNode;
 }

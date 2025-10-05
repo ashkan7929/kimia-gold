@@ -299,7 +299,7 @@ const AuthPage: React.FC = () => {
             >
               <div className="flex flex-col gap-2">
                 <Typography className="dark:text-text-color text-dark-800" fontFamily="Alibaba, sans-serif" fontWeight="bold" fontSize={19}>
-                  {t('loginToApp', { defaultValue: 'ورود به اپ' })}
+                  {t('loginToApp', { defaultValue: 'ورود به اپلیکیشن' })}
                 </Typography>
                 <Typography className="dark:text-neutral-300 text-dark-600" fontFamily="Peyda, sans-serif" fontSize={13}>
                   {t('enterMobileForLogin', { defaultValue: 'شماره موبایل خود را وارد کنید' })}
@@ -315,7 +315,7 @@ const AuthPage: React.FC = () => {
                     {...mobileForm.register('mobileNumber')}
                     type="text"
                     className="text-sm w-full h-10 pr-10 pl-5 dark:bg-black bg-transparent border-custom-gray dark:border-none rounded-lg dark:text-text-color text-light-text-color font-peyda placeholder-custom-text-secondary focus:outline-none dark:focus:border-gray-600 focus:border-light-text-color"
-                    placeholder={t('enterMobile', { defaultValue: 'شماره موبایل' }) as string}
+                    placeholder={t('enterMobile', { defaultValue: 'شماره موبایل' }) }
                   />
                 </div>
                 {mobileForm.formState.errors.mobileNumber && (

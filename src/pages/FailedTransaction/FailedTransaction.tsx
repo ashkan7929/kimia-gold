@@ -32,17 +32,17 @@ export default function FailedTransaction() {
     const navigate = useNavigate();
     return (
         <div className="w-full mx-auto" dir="rtl" lang="fa">
-            <div className="w-full mx-auto bg-[#040320] min-h-screen flex flex-col">
+            <div className="w-full mx-auto dark:bg-black bg-white min-h-screen flex flex-col">
                 <header>
                     <div
-                        className="font-peyda h-[11.5rem] w-full text-white text-[1.08331rem] font-bold leading-normal text-center flex items-center justify-center flex-col gap-[1.125rem] bg-[#993F3F]"
+                        className="font-peyda h-[11.5rem] w-full text-white  text-[1.08331rem] font-bold leading-normal text-center flex items-center justify-center flex-col gap-[1.125rem] bg-[#993F3F]"
                         style={{
                             textShadow: '0px 0px 46.222px rgba(245, 245, 245, 0.06)',
                             boxShadow: 'inset 0px 0px 60px 0px rgb(0, 0, 0)',
                         }}
                     >
                         <div>
-                            <img src="/images/failed.png" alt="" />
+                            <img src="/images/failed.png" alt="تراکنش ناموفق بود" />
                         </div>
                         تراکنش ناموفق
                     </div>
@@ -65,22 +65,22 @@ export default function FailedTransaction() {
                     ></div>
 
                     <div className="container mx-auto px-4">
-                        <div className="text-[#FAFAFA] text-center text-[0.9375rem] font-semibold leading-normal py-4 border-b border-[#292946]">
+                        <div className="dark:text-[#FAFAFA] text-black text-center text-[0.9375rem] font-semibold leading-normal py-4 border-b border-[#292946]">
                             مشخصات تراکنش
                         </div>
 
                         <div className="p-[0.625rem]">
-                            <div className="text-[#FAFAFA] text-center text-[0.88019rem] font-semibold leading-normal mb-4">
+                            <div className="dark:text-[#FAFAFA] text-black text-center text-[0.88019rem] font-semibold leading-normal mb-4">
                                 خرید طلای 18 عیار
                             </div>
 
                             <DetaList items={items} />
 
-                            <div className="flex gap-[0.875rem]">
+                            <div className="flex gap-3">
                                 <div className="w-full max-w-1/2">
                                     <ShareBtn />
                                 </div>
-                                <button className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold leading-[150%] text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-primary-darker border-primary-bg-primary-darker text-white w-full flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
+                                <button className="px-2 py-[0.65rem] text-[0.6875rem] font-semibold leading-[150%] text-center no-underline align-middle cursor-pointer select-none border border-transparent rounded-lg bg-primary-blue dark:bg-accent-orange border-primary-bg-primary-darker text-white w-full flex items-center justify-center gap-2 transition-all duration-150 ease-in-out">
                                     <GrGallery />
                                     ذخیره در گالری
                                 </button>
@@ -92,7 +92,7 @@ export default function FailedTransaction() {
                 <footer>
                     <div className=" bg-primary border-custom-border p-4 mx-auto w-full ">
                         <Button
-                            className="dark:bg-accent-orange bg-primary-blue text-white w-full max-w-[410px] text-sm"
+                            className=" dark:text-white text-black w-full max-w-[410px] text-sm"
                             onClick={() => navigate('/')}
                         >
                             بازگشت

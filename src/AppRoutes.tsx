@@ -183,7 +183,7 @@ const AppRoutes: React.FC = () => {
                 element={
                     <ProtectedRoute>
                         <SuccessfulTransaction />
-                    </ProtectedRoute>
+                     </ProtectedRoute>
                 }
             />
             <Route
@@ -199,7 +199,7 @@ const AppRoutes: React.FC = () => {
                 path="/payment-information"
                 element={
                     <ProtectedRoute>
-                        <PaymentInformation />
+                        <PaymentInformation amountToman={450000} />
                     </ProtectedRoute>
                 }
             />
