@@ -25,6 +25,7 @@ import SuccessfulTransaction from './pages/SuccessfulTransaction/SuccessfulTrans
 import Suggestions from './pages/Suggestions/Suggestions';
 import TransactionDetails from './pages/TransactionDetails/TransactionDetails';
 import Transactions from './pages/Transactions/Transactions';
+import TransactionsApi from './pages/TransactionsApi/TransactionsApi';
 import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
@@ -209,6 +210,16 @@ const AppRoutes: React.FC = () => {
                     <ProtectedRoute>
                         <SimpleLayout title="تراکنش‌ها">
                             <Transactions />
+                        </SimpleLayout>
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/transactions-api"
+                element={
+                    <ProtectedRoute>
+                        <SimpleLayout title="تراکنش‌ها (API)">
+                            <TransactionsApi />
                         </SimpleLayout>
                     </ProtectedRoute>
                 }

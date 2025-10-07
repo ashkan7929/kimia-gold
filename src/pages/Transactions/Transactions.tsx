@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaArrowDownLong } from '../../Icons';
 import {
   formatFaDateTime,
@@ -42,7 +43,7 @@ const StatusBadge = ({ success }: { success: boolean }) => (
 );
 
 const TransactionRow = ({ tx }: { tx: Tx }) => (
-  <div className="flex justify-between w-full p-2.5 dark:bg-black bg-light-primary-darker rounded-lg">
+  <Link to={`/detail/${tx.id}`} className="flex justify-between w-full p-2.5 dark:bg-black bg-light-primary-darker rounded-lg hover:ring-1 hover:ring-primary-blue/40 transition">
     <div className="flex gap-2 items-center">
       <div className="flex justify-center items-center w-7 h-7 bg-green-100 rounded-full">
         <FaArrowDownLong className="text-green-600" fontSize={11} />
@@ -74,7 +75,7 @@ const TransactionRow = ({ tx }: { tx: Tx }) => (
       </div>
       <StatusBadge success={tx.status === TransactionStatus.Success} />
     </div>
-  </div>
+  </Link>
 );
 
 // =================== Page ===================
