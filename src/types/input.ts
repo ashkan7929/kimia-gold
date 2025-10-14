@@ -12,6 +12,8 @@ export interface TextFieldProps {
     placeholder?: string;
     mobileIcon?: React.ReactNode;
     className?: string;
+    name?: string;
+    value?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     defaultValue?: string;
     disabled?: boolean;

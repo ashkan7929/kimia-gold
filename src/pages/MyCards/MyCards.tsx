@@ -82,6 +82,7 @@ const MyCards = () => {
                                                         {bankName ? (
                                                             <div className="flex items-center gap-1">
                                                                 <img
+                                                                    loading="lazy"
                                                                     src={bankName.src}
                                                                     alt={bankName.name}
                                                                     className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 object-contain"
@@ -254,6 +255,7 @@ const MyCards = () => {
                                                                 src={bankName.src}
                                                                 alt={bankName.name}
                                                                 className="w-20 h-20 object-contain"
+                                                                loading="lazy"
                                                             />
                                                             <span className="font-bold">
                                                                 {bankName.name}
@@ -349,6 +351,7 @@ const MyCards = () => {
                                                 <img
                                                     src="/images/banks/ansar bank.png"
                                                     alt=""
+                                                    loading="lazy"
                                                     className="object-contain w-full h-full"
                                                 />
                                             </div>

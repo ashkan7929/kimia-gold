@@ -35,3 +35,11 @@ export { default as inviteDark } from '/images/pic/inviteDark.svg';
 export { default as logoDarkMode }  from '/logoVem/vemLogoLoadingDark.png';
 export  { default as logoLightMode }  from '/logoVem/vemLogoLoadingLight.png';
 
+
+export { default as logoLight } from '/images/vemLogoSite.png';
+export { default as logoDark } from '/images/vemLogo1.png';
+
+
+
+export { default as logoDarkMessage } from "../assets/images/logoSite.jpg";
+export { default as logoLightMessage } from "../assets/images/logoLightMode.jpg";

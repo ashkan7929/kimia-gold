@@ -260,6 +260,7 @@ const Wallet: React.FC = () => {
                                                                 <div className="flex justify-center items-center">
                                                                     <img
                                                                         alt="toman"
+                                                                        loading="lazy"
                                                                         src={
                                                                             isDark
                                                                                 ? '/images/toman.svg'

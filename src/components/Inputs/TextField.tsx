@@ -4,10 +4,12 @@ import type { TextFieldProps } from '../../types/input';
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     (
         {
+            name,
             mobileIcon,
             placeholder,
             className,
             onChange,
+            value,
             defaultValue,
             disabled,
             type = 'text',

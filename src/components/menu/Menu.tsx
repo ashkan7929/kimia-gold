@@ -3,8 +3,7 @@ import { Typography } from '@mui/material';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { Dispatch, SetStateAction } from 'react';
-import logoLightMode from '/images/vemLogoSite.png';
-import logoDarkMode from '/images/vemLogo1.png';
+import {logoLight, logoDark} from '../../asset/index';
 import {
     FaArrowLeftLong,
     FaChevronLeft,
@@ -157,7 +156,7 @@ const Menu: React.FC<MenuProps> = ({ handleShowMenu, setShowMenu }) => {
                     >
                         <img
                             alt=""
-                            src={isDark ? logoDarkMode : logoLightMode}
+                            src={isDark ? logoDark : logoLight}
                             className="w-8 h-8"
                         />
                     </button>

@@ -1,20 +1,29 @@
 // CSS imports removed - using Tailwind CSS instead
-import logoDarkMode from "../../assets/images/logoSite.jpg"
-import logoLightMode from "../../assets/images/logoLightMode.jpg"
-import { useTheme } from "../contexts/ThemeContext";
+import { logoDark, logoLight } from '../asset/index';
 
+import { useTheme } from '../contexts/ThemeContext';
 
 const MyCards = () => {
     const { theme } = useTheme();
     const isDark = theme === 'light';
     return (
         <>
-            <div className="w-full mx-auto bg-[#040320] min-h-screen flex flex-col" style={{ backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div
+                className="w-full mx-auto bg-[#040320] min-h-screen flex flex-col"
+                style={{
+                    backgroundImage: "url('../statics/assets/images/main-lines-pattern.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}
+            >
                 <header className="px-4">
                     <nav className="mt-4 mb-4 flex h-[3.375rem] px-[0.9375rem] justify-between items-center bg-[#010048] rounded-[0.625rem] shadow-[0px_0px_67px_0px_rgba(0,0,0,0.09)]">
                         <div className="flex gap-1">
                             <div>
-                                <button onClick={() => { }} className="bg-transparent flex w-[2.125rem] h-[2.125rem] justify-center items-center rounded-[1.20438rem] border-[0.704px] border-[#213163] shadow-[0px_0px_35.185px_0px_rgba(255,255,255,0.12)]">
+                                <button
+                                    onClick={() => {}}
+                                    className="bg-transparent flex w-[2.125rem] h-[2.125rem] justify-center items-center rounded-[1.20438rem] border-[0.704px] border-[#213163] shadow-[0px_0px_35.185px_0px_rgba(255,255,255,0.12)]"
+                                >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width={20}
@@ -64,7 +73,12 @@ const MyCards = () => {
                             </div>
                         </div>
                         <div>
-                            <div className="text-center text-[0.6875rem] font-bold leading-normal" style={{ fontFamily: 'Alibaba' }}>کارت های من</div>
+                            <div
+                                className="text-center text-[0.6875rem] font-bold leading-normal"
+                                style={{ fontFamily: 'Alibaba' }}
+                            >
+                                کارت های من
+                            </div>
                         </div>
                         <div>
                             <div>
@@ -154,7 +168,9 @@ const MyCards = () => {
                                     <div className="p-4">
                                         <div className="flex flex-col gap-3">
                                             <div>
-                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">شماره کارت</label>
+                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                    شماره کارت
+                                                </label>
                                                 <input
                                                     type="text"
                                                     className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-center text-white placeholder-gray-400"
@@ -163,7 +179,9 @@ const MyCards = () => {
                                             </div>
                                             <div className="flex items-center gap-3">
                                                 <div className="flex-grow">
-                                                    <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">ماه</label>
+                                                    <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                        ماه
+                                                    </label>
                                                     <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                         <option value={1}>1</option>
                                                         <option value={2}>2</option>
@@ -180,7 +198,9 @@ const MyCards = () => {
                                                     </select>
                                                 </div>
                                                 <div className="flex-grow">
-                                                    <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">سال</label>
+                                                    <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                        سال
+                                                    </label>
                                                     <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                         <option value={1403}>1403</option>
                                                         <option value={1402}>1402</option>
@@ -198,7 +218,9 @@ const MyCards = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">بانک</label>
+                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                    بانک
+                                                </label>
                                                 <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                     <option value="saman">بانک سامان</option>
                                                     <option value="mellat">بانک ملت</option>
@@ -207,11 +229,20 @@ const MyCards = () => {
                                             </div>
                                             <div>
                                                 <div className="flex items-center gap-2">
-                                                    <label className="relative inline-block w-[3.125rem] h-[1.75rem]" dir="ltr">
-                                                        <input type="checkbox" defaultChecked={true} className="opacity-0 w-0 h-0" />
+                                                    <label
+                                                        className="relative inline-block w-[3.125rem] h-[1.75rem]"
+                                                        dir="ltr"
+                                                    >
+                                                        <input
+                                                            type="checkbox"
+                                                            defaultChecked={true}
+                                                            className="opacity-0 w-0 h-0"
+                                                        />
                                                         <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-[#ccc] transition-all duration-400 rounded-[1.75rem] before:absolute before:content-[''] before:h-[1.3125rem] before:w-[1.3125rem] before:left-[0.21875rem] before:bottom-[0.21875rem] before:bg-white before:transition-all before:duration-400 before:rounded-[50%] checked:bg-[#2196F3] checked:before:transform checked:before:translate-x-[1.375rem]" />
                                                     </label>
-                                                    <span className="text-white text-[0.63588rem]">کارت پیش فرض</span>
+                                                    <span className="text-white text-[0.63588rem]">
+                                                        کارت پیش فرض
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -232,13 +263,33 @@ const MyCards = () => {
                                     aria-controls="collapseOne"
                                 >
                                     <div className="w-[3.125rem] h-[1.875rem] flex-shrink-0">
-                                        <img src="./assets/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
+                                        <img
+                                            src="./assets/images/banks/ansar bank.png"
+                                            loading="lazy"
+                                            alt=""
+                                            className="w-full h-full object-contain"
+                                        />
                                     </div>
                                     <div className="flex flex-col gap-2 flex-grow">
-                                        <div className="text-[0.875rem] font-medium leading-normal" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 6789</div>
+                                        <div
+                                            className="text-[0.875rem] font-medium leading-normal"
+                                            style={{ fontFamily: 'Kalameh' }}
+                                        >
+                                            6219 - 86** - **** - 6789
+                                        </div>
                                         <div className="flex items-center justify-between">
-                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                            <div
+                                                className="text-[0.6875rem] font-normal leading-normal"
+                                                style={{ fontFamily: 'Alibaba' }}
+                                            >
+                                                بانک اقتصاد نوین
+                                            </div>
+                                            <div
+                                                className="text-[0.6875rem] font-normal leading-normal"
+                                                style={{ fontFamily: 'Kalameh' }}
+                                            >
+                                                08/09
+                                            </div>
                                         </div>
                                     </div>
                                 </button>
@@ -251,7 +302,9 @@ const MyCards = () => {
                                 <div className="p-4">
                                     <div className="flex flex-col gap-3">
                                         <div>
-                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">شماره کارت</label>
+                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                شماره کارت
+                                            </label>
                                             <input
                                                 type="text"
                                                 className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-center text-white placeholder-gray-400"
@@ -260,7 +313,9 @@ const MyCards = () => {
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <div className="flex-grow">
-                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">ماه</label>
+                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                    ماه
+                                                </label>
                                                 <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                     <option value={1}>1</option>
                                                     <option value={2}>2</option>
@@ -277,7 +332,9 @@ const MyCards = () => {
                                                 </select>
                                             </div>
                                             <div className="flex-grow">
-                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">سال</label>
+                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                    سال
+                                                </label>
                                                 <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                     <option value={1403}>1403</option>
                                                     <option value={1402}>1402</option>
@@ -295,7 +352,9 @@ const MyCards = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">بانک</label>
+                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                بانک
+                                            </label>
                                             <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                 <option value="saman">بانک سامان</option>
                                                 <option value="mellat">بانک ملت</option>
@@ -304,11 +363,20 @@ const MyCards = () => {
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-2">
-                                                <label className="relative inline-block w-[3.125rem] h-[1.75rem]" dir="ltr">
-                                                    <input type="checkbox" defaultChecked={true} className="opacity-0 w-0 h-0" />
+                                                <label
+                                                    className="relative inline-block w-[3.125rem] h-[1.75rem]"
+                                                    dir="ltr"
+                                                >
+                                                    <input
+                                                        type="checkbox"
+                                                        defaultChecked={true}
+                                                        className="opacity-0 w-0 h-0"
+                                                    />
                                                     <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-[#ccc] transition-all duration-400 rounded-[1.75rem] before:absolute before:content-[''] before:h-[1.3125rem] before:w-[1.3125rem] before:left-[0.21875rem] before:bottom-[0.21875rem] before:bg-white before:transition-all before:duration-400 before:rounded-[50%] checked:bg-[#2196F3] checked:before:transform checked:before:translate-x-[1.375rem]" />
                                                 </label>
-                                                <span className="text-white text-[0.63588rem]">کارت پیش فرض</span>
+                                                <span className="text-white text-[0.63588rem]">
+                                                    کارت پیش فرض
+                                                </span>
                                             </div>
                                         </div>
                                         <div>
@@ -374,13 +442,33 @@ const MyCards = () => {
                                     aria-controls="collapseTwo"
                                 >
                                     <div className="w-[3.125rem] h-[1.875rem] flex-shrink-0">
-                                        <img src="./assets/images/banks/ansar bank.png" alt="" className="w-full h-full object-contain" />
+                                        <img
+                                            src="./assets/images/banks/ansar bank.png"
+                                            loading="lazy"
+                                            alt=""
+                                            className="w-full h-full object-contain"
+                                        />
                                     </div>
                                     <div className="flex flex-col gap-2 flex-grow">
-                                        <div className="text-[0.875rem] font-medium leading-normal" style={{ fontFamily: 'Kalameh' }}>6219 - 86** - **** - 6789</div>
+                                        <div
+                                            className="text-[0.875rem] font-medium leading-normal"
+                                            style={{ fontFamily: 'Kalameh' }}
+                                        >
+                                            6219 - 86** - **** - 6789
+                                        </div>
                                         <div className="flex items-center justify-between">
-                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Alibaba' }}>بانک اقتصاد نوین</div>
-                                            <div className="text-[0.6875rem] font-normal leading-normal" style={{ fontFamily: 'Kalameh' }}>08/09</div>
+                                            <div
+                                                className="text-[0.6875rem] font-normal leading-normal"
+                                                style={{ fontFamily: 'Alibaba' }}
+                                            >
+                                                بانک اقتصاد نوین
+                                            </div>
+                                            <div
+                                                className="text-[0.6875rem] font-normal leading-normal"
+                                                style={{ fontFamily: 'Kalameh' }}
+                                            >
+                                                08/09
+                                            </div>
                                         </div>
                                     </div>
                                 </button>
@@ -393,7 +481,9 @@ const MyCards = () => {
                                 <div className="p-4">
                                     <div className="flex flex-col gap-3">
                                         <div>
-                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">شماره کارت</label>
+                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                شماره کارت
+                                            </label>
                                             <input
                                                 type="text"
                                                 className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-center text-white placeholder-gray-400"
@@ -402,7 +492,9 @@ const MyCards = () => {
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <div className="flex-grow">
-                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">ماه</label>
+                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                    ماه
+                                                </label>
                                                 <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                     <option value={1}>1</option>
                                                     <option value={2}>2</option>
@@ -419,7 +511,9 @@ const MyCards = () => {
                                                 </select>
                                             </div>
                                             <div className="flex-grow">
-                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">سال</label>
+                                                <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                    سال
+                                                </label>
                                                 <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                     <option value={1403}>1403</option>
                                                     <option value={1402}>1402</option>
@@ -437,7 +531,9 @@ const MyCards = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">بانک</label>
+                                            <label className="block text-[0.63588rem] font-semibold leading-normal text-white mb-2">
+                                                بانک
+                                            </label>
                                             <select className="w-full h-[2.4375rem] px-[0.9545rem] rounded-[0.55494rem] border border-[#303072] bg-[#12116B] text-white">
                                                 <option value="saman">بانک سامان</option>
                                                 <option value="mellat">بانک ملت</option>
@@ -446,11 +542,20 @@ const MyCards = () => {
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-2">
-                                                <label className="relative inline-block w-[3.125rem] h-[1.75rem]" dir="ltr">
-                                                    <input type="checkbox" defaultChecked={true} className="opacity-0 w-0 h-0" />
+                                                <label
+                                                    className="relative inline-block w-[3.125rem] h-[1.75rem]"
+                                                    dir="ltr"
+                                                >
+                                                    <input
+                                                        type="checkbox"
+                                                        defaultChecked={true}
+                                                        className="opacity-0 w-0 h-0"
+                                                    />
                                                     <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-[#ccc] transition-all duration-400 rounded-[1.75rem] before:absolute before:content-[''] before:h-[1.3125rem] before:w-[1.3125rem] before:left-[0.21875rem] before:bottom-[0.21875rem] before:bg-white before:transition-all before:duration-400 before:rounded-[50%] checked:bg-[#2196F3] checked:before:transform checked:before:translate-x-[1.375rem]" />
                                                 </label>
-                                                <span className="text-white text-[0.63588rem]">کارت پیش فرض</span>
+                                                <span className="text-white text-[0.63588rem]">
+                                                    کارت پیش فرض
+                                                </span>
                                             </div>
                                         </div>
                                         <div>
@@ -564,12 +669,18 @@ const MyCards = () => {
                     </div>
                     <div>
                         <div className="flex justify-center items-center">
-                            <img  src={isDark ? logoDarkMode : logoLightMode}
-                             alt="logo VEM Club" className="h-8 w-auto" />
+                            <img
+                                src={isDark ? logoDark : logoLight}
+                                alt="logo VEM Club"
+                                className="h-8 w-auto"
+                            />
                         </div>
                     </div>
                     <div>
-                        <button onClick={() => { }} className="bg-transparent flex w-[2.125rem] h-[2.125rem] justify-center items-center rounded-[1.20438rem] border-[0.704px] border-[#213163] shadow-[0px_0px_35.185px_0px_rgba(255,255,255,0.12)]">
+                        <button
+                            onClick={() => {}}
+                            className="bg-transparent flex w-[2.125rem] h-[2.125rem] justify-center items-center rounded-[1.20438rem] border-[0.704px] border-[#213163] shadow-[0px_0px_35.185px_0px_rgba(255,255,255,0.12)]"
+                        >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={14}
@@ -620,8 +731,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>اطلاعات کاربری</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            اطلاعات کاربری
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید اطلاعات کاربری را ویرایش کنید.
                                         </div>
                                     </div>
@@ -707,8 +826,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>قوانین و مقررات</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            قوانین و مقررات
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -757,8 +884,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>صندوق پیام ها</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            صندوق پیام ها
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -840,8 +975,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>دعوت از دوستان</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            دعوت از دوستان
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -937,8 +1080,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>نظرات و پیشنهادات</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            نظرات و پیشنهادات
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -1026,8 +1177,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>گزارشات ریز تراکنش ها</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            گزارشات ریز تراکنش ها
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -1083,8 +1242,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>تنظیمات</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            تنظیمات
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -1140,8 +1307,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>درباره ثروت کیمیا</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            درباره ثروت کیمیا
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -1243,8 +1418,16 @@ const MyCards = () => {
                                         </svg>
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <div className="text-[0.75rem] font-semibold leading-normal text-white" style={{ fontFamily: 'Alibaba' }}>خروج از حساب کاربری</div>
-                                        <div className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]" style={{ fontFamily: 'Alibaba' }}>
+                                        <div
+                                            className="text-[0.75rem] font-semibold leading-normal text-white"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
+                                            خروج از حساب کاربری
+                                        </div>
+                                        <div
+                                            className="text-[0.6875rem] font-normal leading-normal text-[#B8B8B8]"
+                                            style={{ fontFamily: 'Alibaba' }}
+                                        >
                                             در این بخش میتوانید قوانین و مقررات را مشاهده کنید.
                                         </div>
                                     </div>
@@ -1327,9 +1510,7 @@ const MyCards = () => {
                 </div>
             </div>
         </>
+    );
+};
 
-
-    )
-}
-
-export default MyCards
+export default MyCards;

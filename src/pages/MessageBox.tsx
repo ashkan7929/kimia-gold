@@ -1,6 +1,8 @@
 // CSS imports removed - using Tailwind CSS instead
-import logoDarkMode from "../../assets/images/logoSite.jpg"
-import logoLightMode from "../../assets/images/logoLightMode.jpg"
+
+import {
+    logoDarkMessage, logoLightMessage
+} from "../asset/index"
 import { useTheme } from "../contexts/ThemeContext";
 
 const MessageBox = () => {
@@ -189,7 +191,7 @@ const MessageBox = () => {
                         <div>
                             <div className="w-12 h-12">
                                 <img           
-                                  src={isDark ? logoDarkMode : logoLightMode}
+                                  src={isDark ? logoDarkMessage : logoLightMessage}
                                  alt="logo" className="w-full h-full object-contain" />
                             </div>
                         </div>
