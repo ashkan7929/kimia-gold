@@ -18,6 +18,7 @@ export interface TextFieldProps {
     defaultValue?: string;
     disabled?: boolean;
     type?: string;
+    onBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CheckboxProps {

@@ -42,6 +42,7 @@ const validateNationalCode = (code: string): boolean => {
 export const nationalCodeSchema = z.object({
     nationalCode: z
         .string()
+        .trim()
         .min(1, 'کد ملی اجباری است')
         .regex(/^\d{10}$/, 'کد ملی باید ۱۰ رقم باشد')
         .refine(validateNationalCode, 'کد ملی به درستی وارد نشده است'),

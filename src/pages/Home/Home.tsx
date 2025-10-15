@@ -244,9 +244,9 @@ const Home = () => {
 
   useEffect(() => {
     const hasLoggedInBefore = localStorage.getItem('new-user');
-    if (hasLoggedInBefore === null) {
+    if (hasLoggedInBefore) {
       setShowWelcome(true);
-      localStorage.setItem('new-user', 'false');
+      localStorage.setItem('hasLoggedInBefore', 'true');
     } else {
       setShowWelcome(false);
     }

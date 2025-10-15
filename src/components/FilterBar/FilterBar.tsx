@@ -46,7 +46,7 @@ export default function FilterBar({
                             key={key}
                             onClick={() => onToggle(key)}
                             aria-pressed={active}
-                            className={`px-3 py-1.5 font-peyda rounded text-xs shadow-md dark:shadow-gray-900
+                            className={`px-3 py-1.5 last:ml-4  font-peyda rounded text-xs shadow-md dark:shadow-gray-900
                                 ${active ? 'bg-primary-blue dark:bg-accent-orange scale-105 text-white' : 'bg-white dark:bg-black  text-light-text-color dark:text-white'}`}
                         >
                             {label}
