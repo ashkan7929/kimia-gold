@@ -6,7 +6,7 @@ import OTPInput from '../../components/Inputs/Otp';
 import { authService } from '../../services/authService';
 import { useAuth } from '../../stores/auth.store';
 import Loading from '../Loading/Loading';
-
+import {errorHandler} from "../../utils/errorHandler"
 const OtpPage: React.FC = () => {
   const navigate = useNavigate();
     // const location = useLocation();
