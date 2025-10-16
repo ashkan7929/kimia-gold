@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FaArrowLeftLong, FaArrowRightLong } from '../../Icons';
 import { useTheme } from '../../contexts/ThemeContext';
 import packageJson from '../../../package.json';
-
+// import { useOnboardingGate } from '../../hooks/useonBoarding'
 const StepsEnum = { one: 0, two: 1, login: 2 } as const;
 
 type StarterProps = {
@@ -19,11 +19,11 @@ const Starter: React.FC<StarterProps> = ({ onFinish }) => {
 
   useEffect(() => {
     if (step === StepsEnum.login) {
-      onFinish?.(); 
+      onFinish?.();
     }
   }, [step, onFinish]);
 
-  const hidden = step === StepsEnum.login; 
+  const hidden = step === StepsEnum.login;
 
   return (
     <div className={`${hidden ? 'hidden' : 'flex'} absolute z-10 dark:bg-black bg-light-primary-darker h-screen flex-col justify-center items-center p-6 pt-0`}>

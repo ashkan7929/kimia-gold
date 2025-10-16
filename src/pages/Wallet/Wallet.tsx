@@ -145,7 +145,7 @@ const Wallet: React.FC = () => {
         try {
             await walletService.transfer(walletId, {
                 fromWalletId: walletId,
-                toWalletId: 'target-wallet-id', // TODO: دریافت از کاربر
+                toWalletId: 'target-wallet-id',
                 amount: parseFloat(transferAmount.replace(/,/g, '')),
                 description: 'انتقال موجودی',
             });
@@ -493,7 +493,7 @@ const Wallet: React.FC = () => {
                 >
                     <div className="flex flex-col gap-3">
                         <div className="flex gap-1 items-center">
-                            <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-accent-orange text-text-color font-peyda text-center rounded-md">
+                            <div className="w-5 h-5 bg-primary-blue dark:bg-accent-orange text-text-color font-peyda text-center rounded-md">
                                 1
                             </div>
                             <Typography
@@ -531,147 +531,9 @@ const Wallet: React.FC = () => {
                                 </button>
                             ))}
                         </div>
-
-                        <div className="flex justify-between items-center">
-                            <div className="flex gap-1 items-center">
-                                <div className="w-5 h-5 dark:bg-accent-orange bg-primary-blue text-text-color font-peyda text-center rounded-md">
-                                    2
-                                </div>
-                                <Typography
-                                    className="!font-peyda dark:text-text-color text-light-text-color"
-                                    fontWeight={600}
-                                    fontSize={13}
-                                >
-                                    شماره کارت
-                                </Typography>
-                            </div>
-
-                            <div
-                                onClick={handleShowNewCardModal}
-                                className="flex gap-1 text-white dark:bg-accent-orange bg-primary-blue rounded-md px-3 py-1.5 cursor-pointer hover:opacity-90"
-                            >
-                                <MdAddCard fontSize={12} />
-                                <Typography className="!font-peyda text-white" fontSize={9}>
-                                    افزودن کارت
-                                </Typography>
-                            </div>
-                        </div>
-
-                        <FormControl
-                            fullWidth
-                            size="small"
-                            sx={{
-                                '.MuiOutlinedInput-root': {
-                                    bgcolor: isDark ? 'black' : 'white',
-                                    borderRadius: '8px',
-                                },
-                                '.MuiOutlinedInput-notchedOutline': {
-                                    borderColor: isDark ? '#f97316' : 'gray',
-                                },
-                                '&:hover .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: isDark ? '#000' : '#fff',
-                                },
-
-                                '.MuiInputBase-input': { color: isDark ? 'white' : 'black' },
-                            }}
-                        >
-                            <Select
-                                labelId="card-select"
-                                value={card}
-                                onChange={e => setCard(e.target.value as string)}
-                                renderValue={() => (
-                                    <Stack direction="row" alignItems="center" spacing={1.25}>
-                                        <Box
-                                            component="img"
-                                            src={selected.icon}
-                                            alt=""
-                                            sx={{ width: 20, height: 20 }}
-                                        />
-                                        <Box>
-                                            <Typography
-                                                sx={{
-                                                    color: isDark ? 'white' : 'black',
-                                                    whiteSpace: 'nowrap',
-                                                    direction: 'ltr',
-                                                    fontFeatureSettings: '"tnum"',
-                                                }}
-                                            >
-                                                {selected.display}
-                                            </Typography>
-                                            <Typography
-                                                sx={{
-                                                    color: isDark
-                                                        ? 'rgba(255,255,255,0.65)'
-                                                        : 'rgba(0,0,0,0.6)',
-                                                    fontSize: 12,
-                                                }}
-                                            >
-                                                {selected.bankName}
-                                            </Typography>
-                                        </Box>
-                                    </Stack>
-                                )}
-                                MenuProps={{
-                                    PaperProps: {
-                                        sx: {
-                                            bgcolor: isDark ? '#0b1c7a' : 'white',
-                                            color: isDark ? 'white' : 'black',
-                                        },
-                                    },
-                                }}
-                                sx={{
-                                    '.MuiSelect-select': {
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        py: 1.25,
-                                    },
-                                }}
-                            >
-                                {options.map(opt => (
-                                    <MenuItem key={opt.value} value={opt.value}>
-                                        <Stack
-                                            direction="row"
-                                            spacing={1.25}
-                                            alignItems="center"
-                                            sx={{ width: '100%' }}
-                                        >
-                                            <Box
-                                                component="img"
-                                                src={opt.icon}
-                                                alt=""
-                                                sx={{ width: 20, height: 20 }}
-                                            />
-                                            <Box>
-                                                <Typography
-                                                    sx={{
-                                                        color: isDark ? 'white' : 'black',
-                                                        whiteSpace: 'nowrap',
-                                                        direction: 'ltr',
-                                                        fontFeatureSettings: '"tnum"',
-                                                    }}
-                                                >
-                                                    {opt.display}
-                                                </Typography>
-                                                <Typography
-                                                    sx={{
-                                                        color: isDark
-                                                            ? 'rgba(255,255,255,0.65)'
-                                                            : 'rgba(0,0,0,0.6)',
-                                                        fontSize: 12,
-                                                    }}
-                                                >
-                                                    {opt.bankName}
-                                                </Typography>
-                                            </Box>
-                                        </Stack>
-                                    </MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
                     </div>
                 </Modal>
 
-                {/* Withdraw Modal */}
                 <Modal
                     confirmText="برداشت موجودی"
                     handleClose={handleShowWithdrawModal}
@@ -681,7 +543,7 @@ const Wallet: React.FC = () => {
                 >
                     <div className="flex flex-col gap-3">
                         <div className="flex gap-1 items-center">
-                            <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-accent-orange text-text-color font-peyda text-center rounded-md">
+                            <div className="w-5 h-5 bg-primary-blue  dark:bg-accent-orange text-text-color font-peyda text-center rounded-md">
                                 1
                             </div>
                             <Typography
@@ -726,7 +588,7 @@ const Wallet: React.FC = () => {
 
                         <div className="flex justify-between items-center">
                             <div className="flex gap-1 items-center">
-                                <div className="w-5 h-5 dark:bg-primary-lighter/50 bg-accent-orange text-text-color font-peyda text-center rounded-md">
+                                <div className="w-5 h-5 bg-primary-blue dark:bg-accent-orange text-text-color font-peyda text-center rounded-md">
                                     2
                                 </div>
                                 <Typography

@@ -12,7 +12,8 @@ import {
     RiRoadMapLine,
     BiSolidMapPin,
     IoWomanSharp,
-    MdMan,
+    AiOutlineMan,
+    AiOutlineWoman,
 } from '../../Icons';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
@@ -22,7 +23,7 @@ import LogoutButton from '../../components/LogOut';
 const Profile = () => {
     const { t } = useTranslation();
     // const userData = JSON.parse(localStorage.getItem('user-data') || '');
-    
+
     let userData = null;
     try {
         const storUser = localStorage.getItem('user-data');
@@ -164,47 +165,61 @@ const Profile = () => {
                                                             />
                                                         </div>
                                                     </div>
+
                                                     <div className="flex justify-between items-center gap-2">
                                                         <label className="block text-micro font-semibold leading-normal dark:text-text-color mb-2 mt-2 font-peyda">
                                                             جنسیت
                                                         </label>
+
                                                         <div className="w-full dark:bg-gray-900 py-1 px-1.5 flex justify-center items-center gap-2 rounded-md bg-custom-bg-menu shadow">
                                                             <div className="flex flex-1">
                                                                 <input
                                                                     id="gender_man"
                                                                     type="radio"
                                                                     name="gender"
-                                                                    defaultChecked={true}
                                                                     className="hidden"
-                                                                    disabled
+                                                                    checked={userData.gender === 1}
+                                                                    readOnly
                                                                 />
                                                                 <label
                                                                     htmlFor="gender_man"
-                                                                    className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] dark:bg-accent-orange bg-primary-blue cursor-pointer"
+                                                                    className={`h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] cursor-pointer ${
+                                                                        userData.gender === 1
+                                                                            ? 'dark:bg-accent-orange bg-primary-blue text-text-color'
+                                                                            : 'dark:bg-gray-800 dark:text-white bg-gray-200 text-light-text-color'
+                                                                    }`}
                                                                 >
-                                                                    <span className="text-text-color ">
-                                                                        <MdMan />
+                                                                    <span className="text-text-color">
+                                                                        <AiOutlineMan />
                                                                     </span>
-                                                                    <span className="text-text-color text-sm font-peyda">
+                                                                    <span className="text-sm font-peyda">
                                                                         مرد
                                                                     </span>
                                                                 </label>
                                                             </div>
+
+                                                            {/* زن */}
                                                             <div className="flex flex-1">
                                                                 <input
                                                                     id="gender_woman"
                                                                     type="radio"
                                                                     name="gender"
                                                                     className="hidden"
+                                                                    checked={userData.gender === 0}
+                                                                    readOnly
                                                                 />
                                                                 <label
                                                                     htmlFor="gender_woman"
-                                                                    className="h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] cursor-pointer"
+                                                                    className={`h-[1.6875rem] px-[0.5625rem] flex justify-center items-center flex-1 gap-1 rounded-[0.375rem] cursor-pointer ${
+                                                                        userData.gender === 0
+                                                                            ? 'dark:bg-accent-orange bg-primary-blue text-text-color'
+                                                                            : 'dark:bg-gray-800 dark:text-white bg-gray-200 text-light-text-color'
+                                                                    }`}
                                                                 >
-                                                                    <span className="dark:text-text-color text-light-text-color">
-                                                                        <IoWomanSharp />
+                                                                    <span className="">
+                                                                        <AiOutlineWoman />
                                                                     </span>
-                                                                    <span className="dark:text-text-color text-light-text-color text-sm font-peyda">
+                                                                    <span className="text-sm font-peyda">
                                                                         زن
                                                                     </span>
                                                                 </label>

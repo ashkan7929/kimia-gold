@@ -32,7 +32,6 @@ export function errorHandler(error: unknown): string {
 
         return 'مشکل در اتصال به سرور. لطفاً دوباره تلاش کنید.';
 
-        return 'مشکل در اتصال به سرور. لطفاً اینترنت خود را بررسی کنید.';
     }
 
     if (status === 400 && apiCode) {
@@ -47,7 +46,8 @@ export function errorHandler(error: unknown): string {
                 return 'کد معرف نامعتبر است.';
             case 'ERR_INTERNET_DISCONNECTED':
                 return 'اینترنت شما قطع شده است. لطفاً اتصال را بررسی کنید.';
-
+            case 'net::ERR_CONNECTION_REFUSED': 
+                return 'نام کاربری قبلا ثبت شده است.';
             default:
                 return 'اطلاعات وارد شده نامعتبر است.';
         }
