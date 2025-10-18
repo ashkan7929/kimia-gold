@@ -29,6 +29,7 @@ import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
 import NotFound from './pages/NotFound/NotFound';
+import Order from './pages/Order/Order';
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
 };
@@ -72,6 +73,16 @@ const AppRoutes: React.FC = () => {
                         <Layout>
                             <Home />
                         </Layout>
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/order"
+                element={
+                    <ProtectedRoute>
+                        <SimpleLayout title="سفارشات">
+                            <Order />
+                        </SimpleLayout>
                     </ProtectedRoute>
                 }
             />
