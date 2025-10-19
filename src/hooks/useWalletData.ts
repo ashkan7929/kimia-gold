@@ -1,4 +1,3 @@
-// src/hooks/useWalletData.ts
 import { useEffect, useMemo, useRef } from 'react';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useCurrentUser } from './redux';

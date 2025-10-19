@@ -9,6 +9,7 @@ import { walletApi } from './api/walletApi';
 
 import portfolioSlice from './slices/portfolioSlice';
 import uiSlice from './slices/uiSlice';
+import { orderApi } from './api/orderApi';
 
 export const store = configureStore({
     reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
         ui: uiSlice,
         // wallet: walletReducer,
         [walletApi.reducerPath]: walletApi.reducer,
+        [orderApi.reducerPath]: orderApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
         [marketApi.reducerPath]: marketApi.reducer,
         [portfolioApi.reducerPath]: portfolioApi.reducer,
@@ -36,6 +38,7 @@ export const store = configureStore({
             },
         })
             .concat(walletApi.middleware)
+            .concat(orderApi.middleware)
             .concat(authApi.middleware)
             .concat(marketApi.middleware)
             .concat(portfolioApi.middleware),

@@ -255,3 +255,5 @@ export type MarketRow = {
   img: string;
 };
 
+// buy
+export type TabKey = 'buy' | 'sell';
