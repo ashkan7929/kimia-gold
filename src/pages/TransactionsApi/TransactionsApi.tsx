@@ -1,4 +1,3 @@
-/* src/pages/TransactionsApi/TransactionsApi.tsx */
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { transactionService } from '../../services/transactionService';

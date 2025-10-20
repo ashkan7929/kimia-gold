@@ -1,4 +1,3 @@
-/* src/lib/apiClient.ts */
 export class ApiClient {
   // Allow empty string to enable same-origin relative paths (useful with Vite proxy)
   private base = (import.meta.env.VITE_API_BASE_URL ?? 'https://vemclub.com/api');
@@ -30,6 +29,7 @@ export class ApiClient {
         //   localStorage.removeItem('auth.token');
         //   window.location.href = '/auth';
         // }
+        
         throw {
           status: res.status,
           message: data?.message || res.statusText,
