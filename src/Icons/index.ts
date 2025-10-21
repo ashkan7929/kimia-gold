@@ -75,3 +75,5 @@ export { LuLogOut } from 'react-icons/lu';
 export { FaXTwitter } from "react-icons/fa6";
 export { IoWomanSharp } from "react-icons/io5";
 export { MdMan } from "react-icons/md";
+export { AiOutlineWoman } from 'react-icons/ai';
+export { AiOutlineMan } from 'react-icons/ai';

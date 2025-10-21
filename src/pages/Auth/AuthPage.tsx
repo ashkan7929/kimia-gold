@@ -286,9 +286,9 @@ const AuthPage: React.FC = () => {
         {/* MOBILE STEP */}
         {currentStep === AUTH_STEPS.MOBILE && (
           <>
-            <div className="dark:text-text-color text-light-text-color py-17">
+            {/* <div className="dark:text-text-color text-light-text-color py-17">
               <img alt="login user" src="/images/login.png" width={193} height={193} />
-            </div>
+            </div> */}
 
             <form
               onSubmit={(e) => {
@@ -528,11 +528,11 @@ const AuthPage: React.FC = () => {
         {/* OTP STEP */}
         {currentStep === AUTH_STEPS.OTP && (
           <div className="w-full max-w-md mx-auto text-center flex flex-col gap-2">
-            {loginMethod === LOGIN_METHOD.OTP && (
+            {/* {loginMethod === LOGIN_METHOD.OTP && (
               <div className="mb-8">
                 <img alt="OTP Verification" src="/images/otp.png" height={174} width={232} className="mx-auto" />
               </div>
-            )}
+            )} */}
 
             <Typography className="dark:text-white text-gray-700 !font-alibaba mb-2" fontSize={20} fontWeight="bold">
               {userStatus?.userExists ? t('loginWithCode', { defaultValue: 'ورود با کد تایید' }) : t('confirmMobile', { defaultValue: 'تایید شماره موبایل' })}

@@ -55,10 +55,6 @@ export const orderService = {
       return res;
     } catch (err: any) {
       const status = err?.response?.status;
-    //   const headers = err?.response?.headers;
-    //   const data = err?.response?.data;
-    //     console.error('❌ Error creating order:', data);
-
       if (status === 403)
         throw new Error('دسترسی به ثبت سفارش مجاز نیست (403)');
       if (status === 401)
