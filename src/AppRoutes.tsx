@@ -30,6 +30,8 @@ import Wallet from './pages/Wallet/Wallet';
 import PaymentInsurance from './pages/Product/PaymentInsurance';
 import ProductTransaction from './pages/Product/ProductTransaction';
 import NotFound from './pages/NotFound/NotFound';
+import TransactionResult from './pages/TransactionResult/TransactionResualt';
+import ProductsPage from './pages/Products/ProductsPage';
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <AuthGuard>{children}</AuthGuard>;
 };
@@ -73,6 +75,16 @@ const AppRoutes: React.FC = () => {
                         <Layout>
                             <Home />
                         </Layout>
+                    </ProtectedRoute>
+                }
+            />
+             <Route
+                path="/product"
+                element={
+                    <ProtectedRoute>
+                        <SimpleLayout title="محصول">
+                            <ProductsPage />
+                        </SimpleLayout>
                     </ProtectedRoute>
                 }
             />
@@ -175,6 +187,16 @@ const AppRoutes: React.FC = () => {
                     <ProtectedRoute>
                         <SimpleLayout title="سرمایه‌گذاری در طلا">
                             <Buy />
+                        </SimpleLayout>
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/transaction-result"
+                element={  
+                    <ProtectedRoute>
+                        <SimpleLayout title="سرمایه‌گذاری در طلا">
+                            <TransactionResult />
                         </SimpleLayout>
                     </ProtectedRoute>
                 }

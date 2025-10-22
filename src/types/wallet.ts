@@ -65,3 +65,22 @@ export type CardOption = {
   icon: string;
   display: string; 
 };
+
+
+export interface TransactionDto {
+  id: string;
+  walletId: string;
+  transactionTypeId: string;
+  transactionTypeName: string;
+  transactionTypeCode: string;
+  amount: number;
+  balanceAfter: number;
+  description: string | null;
+  reference: string | null;
+  idempotencyKey: string | null;
+  correlationId: string | null;
+  status: 'Pending' | 'Success' | 'Failed' | string;
+  createdOn: string;   
+  processedAt: string | null;
+  relatedTransactionId: string | null;
+}

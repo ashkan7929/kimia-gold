@@ -85,7 +85,6 @@ export const orderService = {
     }
   },
 
-  /** دریافت همه سفارش‌ها */
   getAll: async (): Promise<OrderDto[]> => {
     console.group('[orderService.getAll]');
     try {
@@ -100,7 +99,6 @@ export const orderService = {
     }
   },
 
-  /** دریافت سفارش بر اساس ID */
   getById: async (id: string): Promise<OrderDto> => {
     console.group('[orderService.getById]');
     console.log('➡️ Fetching order id:', id);
@@ -116,7 +114,6 @@ export const orderService = {
     }
   },
 
-  /** دریافت سفارش‌ها به صورت صفحه‌بندی */
   getPaged: async (page = 1, pageSize = 20): Promise<OrderDto[]> => {
     console.group('[orderService.getPaged]');
     console.log('➡️ Page:', page, 'PageSize:', pageSize);

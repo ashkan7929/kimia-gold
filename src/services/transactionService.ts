@@ -12,3 +12,5 @@ export const transactionService = {
   getByUser: (userId: string): Promise<TransactionWallet[]> =>
     api.get<TransactionWallet[]>(`/api/Transaction/user/${userId}`),
 };
+
+
