@@ -30,7 +30,7 @@ export const orderApi = createApi({
         method: 'POST',
         body: {}, // بعضی بک‌اندها POST خالی می‌خواهند
       }),
-      invalidatesTags: (r, e, id) => [{ type: 'Order', id }, 'OrderList'],
+      invalidatesTags: (_r, _e, id) => [{ type: 'Order', id }, 'OrderList'],
     }),
     getOrders: builder.query<OrderDto[], void>({
       query: () => ({ url: '/Order' }),
@@ -44,7 +44,7 @@ export const orderApi = createApi({
     }),
     getOrderById: builder.query<OrderDto, string>({
       query: (id) => ({ url: `/Order/${id}` }),
-      providesTags: (r, e, id) => [{ type: 'Order', id }],
+      providesTags: (_r, _e, id) => [{ type: 'Order', id }],
     }),
   }),
 });

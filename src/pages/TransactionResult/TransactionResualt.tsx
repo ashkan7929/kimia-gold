@@ -43,7 +43,7 @@ export default function TransactionResult() {
         setLoading(true);
         transactionService
             .getById(id)
-            .then(d => {
+            .then((d: any) => {
                 if (!cancelled) setTx(d);
             })
             .catch(e => {

@@ -64,7 +64,7 @@ const formatTimer = (seconds: number) => {
 
 /* =================== Page =================== */
 const AuthPage: React.FC = () => {
-  const { t } = useTranslation('authPage'); 
+  const { t } = useTranslation('authPage');
   const navigate = useNavigate();
   const { setToken, setUser } = useAuth();
 
@@ -78,6 +78,7 @@ const AuthPage: React.FC = () => {
   const [mobileNumber, setMobileNumber] = useState('');
   const [userStatus, setUserStatus] = useState<UserStatus | null>(null);
   const [loginMethod, setLoginMethod] = useState<LoginMethod>(null);
+  console.log(loginMethod); // TODO:USE LOGIN METHOD ----TEMP---- TO COMPELETE BUILD 
 
   // otp & timer
   const [otpCode, setOtpCode] = useState('');
@@ -219,11 +220,11 @@ const AuthPage: React.FC = () => {
 
     try {
       const purpose = otpPurposeFor(Boolean(userStatus?.userExists));
-          console.log( { mobileNumber, otpCode, purpose });
+      console.log({ mobileNumber, otpCode, purpose });
 
       const res = await authService.loginWithOtp(mobileNumber, otpCode, purpose);
       // T
-    console.log('[OTP] user.isActive?', res?.user?.isActive, 'user.is_active?', res?.user);
+      console.log('[OTP] user.isActive?', res?.user?.isActive, 'user.is_active?', res?.user);
 
       if (res?.token) {
         setToken(res.token);
@@ -315,7 +316,7 @@ const AuthPage: React.FC = () => {
                     {...mobileForm.register('mobileNumber')}
                     type="text"
                     className="text-sm w-full h-10 pr-10 pl-5 dark:bg-black bg-transparent border-custom-gray dark:border-none rounded-lg dark:text-text-color text-light-text-color font-peyda placeholder-custom-text-secondary focus:outline-none dark:focus:border-gray-600 focus:border-light-text-color"
-                    placeholder={t('enterMobile', { defaultValue: 'شماره موبایل' }) }
+                    placeholder={t('enterMobile', { defaultValue: 'شماره موبایل' })}
                   />
                 </div>
                 {mobileForm.formState.errors.mobileNumber && (

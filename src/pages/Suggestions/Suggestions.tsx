@@ -10,7 +10,7 @@ type Topic = 'purchase' | 'feedback' | 'bug';
 const TOPIC_OPTIONS: { value: Topic; label: string }[] = [
   { value: 'purchase', label: 'خرید محصولات' },
   { value: 'feedback', label: 'پیشنهاد/انتقاد' },
-  { value: 'bug',      label: 'گزارش مشکل' },
+  { value: 'bug', label: 'گزارش مشکل' },
 ];
 
 type FormState = {
@@ -34,10 +34,10 @@ export default function Suggestions() {
 
   const onChange =
     (key: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-      setForm(prev => ({ ...prev, [key]: e.target.value }));
-      setErrors(prev => ({ ...prev, [key]: undefined }));
-    };
+      (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        setForm(prev => ({ ...prev, [key]: e.target.value }));
+        setErrors(prev => ({ ...prev, [key]: undefined }));
+      };
 
   const validate = (data: FormState) => {
     const next: typeof errors = {};
@@ -97,8 +97,8 @@ export default function Suggestions() {
                 نام و نام خانوادگی
               </label>
               <TextField
-                name="fullName"
-                value={form.fullName}
+                // name="fullName" TODO: CHECK IT IF NEED
+                // value={form.fullName} TODO: CHECK IT IF NEED
                 onChange={onChange('fullName')}
                 mobileIcon={<IoMdPerson />}
                 placeholder="نام و نام خانوادگی خود را وارد کنید"

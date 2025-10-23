@@ -38,7 +38,6 @@ const Buy = () => {
         loading,
         successOrders,
         canceledOrders,
-        place,
         cancel,
         currentOrderId,
     } = useOrder({ autoFetch: false });

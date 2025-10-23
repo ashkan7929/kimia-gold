@@ -23,31 +23,31 @@ export interface ProductProps {
 	imageUrl: string,
 	status?: status,
 }
-function identity<T>(arg: T): T {
-  return arg;
-}
-const products: ProductProps[] = identity<ProductProps[]>([
-  {
-    id: 1,
-    title: "طرح کیمیا ۱ - بیمه البرز",
-    insurer: "بیمه البرز",
-    initialMain: 10000,
-    annualYears: 500000,
-    accidentCover: 5000,
-    duration: 2,
-    imageUrl: "/images/gold.png",
-    status: "active",
-  },
-  {
-    id: 2,
-    title: "طرح کیمیا ۲ - بیمه البرز",
-    insurer: "بیمه البرز",
-    initialMain: 10000,
-    annualYears: 500000,
-    accidentCover: 5000,
-    duration: 2,
-    imageUrl: "/images/gold.png",
-    status: "inactive",
-  },
-]);
+// function identity<T>(arg: T): T {
+//   return arg;
+// }
+// const products: ProductProps[] = identity<ProductProps[]>([
+//   {
+//     id: 1,
+//     title: "طرح کیمیا ۱ - بیمه البرز",
+//     insurer: "بیمه البرز",
+//     initialMain: 10000,
+//     annualYears: 500000,
+//     accidentCover: 5000,
+//     duration: 2,
+//     imageUrl: "/images/gold.png",
+//     status: "active",
+//   },
+//   {
+//     id: 2,
+//     title: "طرح کیمیا ۲ - بیمه البرز",
+//     insurer: "بیمه البرز",
+//     initialMain: 10000,
+//     annualYears: 500000,
+//     accidentCover: 5000,
+//     duration: 2,
+//     imageUrl: "/images/gold.png",
+//     status: "inactive",
+//   },
+// ]);
 
